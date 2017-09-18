@@ -1,0 +1,73 @@
+<top-menu></top-menu>
+
+<div class="between-sections"><br><br></div>
+<div class="container">
+  <!--Section: Schedule-->
+  <section class="section">
+    <!--Section heading-->
+    <h1 class="section-heading">Our Schedule</h1>
+    <button type="button" class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" (click)="basicModal.show()">Create Section</button>
+    <button type="button" class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sessions/new">Create Session</button>
+    <br>
+    <!-- table -->
+    <div class="table-responsive">
+      <table class="table table-hover text-xs-center">
+        <tbody *ngFor="let section of sections | async">
+          <tr class="elegant-color-dark">
+            <td colspan="4" style="color: #fff;"><span [innerHTML]="section.title"></span></td>
+          </tr>
+          <tr *ngFor="let session of sessions | async" (click)="openDetails(session)" [ngClass]="{'session-link': session.abstract}">
+            <table *ngIf="section.title === session.section" width="100%">
+              <tr>
+                <td class="text-xs-left" style="width: 50%">
+                  <span [innerHTML]="session.title"></span><br>
+                  <!-- <span *ngFor="let speaker of session.speakers">
+                        <small [innerHTML]="speaker.name"></small><span *ngIf="session.speakers.length > 1 && $index+1 != session.speakers.length">, </span>
+                      </span> -->
+                </td>
+                <td style="width: 16%"><span [innerHTML]="session.tag"></span></td>
+                <td style="width: 16%"><span [innerHTML]="session.room"></span></td>
+                <td style="width: 16%; text-align: right;"><span [innerHTML]="session.time"></span></td>
+              </tr>
+            </table>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <!--Section: Schedule-->
+</div>
+<div class="between-sections"><br><br></div>
+
+
+<!-- Modal -->
+<div mdbModal #basicModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CreateSection" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form (submit)="addSection(title.value)">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="CreateSection">Create Section</h4>
+          <button type="button" class="close pull-right" (click)="basicModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+          <div class="md-form form-sm">
+            <i class="fa fa-tag prefix"></i>
+            <input mdbActive type="text" id="sectionName" class="form-control" #title>
+            <label for="sectionName">Section name</label>
+          </div>
+        </div>
+        <!--Footer-->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Save</button>
+        </div>
+      </div>
+      <!--/.Content-->
+    </form>
+  </div>
+</div>
+<!-- Modal -->

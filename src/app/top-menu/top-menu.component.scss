@@ -1,0 +1,14 @@
+.top-menu li:first-child {
+  margin-left: 40px;
+}
+
+.navbar .dropdown-menu a:hover {
+  color: #1d1e1f !important;
+}
+
+.dropdown .dropdown-menu .dropdown-item:active,
+.dropdown .dropdown-menu .dropdown-item:focus,
+.dropdown .dropdown-menu .dropdown-item:hover {
+  color: #1d1e1f;
+  background-color: #e7e7e7;
+}

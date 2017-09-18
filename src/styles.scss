@@ -1,0 +1,44 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+/* TEMPLATE STYLES */
+$colors: (
+  email:      rgba(0,0,0,0.54),
+  google:     #db3236,
+  facebook:   #3b5998,
+  twitter:    #55acee,
+  linkedin:   #0082CA,
+  github:     #333333
+);
+
+body {
+  padding-top: 64px;
+}
+@media screen and (max-width: 768px) {
+  body { padding-top: 0px; }
+}
+
+.flex-center {
+  color: #fff;
+}
+
+.intro-1 {
+  background: url("assets/img/hero.png") no-repeat center center;
+  background-size: cover;
+}
+
+.text-center {
+  text-align: center!important;
+}
+
+.section .section-heading {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+.section-heading {
+  text-align: center;
+}
+@media only screen and (min-width: 1200px) {
+  .h1-responsive, .section .section-heading, .section-heading h1 {
+    font-size: 250%;
+  }
+}

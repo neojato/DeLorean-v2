@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 
+# API Keys
+/src/environments/firebase.config.ts
+
 # dependencies
 /node_modules
 

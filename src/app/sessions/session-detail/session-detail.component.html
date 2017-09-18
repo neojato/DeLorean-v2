@@ -1,0 +1,75 @@
+<top-menu></top-menu>
+
+<div class="between-sections"><br><br></div>
+<div class="container">
+  <!--Section: Session-->
+  <section class="section">
+    <button type="button" class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" (click)="editDetails(session)">Edit Session</button>
+    <!--First row-->
+    <div class="row">
+      <div class="col-md-12">
+        <!--Post data-->
+        <div>
+          <!-- Post data -->
+          <h2 class="text-center" style="padding-bottom: 20px;" [innerHTML]="(session)?.title"></h2>
+          <h6 class="text-muted" style="padding-bottom: 20px;">
+            <span *ngIf="(session)?.room"><strong>Room:</strong>&nbsp;<span [innerHTML]="(session)?.room"></span><br></span>
+            <span *ngIf="(session)?.level"><strong>Level:</strong>&nbsp;<span [innerHTML]="(session)?.level"></span><br></span>
+            <span *ngIf="(session)?.tag"><strong>Tag:</strong>&nbsp;<span [innerHTML]="(session)?.tag"></span></span>
+          </h6>
+        </div>
+        <!--/.Post data-->
+        <!--Post text-->
+        <div>
+          <p [innerHTML]="(session)?.abstract"></p>
+        </div>
+        <!--/Post text-->
+      </div>
+    </div>
+    <!--/First row-->
+  </section>
+  <!--Section: Session-->
+
+  <!--Section heading-->
+  <div class="divider-new pt-5" *ngIf="(session)?.profiles">
+    <h2 class="h2-responsive">Speaker<span *ngIf="(session)?.profiles.length > 1">s</span></h2>
+  </div>
+
+  <!--Section: Speaker-->
+  <!-- <section class="mb-4" ng-if="profiles.length > 0" ng-repeat="speaker in profiles"> -->
+    <!--Author box-->
+    <!-- <div class="author-box">
+      <div class="row"> -->
+        <!--Avatar-->
+        <!-- <div class="col-xs-12 col-sm-2">
+          <img ng-src="{{ speaker.image }}" class="img-fluid rounded-circle z-depth-2">
+        </div> -->
+        <!--Author Data-->
+        <!-- <div class="col-xs-12 col-sm-10">
+          <p>
+            <strong><span ng-bind-html="speaker.name"></span></strong><br>
+            <small><span ng-bind-html="speaker.title"></span>&nbsp;<strong>at</strong>&nbsp;<span ng-bind-html="speaker.company"></span></small>
+          </p>
+          <div class="personal-sm"> -->
+            <!--Google+-->
+            <!-- <a ng-if="speaker.social.google" class="gplus-ic" href ng-href="https://plus.google.com/{{ speaker.social.google }}" target="_blank"><i class="fa fa-google-plus"></i></a> -->
+            <!--Facebook-->
+            <!-- <a ng-if="speaker.social.facebook" class="fb-ic" href ng-href="https://www.facebook.com/{{ speaker.social.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a> -->
+            <!--Twitter-->
+            <!-- <a ng-if="speaker.social.twitter" class="tw-ic" href ng-href="https://twitter.com/{{ speaker.social.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a> -->
+            <!--LinkedIn-->
+            <!-- <a ng-if="speaker.social.linkedin" class="li-ic" href ng-href="https://www.linkedin.com/{{ speaker.social.linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a> -->
+            <!--GitHub-->
+            <!-- <a ng-if="speaker.social.github" class="git-ic" href ng-href="https://github.com/{{ speaker.social.github }}" target="_blank"><i class="fa fa-github"></i></a> -->
+            <!--Website-->
+            <!-- <a ng-if="speaker.social.website" class="email-ic" href ng-href="{{ speaker.social.website }}" target="_blank"><i class="fa fa-chrome"></i></a>
+          </div>
+          <p ng-bind-html="speaker.description"></p>
+        </div>
+      </div>
+    </div> -->
+    <!--/.Author box-->
+  <!-- </section> -->
+  <!--/.Section: Speaker-->
+</div>
+<div class="between-sections"><br><br></div>

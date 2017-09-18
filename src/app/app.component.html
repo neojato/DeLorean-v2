@@ -1,20 +1,102 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
-  </li>
-</ul>
 
+
+<!-- Main container-->
+<router-outlet></router-outlet>
+<!--/ Main container-->
+
+
+<!--Footer-->
+<footer class="page-footer center-on-small-only elegant-color-dark">
+
+  <!--Footer Links-->
+  <div class="container-fluid">
+    <div class="row">
+
+      <!--First column-->
+      <div class="col-lg-3 col-md-6 ml-auto">
+        <h5 class="titles font-bold mt-3 mb-4">ABOUT GDG KANSAS CITY</h5>
+        <p>We are a technology user group that meets regularly to discuss the latest Google Technologies, Tools, SDKs, APIs,
+          and much more.</p>
+        <p><small><strong>Disclaimer:</strong> <em>GDG Kansas City is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.</em></small></p>
+      </div>
+      <!--/.First column-->
+
+      <hr class="w-100 clearfix d-sm-none">
+
+      <!--Second column-->
+      <div class="col-lg-2 col-md-6 ml-auto">
+        <h5 class="title font-bold mt-3 mb-4">Links</h5>
+        <ul>
+          <li><a href="https://gdgkc.org" target="_blank">GDG Kansas City</a></li>
+          <li><a href="https://developers.google.com/" target="_blank">Google Developers</a></li>
+        </ul>
+      </div>
+      <!--/.Second column-->
+
+      <hr class="w-100 clearfix d-sm-none">
+
+      <!--Third column-->
+      <div class="col-lg-2 col-md-6 ml-auto">
+        <h5 class="title font-bold mt-3 mb-4">Contact</h5>
+        <ul>
+          <li><a href="mailto:devfest@gdgkc.org" target="_blank">devfest@gdgkc.org</a></li>
+          <li><a href="https://twitter.com/home?status=@DevFestKC" target="_blank">@DevFestKC</a></li>
+          <li><a href="https://twitter.com/home?status=@GDGKansasCity" target="_blank">@GDGKansasCity</a></li>
+        </ul>
+      </div>
+      <!--/.Third column-->
+
+      <hr class="w-100 clearfix d-sm-none">
+
+      <!--Fourth column-->
+      <div class="col-lg-2 col-md-6 ml-auto">
+        <h5 class="title font-bold mt-3 mb-4">FAQ</h5>
+        <ul>
+          <li><a href="https://developers.google.com/groups/" target="_blank">Google Developer Groups</a></li>
+          <li><a href="https://developers.google.com/events/devfest/" target="_blank">GDG DevFest Season</a></li>
+          <li><a href="https://developers.google.com/groups/guidelines/" target="_blank">GDG Code of Conduct</a></li>
+        </ul>
+      </div>
+      <!--/.Fourth column-->
+
+    </div>
+  </div>
+  <!--/.Footer Links-->
+
+  <hr>
+
+  <!--Call to action-->
+  <div class="call-to-action">
+    <ul>
+      <li>
+        <h5>Reserve your ticket today!</h5>
+      </li>
+      <li><a href="https://devfestkc-2017.eventbrite.com" target="_blank" class="btn btn-danger">Buy Ticket</a></li>
+    </ul>
+  </div>
+  <!--/.Call to action-->
+
+  <hr>
+
+  <!--Social buttons-->
+  <div class="social-section mb-3">
+    <ul>
+      <li><a class="btn-social-all" href="https://plus.google.com/116015988631052616691" title="Google+" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      <li><a class="btn-social-all" href="https://www.facebook.com/GDGKansasCity" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+      <li><a class="btn-social-all" href="https://twitter.com/GDGKansasCity" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      <li><a class="btn-social-all" href="https://www.meetup.com/GDG-Kansas-City/" title="Meetup" target="_blank"><i class="fa fa-meetup"></i></a></li>
+      <li><a class="btn-social-all" href="https://github.com/GDGKansasCity" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
+    </ul>
+  </div>
+  <!--/.Social buttons-->
+
+  <!--Copyright-->
+  <div class="footer-copyright">
+    <div class="container-fluid">
+      © {{ copyright }} Copyright <a href="https://gdgkc.org" target="_blank">GDG Kansas City</a>
+    </div>
+  </div>
+  <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->

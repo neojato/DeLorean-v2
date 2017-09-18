@@ -1,0 +1,225 @@
+<header>
+
+  <top-menu></top-menu>
+
+  <!--Intro Section-->
+  <section class="view intro-1 hm-black-strong">
+    <div class="full-bg-img flex-center">
+      <div class="container">
+        <ul>
+          <li>
+            <h1 class="h1-responsive font-bold">DevFest KC 2017</h1>
+          </li>
+          <li>
+            <p class="lead mt-4 mb-5">
+              Saturday, February 18, 2017<br/>@ The Brass on Baltimore
+            </p>
+            <p class="lead mt-4 mb-5">
+              A 100% community organized developer conference with industry experts presenting on exciting topics!
+            </p>
+          </li>
+          <li>
+            <a target="_blank" href="https://devfestkc-2017.eventbrite.com" class="btn btn-primary btn-lg" rel="nofollow">Reserve Your Seat</a>
+            <a target="_blank" href="https://goo.gl/forms/e5MQCOq9SD7EJ9Ug2" class="btn btn-default btn-lg" rel="nofollow">Become A Speaker</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</header>
+
+<div class="container">
+  <div class="divider-new pt-5">
+    <h2 class="h2-responsive">About us</h2>
+  </div>
+
+  <!--Section: About-->
+  <section id="about" class="text-center">
+    <p>
+      DevFest KC 2017 is a 100% community organized developer conference with industry experts presenting on exciting topics including
+      mobile, web, cloud, virtual reality, machine learning, and much more!
+    </p>
+    <p>
+      A full-day conference featuring 3 tracks and awesome world-class speakers from technology leaders within the community as
+      well as Google product team developers.
+    </p>
+  </section>
+  <!--Section: About-->
+
+  <div class="divider-new pt-5" id="the-venue">
+    <h2 class="h2-responsive">The Venue</h2>
+  </div>
+
+  <!--Section: The Venue-->
+  <section>
+    <div class="row">
+      <!--First column-->
+      <div class="col-md-5">
+        <h2 class="h2-responsive">The Brass on Baltimore</h2>
+        <hr>
+        <p>
+          Serenely located within the historic Kansas City Club building, this premier Kansas City destination seamlessly combines
+          the old-world charm of a historic social club with the modern luxury and elegance. Drawing on over 100 years of
+          history as the premier social meeting place, The Brass on Baltimore provides a truly unique setting for DevFest
+          KC.
+        </p>
+      </div>
+      <!--/First column-->
+
+      <!--Second column-->
+      <div class="col-md-7">
+        <!--Carousel Wrapper-->
+        <div id="carousel-1">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img src="assets/img/main.png" alt="The Brass on Baltimore" title="The Brass on Baltimore">
+            </div>
+          </div>
+        </div>
+        <!--/Carousel Wrapper-->
+      </div>
+      <!--/Second column-->
+    </div>
+  </section>
+  <!--/Section: The Venue-->
+
+  <div class="divider-new">
+    <h2 class="h2-responsive">Location</h2>
+  </div>
+
+  <!--Section: Location-->
+  <section id="location pb-5">
+    <div class="row">
+      <!--First column-->
+      <div class="col-md-8 mb-5">
+        <div id="map-container" class="z-depth-1" style="height: 300px">
+          <agm-map style="height: 300px" [latitude]="map.center.lat" [longitude]="map.center.lng" [scrollwheel]="map.scrollwheel" [zoom]="map.zoom">
+            <agm-marker [latitude]="map.venue.lat" [longitude]="map.venue.lng" [label]="map.venue.label"></agm-marker>
+            <agm-marker [latitude]="map.parking.lat" [longitude]="map.parking.lng" [label]="map.parking.label"></agm-marker>
+          </agm-map>
+        </div>
+      </div>
+      <!--/First column-->
+
+      <!--Second column-->
+      <div class="col-md-4">
+        <ul class="text-center list-unstyled">
+          <li>
+            <a href="https://goo.gl/maps/TPoYEyXc28D2" target="_blank"><i class="fa fa-map-marker fa-lg"></i></a>
+            <p style="cursor: pointer;" onclick="window.open('https://goo.gl/maps/TPoYEyXc28D2')"><strong>The Brass on Baltimore</strong><br/>1228 Baltimore Ave<br/>Kansas City, MO 64105</p>
+          </li>
+          <li class="mt-5 pt-2">
+            <a href="https://goo.gl/maps/vytKjwWVbp82" target="_blank"><i class="fa fa-product-hunt fa-lg"></i></a>
+            <p style="cursor: pointer;" onclick="window.open('https://goo.gl/maps/vytKjwWVbp82')"><strong>Auditorium Plaza Garage</strong><br/>1220 Wyandotte St<br/>Kansas City, MO 64105</p>
+          </li>
+        </ul>
+      </div>
+      <!--/Second column-->
+    </div>
+  </section>
+  <!--Section: Contact-->
+
+  <div class="divider-new pt-5">
+    <h2 class="h2-responsive">Pricing</h2>
+  </div>
+
+  <!--Section: Pricing-->
+  <section id="pricing">
+    <div class="row pt-3">
+      <!--First columnn-->
+      <div class="col-lg-3 mb-r">
+        <!--Card-->
+        <div class="card">
+          <div class="card-header cyan white-text text-center">
+            <h1>$35</h1>
+            <h6>Early Bird</h6>
+          </div>
+          <!--Card content-->
+          <div class="card-body">
+            <!--Text-->
+            <p class="card-text text-center">
+              <i class="fa fa-check"></i> Available until November&nbsp;18th,&nbsp;2016<br/><br/>
+              <i class="fa fa-check"></i> Parking Pass<br/><br/>
+              <br/><br/>
+              <a class="btn btn-primary waves-effect waves-light" href="https://devfestkc-2017.eventbrite.com" target="_blank">Buy Ticket</a>
+            </p>
+          </div>
+        </div>
+        <!--/.Card-->
+      </div>
+      <!--First columnn-->
+
+      <!--Second columnn-->
+      <div class="col-lg-3 mb-r">
+        <!--Card-->
+        <div class="card">
+          <div class="card-header blue white-text text-center">
+            <h1>$50</h1>
+            <h6>General Admission</h6>
+          </div>
+          <!--Card content-->
+          <div class="card-body">
+            <!--Text-->
+            <p class="card-text text-center">
+              <i class="fa fa-check"></i> Available until February&nbsp;18th,&nbsp;2017<br/><br/>
+              <i class="fa fa-check"></i> Parking Pass<br/><br/>
+              <br/><br/>
+              <a class="btn btn-primary waves-effect waves-light" href="https://devfestkc-2017.eventbrite.com" target="_blank">Buy Ticket</a>
+            </p>
+          </div>
+        </div>
+        <!--/.Card-->
+      </div>
+      <!--Second columnn-->
+
+      <!--Third columnn-->
+      <div class="col-lg-3 mb-r">
+        <!--Card-->
+        <div class="card">
+          <div class="card-header indigo white-text text-center">
+            <h1>$40</h1>
+            <h6>Student Admission</h6>
+          </div>
+          <!--Card content-->
+          <div class="card-body">
+            <!--Text-->
+            <p class="card-text text-center">
+              <i class="fa fa-check"></i> Available until February&nbsp;18th,&nbsp;2017<br/><br/>
+              <i class="fa fa-check"></i> Student ID Required<br/><br/>
+              <i class="fa fa-check"></i> Parking Pass<br/><br/>
+              <a class="btn btn-primary waves-effect waves-light" href="https://devfestkc-2017.eventbrite.com" target="_blank">Buy Ticket</a>
+            </p>
+          </div>
+        </div>
+        <!--/.Card-->
+      </div>
+      <!--Third columnn-->
+
+      <!--Forth columnn-->
+      <div class="col-lg-3 mb-r">
+        <!--Card-->
+        <div class="card">
+          <div class="card-header deep-purple white-text text-center">
+            <h1>$40</h1>
+            <h6>Large Groups</h6>
+          </div>
+          <!--Card content-->
+          <div class="card-body">
+            <!--Text-->
+            <p class="card-text text-center">
+              <i class="fa fa-check"></i> Available until February&nbsp;18th,&nbsp;2017<br/><br/>
+              <i class="fa fa-check"></i> Groups of 15+ attendees<br/><br/>
+              <i class="fa fa-check"></i> Parking Pass<br/><br/>
+              <a class="btn btn-primary waves-effect waves-light" href="https://devfestkc-2017.eventbrite.com" target="_blank">Buy Ticket</a>
+            </p>
+          </div>
+        </div>
+        <!--/.Card-->
+      </div>
+      <!--Fourth columnn-->
+    </div>
+
+  </section>
+  <!--/Section: Pricing-->
+</div>

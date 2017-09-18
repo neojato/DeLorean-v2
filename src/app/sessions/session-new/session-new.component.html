@@ -1,0 +1,47 @@
+<top-menu></top-menu>
+
+<div class="between-sections"><br><br></div>
+<div class="container">
+  <!--Section: Schedule-->
+  <section class="section">
+    <form [formGroup]="form" autocomplete="off" novalidate>
+      <legend>Add Session</legend>
+      <br>
+      <div class="md-form">
+        <input mdbActive type="text" formControlName="section" id="section" class="form-control">
+        <label for="section">Section Name:  <em>(ex. "Friday, February 17, 2017" or "Breakouts - 10:00 AM")</em></label>
+      </div>
+      <div class="md-form">
+        <input mdbActive type="text" formControlName="room" id="room" class="form-control">
+        <label for="room">Room Name:</label>
+      </div>
+      <div class="md-form">
+        <input mdbActive type="text" formControlName="title" id="title" class="form-control">
+        <label for="title">Session Title:</label>
+      </div>
+      <div class="md-form">
+        <input mdbActive type="text" formControlName="time" id="time" class="form-control">
+        <label for="time">Session Time: <em>(ex. 8:30 - 9:30 AM)</em></label>
+      </div>
+      <div class="md-form">
+        <input mdbActive type="text" formControlName="tag" id="tag" class="form-control">
+        <label for="tag">Session Tag: <em>(ex. Mobile)</em></label>
+      </div>
+      <div style="padding-bottom: 25px;">
+        <label for="level">Session Level:</label>
+        <select class="mdb-select" formControlName="level" id="level">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+      <div class="md-form">
+        <textarea mdbActive type="text" formControlName="abstract" id="abstract" class="md-textarea" style="height: 100px"></textarea>
+        <label for="abstract">Session Abstract:</label>
+      </div>
+    </form>
+    <br><br>
+    <button class="btn btn-primary" (click)="save(form.value)">Save Changes</button>
+  </section>
+</div>

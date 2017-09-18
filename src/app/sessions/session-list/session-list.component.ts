@@ -1,0 +1,57 @@
+import { Router } from '@angular/router';
+import { SectionService } from './../shared/section.service';
+import { AuthService } from './../../services/auth/auth.service';
+import { SessionService } from './../shared/session.service';
+import { Session } from './../shared/session';
+import { Section } from './../shared/section';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalDirective } from 'angular-bootstrap-md/modals';
+
+@Component({
+  selector: 'app-session-list',
+  templateUrl: './session-list.component.html',
+  styleUrls: ['./session-list.component.scss'],
+  providers: [ModalDirective]
+})
+export class SessionListComponent implements OnInit {
+  public sessions: FirebaseListObservable<Session[]>;
+  public sections: FirebaseListObservable<Section[]>;
+  section: Section = new Section();
+
+  @ViewChild('sectionModal') public sectionModal: ModalDirective;
+
+  constructor(
+    private sessionService: SessionService,
+    private sectionService: SectionService,
+    private authService: AuthService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.sessions = this.sessionService.getSessionList();
+    this.sections = this.sectionService.getSectionList();
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
+
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+
+  openDetails(session) {
+    if (session.abstract) {
+      this.router.navigate([`/sessions/${session.$key}`]);
+    }
+  }
+
+  addSection(value) {
+    this.section.title = value.replace(/^\s+|\s+$/g, '');
+    this.sectionService.createSection(this.section);
+    this.section = new Section();
+    this.sectionModal.hide();
+  }
+
+}
