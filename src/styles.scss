@@ -10,6 +10,24 @@ $colors: (
   github:     #333333
 );
 
+.gplus-ic{color:#DD4B39!important}
+.gplus-ic:focus,.gplus-ic:hover{color:#DD4B39}
+
+.fb-ic{color:#3B5998!important}
+.fb-ic:focus,.fb-ic:hover{color:#3B5998}
+
+.tw-ic{color:#55ACEE!important}
+.tw-ic:focus,.tw-ic:hover{color:#55ACEE}
+
+.li-ic{color:#0082CA!important}
+.li-ic:focus,.li-ic:hover{color:#0082CA}
+
+.git-ic{color:#333!important}
+.git-ic:focus,.git-ic:hover{color:#333}
+
+.email-ic{color:#4B515D!important}
+.email-ic:focus,.email-ic:hover{color:#4B515D}
+
 body {
   padding-top: 64px;
 }
@@ -62,4 +80,10 @@ body {
 
 .author-box {
   padding: 3rem;
+}
+
+.icons-sm {
+  padding:.5rem;
+  margin:.5rem;
+  font-size:1.2rem;
 }

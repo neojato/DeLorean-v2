@@ -1,3 +1,6 @@
+import { SpeakerListComponent } from './speakers/speaker-list/speaker-list.component';
+import { SpeakerEditComponent } from './speakers/speaker-edit/speaker-edit.component';
+import { SpeakerNewComponent } from './speakers/speaker-new/speaker-new.component';
 import { SessionEditComponent } from './sessions/session-edit/session-edit.component';
 import { SessionNewComponent } from './sessions/session-new/session-new.component';
 import { SessionListComponent } from './sessions/session-list/session-list.component';
@@ -36,6 +39,21 @@ export const routerConfig: Route[] = [{
   }, {
     path: '',
     component: SessionListComponent
+  }]
+}, {
+  path: 'speakers',
+  children: [{
+    path: 'new',
+    component: SpeakerNewComponent
+  }, {
+    path: ':id',
+    children: [{
+      path: 'edit',
+      component: SpeakerEditComponent
+    }]
+  }, {
+    path: '',
+    component: SpeakerListComponent
   }]
 }, {
   path: '',

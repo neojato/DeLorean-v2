@@ -1,3 +1,4 @@
+import { SpeakerService } from './speakers/shared/speaker.service';
 import { SectionService } from './sessions/shared/section.service';
 import { SessionService } from './sessions/shared/session.service';
 import { AuthGuard } from './services/auth/auth.guard';
@@ -28,6 +29,9 @@ import { SessionListComponent } from './sessions/session-list/session-list.compo
 import { SessionDetailComponent } from './sessions/session-detail/session-detail.component';
 import { SessionNewComponent } from './sessions/session-new/session-new.component';
 import { SessionEditComponent } from './sessions/session-edit/session-edit.component';
+import { SpeakerNewComponent } from './speakers/speaker-new/speaker-new.component';
+import { SpeakerEditComponent } from './speakers/speaker-edit/speaker-edit.component';
+import { SpeakerListComponent } from './speakers/speaker-list/speaker-list.component';
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -40,7 +44,10 @@ import { SessionEditComponent } from './sessions/session-edit/session-edit.compo
     SessionListComponent,
     SessionDetailComponent,
     SessionNewComponent,
-    SessionEditComponent
+    SessionEditComponent,
+    SpeakerNewComponent,
+    SpeakerEditComponent,
+    SpeakerListComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +61,7 @@ import { SessionEditComponent } from './sessions/session-edit/session-edit.compo
     AgmCoreModule.forRoot({ apiKey: firebaseConfig.mapsKey }),
     MDBBootstrapModule.forRoot()
   ],
-  providers: [AuthService, AuthGuard, SessionService, SectionService],
+  providers: [AuthService, AuthGuard, SessionService, SectionService, SpeakerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

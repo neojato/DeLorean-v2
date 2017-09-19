@@ -1,0 +1,63 @@
+.clearfix::after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+.section.team-section .avatar ul{
+  list-style-type:none;
+  padding:0;
+  text-align:center;
+}
+
+.section.team-section .avatar{
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  -webkit-justify-content:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  -webkit-box-align:center;
+  -webkit-align-items:center;
+  -ms-flex-align:center;
+  align-items:center;
+  height:100%;
+}
+
+.section.team-section .avatar p{
+  margin:0;
+}
+
+.section.team-section .avatar ul li{
+  margin-bottom:1rem;
+}
+
+.section.team-section .avatar {
+  margin-bottom:2rem;
+  height:auto;
+}
+
+.section.team-section .avatar .rounded-circle {
+  max-width:170px;
+}
+
+.section.team-section .avatar img {
+  max-width:200px;
+  height:auto
+}
+
+.section.team-section .title-color {
+  font-weight:400;
+  color:rgba(189, 61, 61, 0.6);
+}
+
+.section.team-section h4,
+.section.team-section h5 {
+  margin-bottom:1rem;
+}
+
+.section.team-section .grey-text {
+  color:#6e6e6e!important;
+}
