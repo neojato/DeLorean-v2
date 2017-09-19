@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/first';
@@ -27,6 +27,10 @@ export class AuthService {
           provider: 'Google'
         });
       });
+  }
+
+  getProfile() {
+    return this.afDatabase.object(`/userProfile/${this.userId}/`);
   }
 
   isLoggedIn() {
