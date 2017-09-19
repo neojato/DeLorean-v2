@@ -5,10 +5,9 @@
   <!--Section: Schedule-->
   <section class="section">
     <!--Section heading-->
-    <h1 class="section-heading">Schedule</h1>
+    <h1 class="section-heading">Our Schedule</h1>
     <button type="button" class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" (click)="basicModal.show()">Create Section</button>
     <button type="button" class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sessions/new">Create Session</button>
-    <br>
     <!-- table -->
     <div class="table-responsive">
       <table class="table table-hover text-xs-center">
@@ -16,7 +15,7 @@
           <tr class="elegant-color-dark">
             <td colspan="4" style="color: #fff;">
               <span [innerHTML]="section.title"></span>
-              <button type="button" class="btn-sm btn-danger pull-right" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSection(section)"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="button" class="btn-sm btn-danger pull-right" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSection(section)"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </td>
           </tr>
           <tr *ngFor="let session of sessions | async" (click)="openDetails(session)" [ngClass]="{'session-link': session.abstract}">

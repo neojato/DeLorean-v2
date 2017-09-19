@@ -14,15 +14,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class SessionEditComponent implements OnInit {
   public sections: FirebaseListObservable<Section[]>;
   session: Session = new Session();
-
   activeKey: string;
-  activeSection: string;
-  activeRoom: string;
-  activeTitle: string;
-  activeTime: string;
-  activeTag: string;
-  activeLevel: string;
-  activeAbstract: string;
 
   constructor(
     private sessionService: SessionService,
@@ -36,14 +28,6 @@ export class SessionEditComponent implements OnInit {
       this.activeKey = params['id'];
       this.sessionService.getSession(this.activeKey).subscribe(session => {
         this.session = session;
-
-        this.activeSection = this.session.section;
-        this.activeRoom = this.session.room;
-        this.activeTitle = this.session.title;
-        this.activeTime = this.session.time;
-        this.activeTag = this.session.tag;
-        this.activeLevel = this.session.level;
-        this.activeAbstract = this.session.abstract;
       });
     });
 
@@ -51,18 +35,7 @@ export class SessionEditComponent implements OnInit {
   }
 
   updateSession() {
-    const updSession = {
-      section: this.activeSection,
-      room: this.activeRoom,
-      title: this.activeTitle,
-      time: this.activeTime,
-      tag: this.activeTag,
-      level: this.activeLevel,
-      abstract: this.activeAbstract
-    };
-    const saveForm = Object.assign(this.session, updSession);
-
-    this.sessionService.updateSession(this.activeKey, updSession);
+    this.sessionService.updateSession(this.activeKey, this.session);
     this.router.navigate(['/sessions']);
   }
 
