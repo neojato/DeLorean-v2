@@ -4,39 +4,35 @@
 <div class="container">
   <!--Section: Schedule-->
   <section class="section">
-    <form autocomplete="off" novalidate>
+    <form (submit)="updateSession()" autocomplete="off" novalidate>
       <legend>Edit Session</legend>
       <br>
       <div style="padding-bottom: 25px;">
-        <label for="level" [class.active]="activeSection && activeSection.length > 0">Section Name</label>
-        <select class="mdb-select" id="level" [(ngModel)]="activeSection" name="activeSection">
+        <label for="section">Section Name</label>
+        <select class="mdb-select" id="section" [(ngModel)]="activeSection" name="activeSection" #section>
           <option value="" disabled selected>Choose your option</option>
-          <option *ngFor="let section of sections" value="{{ section.$key }}">{{ section.title }}</option>
+          <option *ngFor="let section of (sections | async)" [value]="section.$key">{{ section.title }}</option>
         </select>
       </div>
-      <!-- <div class="md-form">
-        <input type="text" id="section" class="form-control" mdbActive [(ngModel)]="activeSection" name="activeSection">
-        <label for="section" [class.active]="activeSection && activeSection.length > 0">Section Name:  <em>(ex. "Friday, February 17, 2017" or "Breakouts - 10:00 AM")</em></label>
-      </div> -->
       <div class="md-form">
-        <input mdbActive type="text" id="room" class="form-control" [(ngModel)]="activeRoom" name="activeRoom">
+        <input mdbActive type="text" id="room" class="form-control" [(ngModel)]="activeRoom" name="activeRoom" #room>
         <label for="room" [class.active]="activeRoom && activeRoom.length > 0">Room Name:</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="title" class="form-control" [(ngModel)]="activeTitle" name="activeTitle">
+        <input mdbActive type="text" id="title" class="form-control" [(ngModel)]="activeTitle" name="activeTitle" #title>
         <label for="title" [class.active]="activeTitle && activeTitle.length > 0">Session Title:</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="time" class="form-control" [(ngModel)]="activeTime" name="activeTime">
+        <input mdbActive type="text" id="time" class="form-control" [(ngModel)]="activeTime" name="activeTime" #time>
         <label for="time" [class.active]="activeTime && activeTime.length > 0">Session Time: <em>(ex. 8:30 - 9:30 AM)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="tag" class="form-control" [(ngModel)]="activeTag" name="activeTag">
+        <input mdbActive type="text" id="tag" class="form-control" [(ngModel)]="activeTag" name="activeTag" #tag>
         <label for="tag" [class.active]="activeTag && activeTag.length > 0">Session Tag: <em>(ex. Mobile)</em></label>
       </div>
       <div style="padding-bottom: 25px;">
-        <label for="level" [class.active]="activeLevel && activeLevel.length > 0">Session Level:</label>
-        <select class="mdb-select" id="level" [(ngModel)]="activeLevel" name="activeLevel">
+        <label for="level">Session Level:</label>
+        <select class="mdb-select" id="level" [(ngModel)]="activeLevel" name="activeLevel" #level>
           <option value="" disabled selected>Choose your option</option>
           <option value="Beginner">Beginner</option>
           <option value="Intermediate">Intermediate</option>
@@ -44,11 +40,11 @@
         </select>
       </div>
       <div class="md-form">
-        <textarea mdbActive type="text" id="abstract" class="md-textarea" style="height: 100px" [(ngModel)]="activeAbstract" name="activeAbstract"></textarea>
+        <textarea mdbActive type="text" id="abstract" class="md-textarea" style="height: 100px" [(ngModel)]="activeAbstract" name="activeAbstract" #abstract></textarea>
         <label for="abstract" [class.active]="activeAbstract && activeAbstract.length > 0">Session Abstract:</label>
       </div>
+      <br><br>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
     </form>
-    <br><br>
-    <button class="btn btn-primary">Save Changes</button>
   </section>
 </div>

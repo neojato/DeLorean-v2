@@ -7,10 +7,17 @@
     <form [formGroup]="form" autocomplete="off" novalidate>
       <legend>Add Session</legend>
       <br>
-      <div class="md-form">
+      <div style="padding-bottom: 25px;">
+        <label for="section">Section Name</label>
+        <select class="mdb-select" id="section" formControlName="section">
+          <option value="" disabled selected>Choose your option</option>
+          <option *ngFor="let section of (sections | async)" value="{{ section.$key }}">{{ section.title }}</option>
+        </select>
+      </div>
+      <!-- <div class="md-form">
         <input mdbActive type="text" formControlName="section" id="section" class="form-control">
         <label for="section">Section Name:  <em>(ex. "Friday, February 17, 2017" or "Breakouts - 10:00 AM")</em></label>
-      </div>
+      </div> -->
       <div class="md-form">
         <input mdbActive type="text" formControlName="room" id="room" class="form-control">
         <label for="room">Room Name:</label>

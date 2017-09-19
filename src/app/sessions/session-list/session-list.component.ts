@@ -42,7 +42,7 @@ export class SessionListComponent implements OnInit {
   }
 
   openDetails(session) {
-    if (session.abstract) {
+    if ((this.isLoggedIn() && this.isAdmin()) || session.abstract) {
       this.router.navigate([`/sessions/${session.$key}`]);
     }
   }
@@ -52,6 +52,12 @@ export class SessionListComponent implements OnInit {
     this.sectionService.createSection(this.section);
     this.section = new Section();
     this.sectionModal.hide();
+  }
+
+  deleteSection(section) {
+    if (window.confirm('Are you sure you want to delete this section?')) {
+      this.sectionService.deleteSection(section.$key);
+    }
   }
 
 }

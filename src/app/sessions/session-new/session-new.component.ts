@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { SessionService } from '../shared/session.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Section } from './../shared/section';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-session-new',
@@ -13,6 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SessionNewComponent implements OnInit {
   form: FormGroup;
   session: Session = new Session();
+  public sections: FirebaseListObservable<Section[]>;
 
   constructor(
     private sessionService: SessionService,
@@ -31,7 +34,9 @@ export class SessionNewComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.sections = this.sectionService.getSectionList();
+  }
 
   save(form) {
     const saveForm = Object.assign(form, this.session);

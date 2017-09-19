@@ -47,4 +47,11 @@ export class SessionDetailComponent implements OnInit {
     this.router.navigate([`/sessions/${session.$key}/edit`]);
   }
 
+  delete(session) {
+    if (window.confirm('Are you sure you want to delete this session?')) {
+      this.sessionService.deleteSession(session.$key);
+      this.router.navigate(['/sessions']);
+    }
+  }
+
 }

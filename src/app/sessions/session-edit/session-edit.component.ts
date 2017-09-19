@@ -15,6 +15,7 @@ export class SessionEditComponent implements OnInit {
   public sections: FirebaseListObservable<Section[]>;
   session: Session = new Session();
 
+  activeKey: string;
   activeSection: string;
   activeRoom: string;
   activeTitle: string;
@@ -32,8 +33,8 @@ export class SessionEditComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRouter.params.subscribe((params) => {
-      const id = params['id'];
-      this.sessionService.getSession(id).subscribe(session => {
+      this.activeKey = params['id'];
+      this.sessionService.getSession(this.activeKey).subscribe(session => {
         this.session = session;
 
         this.activeSection = this.session.section;
@@ -49,11 +50,20 @@ export class SessionEditComponent implements OnInit {
     this.sections = this.sectionService.getSectionList();
   }
 
-  // save(form) {
-  //   const saveForm = Object.assign(form, this.session);
-  //   this.sessionService.createSession(saveForm);
-  //   this.session = new Session();
-  //   this.router.navigate(['/sessions']);
-  // }
+  updateSession() {
+    const updSession = {
+      section: this.activeSection,
+      room: this.activeRoom,
+      title: this.activeTitle,
+      time: this.activeTime,
+      tag: this.activeTag,
+      level: this.activeLevel,
+      abstract: this.activeAbstract
+    };
+    const saveForm = Object.assign(this.session, updSession);
+
+    this.sessionService.updateSession(this.activeKey, updSession);
+    this.router.navigate(['/sessions']);
+  }
 
 }

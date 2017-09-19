@@ -5,6 +5,7 @@
   <!--Section: Session-->
   <section class="section">
     <button type="button" class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" (click)="editDetails(session)">Edit Session</button>
+    <button type="button" class="btn btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="delete(session)">Delete Session</button>
     <!--First row-->
     <div class="row">
       <div class="col-md-12">
