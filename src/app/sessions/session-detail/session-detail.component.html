@@ -32,45 +32,45 @@
   <!--Section: Session-->
 
   <!--Section heading-->
-  <div class="divider-new pt-5" *ngIf="(session)?.profiles">
-    <h2 class="h2-responsive">Speaker<span *ngIf="(session)?.profiles.length > 1">s</span></h2>
+  <div class="divider-new" *ngIf="(session)?.speakers">
+    <h2 class="h2-responsive">Speaker<span *ngIf="(session)?.speakers.length > 1">s</span></h2>
   </div>
 
   <!--Section: Speaker-->
-  <!-- <section class="mb-4" ng-if="profiles.length > 0" ng-repeat="speaker in profiles"> -->
+  <section class="mb-4" *ngIf="(session)?.speakers">
     <!--Author box-->
-    <!-- <div class="author-box">
-      <div class="row"> -->
+    <div class="author-box" *ngFor="let speaker of profiles">
+      <div class="row">
         <!--Avatar-->
-        <!-- <div class="col-xs-12 col-sm-2">
-          <img ng-src="{{ speaker.image }}" class="img-fluid rounded-circle z-depth-2">
-        </div> -->
+        <div class="col-xs-12 col-sm-2">
+          <img [src]="(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2">
+        </div>
         <!--Author Data-->
-        <!-- <div class="col-xs-12 col-sm-10">
+        <div class="col-xs-12 col-sm-10">
           <p>
-            <strong><span ng-bind-html="speaker.name"></span></strong><br>
-            <small><span ng-bind-html="speaker.title"></span>&nbsp;<strong>at</strong>&nbsp;<span ng-bind-html="speaker.company"></span></small>
+            <strong><span [innerHTML]="(speaker | async)?.name"></span></strong><br>
+            <small><span [innerHTML]="(speaker | async)?.title"></span>&nbsp;<strong>at</strong>&nbsp;<span [innerHTML]="(speaker | async)?.company"></span></small>
           </p>
-          <div class="personal-sm"> -->
+          <div class="personal-sm">
             <!--Google+-->
-            <!-- <a ng-if="speaker.social.google" class="gplus-ic" href ng-href="https://plus.google.com/{{ speaker.social.google }}" target="_blank"><i class="fa fa-google-plus"></i></a> -->
+            <a *ngIf="(speaker | async)?.googleLink" class="gplus-ic" href="https://plus.google.com/{{ (speaker | async)?.googleLink }}" target="_blank"><i class="fa fa-google-plus"></i></a>
             <!--Facebook-->
-            <!-- <a ng-if="speaker.social.facebook" class="fb-ic" href ng-href="https://www.facebook.com/{{ speaker.social.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a> -->
+            <a *ngIf="(speaker | async)?.facebookLink" class="fb-ic" href="https://www.facebook.com/{{ (speaker | async)?.facebookLink }}" target="_blank"><i class="fa fa-facebook"></i></a>
             <!--Twitter-->
-            <!-- <a ng-if="speaker.social.twitter" class="tw-ic" href ng-href="https://twitter.com/{{ speaker.social.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a> -->
+            <a *ngIf="(speaker | async)?.twitterLink" class="tw-ic" href="https://twitter.com/{{ (speaker | async)?.twitterLink }}" target="_blank"><i class="fa fa-twitter"></i></a>
             <!--LinkedIn-->
-            <!-- <a ng-if="speaker.social.linkedin" class="li-ic" href ng-href="https://www.linkedin.com/{{ speaker.social.linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a> -->
+            <a *ngIf="(speaker | async)?.linkedinLink" class="li-ic" href="https://www.linkedin.com/{{ (speaker | async)?.linkedinLink }}" target="_blank"><i class="fa fa-linkedin"></i></a>
             <!--GitHub-->
-            <!-- <a ng-if="speaker.social.github" class="git-ic" href ng-href="https://github.com/{{ speaker.social.github }}" target="_blank"><i class="fa fa-github"></i></a> -->
+            <a *ngIf="(speaker | async)?.githubLink" class="git-ic" href="https://github.com/{{ (speaker | async)?.githubLink }}" target="_blank"><i class="fa fa-github"></i></a>
             <!--Website-->
-            <!-- <a ng-if="speaker.social.website" class="email-ic" href ng-href="{{ speaker.social.website }}" target="_blank"><i class="fa fa-chrome"></i></a>
+            <a *ngIf="(speaker | async)?.websiteLink" class="email-ic" href="{{ (speaker | async)?.websiteLink }}" target="_blank"><i class="fa fa-chrome"></i></a>
           </div>
-          <p ng-bind-html="speaker.description"></p>
+          <p [innerHTML]="(speaker | async)?.description"></p>
         </div>
       </div>
-    </div> -->
+    </div>
     <!--/.Author box-->
-  <!-- </section> -->
+  </section>
   <!--/.Section: Speaker-->
 </div>
 <div class="between-sections"><br><br></div>

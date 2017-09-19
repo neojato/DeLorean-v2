@@ -1,3 +1,5 @@
+import { SpeakerService } from './../../speakers/shared/speaker.service';
+import { Speaker } from './../../speakers/shared/speaker';
 import { SectionService } from './../shared/section.service';
 import { Session } from './../shared/session';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,12 +15,14 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class SessionEditComponent implements OnInit {
   public sections: FirebaseListObservable<Section[]>;
+  public speakers: FirebaseListObservable<Speaker[]>;
   session: Session = new Session();
   activeKey: string;
 
   constructor(
     private sessionService: SessionService,
     private sectionService: SectionService,
+    private speakerService: SpeakerService,
     private router: Router,
     private activatedRouter: ActivatedRoute
   ) { }
@@ -32,6 +36,7 @@ export class SessionEditComponent implements OnInit {
     });
 
     this.sections = this.sectionService.getSectionList();
+    this.speakers = this.speakerService.getSpeakerList({ orderByChild: 'name' });
   }
 
   updateSession() {

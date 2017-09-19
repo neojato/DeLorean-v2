@@ -1,7 +1,9 @@
+import { SpeakerService } from './../../speakers/shared/speaker.service';
 import { SessionService } from './../shared/session.service';
 import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Speaker } from '../../speakers/shared/speaker';
 
 @Component({
   selector: 'app-session-detail',
@@ -10,12 +12,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SessionDetailComponent implements OnInit {
   session: Object;
+  profiles: any[];
+  speaker: Speaker;
 
   constructor(
     private router: Router,
     private activatedRouter: ActivatedRoute,
     private authService: AuthService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private speakerService: SpeakerService
   ) { }
 
   ngOnInit() {
@@ -28,11 +33,12 @@ export class SessionDetailComponent implements OnInit {
     });
   }
 
-  getSpeakerDetails(profiles: any[]) {
-    const speakerIds = [];
-    const returnedArray = [];
-
-    return returnedArray;
+  getSpeakerDetails(speakers: any[]) {
+    const profiles = [];
+    for (const speaker of speakers) {
+      profiles.push(this.speakerService.getSpeaker(speaker));
+    }
+    this.profiles = profiles;
   }
 
   isLoggedIn() {

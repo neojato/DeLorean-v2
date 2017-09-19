@@ -43,6 +43,12 @@
         <textarea mdbActive type="text" id="abstract" class="md-textarea" style="height: 100px" [(ngModel)]="session.abstract" name="abstract"></textarea>
         <label for="abstract" [class.active]="session.abstract && session.abstract.length > 0">Session Abstract:</label>
       </div>
+      <div style="padding-bottom: 25px;" *ngIf="(speakers | async)?.length > 0">
+        <label for="level">Speaker(s): <em>(select all that apply)</em></label>
+        <select multiple class="form-control" id="level" [(ngModel)]="session.speakers" name="speakers">
+          <option *ngFor="let speaker of (speakers | async)" [value]="speaker.$key">{{ speaker.name }}</option>
+        </select>
+      </div>
       <br><br>
       <button class="btn btn-primary" (click)="updateSession()">Save Changes</button>
     </form>

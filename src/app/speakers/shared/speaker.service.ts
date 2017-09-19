@@ -29,6 +29,15 @@ export class SpeakerService {
     return this.speaker;
   }
 
+  getSpeakerName(key: string): any {
+    const path = `${this.basePath}/${key}/name`;
+    let speakerName: string;
+    this.db.object(path).subscribe(snapshot => {
+      speakerName = snapshot.$value;
+    });
+    return speakerName;
+  }
+
   createSpeaker(speaker: Speaker, file?: File): void {
     const key = this.db.list(this.basePath).push(speaker).key;
     if (file) {

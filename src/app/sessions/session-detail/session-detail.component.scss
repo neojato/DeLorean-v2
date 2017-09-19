@@ -1,0 +1,33 @@
+.personal-sm {
+  margin-bottom:10px;
+}
+
+.personal-sm a {
+  padding:5px;
+}
+
+.personal-sm a:first-of-type {
+  padding-left:0;
+}
+
+.personal-sm a .fa {
+  -webkit-transition-duration:.2s;
+  -moz-transition-duration:.2s;
+  -o-transition-duration:.2s;
+  -ms-transition-duration:.2s;
+  transition-duration:.2s;
+}
+
+.personal-sm a:hover .fa {
+  -webkit-transform:scale(1.2);
+  -moz-transform:scale(1.2);
+  -ms-transform:scale(1.2);
+  -o-transform:scale(1.2);
+  transform:scale(1.2)
+}
+
+@media only screen and (max-width:500px) {
+  .personal-sm a {
+    padding:2px;
+  }
+}

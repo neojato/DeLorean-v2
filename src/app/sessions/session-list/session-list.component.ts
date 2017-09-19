@@ -1,3 +1,4 @@
+import { SpeakerService } from './../../speakers/shared/speaker.service';
 import { Router } from '@angular/router';
 import { SectionService } from './../shared/section.service';
 import { AuthService } from './../../services/auth/auth.service';
@@ -24,6 +25,7 @@ export class SessionListComponent implements OnInit {
   constructor(
     private sessionService: SessionService,
     private sectionService: SectionService,
+    private speakerService: SpeakerService,
     private authService: AuthService,
     private router: Router
   ) { }
@@ -58,6 +60,10 @@ export class SessionListComponent implements OnInit {
     if (window.confirm('Are you sure you want to delete this section? This WILL orphan any sessions tied to it.')) {
       this.sectionService.deleteSection(section.$key);
     }
+  }
+
+  getSpeakerName(speakerKey) {
+    return this.speakerService.getSpeakerName(speakerKey);
   }
 
 }

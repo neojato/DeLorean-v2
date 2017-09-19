@@ -23,9 +23,9 @@
               <tr>
                 <td class="text-xs-left" style="width: 50%">
                   <span [innerHTML]="session.title"></span><br>
-                  <!-- <span *ngFor="let speaker of session.speakers">
-                        <small [innerHTML]="speaker.name"></small><span *ngIf="session.speakers.length > 1 && $index+1 != session.speakers.length">, </span>
-                      </span> -->
+                  <span *ngFor="let speaker of session.speakers; let i = index;">
+                    <small [innerHTML]="getSpeakerName(speaker)"></small><span *ngIf="session.speakers.length > 1 && i+1 != session.speakers.length">, </span>
+                  </span>
                 </td>
                 <td style="width: 16%"><span [innerHTML]="session.tag"></span></td>
                 <td style="width: 16%"><span [innerHTML]="session.room"></span></td>
