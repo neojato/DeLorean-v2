@@ -1,3 +1,5 @@
+import { AdminService } from './../services/admin/admin.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,13 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  public users: FirebaseListObservable<any[]>;
 
-  constructor() { }
+  constructor(private adminService: AdminService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.users = this.adminService.getUserList();
+  }
 
-  updateConfig() {}
+  isAdmin(userKey: string) {
+    return this.adminService.isAdmin(userKey);
+  }
 
-  updateUser() {}
+  updateUser(key: string) {
+    this.adminService.toggleAdmin(key);
+  }
 
 }

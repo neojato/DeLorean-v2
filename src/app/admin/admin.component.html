@@ -4,145 +4,29 @@
   <!--Section: Schedule-->
   <section class="section">
     <!--Section heading-->
-    <h1 class="section-heading">Admin</h1>
+    <h1 class="section-heading">Users</h1>
     <div class="row">
       <section class="col-md-12">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs nav-justified elegant" role="tablist">
-          <li class="nav-item waves-effect waves-light">
-            <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Site Config</a>
-          </li>
-          <li class="nav-item waves-effect waves-light">
-            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Users</a>
-          </li>
-        </ul>
-        <!-- Tab panels -->
-        <div class="tab-content">
-          <!--Panel 1-->
-          <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-            <form (submit)="updateConfig()">
-              <br>
-              <br>
-              <br>
-              <h2 class="title">
-                <strong>Group Details</strong>
-              </h2>
-              <br>
-              <div class="md-form">
-                <i class="fa fa-users prefix grey-text"></i>
-                <input type="text" [(ngModel)]="groupName" name="groupName" id="groupName" class="form-control">
-                <label for="groupName">Your GDG name</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-link prefix grey-text"></i>
-                <input type="text" [(ngModel)]="groupWebsite" name="groupWebsite" id="groupWebsite" class="form-control">
-                <label for="groupWebsite">Your GDG website URL</label>
-              </div>
-              <hr class="my-5">
-              <h2 class="title">
-                <strong>Event Details</strong>
-              </h2>
-              <br>
-              <div class="md-form">
-                <i class="fa fa-calendar prefix grey-text"></i>
-                <input type="text" [(ngModel)]="eventName" name="eventName" id="eventName" class="form-control">
-                <label for="eventName">Your DevFest name (ex. DevFest KC 2018)</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-map-marker prefix grey-text"></i>
-                <input type="text" [(ngModel)]="eventLocation" name="eventLocation" id="eventLocation" class="form-control">
-                <label for="eventLocation">Your DevFest venue name</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-address-card prefix grey-text"></i>
-                <input type="text" [(ngModel)]="eventAddress" name="eventAddress" id="eventAddress" class="form-control">
-                <label for="eventAddress">Your DevFest venue address</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-link prefix grey-text"></i>
-                <input type="text" [(ngModel)]="eventWebsite" name="eventWebsite" id="eventWebsite" class="form-control">
-                <label for="eventWebsite">Your DevFest website URL</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-envelope prefix grey-text"></i>
-                <input type="text" [(ngModel)]="eventEmail" name="eventEmail" id="eventEmail" class="form-control">
-                <label for="eventEmail">Your DevFest email address</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-twitter prefix grey-text"></i>
-                <input type="text" [(ngModel)]="eventTwitter" name="eventTwitter" id="eventTwitter" class="form-control">
-                <label for="eventTwitter">Your DevFest Twitter Handle</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-volume-up prefix grey-text"></i>
-                <input type="text" [(ngModel)]="speakerURL" name="speakerURL" id="speakerURL" class="form-control">
-                <label for="speakerURL">URL to Call for Papers form</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-ticket prefix grey-text"></i>
-                <input type="text" [(ngModel)]="ticketURL" name="ticketURL" id="ticketURL" class="form-control">
-                <label for="ticketURL">URL to purchase tickets</label>
-              </div>
-              <hr class="my-5">
-              <h2 class="title">
-                <strong>Social Details</strong>
-              </h2>
-              <br>
-              <div class="md-form">
-                <i class="fa fa-google-plus prefix grey-text"></i>
-                <input type="text" [(ngModel)]="googleID" name="googleID" id="googleID" class="form-control">
-                <label for="googleID">Your GDG Google+ Profile ID</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-facebook prefix grey-text"></i>
-                <input type="text" [(ngModel)]="facebookID" name="facebookID" id="facebookID" class="form-control">
-                <label for="facebookID">Your GDG Facebook Handle</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-twitter prefix grey-text"></i>
-                <input type="text" [(ngModel)]="twitterID" name="twitterID" id="twitterID" class="form-control">
-                <label for="twitterID">Your GDG Twitter Handle</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-meetup prefix grey-text"></i>
-                <input type="text" [(ngModel)]="meetupID" name="meetupID" id="meetupID" class="form-control">
-                <label for="meetupID">Your GDG Meetup Handle</label>
-              </div>
-              <div class="md-form">
-                <i class="fa fa-github prefix grey-text"></i>
-                <input type="text" [(ngModel)]="githubID" name="githubID" id="githubID" class="form-control">
-                <label for="githubID">Your GDG GitHub Handle</label>
-              </div>
-              <div class="text-center">
-                <button class="btn btn-primary">Save</button>
-              </div>
-              <br>
-              <br>
-              <br>
-            </form>
-          </div>
-          <!--/.Panel 1-->
-          <!--Panel 2-->
-          <div class="tab-pane fade" id="panel2" role="tabpanel">
-            <br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
-              molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate
-              odit minima.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
-                molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate
-                odit minima.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
-                  molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate
-                  odit minima.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
-                    molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate
-                    odit minima.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
-                      molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate
-                      odit minima.</p>
-          </div>
-          <!--/.Panel 2-->
-        </div>
+        <table class="table table-sm table-hover">
+          <thead class="blue-grey lighten-4">
+            <tr>
+              <th>#</th>
+              <th>Display Name</th>
+              <th>Email</th>
+              <th>Is Admin?</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="user-list">
+            <tr *ngFor="let user of (users | async); let i = index;">
+              <th scope="row">{{ i+1 }}</th>
+              <td>{{ user.displayName }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ isAdmin(user.$key) || 'false' }}</td>
+              <td><button class="btn btn-sm btn-primary" (click)="updateUser(user.$key)"><i class="fa fa-refresh"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     </div>
   </section>

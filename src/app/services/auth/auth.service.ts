@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/first';
 
 @Injectable()
 export class AuthService {
@@ -43,7 +41,11 @@ export class AuthService {
   }
 
   isAdmin() {
-    return this.afDatabase.object(`/admins/${this.userId}/`);
+    let isAdmin: boolean;
+    this.afDatabase.object(`/admins/${this.userId}`).subscribe(snapshot => {
+      isAdmin = snapshot.$value;
+    });
+    return isAdmin;
   }
 
 }

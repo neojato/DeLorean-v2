@@ -1,8 +1,35 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class AdminService {
+  private basePath = '/userProfile';
+  users: FirebaseListObservable<any[]> = null;
 
-  constructor() { }
+  constructor(private db: AngularFireDatabase) { }
+
+  getUserList(query = {}): FirebaseListObservable<any[]> {
+    this.users = this.db.list(this.basePath, {
+      query: query
+    });
+    return this.users;
+  }
+
+  isAdmin(key: string) {
+    let isAdmin: boolean;
+    this.db.object(`/admins/${key}`).subscribe(snapshot => {
+      isAdmin = snapshot.$value;
+    });
+    return isAdmin;
+  }
+
+  toggleAdmin(key: string): void {
+    const tempAdmin: boolean = this.isAdmin(key) || false;
+    if (tempAdmin) {
+      this.db.object(`/admins/${key}`).remove();
+    } else {
+      this.db.object(`/admins/${key}`).set(true);
+    }
+  }
 
 }

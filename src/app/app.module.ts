@@ -1,3 +1,4 @@
+import { AdminService } from './services/admin/admin.service';
 import { SpeakerService } from './speakers/shared/speaker.service';
 import { SectionService } from './sessions/shared/section.service';
 import { SessionService } from './sessions/shared/session.service';
@@ -61,7 +62,7 @@ import { SpeakerListComponent } from './speakers/speaker-list/speaker-list.compo
     AgmCoreModule.forRoot({ apiKey: firebaseConfig.mapsKey }),
     MDBBootstrapModule.forRoot()
   ],
-  providers: [AuthService, AuthGuard, SessionService, SectionService, SpeakerService],
+  providers: [AuthService, AuthGuard, AdminService, SessionService, SectionService, SpeakerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
