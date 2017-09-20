@@ -40,12 +40,14 @@ export class SpeakerService {
 
   createSpeaker(speaker: Speaker, file?: File): void {
     const key = this.db.list(this.basePath).push(speaker).key;
-    if (file) {
+    if (file !== undefined && file !== null) {
       this.firebaseStorage.ref(this.basePath + `/${key}`).put(file)
         .then(snapshot => {
           speaker.photoURL = snapshot.downloadURL;
           this.db.object(this.basePath + `/${key}`).set(speaker);
         });
+    } else {
+      this.db.object(this.basePath + `/${key}`).set(speaker);
     }
   }
 

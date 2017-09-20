@@ -11,7 +11,8 @@
     <div class="row text-center">
       <div *ngFor="let speaker of speakers | async" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; padding-bottom: 50px;">
         <div class="avatar">
-          <img [src]="speaker.photoURL" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
+          <img *ngIf="!speaker.photoURL" src="../../../assets/img/user-default.png" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
+          <img *ngIf="speaker.photoURL" [src]="speaker.photoURL" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
         </div>
         <button type="button" class="btn btn-sm btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/speakers/{{ speaker.$key }}/edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
         <button type="button" class="btn btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSpeaker(speaker)"><i class="fa fa-trash" aria-hidden="true"></i></button>
