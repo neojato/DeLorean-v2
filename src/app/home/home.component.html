@@ -230,4 +230,35 @@
 
   </section>
   <!--/Section: Pricing-->
+
+  <div class="divider-new pt-5" *ngIf="(sponsors | async)?.length > 0">
+    <h2 class="h2-responsive">Sponsors</h2>
+  </div>
+
+  <!--Section: Sponsors-->
+  <section class="section" *ngIf="(sponsors | async)?.length > 0">
+    <div class="col sponsors">
+      <h4>We partner with some of the<br/>world's most innovative brands.</h4>
+      <a class="btn btn-primary waves-light" [href]="(siteConfig | async)?.sponsorURL" target="_blank">Become a Sponsor</a>
+    </div>
+    <div class="col sponsors" *ngFor="let level of levels | async">
+      <h3 style="font-weight: bold;">
+        {{ level.name }}
+      </h3>
+      <hr style="width: 60%;" />
+      <br/>
+      <div class="row">
+        <ng-container *ngFor="let sponsor of sponsors | async">
+          <ng-container *ngIf="level.$key === sponsor.level">
+            <span class="col-md-6" style="height: 125px; padding: 20px;">
+                <a [href]="sponsor.websiteLink" target="_blank">
+                  <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
+                </a>
+              </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+  <!--Section: Featured Speakers-->
 </div>

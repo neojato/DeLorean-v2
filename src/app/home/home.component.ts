@@ -1,7 +1,11 @@
+import { LevelService } from './../sponsors/shared/level.service';
+import { SponsorService } from './../sponsors/shared/sponsor.service';
 import { SiteConfigService } from './../site-config/shared/site-config.service';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { SpeakerService } from './../speakers/shared/speaker.service';
 import { Speaker } from './../speakers/shared/speaker';
+import { Sponsor } from './../sponsors/shared/sponsor';
+import { Level } from './../sponsors/shared/level';
 import { SiteConfig } from './../site-config/shared/site-config';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,8 +19,15 @@ export class HomeComponent implements OnInit {
   tempPhotoURL: string;
   speakers: FirebaseListObservable<Speaker[]>;
   siteConfig: FirebaseObjectObservable<SiteConfig>;
+  sponsors: FirebaseListObservable<Sponsor[]>;
+  levels: FirebaseListObservable<Level[]>;
 
-  constructor(private speakerService: SpeakerService, private siteConfigService: SiteConfigService) { }
+  constructor(
+    private speakerService: SpeakerService,
+    private siteConfigService: SiteConfigService,
+    private sponsorService: SponsorService,
+    private levelService: LevelService
+  ) { }
 
   ngOnInit() {
     this.speakers = this.speakerService.getSpeakerList({
@@ -25,6 +36,8 @@ export class HomeComponent implements OnInit {
     });
 
     this.siteConfig = this.siteConfigService.getConfig();
+    this.sponsors = this.sponsorService.getSponsorList();
+    this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
 
     // Template Defaults
     this.tempDesc = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
