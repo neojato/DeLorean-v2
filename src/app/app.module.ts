@@ -1,3 +1,4 @@
+import { SiteConfigService } from './site-config/shared/site-config.service';
 import { LevelService } from './sponsors/shared/level.service';
 import { SponsorService } from './sponsors/shared/sponsor.service';
 import { AdminService } from './services/admin/admin.service';
@@ -35,6 +36,7 @@ import { SessionEditComponent } from './sessions/session-edit/session-edit.compo
 import { SpeakerNewComponent } from './speakers/speaker-new/speaker-new.component';
 import { SpeakerEditComponent } from './speakers/speaker-edit/speaker-edit.component';
 import { SpeakerListComponent } from './speakers/speaker-list/speaker-list.component';
+import { SiteConfigComponent } from './site-config/site-config.component';
 import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
 import { SponsorNewComponent } from './sponsors/sponsor-new/sponsor-new.component';
 import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.component';
@@ -54,6 +56,7 @@ import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.compo
     SpeakerNewComponent,
     SpeakerEditComponent,
     SpeakerListComponent,
+    SiteConfigComponent,
     SponsorListComponent,
     SponsorNewComponent,
     SponsorEditComponent
@@ -71,6 +74,7 @@ import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.compo
     MDBBootstrapModule.forRoot()
   ],
   providers: [
+    SiteConfigService,
     AuthService,
     AuthGuard,
     AdminService,

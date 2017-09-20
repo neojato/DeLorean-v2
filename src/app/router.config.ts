@@ -1,3 +1,4 @@
+import { SiteConfigComponent } from './site-config/site-config.component';
 import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
 import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.component';
 import { SponsorNewComponent } from './sponsors/sponsor-new/sponsor-new.component';
@@ -20,6 +21,10 @@ export const routerConfig: Route[] = [{
 }, {
   path: 'admin',
   component: AdminComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'config',
+  component: SiteConfigComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'profile',
