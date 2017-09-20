@@ -10,7 +10,7 @@
         <table class="table table-sm table-hover">
           <thead class="blue-grey lighten-4">
             <tr>
-              <th>#</th>
+              <th class="text-center">#</th>
               <th>Display Name</th>
               <th>Email</th>
               <th>Is Admin?</th>
@@ -19,7 +19,7 @@
           </thead>
           <tbody class="user-list">
             <tr *ngFor="let user of (users | async); let i = index;">
-              <th scope="row">{{ i+1 }}</th>
+              <th class="text-center">{{ i+1 }}</th>
               <td>{{ user.displayName }}</td>
               <td>{{ user.email }}</td>
               <td>{{ isAdmin(user.$key) || 'false' }}</td>

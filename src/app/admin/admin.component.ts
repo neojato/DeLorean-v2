@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
-    this.users = this.adminService.getUserList();
+    this.users = this.adminService.getUserList({ orderByChild: 'displayName' });
   }
 
   isAdmin(userKey: string) {
