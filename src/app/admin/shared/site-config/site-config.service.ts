@@ -8,7 +8,7 @@ import 'firebase/storage';
 
 @Injectable()
 export class SiteConfigService {
-  private basePath: string = '/' + firebaseConfig.devfestYear + '/siteConfig';
+  private basePath: string = firebaseConfig.devfestYear + '/siteConfig';
   private siteConfig: FirebaseObjectObservable<SiteConfig> = null;
   private firebaseStorage: any;
 

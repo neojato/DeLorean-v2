@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SessionService {
-  private basePath: string = '/' + firebaseConfig.devfestYear + '/sessions';
+  private basePath: string = firebaseConfig.devfestYear + '/sessions';
   sessions: FirebaseListObservable<Session[]> = null;
   session: FirebaseObjectObservable<Session> = null;
 

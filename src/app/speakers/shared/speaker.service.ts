@@ -7,7 +7,7 @@ import 'firebase/storage';
 
 @Injectable()
 export class SpeakerService {
-  private basePath: string = '/' + firebaseConfig.devfestYear + '/speakers';
+  private basePath: string = firebaseConfig.devfestYear + '/speakers';
   private speakers: FirebaseListObservable<Speaker[]> = null;
   private speaker: FirebaseObjectObservable<Speaker> = null;
   private firebaseStorage: any;

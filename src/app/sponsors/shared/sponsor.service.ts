@@ -7,7 +7,7 @@ import 'firebase/storage';
 
 @Injectable()
 export class SponsorService {
-  private basePath: string = '/' + firebaseConfig.devfestYear + '/sponsors';
+  private basePath: string = firebaseConfig.devfestYear + '/sponsors';
   private sponsors: FirebaseListObservable<Sponsor[]> = null;
   private sponsor: FirebaseObjectObservable<Sponsor> = null;
   private firebaseStorage: any;

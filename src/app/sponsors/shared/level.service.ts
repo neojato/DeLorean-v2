@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LevelService {
-  private basePath: string = '/' + firebaseConfig.devfestYear + '/levels';
+  private basePath: string = firebaseConfig.devfestYear + '/levels';
   levels: FirebaseListObservable<Level[]> = null;
 
   constructor(private db: AngularFireDatabase) { }

@@ -5,7 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 
 @Injectable()
 export class SectionService {
-  private basePath: string = '/' + firebaseConfig.devfestYear + '/sections';
+  private basePath: string = firebaseConfig.devfestYear + '/sections';
   sections: FirebaseListObservable<Section[]> = null;
 
   constructor(private db: AngularFireDatabase) { }
