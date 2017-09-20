@@ -45,10 +45,10 @@ export class SponsorService {
       this.firebaseStorage.ref(this.basePath + `/${sponsor.$key}`).put(file)
         .then(snapshot => {
           sponsor.logoURL = snapshot.downloadURL;
-          this.db.object(this.basePath + `${sponsor.$key}`).update(sponsor);
+          this.db.object(this.basePath + `/${sponsor.$key}`).update(sponsor);
         });
     } else {
-      this.db.object(this.basePath + `${sponsor.$key}`).update(sponsor);
+      this.db.object(this.basePath + `/${sponsor.$key}`).update(sponsor);
     }
   }
 
