@@ -4,12 +4,18 @@
     ".write": "auth != null",
     "2017": {
       "speakers": {
-        ".indexOn": "featured"
+      	".indexOn": "featured"
+      },
+      "tickets": {
+      	".indexOn": "active"
       }
     },
     "2018": {
       "speakers": {
-        ".indexOn": "featured"
+      	".indexOn": "featured"
+      },
+      "tickets": {
+      	".indexOn": "active"
       }
     }
   }
