@@ -1,6 +1,8 @@
-import { FirebaseListObservable } from 'angularfire2/database';
+import { SiteConfigService } from './../site-config/shared/site-config.service';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { SpeakerService } from './../speakers/shared/speaker.service';
 import { Speaker } from './../speakers/shared/speaker';
+import { SiteConfig } from './../site-config/shared/site-config';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,33 +11,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public map: any = {
-    zoom: 18,
-    scrollwheel: false,
-    center: {
-      lat: 39.099105,
-      lng: -94.5854192
-    },
-    venue: {
-      lat: 39.0988427,
-      lng: -94.5847314,
-      label: ''
-    },
-    parking: {
-      lat: 39.099385,
-      lng: -94.5860648,
-      label: 'P'
-    }
-  };
+  tempDesc: string;
+  tempPhotoURL: string;
   speakers: FirebaseListObservable<Speaker[]>;
+  siteConfig: FirebaseObjectObservable<SiteConfig>;
 
-  constructor(private speakerService: SpeakerService) { }
+  constructor(private speakerService: SpeakerService, private siteConfigService: SiteConfigService) { }
 
   ngOnInit() {
     this.speakers = this.speakerService.getSpeakerList({
       orderByChild: 'featured',
       equalTo: true
     });
+
+    this.siteConfig = this.siteConfigService.getConfig();
+
+    // Template Defaults
+    this.tempDesc = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+      in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.`;
   }
 
 }

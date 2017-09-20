@@ -8,19 +8,20 @@
       <div class="container">
         <ul>
           <li>
-            <h1 class="h1-responsive font-bold">DevFest KC 2017</h1>
+            <h1 class="h1-responsive font-bold">{{ (siteConfig | async)?.eventName || 'DevFest 2017' }}</h1>
           </li>
           <li>
             <p class="lead mt-4 mb-5">
-              Saturday, February 18, 2017<br/>@ The Brass on Baltimore
+              {{ ((siteConfig | async)?.eventDate | date:'fullDate') || 'Saturday, February 18, 2017' }}<br/>
+              <strong>@&nbsp;{{ (siteConfig | async)?.venueName || 'Googleplex' }}</strong>
             </p>
             <p class="lead mt-4 mb-5">
               A 100% community organized developer conference with industry experts presenting on exciting topics!
             </p>
           </li>
           <li>
-            <a target="_blank" href="https://devfestkc-2017.eventbrite.com" class="btn btn-primary btn-lg" rel="nofollow">Reserve Your Seat</a>
-            <a target="_blank" href="https://goo.gl/forms/e5MQCOq9SD7EJ9Ug2" class="btn btn-default btn-lg" rel="nofollow">Become A Speaker</a>
+            <a target="_blank" [href]="(siteConfig | async)?.ticketURL" class="btn btn-primary btn-lg" rel="nofollow">Reserve Your Seat</a>
+            <a target="_blank" [href]="(siteConfig | async)?.speakerURL" class="btn btn-default btn-lg" rel="nofollow">Become A Speaker</a>
           </li>
         </ul>
       </div>
@@ -37,12 +38,12 @@
   <!--Section: About-->
   <section id="about" class="text-center">
     <p>
-      DevFest KC 2017 is a 100% community organized developer conference with industry experts presenting on exciting topics including
-      mobile, web, cloud, virtual reality, machine learning, and much more!
+      {{ (siteConfig | async)?.eventName || 'DevFest 2017' }} is a 100% community organized developer conference with industry experts<br/>
+      presenting on exciting topics including mobile, web, cloud, virtual reality, machine learning, and much more!
     </p>
     <p>
-      A full-day conference featuring 3 tracks and awesome world-class speakers from technology leaders within the community as
-      well as Google product team developers.
+      A full-day conference featuring awesome world-class speakers from technology leaders<br/>
+      within the community as well as Google product team&nbsp;developers.
     </p>
   </section>
   <!--Section: About-->
@@ -53,16 +54,17 @@
 
   <!--Section: Featured Speakers-->
   <section class="section team-section" *ngIf="(speakers | async)?.length > 0">
-      <div class="row text-center">
-        <div *ngFor="let speaker of speakers | async" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px;">
-          <div class="avatar">
-            <img [src]="speaker.photoURL" class="rounded-circle z-depth-1" alt="{{ speaker.name }}">
-          </div>
-          <h4><span [innerHTML]="speaker.name"></span></h4>
-          <h6><span [innerHTML]="speaker.title"></span><br/><strong>@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
+    <div class="row text-center">
+      <div *ngFor="let speaker of speakers | async" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px;">
+        <div class="avatar">
+          <img *ngIf="!speaker.photoURL" src="../../assets/img/user-default.png" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
+          <img *ngIf="speaker.photoURL" [src]="speaker.photoURL" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
         </div>
+        <h4><span [innerHTML]="speaker.name"></span></h4>
+        <h6><span [innerHTML]="speaker.title"></span><br/><strong>@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
       </div>
-    </section>
+    </div>
+  </section>
   <!--Section: Featured Speakers-->
 
   <div class="divider-new" id="the-venue">
@@ -74,28 +76,18 @@
     <div class="row">
       <!--First column-->
       <div class="col-md-5">
-        <h2 class="h2-responsive">The Brass on Baltimore</h2>
+        <h2 class="h2-responsive">{{ (siteConfig | async)?.venueName || 'Googleplex' }}</h2>
         <hr>
-        <p>
-          Serenely located within the historic Kansas City Club building, this premier Kansas City destination seamlessly combines
-          the old-world charm of a historic social club with the modern luxury and elegance. Drawing on over 100 years of
-          history as the premier social meeting place, The Brass on Baltimore provides a truly unique setting for DevFest
-          KC.
-        </p>
+        <p [innerHTML]="((siteConfig | async)?.venueDescription || tempDesc)"></p>
       </div>
       <!--/First column-->
 
       <!--Second column-->
       <div class="col-md-7">
-        <!--Carousel Wrapper-->
-        <div id="carousel-1">
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img src="assets/img/main.png" alt="The Brass on Baltimore" title="The Brass on Baltimore">
-            </div>
-          </div>
+        <div class="card">
+          <img style="max-height: 450px;" *ngIf="!(siteConfig | async)?.venuePhoto" src="../../assets/img/Googleplex.jpg" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
+          <img style="max-height: 450px;" *ngIf="(siteConfig | async)?.venuePhoto" [src]="(siteConfig | async)?.venuePhoto" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
         </div>
-        <!--/Carousel Wrapper-->
       </div>
       <!--/Second column-->
     </div>
@@ -110,28 +102,26 @@
   <section id="location pb-5">
     <div class="row">
       <!--First column-->
-      <div class="col-md-8 mb-5">
+      <div class="col-md-9 mb-5">
         <div id="map-container" class="z-depth-1" style="height: 300px">
-          <agm-map style="height: 300px" [latitude]="map.center.lat" [longitude]="map.center.lng" [scrollwheel]="map.scrollwheel" [zoom]="map.zoom">
-            <agm-marker [latitude]="map.venue.lat" [longitude]="map.venue.lng" [label]="map.venue.label"></agm-marker>
-            <agm-marker [latitude]="map.parking.lat" [longitude]="map.parking.lng" [label]="map.parking.label"></agm-marker>
+          <agm-map style="height: 300px" [latitude]="( (siteConfig | async)?.venueGeoData?.lat || 37.421655 )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng || -122.085637 )" [scrollwheel]="false" [zoom]="18">
+            <agm-marker [latitude]="( (siteConfig | async)?.venueGeoData?.lat || 37.421655 )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng || -122.085637 )"></agm-marker>
           </agm-map>
         </div>
       </div>
       <!--/First column-->
 
       <!--Second column-->
-      <div class="col-md-4">
-        <ul class="text-center list-unstyled">
-          <li>
-            <a href="https://goo.gl/maps/TPoYEyXc28D2" target="_blank"><i class="fa fa-map-marker fa-lg"></i></a>
-            <p style="cursor: pointer;" onclick="window.open('https://goo.gl/maps/TPoYEyXc28D2')"><strong>The Brass on Baltimore</strong><br/>1228 Baltimore Ave<br/>Kansas City, MO 64105</p>
-          </li>
-          <li class="mt-5 pt-2">
-            <a href="https://goo.gl/maps/vytKjwWVbp82" target="_blank"><i class="fa fa-product-hunt fa-lg"></i></a>
-            <p style="cursor: pointer;" onclick="window.open('https://goo.gl/maps/vytKjwWVbp82')"><strong>Auditorium Plaza Garage</strong><br/>1220 Wyandotte St<br/>Kansas City, MO 64105</p>
-          </li>
-        </ul>
+      <div class="col-md-3">
+        <div class="card blue-grey lighten-1 text-center z-depth-2" style="cursor: pointer;" (click)="openMaps()">
+          <div class="card-body">
+            <p class="col white-text text-center mb-0">
+              <i class="fa fa-map-marker fa-lg"></i><br/>
+              <strong>{{ (siteConfig | async)?.venueName || 'Googleplex' }}</strong><br/>
+              {{ (siteConfig | async)?.venueAddress || '1600 Amphitheatre Pkwy, Mountain View, CA 94043' }}
+            </p>
+          </div>
+        </div>
       </div>
       <!--/Second column-->
     </div>

@@ -1,7 +1,7 @@
 <!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark elegant-color-dark fixed-top scrolling-navbar">
   <!-- Navbar brand -->
-  <logo><a class="navbar-brand" routerLink="/home">DevFest KC 2017</a></logo>
+  <logo><a class="navbar-brand" routerLink="/home">{{ (siteConfig | async)?.eventName || 'DevFest 2017' }}</a></logo>
   <!-- Collapsible content -->
   <links>
     <!-- Links -->
@@ -26,13 +26,14 @@
           Profile<span class="caret"></span>
         </a>
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" *ngIf="isAdmin()" routerLink="/admin">Admin</a>
+          <a class="dropdown-item waves-light" *ngIf="isAdmin()" routerLink="/config">Site Config</a>
+          <a class="dropdown-item waves-light" *ngIf="isAdmin()" routerLink="/admin">Users Admin</a>
           <a class="dropdown-item waves-light" routerLink="/profile">My Account</a>
           <a class="dropdown-item waves-light" (click)="userLogout()">Logout</a>
         </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="https://devfestkc-2017.eventbrite.com" target="_blank">Buy Ticket</a>
+        <a class="nav-link" [href]="(siteConfig | async)?.speakerURL" target="_blank">Buy Ticket</a>
       </li>
     </ul>
     <!-- Links -->
