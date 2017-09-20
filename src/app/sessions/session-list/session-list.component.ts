@@ -57,7 +57,7 @@ export class SessionListComponent implements OnInit {
   }
 
   deleteSection(section) {
-    if (window.confirm('Are you sure you want to delete this section? This WILL orphan any sessions tied to it.')) {
+    if (window.confirm('Are you sure you want to delete this section? This WILL orphan any sessions tied to it!')) {
       this.sectionService.deleteSection(section.$key);
     }
   }

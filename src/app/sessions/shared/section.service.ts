@@ -18,12 +18,12 @@ export class SectionService {
   }
 
   createSection(section: Section): void {
-    this.sections.push(section)
+    this.db.list(this.basePath).push(section)
       .catch(error => this.handleError(error));
   }
 
   deleteSection(key: string): void {
-    this.sections.remove(key)
+    this.db.list(this.basePath).remove(key)
       .catch(error => this.handleError(error));
   }
 

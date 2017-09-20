@@ -6,7 +6,7 @@
   <section class="section">
     <!--Section heading-->
     <h1 class="section-heading">Our Schedule</h1>
-    <button type="button" class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" (click)="basicModal.show()">Create Section</button>
+    <button type="button" class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" (click)="sectionModal.show()">Create Section</button>
     <button type="button" class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sessions/new">Create Session</button>
     <!-- table -->
     <div class="table-responsive">
@@ -43,7 +43,7 @@
 
 
 <!-- Modal -->
-<div mdbModal #basicModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CreateSection" aria-hidden="true">
+<div mdbModal #sectionModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CreateSection" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form (submit)="addSection(title.value)">
       <!--Content-->
@@ -51,7 +51,7 @@
         <!--Header-->
         <div class="modal-header">
           <h4 class="modal-title w-100" id="CreateSection">Create Section</h4>
-          <button type="button" class="close pull-right" (click)="basicModal.hide()" aria-label="Close">
+          <button type="button" class="close pull-right" (click)="sectionModal.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -65,7 +65,7 @@
         </div>
         <!--Footer-->
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" data-dismiss="modal">Save</button>
+          <button type="submit" class="btn btn-primary">Save</button>
         </div>
       </div>
       <!--/.Content-->
