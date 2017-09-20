@@ -21,7 +21,7 @@
               <td>{{ user.displayName }}</td>
               <td>{{ user.email }}</td>
               <td>{{ isAdmin(user.$key) || 'false' }}</td>
-              <td><button class="btn btn-sm btn-primary" (click)="updateUser(user.$key)"><i class="fa fa-refresh"></i></button></td>
+              <td><button class="btn btn-sm btn-primary" (click)="updateUser(user.$key)"><i class="fa fa-refresh"></i> Toggle Access</button></td>
             </tr>
           </tbody>
         </table>
