@@ -1,3 +1,4 @@
+import { firebaseConfig } from './../../../environments/firebase.config';
 import { GeocoderApiService } from './../../services/geocoder-api/geocoder-api.service';
 import { Router } from '@angular/router';
 import { SiteConfigService } from './../shared/site-config/site-config.service';
@@ -36,7 +37,7 @@ export class SiteConfigComponent implements OnInit {
 
     this.siteConfigService.createConfig(this.siteConfig, photo);
 
-    if (this.siteConfig.venueAddress) {
+    if ((firebaseConfig.mapsKey !== '' && firebaseConfig.mapsKey !== undefined && firebaseConfig.mapsKey !== null) && this.siteConfig.venueAddress) {
       this.geocoderService.findFromAddress(this.siteConfig.venueAddress).subscribe(response => {
         if (response.status === 'OK') {
           this.siteConfig.venueGeoData = {
@@ -64,7 +65,7 @@ export class SiteConfigComponent implements OnInit {
 
     this.siteConfigService.updateConfig(this.siteConfig, photo);
 
-    if (this.siteConfig.venueAddress) {
+    if ((firebaseConfig.mapsKey !== '' && firebaseConfig.mapsKey !== undefined && firebaseConfig.mapsKey !== null) && this.siteConfig.venueAddress) {
       this.geocoderService.findFromAddress(this.siteConfig.venueAddress).subscribe(response => {
         if (response.status === 'OK') {
           this.siteConfig.venueGeoData = {
