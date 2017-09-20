@@ -1,0 +1,100 @@
+<!--Footer-->
+<footer class="page-footer center-on-small-only elegant-color-dark">
+
+  <!--Footer Links-->
+  <div class="container-fluid">
+    <div class="row">
+
+      <!--First column-->
+      <div class="col-lg-3 col-md-6 ml-auto">
+        <h5 class="titles font-bold mt-3 mb-4">About {{ (siteConfig | async)?.groupName || 'GDG City Name' }}</h5>
+        <p>We are a technology user group that meets regularly to discuss the latest Google Technologies, Tools, SDKs, APIs,
+          and much more.</p>
+        <p><small><strong>Disclaimer:</strong> <em>{{ (siteConfig | async)?.groupName || 'GDG City Name' }} is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.</em></small></p>
+      </div>
+      <!--/.First column-->
+
+      <hr class="w-100 clearfix d-sm-none">
+
+      <!--Second column-->
+      <div class="col-lg-2 col-md-6 ml-auto">
+        <h5 class="title font-bold mt-3 mb-4">Links</h5>
+        <ul>
+          <li><a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName || 'GDG City Name' }}</a></li>
+          <li><a href="https://developers.google.com/" target="_blank">Google Developers</a></li>
+        </ul>
+      </div>
+      <!--/.Second column-->
+
+      <hr class="w-100 clearfix d-sm-none">
+
+      <!--Third column-->
+      <div class="col-lg-2 col-md-6 ml-auto">
+        <h5 class="title font-bold mt-3 mb-4">Contact</h5>
+        <ul>
+          <li><a href="mailto:{{ (siteConfig | async)?.eventEmail || 'devfest@gmail.com' }}" target="_blank">{{ (siteConfig | async)?.eventEmail || 'devfest@gmail.com' }}</a></li>
+          <li><a href="https://twitter.com/home?status=@{{ (siteConfig | async)?.eventTwitter || 'DevFest' }}" target="_blank">@{{ (siteConfig | async)?.eventTwitter || 'DevFest' }}</a></li>
+          <li><a href="https://twitter.com/home?status=@{{ (siteConfig | async)?.twitterLink || 'GDGCityName' }}" target="_blank">@{{ (siteConfig | async)?.twitterLink || 'GDGCityName' }}</a></li>
+        </ul>
+      </div>
+      <!--/.Third column-->
+
+      <hr class="w-100 clearfix d-sm-none">
+
+      <!--Fourth column-->
+      <div class="col-lg-2 col-md-6 ml-auto">
+        <h5 class="title font-bold mt-3 mb-4">FAQ</h5>
+        <ul>
+          <li><a href="https://developers.google.com/groups/" target="_blank">Google Developer Groups</a></li>
+          <li><a href="https://developers.google.com/events/devfest/" target="_blank">GDG DevFest Season</a></li>
+          <li><a href="https://developers.google.com/groups/guidelines/" target="_blank">GDG Code of Conduct</a></li>
+        </ul>
+      </div>
+      <!--/.Fourth column-->
+
+    </div>
+  </div>
+  <!--/.Footer Links-->
+
+  <hr>
+
+  <!--Call to action-->
+  <div class="call-to-action">
+    <ul>
+      <li>
+        <h5>Reserve your ticket today!</h5>
+      </li>
+      <li><a [href]="(siteConfig | async)?.ticketURL" target="_blank" class="btn btn-danger">Buy Ticket</a></li>
+    </ul>
+  </div>
+  <!--/.Call to action-->
+
+  <hr>
+
+  <!--Social buttons-->
+  <div class="social-section mb-3">
+    <ul>
+      <li><a class="btn-social-all" href="https://plus.google.com/{{ (siteConfig | async)?.googleLink || '+GoogleDevelopers' }}" title="Google+"
+          target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      <li><a class="btn-social-all" href="https://www.facebook.com/{{ (siteConfig | async)?.facebookLink || 'Google-Developers-967415219957038/' }}"
+          title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+      <li><a class="btn-social-all" href="https://twitter.com/{{ (siteConfig | async)?.twitterLink || 'gdg' }}" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      <li><a class="btn-social-all" href="https://www.meetup.com/{{ (siteConfig | async)?.meetupLink || 'pro/gdg/' }}" title="Meetup"
+          target="_blank"><i class="fa fa-meetup"></i></a></li>
+      <li><a class="btn-social-all" href="https://github.com/{{ (siteConfig | async)?.githubLink || 'neojato/DeLorean-v2' }}" title="GitHub"
+          target="_blank"><i class="fa fa-github"></i></a></li>
+    </ul>
+  </div>
+  <!--/.Social buttons-->
+
+  <!--Copyright-->
+  <div class="footer-copyright">
+    <div class="container-fluid">
+      &copy; {{ copyright }} Copyright <a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName || 'GDG City Name' }}</a>
+      &bull; Based on the <a href="https://github.com/neojato/DeLorean-v2" target="_blank">DeLorean Project</a>
+    </div>
+  </div>
+  <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->

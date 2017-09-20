@@ -40,6 +40,7 @@ import { SiteConfigComponent } from './site-config/site-config.component';
 import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
 import { SponsorNewComponent } from './sponsors/sponsor-new/sponsor-new.component';
 import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -59,7 +60,8 @@ import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.compo
     SiteConfigComponent,
     SponsorListComponent,
     SponsorNewComponent,
-    SponsorEditComponent
+    SponsorEditComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
