@@ -4,10 +4,8 @@
 <div class="container">
   <!--Section: Speakers-->
   <section class="section team-section pb-3">
-    <!--Section heading-->
     <h1 class="section-heading">Our Amazing Speakers</h1>
     <button type="button" class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" routerLink="/speakers/new">Create Speaker</button>
-    <!-- row -->
     <div class="row text-center">
       <div *ngFor="let speaker of speakers | async" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; padding-bottom: 50px;">
         <div class="avatar">
@@ -19,17 +17,11 @@
         <h4 [innerHTML]="speaker.name"></h4>
         <h5 [innerHTML]="speaker.title"></h5>
         <p [innerHTML]="speaker.description"></p>
-        <!--Google+-->
         <a *ngIf="speaker.googleLink" class="icons-sm gplus-ic" href="https://plus.google.com/{{ speaker.googleLink }}" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-        <!--Facebook-->
         <a *ngIf="speaker.facebookLink" class="icons-sm fb-ic" href="https://www.facebook.com/{{ speaker.facebookLink }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <!--Twitter-->
         <a *ngIf="speaker.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speaker.twitterLink }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        <!--LinkedIn-->
         <a *ngIf="speaker.linkedinLink" class="icons-sm li-ic" href="https://www.linkedin.com/{{ speaker.linkedinLink }}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-        <!--GitHub-->
         <a *ngIf="speaker.githubLink" class="icons-sm git-ic" href="https://github.com/{{ speaker.githubLink }}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-        <!--Website-->
         <a *ngIf="speaker.websiteLink" class="icons-sm email-ic" href="{{ speaker.websiteLink }}" target="_blank"><i class="fa fa-chrome" aria-hidden="true"></i></a>
       </div>
     </div>

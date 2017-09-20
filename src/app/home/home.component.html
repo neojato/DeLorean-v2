@@ -74,22 +74,17 @@
   <!--Section: The Venue-->
   <section>
     <div class="row">
-      <!--First column-->
       <div class="col-md-5">
         <h2 class="h2-responsive">{{ (siteConfig | async)?.venueName || 'Googleplex' }}</h2>
         <hr>
         <p [innerHTML]="((siteConfig | async)?.venueDescription || tempDesc)"></p>
       </div>
-      <!--/First column-->
-
-      <!--Second column-->
       <div class="col-md-7">
         <div class="card">
           <img style="max-height: 450px;" *ngIf="!(siteConfig | async)?.venuePhoto" src="../../assets/img/Googleplex.jpg" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
           <img style="max-height: 450px;" *ngIf="(siteConfig | async)?.venuePhoto" [src]="(siteConfig | async)?.venuePhoto" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
         </div>
       </div>
-      <!--/Second column-->
     </div>
   </section>
   <!--/Section: The Venue-->
@@ -101,7 +96,6 @@
   <!--Section: Location-->
   <section id="location pb-5">
     <div class="row">
-      <!--First column-->
       <div class="col-md-9 mb-5">
         <div id="map-container" class="z-depth-1" style="height: 300px">
           <agm-map style="height: 300px" [latitude]="( (siteConfig | async)?.venueGeoData?.lat || 37.421655 )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng || -122.085637 )" [scrollwheel]="false" [zoom]="18">
@@ -109,9 +103,6 @@
           </agm-map>
         </div>
       </div>
-      <!--/First column-->
-
-      <!--Second column-->
       <div class="col-md-3">
         <a href="https://www.google.com/maps/search/?api=1&query={{ (siteConfig | async)?.venueAddress || '1600 Amphitheatre Pkwy, Mountain View, CA 94043' }}" target="_blank">
           <div class="card blue-grey lighten-5 text-center z-depth-2" style="height: 300px; line-height: 250px; cursor: pointer;">
@@ -125,10 +116,9 @@
           </div>
         </a>
       </div>
-      <!--/Second column-->
     </div>
   </section>
-  <!--Section: Contact-->
+  <!--Section: Location-->
 
   <div class="divider-new pt-5" *ngIf="(tickets | async)?.length > 0">
     <h2 class="h2-responsive">Pricing</h2>
@@ -206,14 +196,14 @@
         <ng-container *ngFor="let sponsor of sponsors | async">
           <ng-container *ngIf="level.$key === sponsor.level">
             <span class="col-md-6" style="height: 125px; padding: 20px;">
-                <a [href]="sponsor.websiteLink" target="_blank">
-                  <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
-                </a>
-              </span>
+              <a [href]="sponsor.websiteLink" target="_blank">
+                <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
+              </a>
+            </span>
           </ng-container>
         </ng-container>
       </div>
     </div>
   </section>
-  <!--Section: Featured Speakers-->
+  <!--Section: Sponsors-->
 </div>

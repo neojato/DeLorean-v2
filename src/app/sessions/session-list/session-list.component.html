@@ -4,11 +4,9 @@
 <div class="container">
   <!--Section: Schedule-->
   <section class="section">
-    <!--Section heading-->
     <h1 class="section-heading">Our Schedule</h1>
     <button type="button" class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" (click)="sectionModal.show()">Create Section</button>
     <button type="button" class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sessions/new">Create Session</button>
-    <!-- table -->
     <div class="table-responsive">
       <table class="table table-hover text-xs-center">
         <tbody *ngFor="let section of sections | async">
@@ -49,16 +47,13 @@
 <div mdbModal #sectionModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CreateSection" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form (submit)="addSection(title.value)">
-      <!--Content-->
       <div class="modal-content">
-        <!--Header-->
         <div class="modal-header">
           <h4 class="modal-title w-100" id="CreateSection">Create Section</h4>
           <button type="button" class="close pull-right" (click)="sectionModal.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <!--Body-->
         <div class="modal-body">
           <div class="md-form form-sm">
             <i class="fa fa-tag prefix"></i>
@@ -66,12 +61,10 @@
             <label for="sectionName">Section name</label>
           </div>
         </div>
-        <!--Footer-->
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Save</button>
         </div>
       </div>
-      <!--/.Content-->
     </form>
   </div>
 </div>

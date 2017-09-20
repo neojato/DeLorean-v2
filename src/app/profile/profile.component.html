@@ -4,27 +4,22 @@
 <div class="container">
   <!--Section: Profile-->
   <section class="section">
-    <!--Section heading-->
     <h1 class="section-heading">Profile</h1>
     <br>
-    <!--Author box-->
     <div class="author-box">
-        <div class="row">
-          <!--Avatar-->
-          <div class="col-xs-12 col-sm-2">
-            <img [src]="(profile | async)?.photoURL" class="img-fluid rounded-circle z-depth-2">
-          </div>
-          <!--Author Data-->
-          <div class="col-xs-12 col-sm-10">
-            <p>
-              <strong>{{ (profile | async)?.displayName }}</strong><br>
-              <small>{{ (profile | async)?.email }}</small><br>
-              <small>Logged in with: {{ (profile | async)?.provider }}</small>
-            </p>
-          </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-2">
+          <img [src]="(profile | async)?.photoURL" class="img-fluid rounded-circle z-depth-2">
+        </div>
+        <div class="col-xs-12 col-sm-10">
+          <p>
+            <strong>{{ (profile | async)?.displayName }}</strong><br>
+            <small>{{ (profile | async)?.email }}</small><br>
+            <small>Logged in with: {{ (profile | async)?.provider }}</small>
+          </p>
         </div>
       </div>
-      <!--/.Author box-->
+    </div>
   </section>
   <!--Section: Profile-->
 </div>

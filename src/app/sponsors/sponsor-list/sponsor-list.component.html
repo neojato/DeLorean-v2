@@ -8,7 +8,6 @@
     <h1 class="section-heading">Our Sponsors</h1>
     <button class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" (click)="levelModal.show()">Create Level</button>
     <button class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sponsors/new">Create Sponsor</button>
-    <!-- row -->
     <div class="col sponsors">
       <h4>We partner with some of the<br/>world's most innovative brands.</h4>
       <a class="btn btn-primary waves-light" [href]="(siteConfig | async)?.sponsorURL" target="_blank">Become a Sponsor</a>
@@ -50,16 +49,13 @@
 <div mdbModal #levelModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CreateLevel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form>
-      <!--Content-->
       <div class="modal-content">
-        <!--Header-->
         <div class="modal-header">
           <h4 class="modal-title w-100" id="CreateLevel">Create Sponsorship Level</h4>
           <button type="button" class="close pull-right" (click)="levelModal.hide()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <!--Body-->
         <div class="modal-body">
           <div class="md-form form-sm">
             <i class="fa fa-tag prefix"></i>
@@ -83,12 +79,10 @@
             </select>
           </div>
         </div>
-        <!--Footer-->
         <div class="modal-footer">
           <button class="btn btn-primary" (click)="addLevel()">Save</button>
         </div>
       </div>
-      <!--/.Content-->
     </form>
   </div>
 </div>
