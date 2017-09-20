@@ -3,7 +3,6 @@ import { AuthService } from './../../services/auth/auth.service';
 import { SpeakerService } from './../shared/speaker.service';
 import { Speaker } from './../shared/speaker';
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-speaker-new',

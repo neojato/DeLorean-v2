@@ -73,5 +73,4 @@ export class SpeakerService {
     console.error(error);
   }
 
-
 }

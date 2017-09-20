@@ -47,7 +47,25 @@
   </section>
   <!--Section: About-->
 
-  <div class="divider-new pt-5" id="the-venue">
+  <div class="divider-new pt-5" *ngIf="(speakers | async)?.length > 0">
+    <h2 class="h2-responsive">Featured Speakers</h2>
+  </div>
+
+  <!--Section: Featured Speakers-->
+  <section class="section team-section" *ngIf="(speakers | async)?.length > 0">
+      <div class="row text-center">
+        <div *ngFor="let speaker of speakers | async" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px;">
+          <div class="avatar">
+            <img [src]="speaker.photoURL" class="rounded-circle z-depth-1" alt="{{ speaker.name }}">
+          </div>
+          <h4><span [innerHTML]="speaker.name"></span></h4>
+          <h6><span [innerHTML]="speaker.title"></span><br/><strong>@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
+        </div>
+      </div>
+    </section>
+  <!--Section: Featured Speakers-->
+
+  <div class="divider-new" id="the-venue">
     <h2 class="h2-responsive">The Venue</h2>
   </div>
 

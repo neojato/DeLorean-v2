@@ -23,9 +23,13 @@
         <textarea mdbActive type="text" id="description" class="md-textarea" style="height: 100px" [(ngModel)]="speaker.description" name="description"></textarea>
         <label for="description">Speaker Bio:</label>
       </div>
-      <div class="form-group">
+      <div class="form-group" style="padding-bottom: 25px;">
         <label for="photoURL">Speaker Photo:</label>
         <input type="file" class="form-control-file" id="photoURL" accept="image/jpeg,image/jpg,image/png,image/x-png" aria-describedby="Speaker Photo">
+      </div>
+      <div class="form-group" style="padding-bottom: 25px;">
+        <input type="checkbox" id="featured" [(ngModel)]="speaker.featured" name="featured">
+        <label for="featured">Featured Speaker</label>
       </div>
       <div class="md-form">
         <input mdbActive type="text" id="googleLink" class="form-control" [(ngModel)]="speaker.googleLink" name="googleLink">

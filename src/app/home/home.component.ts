@@ -1,3 +1,6 @@
+import { FirebaseListObservable } from 'angularfire2/database';
+import { SpeakerService } from './../speakers/shared/speaker.service';
+import { Speaker } from './../speakers/shared/speaker';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -24,9 +27,15 @@ export class HomeComponent implements OnInit {
       label: 'P'
     }
   };
+  speakers: FirebaseListObservable<Speaker[]>;
 
-  constructor() { }
+  constructor(private speakerService: SpeakerService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.speakers = this.speakerService.getSpeakerList({
+      orderByChild: 'featured',
+      equalTo: true
+    });
+  }
 
 }
