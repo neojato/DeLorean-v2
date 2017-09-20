@@ -1,11 +1,13 @@
+import { SiteConfigService } from './../../site-config/shared/site-config.service';
 import { ModalDirective } from 'angular-bootstrap-md/modals';
 import { LevelService } from './../shared/level.service';
 import { SponsorService } from './../shared/sponsor.service';
 import { Sponsor } from './../shared/sponsor';
 import { Level } from './../shared/level';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
+import { SiteConfig } from './../../site-config/shared/site-config';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -18,6 +20,7 @@ export class SponsorListComponent implements OnInit {
   public sponsors: FirebaseListObservable<Sponsor[]>;
   public levels: FirebaseListObservable<Level[]>;
   level: Level = new Level();
+  siteConfig: FirebaseObjectObservable<SiteConfig>;
 
   @ViewChild('levelModal') public levelModal: ModalDirective;
 
@@ -25,12 +28,14 @@ export class SponsorListComponent implements OnInit {
     private sponsorService: SponsorService,
     private levelService: LevelService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private siteConfigService: SiteConfigService
   ) { }
 
   ngOnInit() {
     this.sponsors = this.sponsorService.getSponsorList();
     this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
+    this.siteConfig = this.siteConfigService.getConfig();
   }
 
   isLoggedIn() {
