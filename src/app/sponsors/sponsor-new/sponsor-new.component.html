@@ -1,0 +1,33 @@
+<top-menu></top-menu>
+
+<div class="between-sections"><br><br></div>
+<div class="container">
+  <!--Section: Sponsor-->
+  <section class="section">
+    <form autocomplete="off" novalidate>
+      <legend>Add Sponsor</legend>
+      <br>
+      <div class="md-form">
+        <input mdbActive type="text" id="name" class="form-control" [(ngModel)]="sponsor.name" name="name">
+        <label for="name">Name:</label>
+      </div>
+      <div class="md-form">
+        <input mdbActive type="text" id="websiteLink" class="form-control" [(ngModel)]="sponsor.websiteLink" name="websiteLink">
+        <label for="websiteLink">Website:</label>
+      </div>
+      <div class="form-group">
+        <label for="logoURL">Logo:</label>
+        <input type="file" class="form-control-file" id="logoURL" accept="image/jpeg,image/jpg,image/png,image/x-png" aria-describedby="Sponsor Logo">
+      </div>
+      <div style="padding-bottom: 25px;">
+        <label for="section">Level:</label>
+        <select class="mdb-select" id="section" [(ngModel)]="sponsor.level" name="level">
+          <option value="" disabled selected>Choose your option</option>
+          <option *ngFor="let level of (levels | async)" value="{{ level.$key }}">{{ level.name }}</option>
+        </select>
+      </div>
+    </form>
+    <br><br>
+    <button class="btn btn-primary" (click)="save()">Save Changes</button>
+  </section>
+</div>

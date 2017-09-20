@@ -1,0 +1,91 @@
+<top-menu></top-menu>
+
+<div class="between-sections"><br><br></div>
+<div class="container">
+  <!--Section: Sponsors-->
+  <section class="section pb-3">
+    <!--Section heading-->
+    <h1 class="section-heading">Our Sponsors</h1>
+    <button class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" (click)="levelModal.show()">Create Level</button>
+    <button class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sponsors/new">Create Sponsor</button>
+    <!-- row -->
+    <div class="col sponsors">
+      <h4>We partner with some of the<br/>world's most innovative brands.</h4>
+      <a class="btn btn-primary waves-light" [href]="eventConfig?.sponsorURL" target="_blank">Become a Sponsor</a>
+    </div>
+    <div class="col sponsors" *ngFor="let level of levels | async">
+      <h3 style="font-weight: bold;">
+        {{ level.name }}
+        <button class="btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteLevel(level)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </h3>
+      <hr style="width: 60%;" />
+      <br/>
+      <div class="row">
+        <ng-container *ngFor="let sponsor of sponsors | async">
+          <ng-container *ngIf="level.$key === sponsor.level">
+            <span class="col-md-6" style="height: 125px; padding: 20px;">
+              <a [href]="sponsor.websiteLink" target="_blank">
+                <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
+              </a>
+              <button class="btn-sm btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sponsors/{{ sponsor.$key }}/edit">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+              <button class="btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSponsor(sponsor)">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </span>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+  <!--Section: Sponsors-->
+</div>
+<div class="between-sections"><br><br></div>
+
+
+<!-- Modal -->
+<div mdbModal #levelModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CreateLevel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form>
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="CreateLevel">Create Sponsorship Level</h4>
+          <button type="button" class="close pull-right" (click)="levelModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+          <div class="md-form form-sm">
+            <i class="fa fa-tag prefix"></i>
+            <input mdbActive type="text" id="level" class="form-control" [(ngModel)]="level.name" name="name">
+            <label for="level">Level Name</label>
+          </div>
+          <div style="padding-bottom: 25px;">
+            <label for="rank">Rank:</label>
+            <select class="mdb-select" id="rank" [(ngModel)]="level.rank" name="rank">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+        </div>
+        <!--Footer-->
+        <div class="modal-footer">
+          <button class="btn btn-primary" (click)="addLevel()">Save</button>
+        </div>
+      </div>
+      <!--/.Content-->
+    </form>
+  </div>
+</div>
+<!-- Modal -->

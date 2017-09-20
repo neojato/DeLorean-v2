@@ -1,3 +1,6 @@
+import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
+import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.component';
+import { SponsorNewComponent } from './sponsors/sponsor-new/sponsor-new.component';
 import { SpeakerListComponent } from './speakers/speaker-list/speaker-list.component';
 import { SpeakerEditComponent } from './speakers/speaker-edit/speaker-edit.component';
 import { SpeakerNewComponent } from './speakers/speaker-new/speaker-new.component';
@@ -54,6 +57,21 @@ export const routerConfig: Route[] = [{
   }, {
     path: '',
     component: SpeakerListComponent
+  }]
+}, {
+  path: 'sponsors',
+  children: [{
+    path: 'new',
+    component: SponsorNewComponent
+  }, {
+    path: ':id',
+    children: [{
+      path: 'edit',
+      component: SponsorEditComponent
+    }]
+  }, {
+    path: '',
+    component: SponsorListComponent
   }]
 }, {
   path: '',

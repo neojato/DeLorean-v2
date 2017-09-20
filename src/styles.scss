@@ -87,3 +87,17 @@ body {
   margin:.5rem;
   font-size:1.2rem;
 }
+
+.sponsors {
+  text-align: center;
+  padding-bottom: 45px;
+}
+
+.sponsor-img {
+  border: 0;
+  vertical-align: middle;
+  display: inline-block;
+  width: 256px;
+  max-height: 100%;  /* <-- Set maximum height to 100% of its parent */
+  max-width: 100%;   /* <-- Set maximum width to 100% of its parent */
+}
