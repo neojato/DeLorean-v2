@@ -1,6 +1,16 @@
 {
   "rules": {
     ".read": "true",
-    ".write": "auth != null"
+    ".write": "auth != null",
+    "2017": {
+      "speakers": {
+        ".indexOn": "featured"
+      }
+    },
+    "2018": {
+      "speakers": {
+        ".indexOn": "featured"
+      }
+    }
   }
 }
