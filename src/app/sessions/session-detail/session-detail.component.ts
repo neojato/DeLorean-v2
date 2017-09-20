@@ -35,8 +35,10 @@ export class SessionDetailComponent implements OnInit {
 
   getSpeakerDetails(speakers: any[]) {
     const profiles = [];
-    for (const speaker of speakers) {
-      profiles.push(this.speakerService.getSpeaker(speaker));
+    if (speakers) {
+      for (const speaker of speakers) {
+        profiles.push(this.speakerService.getSpeaker(speaker));
+      }
     }
     this.profiles = profiles;
   }
