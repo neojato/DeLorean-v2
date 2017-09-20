@@ -113,15 +113,17 @@
 
       <!--Second column-->
       <div class="col-md-3">
-        <div class="card blue-grey lighten-1 text-center z-depth-2" style="cursor: pointer;" (click)="openMaps()">
-          <div class="card-body">
-            <p class="col white-text text-center mb-0">
-              <i class="fa fa-map-marker fa-lg"></i><br/>
-              <strong>{{ (siteConfig | async)?.venueName || 'Googleplex' }}</strong><br/>
-              {{ (siteConfig | async)?.venueAddress || '1600 Amphitheatre Pkwy, Mountain View, CA 94043' }}
-            </p>
+        <a href="https://www.google.com/maps/search/?api=1&query={{ (siteConfig | async)?.venueAddress || '1600 Amphitheatre Pkwy, Mountain View, CA 94043' }}" target="_blank">
+          <div class="card blue-grey lighten-5 text-center z-depth-2" style="height: 300px; line-height: 250px; cursor: pointer;">
+            <div class="card-body">
+              <p class="col text-center mb-0" style="display: inline-block; vertical-align: middle; line-height: normal;">
+                <i class="fa fa-map-marker fa-lg"></i><br/>
+                <strong>{{ (siteConfig | async)?.venueName || 'Googleplex' }}</strong><br/>
+                {{ (siteConfig | async)?.venueAddress || '1600 Amphitheatre Pkwy, Mountain View, CA 94043' }}
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <!--/Second column-->
     </div>
