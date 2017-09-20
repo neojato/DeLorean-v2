@@ -1,3 +1,4 @@
+import { TicketService } from './admin/shared/ticket/ticket.service';
 import { SiteConfigService } from './admin/shared/site-config/site-config.service';
 import { GeocoderApiService } from './services/geocoder-api/geocoder-api.service';
 import { LevelService } from './sponsors/shared/level.service';
@@ -42,6 +43,9 @@ import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.compo
 import { SponsorNewComponent } from './sponsors/sponsor-new/sponsor-new.component';
 import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.component';
 import { FooterComponent } from './footer/footer.component';
+import { TicketNewComponent } from './admin/tickets/ticket-new/ticket-new.component';
+import { TicketEditComponent } from './admin/tickets/ticket-edit/ticket-edit.component';
+import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.component';
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -63,7 +67,10 @@ import { FooterComponent } from './footer/footer.component';
     SponsorNewComponent,
     SponsorEditComponent,
     FooterComponent,
-    UsersComponent
+    UsersComponent,
+    TicketNewComponent,
+    TicketEditComponent,
+    TicketListComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +94,8 @@ import { FooterComponent } from './footer/footer.component';
     SpeakerService,
     SponsorService,
     LevelService,
-    GeocoderApiService
+    GeocoderApiService,
+    TicketService
   ],
   bootstrap: [AppComponent]
 })

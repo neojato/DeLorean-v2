@@ -130,104 +130,57 @@
   </section>
   <!--Section: Contact-->
 
-  <div class="divider-new pt-5">
+  <div class="divider-new pt-5" *ngIf="(tickets | async)?.length > 0">
     <h2 class="h2-responsive">Pricing</h2>
   </div>
 
   <!--Section: Pricing-->
-  <section id="pricing">
+  <section class="section" *ngIf="(tickets | async)?.length > 0">
     <div class="row pt-3">
-      <!--First columnn-->
-      <div class="col-lg-3 mb-r">
-        <!--Card-->
-        <div class="card">
-          <div class="card-header cyan white-text text-center">
-            <h1>$35</h1>
-            <h6>Early Bird</h6>
+      <div class="mb-r" *ngFor="let ticket of tickets | async; let i = index;" [ngClass]="((tickets | async)?.length > 3) ? 'col-lg-3' : 'col-lg-4'">
+        <div class="card" *ngIf="ticket.active">
+          <div class="card-header white-text text-center" [ngClass]="styles[i]">
+            <h1 class="dollar">{{ ticket.price }}</h1>
+            <h6>{{ ticket.name }}</h6>
           </div>
-          <!--Card content-->
           <div class="card-body">
-            <!--Text-->
             <p class="card-text text-center">
-              <i class="fa fa-check"></i> Available until November&nbsp;18th,&nbsp;2016<br/><br/>
-              <i class="fa fa-check"></i> Parking Pass<br/><br/>
-              <br/><br/>
-              <a class="btn btn-primary waves-effect waves-light" href="https://devfestkc-2017.eventbrite.com" target="_blank">Buy Ticket</a>
+              <span *ngIf="ticket.description1">
+                <i class="fa fa-check"></i>&nbsp;<span [innerHTML]="ticket.description1"></span>
+                <hr style="width: 60%;" />
+              </span>
+              <span *ngIf="ticket.description2">
+                <i class="fa fa-check"></i>&nbsp;<span [innerHTML]="ticket.description2"></span>
+                <hr style="width: 60%;" />
+              </span>
+              <span *ngIf="ticket.description3">
+                <i class="fa fa-check"></i>&nbsp;<span [innerHTML]="ticket.description3"></span>
+                <hr style="width: 60%;" />
+              </span>
+              <span *ngIf="ticket.description4">
+                <i class="fa fa-check"></i>&nbsp;<span [innerHTML]="ticket.description4"></span>
+              </span>
+              <span *ngIf="!ticket.description1">
+                &nbsp;
+                <hr style="width: 60%;" />
+              </span>
+              <span *ngIf="!ticket.description2">
+                &nbsp;
+                <hr style="width: 60%;" />
+              </span>
+              <span *ngIf="!ticket.description3">
+                &nbsp;
+                <hr style="width: 60%;" />
+              </span>
+              <span *ngIf="!ticket.description4">
+                &nbsp;
+              </span>
+              <br>
+              <a class="btn btn-primary waves-light" [href]="(siteConfig | async)?.ticketURL" class="btn btn-primary btn-lg" target="_blank">Buy Ticket</a>
             </p>
           </div>
         </div>
-        <!--/.Card-->
       </div>
-      <!--First columnn-->
-
-      <!--Second columnn-->
-      <div class="col-lg-3 mb-r">
-        <!--Card-->
-        <div class="card">
-          <div class="card-header blue white-text text-center">
-            <h1>$50</h1>
-            <h6>General Admission</h6>
-          </div>
-          <!--Card content-->
-          <div class="card-body">
-            <!--Text-->
-            <p class="card-text text-center">
-              <i class="fa fa-check"></i> Available until February&nbsp;18th,&nbsp;2017<br/><br/>
-              <i class="fa fa-check"></i> Parking Pass<br/><br/>
-              <br/><br/>
-              <a class="btn btn-primary waves-effect waves-light" href="https://devfestkc-2017.eventbrite.com" target="_blank">Buy Ticket</a>
-            </p>
-          </div>
-        </div>
-        <!--/.Card-->
-      </div>
-      <!--Second columnn-->
-
-      <!--Third columnn-->
-      <div class="col-lg-3 mb-r">
-        <!--Card-->
-        <div class="card">
-          <div class="card-header indigo white-text text-center">
-            <h1>$40</h1>
-            <h6>Student Admission</h6>
-          </div>
-          <!--Card content-->
-          <div class="card-body">
-            <!--Text-->
-            <p class="card-text text-center">
-              <i class="fa fa-check"></i> Available until February&nbsp;18th,&nbsp;2017<br/><br/>
-              <i class="fa fa-check"></i> Student ID Required<br/><br/>
-              <i class="fa fa-check"></i> Parking Pass<br/><br/>
-              <a class="btn btn-primary waves-effect waves-light" href="https://devfestkc-2017.eventbrite.com" target="_blank">Buy Ticket</a>
-            </p>
-          </div>
-        </div>
-        <!--/.Card-->
-      </div>
-      <!--Third columnn-->
-
-      <!--Forth columnn-->
-      <div class="col-lg-3 mb-r">
-        <!--Card-->
-        <div class="card">
-          <div class="card-header deep-purple white-text text-center">
-            <h1>$40</h1>
-            <h6>Large Groups</h6>
-          </div>
-          <!--Card content-->
-          <div class="card-body">
-            <!--Text-->
-            <p class="card-text text-center">
-              <i class="fa fa-check"></i> Available until February&nbsp;18th,&nbsp;2017<br/><br/>
-              <i class="fa fa-check"></i> Groups of 15+ attendees<br/><br/>
-              <i class="fa fa-check"></i> Parking Pass<br/><br/>
-              <a class="btn btn-primary waves-effect waves-light" href="https://devfestkc-2017.eventbrite.com" target="_blank">Buy Ticket</a>
-            </p>
-          </div>
-        </div>
-        <!--/.Card-->
-      </div>
-      <!--Fourth columnn-->
     </div>
 
   </section>

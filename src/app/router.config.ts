@@ -1,3 +1,6 @@
+import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.component';
+import { TicketEditComponent } from './admin/tickets/ticket-edit/ticket-edit.component';
+import { TicketNewComponent } from './admin/tickets/ticket-new/ticket-new.component';
 import { SiteConfigComponent } from './admin/site-config/site-config.component';
 import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
 import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.component';
@@ -83,6 +86,23 @@ export const routerConfig: Route[] = [{
   }, {
     path: '',
     component: SponsorListComponent
+  }]
+}, {
+  path: 'tickets',
+  children: [{
+    path: 'new',
+    component: TicketNewComponent,
+    canActivate: [AuthGuard]
+  }, {
+    path: ':id',
+    children: [{
+      path: 'edit',
+      component: TicketEditComponent,
+      canActivate: [AuthGuard]
+    }]
+  }, {
+    path: '',
+    component: TicketListComponent
   }]
 }, {
   path: '',
