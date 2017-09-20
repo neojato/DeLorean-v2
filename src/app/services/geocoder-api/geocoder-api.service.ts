@@ -1,5 +1,5 @@
 import { Http } from '@angular/http';
-import { firebaseConfig } from './../../environments/firebase.config';
+import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';

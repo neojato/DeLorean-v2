@@ -1,4 +1,4 @@
-import { SiteConfigService } from './../../site-config/shared/site-config.service';
+import { SiteConfigService } from './../../admin/shared/site-config/site-config.service';
 import { ModalDirective } from 'angular-bootstrap-md/modals';
 import { LevelService } from './../shared/level.service';
 import { SponsorService } from './../shared/sponsor.service';
@@ -7,7 +7,7 @@ import { Level } from './../shared/level';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
-import { SiteConfig } from './../../site-config/shared/site-config';
+import { SiteConfig } from './../../admin/shared/site-config/site-config';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({

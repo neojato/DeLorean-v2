@@ -1,6 +1,6 @@
-import { SiteConfigService } from './../site-config/shared/site-config.service';
+import { SiteConfigService } from './../admin/shared/site-config/site-config.service';
 import { FirebaseObjectObservable } from 'angularfire2/database';
-import { SiteConfig } from './../site-config/shared/site-config';
+import { SiteConfig } from './../admin/shared/site-config/site-config';
 import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -36,6 +36,6 @@ export class TopMenuComponent implements OnInit {
   }
 
   userLogout() {
-    this.authService.userLogout();
+    this.authService.userLogout().then(() => this.router.navigate(['/home']), alert);
   }
 }

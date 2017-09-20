@@ -1,4 +1,4 @@
-import { SiteConfigComponent } from './site-config/site-config.component';
+import { SiteConfigComponent } from './admin/site-config/site-config.component';
 import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
 import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.component';
 import { SponsorNewComponent } from './sponsors/sponsor-new/sponsor-new.component';
@@ -9,7 +9,7 @@ import { SessionEditComponent } from './sessions/session-edit/session-edit.compo
 import { SessionNewComponent } from './sessions/session-new/session-new.component';
 import { SessionListComponent } from './sessions/session-list/session-list.component';
 import { SessionDetailComponent } from './sessions/session-detail/session-detail.component';
-import { AdminComponent } from './admin/admin.component';
+import { UsersComponent } from './admin/users/users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { Route } from '@angular/router';
@@ -19,8 +19,8 @@ export const routerConfig: Route[] = [{
   path: 'home',
   component: HomeComponent
 }, {
-  path: 'admin',
-  component: AdminComponent,
+  path: 'users',
+  component: UsersComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'config',

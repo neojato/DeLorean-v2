@@ -1,6 +1,7 @@
+import { AuthService } from './../../../services/auth/auth.service';
 import { SiteConfig } from './site-config';
 import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
-import { firebaseConfig } from './../../../environments/firebase.config';
+import { firebaseConfig } from './../../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
@@ -11,10 +12,13 @@ export class SiteConfigService {
   private siteConfig: FirebaseObjectObservable<SiteConfig> = null;
   private firebaseStorage: any;
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase, private authService: AuthService) {
     this.firebaseStorage = firebase.storage();
-    // beware ... there's a hack ahead that inits the "key" for siteConfig
-    this.db.object(this.basePath).update({ hello: 'world' });
+
+    if (this.authService.isLoggedIn() && this.authService.isAdmin()) {
+      // beware ... there's a hack ahead that inits the "key" for siteConfig
+      this.db.object(this.basePath).update({ hello: 'world' });
+    }
   }
 
   getConfig(): FirebaseObjectObservable<SiteConfig> {

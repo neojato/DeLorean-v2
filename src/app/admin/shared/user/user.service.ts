@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
-export class AdminService {
+export class UserService {
   private basePath = '/userProfile';
   users: FirebaseListObservable<any[]> = null;
 

@@ -1,6 +1,6 @@
-import { SiteConfigService } from './../site-config/shared/site-config.service';
+import { SiteConfigService } from './../admin/shared/site-config/site-config.service';
 import { FirebaseObjectObservable } from 'angularfire2/database';
-import { SiteConfig } from './../site-config/shared/site-config';
+import { SiteConfig } from './../admin/shared/site-config/site-config';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

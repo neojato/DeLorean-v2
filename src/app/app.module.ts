@@ -1,8 +1,8 @@
-import { SiteConfigService } from './site-config/shared/site-config.service';
-import { GeocoderApiService } from './services/geocoder-api.service';
+import { SiteConfigService } from './admin/shared/site-config/site-config.service';
+import { GeocoderApiService } from './services/geocoder-api/geocoder-api.service';
 import { LevelService } from './sponsors/shared/level.service';
 import { SponsorService } from './sponsors/shared/sponsor.service';
-import { AdminService } from './services/admin/admin.service';
+import { UserService } from './admin/shared/user/user.service';
 import { SpeakerService } from './speakers/shared/speaker.service';
 import { SectionService } from './sessions/shared/section.service';
 import { SessionService } from './sessions/shared/session.service';
@@ -29,7 +29,7 @@ import { AgmCoreModule } from '@agm/core';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
-import { AdminComponent } from './admin/admin.component';
+import { UsersComponent } from './admin/users/users.component';
 import { SessionListComponent } from './sessions/session-list/session-list.component';
 import { SessionDetailComponent } from './sessions/session-detail/session-detail.component';
 import { SessionNewComponent } from './sessions/session-new/session-new.component';
@@ -37,7 +37,7 @@ import { SessionEditComponent } from './sessions/session-edit/session-edit.compo
 import { SpeakerNewComponent } from './speakers/speaker-new/speaker-new.component';
 import { SpeakerEditComponent } from './speakers/speaker-edit/speaker-edit.component';
 import { SpeakerListComponent } from './speakers/speaker-list/speaker-list.component';
-import { SiteConfigComponent } from './site-config/site-config.component';
+import { SiteConfigComponent } from './admin/site-config/site-config.component';
 import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
 import { SponsorNewComponent } from './sponsors/sponsor-new/sponsor-new.component';
 import { SponsorEditComponent } from './sponsors/sponsor-edit/sponsor-edit.component';
@@ -50,7 +50,7 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     ProfileComponent,
     TopMenuComponent,
-    AdminComponent,
+    UsersComponent,
     SessionListComponent,
     SessionDetailComponent,
     SessionNewComponent,
@@ -62,7 +62,8 @@ import { FooterComponent } from './footer/footer.component';
     SponsorListComponent,
     SponsorNewComponent,
     SponsorEditComponent,
-    FooterComponent
+    FooterComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +81,7 @@ import { FooterComponent } from './footer/footer.component';
     SiteConfigService,
     AuthService,
     AuthGuard,
-    AdminService,
+    UserService,
     SessionService,
     SectionService,
     SpeakerService,

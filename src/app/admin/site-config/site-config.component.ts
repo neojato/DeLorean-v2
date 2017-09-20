@@ -1,7 +1,7 @@
-import { GeocoderApiService } from './../services/geocoder-api.service';
+import { GeocoderApiService } from './../../services/geocoder-api/geocoder-api.service';
 import { Router } from '@angular/router';
-import { SiteConfigService } from './shared/site-config.service';
-import { SiteConfig } from './shared/site-config';
+import { SiteConfigService } from './../shared/site-config/site-config.service';
+import { SiteConfig } from './../shared/site-config/site-config';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
