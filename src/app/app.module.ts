@@ -1,4 +1,5 @@
 import { SiteConfigService } from './site-config/shared/site-config.service';
+import { GeocoderApiService } from './services/geocoder-api.service';
 import { LevelService } from './sponsors/shared/level.service';
 import { SponsorService } from './sponsors/shared/sponsor.service';
 import { AdminService } from './services/admin/admin.service';
@@ -84,7 +85,8 @@ import { FooterComponent } from './footer/footer.component';
     SectionService,
     SpeakerService,
     SponsorService,
-    LevelService
+    LevelService,
+    GeocoderApiService
   ],
   bootstrap: [AppComponent]
 })
