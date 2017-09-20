@@ -34,7 +34,8 @@ export const routerConfig: Route[] = [{
   path: 'sessions',
   children: [{
     path: 'new',
-    component: SessionNewComponent
+    component: SessionNewComponent,
+    canActivate: [AuthGuard]
   }, {
     path: ':id',
     children: [{
@@ -42,7 +43,8 @@ export const routerConfig: Route[] = [{
       component: SessionDetailComponent
     }, {
       path: 'edit',
-      component: SessionEditComponent
+      component: SessionEditComponent,
+      canActivate: [AuthGuard]
     }]
   }, {
     path: '',
@@ -52,12 +54,14 @@ export const routerConfig: Route[] = [{
   path: 'speakers',
   children: [{
     path: 'new',
-    component: SpeakerNewComponent
+    component: SpeakerNewComponent,
+    canActivate: [AuthGuard]
   }, {
     path: ':id',
     children: [{
       path: 'edit',
-      component: SpeakerEditComponent
+      component: SpeakerEditComponent,
+      canActivate: [AuthGuard]
     }]
   }, {
     path: '',
@@ -67,12 +71,14 @@ export const routerConfig: Route[] = [{
   path: 'sponsors',
   children: [{
     path: 'new',
-    component: SponsorNewComponent
+    component: SponsorNewComponent,
+    canActivate: [AuthGuard]
   }, {
     path: ':id',
     children: [{
       path: 'edit',
-      component: SponsorEditComponent
+      component: SponsorEditComponent,
+      canActivate: [AuthGuard]
     }]
   }, {
     path: '',
