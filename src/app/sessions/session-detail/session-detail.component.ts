@@ -4,6 +4,7 @@ import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Speaker } from '../../speakers/shared/speaker';
+import { Session } from '../../sessions/shared/session';
 
 @Component({
   selector: 'app-session-detail',
@@ -11,7 +12,7 @@ import { Speaker } from '../../speakers/shared/speaker';
   styleUrls: ['./session-detail.component.scss']
 })
 export class SessionDetailComponent implements OnInit {
-  session: Object;
+  session: Session = new Session();
   profiles: any[];
   speaker: Speaker;
 
