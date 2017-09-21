@@ -1,20 +1,34 @@
 {
   "rules": {
     ".read": "true",
-    ".write": "auth != null",
-    "2017": {
-      "speakers": {
-      	".indexOn": "featured"
-      },
-      "tickets": {
-      	".indexOn": "active"
-      }
+    "admins": {
+      ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
     },
-    "2018": {
+    "userProfile": {
+      ".write": "auth != null && auth.provider == 'google'"
+    },
+    "2017": {
+      "levels": {
+        ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
+      },
+      "sections": {
+        ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
+      },
+      "sessions": {
+        ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
+      },
+      "siteConfig": {
+        ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
+      },
       "speakers": {
+        ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()",
       	".indexOn": "featured"
       },
+      "sponsors": {
+        ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
+      },
       "tickets": {
+        ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()",
       	".indexOn": "active"
       }
     }
