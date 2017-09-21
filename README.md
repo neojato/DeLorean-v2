@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4 and utilizes [Firebase](https://firebase.google.com) for Database, Storage, and Hosting.
 
-## Table on Contents
+## Table of Contents
  - [Getting Started](#getting-started)
  - [Contributing](#contributing)
  - [Development Server](#development-server)
@@ -69,7 +69,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 * Click on the "Create Session" button to add a session.
 * **NOTE:** It is **required** to have section(s) created in order for sessions to appear!
 * **NOTE:** It is **recommended** to have added the speaker prior to adding their session.
-* **NOTE:* You can Edit/Delete the session from the session's detail page.
+* **NOTE:** You can Edit/Delete the session from the session's detail page.
 
 ### Sponsor Management
 
