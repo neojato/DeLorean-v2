@@ -87,9 +87,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `firebase deploy` to deploy the `dist/` directory to Firebase Hosting.
 
-## Profit
+## Profit!
 
-Congrats on launching your DevFest website! Please let me know if you used this template and get you added to the list.
+Congrats on launching your DevFest website! Please let me know if you used this template and will get you added to the list.
 
 ## Contributors
 
