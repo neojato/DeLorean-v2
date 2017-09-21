@@ -5,7 +5,9 @@
   <!--Section: Speakers-->
   <section class="section team-section pb-3">
     <h1 class="section-heading">Our Amazing Speakers</h1>
-    <button type="button" class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" routerLink="/speakers/new">Create Speaker</button>
+    <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
+      <button type="button" class="btn btn-success" routerLink="/speakers/new">Create Speaker</button>
+    </div>
     <div class="row text-center">
       <div *ngFor="let speaker of speakers | async" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; padding-bottom: 50px;">
         <div class="avatar">
