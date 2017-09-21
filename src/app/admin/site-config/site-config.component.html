@@ -61,6 +61,11 @@
             <label for="eventDate" [class.active]="siteConfig.eventDate && siteConfig.eventDate.length > 0">DevFest Date:</label>
           </div>
           <div class="md-form">
+            <i class="fa fa-globe prefix grey-text"></i>
+            <input type="text" [(ngModel)]="siteConfig.eventLink" name="eventLink" id="eventLink" class="form-control">
+            <label for="eventLink" [class.active]="siteConfig.eventLink && siteConfig.eventLink.length > 0">DevFest Website URL:</label>
+          </div>
+          <div class="md-form">
             <i class="fa fa-envelope prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventEmail" name="eventEmail" id="eventEmail" class="form-control">
             <label for="eventEmail" [class.active]="siteConfig.eventEmail && siteConfig.eventEmail.length > 0">DevFest Email Address:</label>
@@ -68,7 +73,12 @@
           <div class="md-form">
             <i class="fa fa-twitter prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventTwitter" name="eventTwitter" id="eventTwitter" class="form-control">
-            <label for="eventTwitter" [class.active]="siteConfig.eventTwitter && siteConfig.eventTwitter.length > 0">DevFest Twitter:: <em>(only add the handle)</em></label>
+            <label for="eventTwitter" [class.active]="siteConfig.eventTwitter && siteConfig.eventTwitter.length > 0">DevFest Twitter: <em>(without the @)</em></label>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-hashtag prefix grey-text"></i>
+            <input type="text" [(ngModel)]="siteConfig.eventHashtag" name="eventHashtag" id="eventHashtag" class="form-control">
+            <label for="eventHashtag" [class.active]="siteConfig.eventHashtag && siteConfig.eventHashtag.length > 0">DevFest Hashtag: <em>(without the #)</em></label>
           </div>
           <div class="md-form">
             <i class="fa fa-volume-up prefix grey-text"></i>
@@ -100,6 +110,7 @@
             <label for="venueAddress" [class.active]="siteConfig.venueAddress && siteConfig.venueAddress.length > 0">Venue Address:</label>
           </div>
           <div class="md-form">
+            <i class="fa fa-info-circle prefix grey-text"></i>
             <textarea mdbActive type="text" id="venueDescription" class="md-textarea" style="height: 100px" [(ngModel)]="siteConfig.venueDescription" name="venueDescription"></textarea>
             <label for="venueDescription" [class.active]="siteConfig.venueDescription && siteConfig.venueDescription.length > 0">Venue Bio:</label>
           </div>

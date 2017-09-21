@@ -23,8 +23,8 @@
         <h5 class="title font-bold mt-3 mb-4">Contact</h5>
         <ul>
           <li><a href="mailto:{{ (siteConfig | async)?.eventEmail || 'devfest@gmail.com' }}" target="_blank">{{ (siteConfig | async)?.eventEmail || 'devfest@gmail.com' }}</a></li>
-          <li><a href="https://twitter.com/home?status=@{{ (siteConfig | async)?.eventTwitter || 'DevFest' }}" target="_blank">@{{ (siteConfig | async)?.eventTwitter || 'DevFest' }}</a></li>
-          <li><a href="https://twitter.com/home?status=@{{ (siteConfig | async)?.twitterLink || 'GDGCityName' }}" target="_blank">@{{ (siteConfig | async)?.twitterLink || 'GDGCityName' }}</a></li>
+          <li><a href="https://twitter.com/intent/tweet?text=Join%20me%20at%20@{{ (siteConfig | async)?.eventTwitter || 'DevFestCityName' }}!%20{{ '%23'+(siteConfig | async)?.eventHashtag }}%20{{ (siteConfig | async)?.eventLink }}" target="_blank">@{{ (siteConfig | async)?.eventTwitter || 'DevFestCityName' }}</a></li>
+          <li><a href="https://twitter.com/intent/tweet?text=@{{ (siteConfig | async)?.twitterLink || 'GDGCityName' }}" target="_blank">@{{ (siteConfig | async)?.twitterLink || 'GDGCityName' }}</a></li>
         </ul>
       </div>
       <hr class="w-100 clearfix d-sm-none">
