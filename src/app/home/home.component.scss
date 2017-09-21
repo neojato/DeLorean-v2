@@ -1,3 +1,25 @@
 .dollar:before {
   content: '\0024';
 }
+
+.location-card {
+  height: 300px;
+  line-height: 260px;
+  cursor: pointer;
+}
+
+.location-card p {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.location-card .card-body img {
+  position: absolute;
+  left: 15%;
+  top: 20%;
+  width: auto;
+  height: 60%;
+  z-index: 1;
+  opacity: 0.2;
+}
