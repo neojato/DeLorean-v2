@@ -6,8 +6,7 @@
     <div class="row">
       <div class="col-lg-3 col-md-6 ml-auto">
         <h5 class="titles font-bold mt-3 mb-4">About {{ (siteConfig | async)?.groupName || 'GDG City Name' }}</h5>
-        <p>We are a technology user group that meets regularly to discuss the latest Google Technologies, Tools, SDKs, APIs,
-          and much more.</p>
+        <p>We are a technology user group that meets regularly to discuss the latest Google Technologies, Tools, SDKs, APIs, and much more.</p>
         <p><small><strong>Disclaimer:</strong> <em>{{ (siteConfig | async)?.groupName || 'GDG City Name' }} is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.</em></small></p>
       </div>
       <hr class="w-100 clearfix d-sm-none">
@@ -60,15 +59,11 @@
   <!--Social buttons-->
   <div class="social-section mb-3">
     <ul>
-      <li><a class="btn-social-all" href="https://plus.google.com/{{ (siteConfig | async)?.googleLink || '+GoogleDevelopers' }}" title="Google+"
-          target="_blank"><i class="fa fa-google-plus"></i></a></li>
-      <li><a class="btn-social-all" href="https://www.facebook.com/{{ (siteConfig | async)?.facebookLink || 'Google-Developers-967415219957038/' }}"
-          title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+      <li><a class="btn-social-all" href="https://plus.google.com/{{ (siteConfig | async)?.googleLink || '+GoogleDevelopers' }}" title="Google+" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      <li><a class="btn-social-all" href="https://www.facebook.com/{{ (siteConfig | async)?.facebookLink || 'Google-Developers-967415219957038/' }}" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
       <li><a class="btn-social-all" href="https://twitter.com/{{ (siteConfig | async)?.twitterLink || 'gdg' }}" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-      <li><a class="btn-social-all" href="https://www.meetup.com/{{ (siteConfig | async)?.meetupLink || 'pro/gdg/' }}" title="Meetup"
-          target="_blank"><i class="fa fa-meetup"></i></a></li>
-      <li><a class="btn-social-all" href="https://github.com/{{ (siteConfig | async)?.githubLink || 'neojato/DeLorean-v2' }}" title="GitHub"
-          target="_blank"><i class="fa fa-github"></i></a></li>
+      <li><a class="btn-social-all" href="https://www.meetup.com/{{ (siteConfig | async)?.meetupLink || 'pro/gdg/' }}" title="Meetup" target="_blank"><i class="fa fa-meetup"></i></a></li>
+      <li><a class="btn-social-all" href="https://github.com/{{ (siteConfig | async)?.githubLink || 'neojato/DeLorean-v2' }}" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
     </ul>
   </div>
   <!--/.Social buttons-->
