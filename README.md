@@ -91,9 +91,11 @@ Run `firebase deploy` to deploy the `dist/` directory to Firebase Hosting.
 
 ## Profit!
 
-Congrats on launching your DevFest website! Please let me know if you used this template and will get you added to the list.
+Congrats on launching your DevFest website!
 
 ### Who uses the template?
+
+Please let me know if you used this template and will get you added to the list!
 
 | Name | Name | Name |
 |------|------|------|
