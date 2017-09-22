@@ -30,6 +30,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This project is open for contributions, suggestions, and ideas. Feel free to submit a PR and/or create an [Issue](https://github.com/neojato/DeLorean-v2/issues) with bugs, suggestions, and ideas. Stars are always welcome too!
 
+See [list of contributors](https://github.com/neojato/DeLorean-v2/graphs/contributors).
+
 ## Development Server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -91,13 +93,15 @@ Run `firebase deploy` to deploy the `dist/` directory to Firebase Hosting.
 
 Congrats on launching your DevFest website! Please let me know if you used this template and will get you added to the list.
 
-## Contributors
+### Who uses the template?
 
-See [list of contributors](https://github.com/neojato/DeLorean-v2/graphs/contributors).
-
-###### The DeLorean Project is not endorsed and/or supported by Google, the corporation.
+| Name | Name | Name |
+|------|------|------|
+| [GDG Kanasas City](https://devfestkc.com) |     |     |
 
 ### License
 
 Project is published under the [MIT license](https://github.com/neojato/DeLorean-v2/blob/master/LICENSE.md).  
 Feel free to clone and modify repo as you want, but don't forget to add reference to original authors, thanks!
+
+###### The DeLorean Project is not endorsed and/or supported by Google, the corporation.
