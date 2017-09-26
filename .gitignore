@@ -4,6 +4,8 @@
 /dist
 /tmp
 /out-tsc
+/functions/dist-server
+/functions/index.html
 
 # API Keys
 /src/environments/firebase.config.ts

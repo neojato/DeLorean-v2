@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "rootDir": ".",
+    "outDir": "../functions"
+  },
+  "files": [
+    "index.ts"
+  ]
+}

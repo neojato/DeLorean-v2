@@ -73,7 +73,7 @@ import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.com
     TicketListComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'delorean' }),
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
