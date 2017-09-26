@@ -1,6 +1,6 @@
 # DeLorean Project - GDG DevFest Website Template
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4 and utilizes [Firebase](https://firebase.google.com) for Database, Storage, and Hosting to create a fully functional and customizable template for your Google Developer Group's DevFest. This project has been designed to continue to be your DevFest website solution without having to create a new site or Firebase project every year. Simply update the Firebase node in the config and the site resets awaiting your next year's DevFest data. All the while preserving your previous year's data in the same Firebase project.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and utilizes [Firebase](https://firebase.google.com) for Database, Storage, and Hosting to create a fully functional and customizable template for your Google Developer Group's DevFest. This project has been designed to continue to be your DevFest website solution without having to create a new site or Firebase project every year. Simply update the Firebase node in the config and the site resets awaiting your next year's DevFest data. All the while preserving your previous year's data in the same Firebase project.
 
 ## Table of Contents
  - [Getting Started](#getting-started)
