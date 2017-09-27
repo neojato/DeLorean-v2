@@ -81,8 +81,8 @@
       </div>
       <div class="col-md-7">
         <div class="card">
-          <img style="max-height: 450px;" *ngIf="!(siteConfig | async)?.venuePhoto" src="../../assets/img/Googleplex.jpg" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
-          <img style="max-height: 450px;" *ngIf="(siteConfig | async)?.venuePhoto" [src]="(siteConfig | async)?.venuePhoto" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
+          <img class="venue-photo" *ngIf="!(siteConfig | async)?.venuePhoto" src="../../assets/img/Googleplex.jpg" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
+          <img class="venue-photo" *ngIf="(siteConfig | async)?.venuePhoto" [src]="(siteConfig | async)?.venuePhoto" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
         </div>
       </div>
     </div>
