@@ -35,26 +35,37 @@ export class SiteConfigComponent implements OnInit {
       photo = selectedFile;
     }
 
-    this.siteConfigService.createConfig(this.siteConfig, photo);
+    if (
+      this.siteConfig.groupName && this.siteConfig.groupWebsite
+      && this.siteConfig.eventName && this.siteConfig.eventDate
+      && this.siteConfig.eventEmail && this.siteConfig.eventLink
+    ) {
+      this.siteConfigService.createConfig(this.siteConfig, photo);
 
-    if ((firebaseConfig.mapsKey !== '' && firebaseConfig.mapsKey !== undefined && firebaseConfig.mapsKey !== null) && this.siteConfig.venueAddress) {
-      this.geocoderService.findFromAddress(this.siteConfig.venueAddress).subscribe(response => {
-        if (response.status === 'OK') {
-          this.siteConfig.venueGeoData = {
-            lat: response.results[0].geometry.location.lat,
-            lng: response.results[0].geometry.location.lng
-          };
-          this.siteConfigService.updateConfig(this.siteConfig);
-        } else if (response.status === 'ZERO_RESULTS') {
-          console.log('geocodingAPIService', 'ZERO_RESULTS', response.status);
-        } else {
-          console.log('geocodingAPIService', 'Other error', response.status);
-        }
-      });
+      if (
+        (firebaseConfig.mapsKey !== '' && firebaseConfig.mapsKey !== undefined && firebaseConfig.mapsKey !== null)
+        && this.siteConfig.venueAddress
+      ) {
+        this.geocoderService.findFromAddress(this.siteConfig.venueAddress).subscribe(response => {
+          if (response.status === 'OK') {
+            this.siteConfig.venueGeoData = {
+              lat: response.results[0].geometry.location.lat,
+              lng: response.results[0].geometry.location.lng
+            };
+            this.siteConfigService.updateConfig(this.siteConfig);
+          } else if (response.status === 'ZERO_RESULTS') {
+            console.log('geocodingAPIService', 'ZERO_RESULTS', response.status);
+          } else {
+            console.log('geocodingAPIService', 'Other error', response.status);
+          }
+        });
+      }
+
+      this.siteConfig = new SiteConfig();
+      this.router.navigate(['/']);
+    } else {
+      alert('Please fill out the required fields.');
     }
-
-    this.siteConfig = new SiteConfig();
-    this.router.navigate(['/']);
   }
 
   updateConfig() {
@@ -63,26 +74,38 @@ export class SiteConfigComponent implements OnInit {
       photo = selectedFile;
     }
 
-    this.siteConfigService.updateConfig(this.siteConfig, photo);
 
-    if ((firebaseConfig.mapsKey !== '' && firebaseConfig.mapsKey !== undefined && firebaseConfig.mapsKey !== null) && this.siteConfig.venueAddress) {
-      this.geocoderService.findFromAddress(this.siteConfig.venueAddress).subscribe(response => {
-        if (response.status === 'OK') {
-          this.siteConfig.venueGeoData = {
-            lat: response.results[0].geometry.location.lat,
-            lng: response.results[0].geometry.location.lng
-          };
-          this.siteConfigService.updateConfig(this.siteConfig);
-        } else if (response.status === 'ZERO_RESULTS') {
-          console.log('geocodingAPIService', 'ZERO_RESULTS', response.status);
-        } else {
-          console.log('geocodingAPIService', 'Other error', response.status);
-        }
-      });
+    if (
+      this.siteConfig.groupName && this.siteConfig.groupWebsite
+      && this.siteConfig.eventName && this.siteConfig.eventDate
+      && this.siteConfig.eventEmail && this.siteConfig.eventLink
+    ) {
+      this.siteConfigService.updateConfig(this.siteConfig, photo);
+
+      if (
+        (firebaseConfig.mapsKey !== '' && firebaseConfig.mapsKey !== undefined && firebaseConfig.mapsKey !== null)
+        && this.siteConfig.venueAddress
+      ) {
+        this.geocoderService.findFromAddress(this.siteConfig.venueAddress).subscribe(response => {
+          if (response.status === 'OK') {
+            this.siteConfig.venueGeoData = {
+              lat: response.results[0].geometry.location.lat,
+              lng: response.results[0].geometry.location.lng
+            };
+            this.siteConfigService.updateConfig(this.siteConfig);
+          } else if (response.status === 'ZERO_RESULTS') {
+            console.log('geocodingAPIService', 'ZERO_RESULTS', response.status);
+          } else {
+            console.log('geocodingAPIService', 'Other error', response.status);
+          }
+        });
+      }
+
+      this.siteConfig = new SiteConfig();
+      this.router.navigate(['/']);
+    } else {
+      alert('Please fill out the required fields.');
     }
-
-    this.siteConfig = new SiteConfig();
-    this.router.navigate(['/']);
   }
 
 }
