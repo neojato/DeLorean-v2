@@ -135,7 +135,7 @@
             <h6>{{ ticket.name }}</h6>
           </div>
           <div class="card-body">
-            <p class="card-text text-center">
+            <div class="card-text text-center">
               <span *ngIf="ticket.description1">
                 <i class="fa fa-check"></i>&nbsp;<span [innerHTML]="ticket.description1"></span>
                 <hr style="width: 60%;" />
@@ -166,9 +166,10 @@
               <span *ngIf="!ticket.description4">
                 &nbsp;
               </span>
-              <br>
-              <a class="btn btn-primary waves-light" [href]="(siteConfig | async)?.ticketURL" class="btn btn-primary btn-lg" target="_blank">Buy Ticket</a>
-            </p>
+              <div class="text-center ticket-button">
+                <button type="button" class="btn btn-primary waves-light" [href]="(siteConfig | async)?.ticketURL">Buy Ticket</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
