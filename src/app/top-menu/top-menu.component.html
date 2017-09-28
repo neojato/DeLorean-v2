@@ -23,9 +23,9 @@
           Profile<span class="caret"></span>
         </a>
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" *ngIf="isAdmin()" routerLink="/config">Site Config</a>
-          <a class="dropdown-item waves-light" *ngIf="isAdmin()" routerLink="/tickets">Ticket Config</a>
-          <a class="dropdown-item waves-light" *ngIf="isAdmin()" routerLink="/users">Users Admin</a>
+          <a class="dropdown-item waves-light" *ngIf="isAdmin()" routerLink="/admin/config">Site Config</a>
+          <a class="dropdown-item waves-light" *ngIf="isAdmin()" routerLink="/admin/tickets">Ticket Config</a>
+          <a class="dropdown-item waves-light" *ngIf="isAdmin()" routerLink="/admin/users">Users Admin</a>
           <a class="dropdown-item waves-light" routerLink="/profile">My Account</a>
           <a class="dropdown-item waves-light" (click)="userLogout()">Logout</a>
         </div>
