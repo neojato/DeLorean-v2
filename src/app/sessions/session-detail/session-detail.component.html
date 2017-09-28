@@ -45,6 +45,7 @@
       <div class="row">
         <!--Avatar-->
         <div class="col-xs-12 col-sm-2">
+          <img *ngIf="!(speaker | async)?.photoURL" src="../../assets/img/user-default.png" class="img-fluid rounded-circle z-depth-2" title="{{ (speaker | async)?.name }}" alt="{{ (speaker | async)?.name }}">
           <img [src]="(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2">
         </div>
         <!--Author Data-->
