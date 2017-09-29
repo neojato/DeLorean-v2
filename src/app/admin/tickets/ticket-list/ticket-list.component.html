@@ -6,17 +6,17 @@
     <div class="row">
       <section class="col-md-12">
         <a class="btn btn-sm btn-success pull-right" routerLink="/admin/tickets/new"><i class="fa fa-plus"></i> Create</a>
-        <table class="table table-sm table-hover">
+        <table class="table table-sm table-hover table-bordered">
           <thead class="blue-grey lighten-4">
             <tr>
               <th class="text-center">#</th>
               <th>Name</th>
               <th>Value ($)</th>
               <th>Active</th>
-              <th>Actions</th>
+              <th style="width: 20%;">Actions</th>
             </tr>
           </thead>
-          <tbody class="user-list">
+          <tbody>
             <tr *ngFor="let ticket of (tickets | async); let i = index;">
               <th class="text-center">{{ i+1 }}</th>
               <td>{{ ticket.name }}</td>
