@@ -1,13 +1,15 @@
 <top-menu></top-menu>
 
-<div class="between-sections"><br><br></div>
+<div class="between-sections d-print-none"><br><br></div>
 <div class="container">
   <!--Section: Schedule-->
   <section class="section">
-    <h1 class="section-heading">Our Schedule</h1>
-    <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
-      <button type="button" class="btn btn-success" (click)="sectionModal.show()">Create Section</button>
-      <button type="button" class="btn btn-primary" routerLink="/sessions/new">Create Session</button>
+    <div class="d-print-none">
+      <h1 class="section-heading">Our Schedule</h1>
+      <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
+        <button type="button" class="btn btn-success" (click)="sectionModal.show()">Create Section</button>
+        <button type="button" class="btn btn-primary" routerLink="/sessions/new">Create Session</button>
+      </div>
     </div>
     <div class="table-responsive">
       <table class="table table-hover text-xs-center">
