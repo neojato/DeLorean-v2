@@ -85,9 +85,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
+### Simple Production Build
+
+Run `sh tools/build.sh` to generate an optimized production build of the project.
+
 ## Deploy
 
 Run `firebase deploy` to deploy the `dist/` directory to Firebase Hosting.
+
+### Simple Production Deploy
+
+Run `sh tools/deploy.sh` to generate an optimized production build and deploy the `dist/` directory to Firebase Hosting (along with database rules & Cloud Functions).
 
 ## Profit!
 
