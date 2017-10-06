@@ -5,30 +5,36 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 
 @Injectable()
 export class SectionService {
-  private basePath: string = firebaseConfig.devfestYear + '/sections';
   sections: FirebaseListObservable<Section[]> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getSectionList(query = {}): FirebaseListObservable<Section[]> {
-    this.sections = this.db.list(this.basePath, {
-      query: query
-    });
+  getSectionList(year?, query = {}): FirebaseListObservable<Section[]> {
+    this.sections = this.listPath(year, { query: query });
     return this.sections;
   }
 
   createSection(section: Section): void {
-    this.db.list(this.basePath).push(section)
+    const list = this.listPath();
+    list.push(section)
       .catch(error => this.handleError(error));
   }
 
   deleteSection(key: string): void {
-    this.db.list(this.basePath).remove(key)
+    const list = this.listPath();
+    list.remove(key)
       .catch(error => this.handleError(error));
   }
 
   private handleError(error) {
     console.error(error);
+  }
+
+  private listPath(year?: string|number, query?) {
+    if (!year) {
+        year = firebaseConfig.devfestYear;
+    }
+    return this.db.list(`${year}/sections`, query);
   }
 
 }
