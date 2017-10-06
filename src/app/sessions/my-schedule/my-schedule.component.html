@@ -36,7 +36,7 @@
         </tbody>
       </table>
     </div>
-    <div *ngIf="(mySessions | async)?.length === 0" class="text-center">
+    <div *ngIf="(sessions | async)?.length !== 0 && (mySessions | async)?.length === 0" class="text-center">
       <h5>You haven't added any sessions yet! Go back to the <a routerLInk="">Schedule</a> and add some!</h5>
     </div>
     <div *ngIf="(sessions | async)?.length === 0" class="text-center">
