@@ -27,6 +27,16 @@
           <p [innerHTML]="(session)?.abstract"></p>
         </div>
         <!--/Post text-->
+
+        <div class="text-center" *ngIf="isLoggedIn()" style="margin-top: 35px;">
+          <button *ngIf="!(mySchedule | async)?.value" (click)="addToSchedule()" type="button" class="btn btn-sm btn-outline-primary" title="Add to My Schedule"><i class="fa fa-calendar-o" aria-hidden="true"></i> Add to My Schedule</button>
+          <button *ngIf="(mySchedule | async)?.value" (click)="removeFromSchedule()" type="button" class="btn btn-sm btn-primary" title="Remove from My Schedule"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Remove from My Schedule</button>
+        </div>
+
+        <div class="text-center" *ngIf="!isLoggedIn()" style="margin-top: 35px;">
+          <small>Login to add this to your schedule.</small>
+          <button (click)="userLogin()" type="button" class="btn btn-sm btn-outline-primary" title="Login">Login</button>
+        </div>
       </div>
     </div>
     <!--/First row-->

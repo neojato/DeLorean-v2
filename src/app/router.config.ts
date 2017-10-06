@@ -1,3 +1,4 @@
+import { MyScheduleComponent } from './sessions/my-schedule/my-schedule.component';
 import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.component';
 import { TicketEditComponent } from './admin/tickets/ticket-edit/ticket-edit.component';
 import { TicketNewComponent } from './admin/tickets/ticket-new/ticket-new.component';
@@ -59,6 +60,11 @@ export const routerConfig: Route[] = [{
   component: ProfileComponent,
   canActivate: [AuthGuard],
   data: { title: 'My Profile' }
+}, {
+  path: 'my-schedule',
+  component: MyScheduleComponent,
+  canActivate: [AuthGuard],
+  data: { title: 'My Schedule' }
 }, {
   path: 'sessions',
   children: [{

@@ -1,3 +1,4 @@
+import { ScheduleService } from './../shared/schedule.service';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { SiteConfig } from './../../admin/shared/site-config/site-config';
 import { SiteConfigService } from './../../admin/shared/site-config/site-config.service';
@@ -21,6 +22,7 @@ export class SessionDetailComponent implements OnInit {
   speaker: Speaker;
   siteConfig: FirebaseObjectObservable<SiteConfig>;
   eventName: string;
+  mySchedule: FirebaseObjectObservable<any>;
 
   constructor(
     private router: Router,
@@ -29,7 +31,8 @@ export class SessionDetailComponent implements OnInit {
     private sessionService: SessionService,
     private speakerService: SpeakerService,
     private title: Title,
-    private siteConfigService: SiteConfigService
+    private siteConfigService: SiteConfigService,
+    private scheduleService: ScheduleService
   ) { }
 
   ngOnInit() {
@@ -53,6 +56,7 @@ export class SessionDetailComponent implements OnInit {
           pageTitle += ' :: ' + this.session.title;
         }
         this.title.setTitle(pageTitle);
+        this.mySchedule = this.scheduleService.getScheduleSession(this.authService.userId, this.session.$key);
       });
     });
   }
@@ -65,6 +69,10 @@ export class SessionDetailComponent implements OnInit {
       }
     }
     this.profiles = profiles;
+  }
+
+  userLogin() {
+    this.authService.userLogin().then(() => window.location.reload());
   }
 
   isLoggedIn() {
@@ -84,6 +92,23 @@ export class SessionDetailComponent implements OnInit {
       this.sessionService.deleteSession(session.$key);
       this.router.navigate(['/sessions']);
     }
+  }
+
+  addToSchedule() {
+    this.mySchedule.set({
+      id: this.session.$key,
+      title: this.session.title,
+      time: this.session.time,
+      tag: this.session.tag ? this.session.tag : null,
+      speakers: this.session.speakers,
+      room: this.session.room,
+      section: this.session.section,
+      value: true
+    });
+  }
+
+  removeFromSchedule() {
+    this.mySchedule.remove();
   }
 
 }
