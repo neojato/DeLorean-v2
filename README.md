@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  - Simple Speaker management
  - Featured speakers section
  - "My Schedule" for Attendees
- - Seesion rating (coming soon!)
+ - Session rating (coming soon!)
 
 ## Table of Contents
  - [Getting Started](#getting-started)
