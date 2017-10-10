@@ -7,8 +7,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  - Simple event schedule management
  - Simple sponsor management
  - Simple ticket management
- - Simple Speaker management
+ - Simple speaker management
  - Featured speakers section
+ - Featured venue section
  - "My Schedule" for Attendees
  - Session rating (coming soon!)
 
