@@ -17,7 +17,7 @@
         <button type="button" class="btn btn-sm btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/speakers/{{ speaker.$key }}/edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
         <button type="button" class="btn btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSpeaker(speaker)"><i class="fa fa-trash" aria-hidden="true"></i></button>
         <h4 [innerHTML]="speaker.name"></h4>
-        <h5 [innerHTML]="speaker.title"></h5>
+        <h6><span [innerHTML]="speaker.title"></span><br/><strong>@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
         <p [innerHTML]="speaker.description"></p>
         <a *ngIf="speaker.googleLink" class="icons-sm gplus-ic" href="https://plus.google.com/{{ speaker.googleLink }}" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
         <a *ngIf="speaker.facebookLink" class="icons-sm fb-ic" href="https://www.facebook.com/{{ speaker.facebookLink }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>

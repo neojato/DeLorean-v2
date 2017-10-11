@@ -1,19 +1,19 @@
 <!--Footer-->
-<footer class="page-footer center-on-small-only elegant-color-dark">
+<footer class="page-footer center-on-small-only elegant-color-dark d-print-none">
 
   <!--Footer Links-->
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-3 col-md-6 ml-auto">
-        <h5 class="titles font-bold mt-3 mb-4">About {{ (siteConfig | async)?.groupName || 'GDG City Name' }}</h5>
+        <h5 class="titles font-bold mt-3 mb-4">About {{ (siteConfig | async)?.groupName }}</h5>
         <p>We are a technology user group that meets regularly to discuss the latest Google Technologies, Tools, SDKs, APIs, and much more.</p>
-        <p><small><strong>Disclaimer:</strong> <em>{{ (siteConfig | async)?.groupName || 'GDG City Name' }} is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.</em></small></p>
+        <p><small><strong>Disclaimer:</strong> <em>{{ (siteConfig | async)?.groupName }} is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.</em></small></p>
       </div>
       <hr class="w-100 clearfix d-sm-none">
       <div class="col-lg-2 col-md-6 ml-auto">
         <h5 class="title font-bold mt-3 mb-4">Links</h5>
         <ul>
-          <li><a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName || 'GDG City Name' }}</a></li>
+          <li><a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName }}</a></li>
           <li><a href="https://developers.google.com/" target="_blank">Google Developers</a></li>
           <li><a href="https://www.womentechmakers.com/" target="_blank">Women Techmakers</a></li>
         </ul>
@@ -22,9 +22,9 @@
       <div class="col-lg-2 col-md-6 ml-auto">
         <h5 class="title font-bold mt-3 mb-4">Contact</h5>
         <ul>
-          <li><a href="mailto:{{ (siteConfig | async)?.eventEmail || 'devfest@gmail.com' }}" target="_blank">{{ (siteConfig | async)?.eventEmail || 'devfest@gmail.com' }}</a></li>
-          <li><a href="https://twitter.com/intent/tweet?text=Join%20me%20at%20@{{ (siteConfig | async)?.eventTwitter || 'DevFestCityName' }}!%20{{ '%23'+(siteConfig | async)?.eventHashtag }}%20{{ (siteConfig | async)?.eventLink }}" target="_blank">@{{ (siteConfig | async)?.eventTwitter || 'DevFestCityName' }}</a></li>
-          <li><a href="https://twitter.com/intent/tweet?text=@{{ (siteConfig | async)?.twitterLink || 'GDGCityName' }}" target="_blank">@{{ (siteConfig | async)?.twitterLink || 'GDGCityName' }}</a></li>
+          <li><a href="mailto:{{ (siteConfig | async)?.eventEmail }}" target="_blank">{{ (siteConfig | async)?.eventEmail }}</a></li>
+          <li *ngIf="(siteConfig | async)?.eventTwitter"><a href="https://twitter.com/intent/tweet?text=@{{ (siteConfig | async)?.eventTwitter }}" target="_blank">@{{ (siteConfig | async)?.eventTwitter }}</a></li>
+          <li *ngIf="(siteConfig | async)?.twitterLink"><a href="https://twitter.com/intent/tweet?text=@{{ (siteConfig | async)?.twitterLink }}" target="_blank">@{{ (siteConfig | async)?.twitterLink }}</a></li>
         </ul>
       </div>
       <hr class="w-100 clearfix d-sm-none">
@@ -59,11 +59,11 @@
   <!--Social buttons-->
   <div class="social-section mb-3">
     <ul>
-      <li><a class="btn-social-all" href="https://plus.google.com/{{ (siteConfig | async)?.googleLink || '+GoogleDevelopers' }}" title="Google+" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-      <li><a class="btn-social-all" href="https://www.facebook.com/{{ (siteConfig | async)?.facebookLink || 'Google-Developers-967415219957038/' }}" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-      <li><a class="btn-social-all" href="https://twitter.com/{{ (siteConfig | async)?.twitterLink || 'gdg' }}" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-      <li><a class="btn-social-all" href="https://www.meetup.com/{{ (siteConfig | async)?.meetupLink || 'pro/gdg/' }}" title="Meetup" target="_blank"><i class="fa fa-meetup"></i></a></li>
-      <li><a class="btn-social-all" href="https://github.com/{{ (siteConfig | async)?.githubLink || 'neojato/DeLorean-v2' }}" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.googleLink"><a class="btn-social-all" href="https://plus.google.com/{{ (siteConfig | async)?.googleLink }}" title="Google+" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.facebookLink"><a class="btn-social-all" href="https://www.facebook.com/{{ (siteConfig | async)?.facebookLink }}" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.twitterLink"><a class="btn-social-all" href="https://twitter.com/{{ (siteConfig | async)?.twitterLink }}" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.meetupLink"><a class="btn-social-all" href="https://www.meetup.com/{{ (siteConfig | async)?.meetupLink }}" title="Meetup" target="_blank"><i class="fa fa-meetup"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.githubLink"><a class="btn-social-all" href="https://github.com/{{ (siteConfig | async)?.githubLink }}" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
     </ul>
   </div>
   <!--/.Social buttons-->
@@ -71,7 +71,7 @@
   <!--Copyright-->
   <div class="footer-copyright">
     <div class="container-fluid">
-      &copy; {{ copyright }} Copyright <a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName || 'GDG City Name' }}</a>
+      &copy; {{ copyright }} Copyright <a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName }}</a>
       <br>Based on the <a href="https://github.com/neojato/DeLorean-v2" target="_blank">DeLorean Project</a>
     </div>
   </div>

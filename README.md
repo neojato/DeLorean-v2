@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and utilizes [Firebase](https://firebase.google.com) for Database, Storage, and Hosting to create a fully functional and customizable template for your Google Developer Group's DevFest. This project has been designed to continue to be your DevFest website solution without having to create a new site or Firebase project every year. Simply update the Firebase node in the config and the site resets awaiting your next year's DevFest data. All the while preserving your previous year's data in the same Firebase project.
 
+## Features
+ - Simple site config setup
+ - Simple event schedule management
+ - Simple sponsor management
+ - Simple ticket management
+ - Simple speaker management
+ - Featured speakers section
+ - Featured venue section
+ - "My Schedule" for Attendees
+ - Session rating (coming soon!)
+
 ## Table of Contents
  - [Getting Started](#getting-started)
  - [Contributing](#contributing)
@@ -85,9 +96,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
+### Simple Production Build
+
+Run `sh tools/build.sh` to generate an optimized production build of the project.
+
 ## Deploy
 
 Run `firebase deploy` to deploy the `dist/` directory to Firebase Hosting.
+
+### Simple Production Deploy
+
+Run `sh tools/deploy.sh` to generate an optimized production build and deploy the `dist/` directory to Firebase Hosting (along with database rules & Cloud Functions).
 
 ## Profit!
 

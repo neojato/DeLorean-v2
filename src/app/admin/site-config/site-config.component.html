@@ -5,20 +5,30 @@
     <h1 class="section-heading">Site Config</h1>
     <div class="row">
       <section class="col-md-12">
-        <form>
+        <form novalidate>
           <h2 class="title">
             <strong>Group Details:</strong>
           </h2>
           <br>
           <div class="md-form">
             <i class="fa fa-users prefix grey-text"></i>
-            <input type="text" [(ngModel)]="siteConfig.groupName" name="groupName" id="groupName" class="form-control">
+            <input type="text" [(ngModel)]="siteConfig.groupName" name="groupName" #groupName="ngModel" id="groupName" class="form-control" required>
             <label for="groupName" [class.active]="siteConfig.groupName && siteConfig.groupName.length > 0">GDG Name:</label>
+            <div *ngIf="groupName.invalid && (groupName.dirty || groupName.touched)" class="text-danger">
+              <div *ngIf="groupName.errors.required">
+                GDG Name is required.
+              </div>
+            </div>
           </div>
           <div class="md-form">
             <i class="fa fa-link prefix grey-text"></i>
-            <input type="text" [(ngModel)]="siteConfig.groupWebsite" name="groupWebsite" id="groupWebsite" class="form-control">
+            <input type="text" [(ngModel)]="siteConfig.groupWebsite" name="groupWebsite" #groupWebsite="ngModel" id="groupWebsite" class="form-control" required>
             <label for="groupWebsite" [class.active]="siteConfig.groupWebsite && siteConfig.groupWebsite.length > 0">GDG Website URL:</label>
+            <div *ngIf="groupWebsite.invalid && (groupWebsite.dirty || groupWebsite.touched)" class="text-danger">
+              <div *ngIf="groupWebsite.errors.required">
+                GDG Website URL is required.
+              </div>
+            </div>
           </div>
           <div class="md-form">
             <i class="fa fa-google-plus prefix grey-text"></i>
@@ -52,23 +62,43 @@
           <br>
           <div class="md-form">
             <i class="fa fa-google prefix grey-text"></i>
-            <input type="text" [(ngModel)]="siteConfig.eventName" name="eventName" id="eventName" class="form-control">
+            <input type="text" [(ngModel)]="siteConfig.eventName" name="eventName" #eventName="ngModel" id="eventName" class="form-control" required>
             <label for="eventName" [class.active]="siteConfig.eventName && siteConfig.eventName.length > 0">DevFest Name: <em>(ex. DevFest KC 2018)</em></label>
+            <div *ngIf="eventName.invalid && (eventName.dirty || eventName.touched)" class="text-danger">
+              <div *ngIf="eventName.errors.required">
+                DevFest Name is required.
+              </div>
+            </div>
           </div>
           <div class="md-form">
             <i class="fa fa-calendar prefix grey-text"></i>
-            <input type="date" [(ngModel)]="siteConfig.eventDate" name="eventDate" id="eventDate" placeholder="" class="form-control">
+            <input type="date" [(ngModel)]="siteConfig.eventDate" name="eventDate" #eventDate="ngModel" id="eventDate" placeholder="" class="form-control" required>
             <label for="eventDate" [class.active]="siteConfig.eventDate && siteConfig.eventDate.length > 0">DevFest Date:</label>
+            <div *ngIf="eventDate.invalid && (eventDate.dirty || eventDate.touched)" class="text-danger">
+              <div *ngIf="eventDate.errors.required">
+                DevFest Date is required.
+              </div>
+            </div>
           </div>
           <div class="md-form">
             <i class="fa fa-globe prefix grey-text"></i>
-            <input type="text" [(ngModel)]="siteConfig.eventLink" name="eventLink" id="eventLink" class="form-control">
+            <input type="text" [(ngModel)]="siteConfig.eventLink" name="eventLink" #eventLink="ngModel" id="eventLink" class="form-control" required>
             <label for="eventLink" [class.active]="siteConfig.eventLink && siteConfig.eventLink.length > 0">DevFest Website URL:</label>
+            <div *ngIf="eventLink.invalid && (eventLink.dirty || eventLink.touched)" class="text-danger">
+              <div *ngIf="eventLink.errors.required">
+                DevFest Website URL is required.
+              </div>
+            </div>
           </div>
           <div class="md-form">
             <i class="fa fa-envelope prefix grey-text"></i>
-            <input type="text" [(ngModel)]="siteConfig.eventEmail" name="eventEmail" id="eventEmail" class="form-control">
+            <input type="text" [(ngModel)]="siteConfig.eventEmail" name="eventEmail" #eventEmail="ngModel" id="eventEmail" class="form-control" required>
             <label for="eventEmail" [class.active]="siteConfig.eventEmail && siteConfig.eventEmail.length > 0">DevFest Email Address:</label>
+            <div *ngIf="eventEmail.invalid && (eventEmail.dirty || eventEmail.touched)" class="text-danger">
+              <div *ngIf="eventEmail.errors.required">
+                DevFest Email Address is required.
+              </div>
+            </div>
           </div>
           <div class="md-form">
             <i class="fa fa-twitter prefix grey-text"></i>
@@ -111,7 +141,8 @@
           </div>
           <div class="md-form">
             <i class="fa fa-info-circle prefix grey-text"></i>
-            <textarea mdbActive type="text" id="venueDescription" class="md-textarea" style="height: 100px" [(ngModel)]="siteConfig.venueDescription" name="venueDescription"></textarea>
+            <textarea mdbActive type="text" id="venueDescription" class="md-textarea" style="height: 100px" [(ngModel)]="siteConfig.venueDescription"
+              name="venueDescription"></textarea>
             <label for="venueDescription" [class.active]="siteConfig.venueDescription && siteConfig.venueDescription.length > 0">Venue Bio:</label>
           </div>
           <div class="form-group" style="padding-bottom: 25px;">
