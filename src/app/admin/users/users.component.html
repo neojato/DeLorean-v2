@@ -16,7 +16,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of (users | async); let i = index;">
+            <tr *ngFor="let user of users; let i = index;">
               <th class="text-center">{{ i+1 }}</th>
               <td>{{ user.displayName }}</td>
               <td>{{ user.email }}</td>
@@ -24,7 +24,18 @@
               <td><button class="btn btn-sm btn-primary" (click)="updateUser(user.$key)"><i class="fa fa-refresh"></i> Toggle Access</button></td>
             </tr>
             <tr>
-              <td colspan="100%;"></td>
+              <td colspan="100%" class="blue-grey lighten-4">
+                <table class="pull-right">
+                  <tr>
+                    <td style="border: 0; padding: 0 15px;">
+                      <button (click)="prevPage()" [disabled]="!prevKeys?.length" title="Previous Page"><strong>&lt;</strong></button>
+                    </td>
+                    <td style="border: 0; padding: 0 15px;">
+                      <button (click)="nextPage()" [disabled]="!nextKey" title="Next Page"><strong>&gt;</strong></button>
+                    </td>
+                  </tr>
+                </table>
+              </td>
             </tr>
           </tbody>
         </table>
