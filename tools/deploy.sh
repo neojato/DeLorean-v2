@@ -1,4 +1,5 @@
-sh tools/build.sh
-sw-precache --root=dist --config=precache-config.js
+cd tools
+sh build.sh
+cd ..
 firebase use default
 firebase deploy
