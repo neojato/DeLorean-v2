@@ -73,7 +73,7 @@
           <div class="md-form">
             <i class="fa fa-calendar prefix grey-text"></i>
             <input type="date" [(ngModel)]="siteConfig.eventDate" name="eventDate" #eventDate="ngModel" id="eventDate" placeholder="" class="form-control" required>
-            <label for="eventDate" [class.active]="siteConfig.eventDate && siteConfig.eventDate.length > 0">DevFest Date:</label>
+            <label class="active" for="eventDate">DevFest Date:</label>
             <div *ngIf="eventDate.invalid && (eventDate.dirty || eventDate.touched)" class="text-danger">
               <div *ngIf="eventDate.errors.required">
                 DevFest Date is required.
