@@ -1,3 +1,4 @@
+import { ScheduleService } from './sessions/shared/schedule.service';
 import { TicketService } from './admin/shared/ticket/ticket.service';
 import { SiteConfigService } from './admin/shared/site-config/site-config.service';
 import { GeocoderApiService } from './services/geocoder-api/geocoder-api.service';
@@ -46,6 +47,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TicketNewComponent } from './admin/tickets/ticket-new/ticket-new.component';
 import { TicketEditComponent } from './admin/tickets/ticket-edit/ticket-edit.component';
 import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.component';
+import { MyScheduleComponent } from './sessions/my-schedule/my-schedule.component';
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -70,7 +72,8 @@ import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.com
     UsersComponent,
     TicketNewComponent,
     TicketEditComponent,
-    TicketListComponent
+    TicketListComponent,
+    MyScheduleComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +98,8 @@ import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.com
     SponsorService,
     LevelService,
     GeocoderApiService,
-    TicketService
+    TicketService,
+    ScheduleService
   ],
   bootstrap: [AppComponent]
 })

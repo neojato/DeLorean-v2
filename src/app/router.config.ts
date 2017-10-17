@@ -1,3 +1,4 @@
+import { MyScheduleComponent } from './sessions/my-schedule/my-schedule.component';
 import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.component';
 import { TicketEditComponent } from './admin/tickets/ticket-edit/ticket-edit.component';
 import { TicketNewComponent } from './admin/tickets/ticket-new/ticket-new.component';
@@ -22,87 +23,111 @@ export const routerConfig: Route[] = [{
   path: 'home',
   component: HomeComponent
 }, {
-  path: 'users',
-  component: UsersComponent,
-  canActivate: [AuthGuard]
-}, {
-  path: 'config',
-  component: SiteConfigComponent,
-  canActivate: [AuthGuard]
+  path: 'admin',
+  children: [{
+    path: 'users',
+    component: UsersComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'User Admin' }
+  }, {
+    path: 'config',
+    component: SiteConfigComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'Site Config' }
+  }, {
+    path: 'tickets',
+    children: [{
+      path: 'new',
+      component: TicketNewComponent,
+      canActivate: [AuthGuard],
+      data: { title: 'New Ticket' }
+    }, {
+      path: ':id',
+      children: [{
+        path: 'edit',
+        component: TicketEditComponent,
+        canActivate: [AuthGuard],
+        data: { title: 'Edit Ticket' }
+      }]
+    }, {
+      path: '',
+      component: TicketListComponent,
+      data: { title: 'Tickets' }
+    }]
+  }]
 }, {
   path: 'profile',
   component: ProfileComponent,
-  canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
+  data: { title: 'My Profile' }
+}, {
+  path: 'my-schedule',
+  component: MyScheduleComponent,
+  canActivate: [AuthGuard],
+  data: { title: 'My Schedule' }
 }, {
   path: 'sessions',
   children: [{
     path: 'new',
     component: SessionNewComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: { title: 'New Session' }
   }, {
     path: ':id',
     children: [{
       path: '',
-      component: SessionDetailComponent
+      component: SessionDetailComponent,
+      data: { title: 'Session Details' }
     }, {
       path: 'edit',
       component: SessionEditComponent,
-      canActivate: [AuthGuard]
+      canActivate: [AuthGuard],
+      data: { title: 'Edit Session' }
     }]
   }, {
     path: '',
-    component: SessionListComponent
+    component: SessionListComponent,
+    data: { title: 'Schedule' }
   }]
 }, {
   path: 'speakers',
   children: [{
     path: 'new',
     component: SpeakerNewComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: { title: 'New Speaker' }
   }, {
     path: ':id',
     children: [{
       path: 'edit',
       component: SpeakerEditComponent,
-      canActivate: [AuthGuard]
+      canActivate: [AuthGuard],
+      data: { title: 'Edit Speaker' }
     }]
   }, {
     path: '',
-    component: SpeakerListComponent
+    component: SpeakerListComponent,
+    data: { title: 'Speakers' }
   }]
 }, {
   path: 'sponsors',
   children: [{
     path: 'new',
     component: SponsorNewComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: { title: 'New Sponsor' }
   }, {
     path: ':id',
     children: [{
       path: 'edit',
       component: SponsorEditComponent,
-      canActivate: [AuthGuard]
+      canActivate: [AuthGuard],
+      data: { title: 'Edit Sponsor' }
     }]
   }, {
     path: '',
-    component: SponsorListComponent
-  }]
-}, {
-  path: 'tickets',
-  children: [{
-    path: 'new',
-    component: TicketNewComponent,
-    canActivate: [AuthGuard]
-  }, {
-    path: ':id',
-    children: [{
-      path: 'edit',
-      component: TicketEditComponent,
-      canActivate: [AuthGuard]
-    }]
-  }, {
-    path: '',
-    component: TicketListComponent
+    component: SponsorListComponent,
+    data: { title: 'Sponsors' }
   }]
 }, {
   path: '',

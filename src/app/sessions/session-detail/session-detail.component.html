@@ -4,8 +4,10 @@
 <div class="container">
   <!--Section: Session-->
   <section class="section">
-    <button type="button" class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" (click)="editDetails(session)">Edit Session</button>
-    <button type="button" class="btn btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="delete(session)">Delete Session</button>
+    <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
+      <button type="button" class="btn btn-primary" (click)="editDetails(session)">Edit Session</button>
+      <button type="button" class="btn btn-danger" (click)="delete(session)">Delete Session</button>
+    </div>
     <!--First row-->
     <div class="row">
       <div class="col-md-12">
@@ -25,6 +27,16 @@
           <p [innerHTML]="(session)?.abstract"></p>
         </div>
         <!--/Post text-->
+
+        <div class="text-center" *ngIf="isLoggedIn()" style="margin-top: 35px;">
+          <button *ngIf="!(mySchedule | async)?.value" (click)="addToSchedule()" type="button" class="btn btn-sm btn-outline-primary" title="Add to My Schedule"><i class="fa fa-calendar-o" aria-hidden="true"></i> Add to My Schedule</button>
+          <button *ngIf="(mySchedule | async)?.value" (click)="removeFromSchedule()" type="button" class="btn btn-sm btn-primary" title="Remove from My Schedule"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Remove from My Schedule</button>
+        </div>
+
+        <div class="text-center" *ngIf="!isLoggedIn()" style="margin-top: 35px;">
+          <small>Login to add this to your schedule.</small>
+          <button (click)="userLogin()" type="button" class="btn btn-sm btn-outline-primary" title="Login">Login</button>
+        </div>
       </div>
     </div>
     <!--/First row-->
@@ -43,7 +55,8 @@
       <div class="row">
         <!--Avatar-->
         <div class="col-xs-12 col-sm-2">
-          <img [src]="(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2">
+          <img *ngIf="!(speaker | async)?.photoURL" src="../../assets/img/user-default.png" class="img-fluid rounded-circle z-depth-2" title="{{ (speaker | async)?.name }}" alt="{{ (speaker | async)?.name }}">
+          <img *ngIf="(speaker | async)?.photoURL" [src]="(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2" title="{{ (speaker | async)?.name }}" alt="{{ (speaker | async)?.name }}">
         </div>
         <!--Author Data-->
         <div class="col-xs-12 col-sm-10">

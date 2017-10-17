@@ -11,7 +11,9 @@ export class SiteConfig {
   eventName: string;
   eventDate: string;
   eventEmail: string;
+  eventLink: string;
   eventTwitter: string;
+  eventHashtag: string;
   speakerURL: string;
   ticketURL: string;
   sponsorURL: string;

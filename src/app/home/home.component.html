@@ -8,12 +8,12 @@
       <div class="container">
         <ul>
           <li>
-            <h1 class="h1-responsive font-bold">{{ (siteConfig | async)?.eventName || 'DevFest 2017' }}</h1>
+            <h1 class="h1-responsive font-bold">{{ (siteConfig | async)?.eventName }}</h1>
           </li>
           <li>
             <p class="lead mt-4 mb-5">
-              {{ ((siteConfig | async)?.eventDate | date:'fullDate') || 'Saturday, February 18, 2017' }}<br/>
-              <strong>@&nbsp;{{ (siteConfig | async)?.venueName || 'Googleplex' }}</strong>
+              {{ ((siteConfig | async)?.eventDate | date:'fullDate') }}<br/>
+              <strong>@&nbsp;{{ (siteConfig | async)?.venueName }}</strong>
             </p>
             <p class="lead mt-4 mb-5">
               A 100% community organized developer conference with industry experts presenting on exciting topics!
@@ -32,18 +32,20 @@
 
 <div class="container">
   <div class="divider-new pt-5">
-    <h2 class="h2-responsive">About us</h2>
+    <h2 class="h2-responsive">About</h2>
   </div>
 
   <!--Section: About-->
   <section id="about" class="text-center">
     <p>
-      {{ (siteConfig | async)?.eventName || 'DevFest 2017' }} is a 100% community organized developer conference with industry experts<br/>
-      presenting on exciting topics including mobile, web, cloud, virtual reality, machine learning, and much more!
+      <strong>Google Developer Group DevFests</strong> are the largest Google related events in the world! Each DevFest is carefully
+      crafted for you by your local GDG community to bring in awesome speakers, great topics, and lots fun! While no two events
+      will be exactly alike, each GDG DevFest will, at its core, be powered by a shared belief that when developers come together
+      to exchange ideas, amazing things&nbsp;can&nbsp;happen!
     </p>
     <p>
-      A full-day conference featuring awesome world-class speakers from technology leaders<br/>
-      within the community as well as Google product team&nbsp;developers.
+      <strong>{{ (siteConfig | async)?.eventName }}</strong> is a 100% community organized full-day developer conference featuring awesome
+      world-class speakers from technology leaders within the community as well as Google product team&nbsp;developers.
     </p>
   </section>
   <!--Section: About-->
@@ -67,51 +69,51 @@
   </section>
   <!--Section: Featured Speakers-->
 
-  <div class="divider-new" id="the-venue">
+  <div class="divider-new" id="the-venue" *ngIf="(siteConfig | async)?.venueName">
     <h2 class="h2-responsive">The Venue</h2>
   </div>
 
   <!--Section: The Venue-->
-  <section>
+  <section *ngIf="(siteConfig | async)?.venueName">
     <div class="row">
       <div class="col-md-5">
-        <h2 class="h2-responsive">{{ (siteConfig | async)?.venueName || 'Googleplex' }}</h2>
+        <h2 class="h2-responsive">{{ (siteConfig | async)?.venueName }}</h2>
         <hr>
-        <p [innerHTML]="((siteConfig | async)?.venueDescription || tempDesc)"></p>
+        <p [innerHTML]="((siteConfig | async)?.venueDescription)"></p>
       </div>
       <div class="col-md-7">
         <div class="card">
-          <img style="max-height: 450px;" *ngIf="!(siteConfig | async)?.venuePhoto" src="../../assets/img/Googleplex.jpg" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
-          <img style="max-height: 450px;" *ngIf="(siteConfig | async)?.venuePhoto" [src]="(siteConfig | async)?.venuePhoto" alt="{{ (siteConfig | async)?.venueName || 'Googleplex' }}" title="{{ (siteConfig | async)?.venueName || 'Googleplex' }}"/>
+          <img class="venue-photo" *ngIf="(siteConfig | async)?.venuePhoto" [src]="(siteConfig | async)?.venuePhoto" alt="{{ (siteConfig | async)?.venueName }}" title="{{ (siteConfig | async)?.venueName }}"/>
         </div>
       </div>
     </div>
   </section>
   <!--/Section: The Venue-->
 
-  <div class="divider-new">
+  <div class="divider-new" *ngIf="(siteConfig | async)?.venueGeoData">
     <h2 class="h2-responsive">Location</h2>
   </div>
 
   <!--Section: Location-->
-  <section id="location pb-5">
+  <section id="location pb-5" *ngIf="(siteConfig | async)?.venueGeoData">
     <div class="row">
       <div class="col-md-9 mb-5">
         <div id="map-container" class="z-depth-1" style="height: 300px">
-          <agm-map style="height: 300px" [latitude]="( (siteConfig | async)?.venueGeoData?.lat || 37.421655 )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng || -122.085637 )" [scrollwheel]="false" [zoom]="18">
-            <agm-marker [latitude]="( (siteConfig | async)?.venueGeoData?.lat || 37.421655 )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng || -122.085637 )"></agm-marker>
+          <agm-map style="height: 300px" [latitude]="( (siteConfig | async)?.venueGeoData?.lat )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng )" [scrollwheel]="false" [zoom]="18">
+            <agm-marker [latitude]="( (siteConfig | async)?.venueGeoData?.lat )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng )"></agm-marker>
           </agm-map>
         </div>
       </div>
       <div class="col-md-3">
-        <a href="https://www.google.com/maps/search/?api=1&query={{ (siteConfig | async)?.venueAddress || '1600 Amphitheatre Pkwy, Mountain View, CA 94043' }}" target="_blank">
-          <div class="card blue-grey lighten-5 text-center z-depth-2" style="height: 300px; line-height: 250px; cursor: pointer;">
+        <a href="https://www.google.com/maps/search/?api=1&query={{ (siteConfig | async)?.venueAddress }}" target="_blank">
+          <div class="card location-card blue-grey lighten-5 text-center z-depth-2">
             <div class="card-body">
-              <p class="col text-center mb-0" style="display: inline-block; vertical-align: middle; line-height: normal;">
+              <p class="col text-center mb-0">
                 <i class="fa fa-map-marker fa-lg"></i><br/>
-                <strong>{{ (siteConfig | async)?.venueName || 'Googleplex' }}</strong><br/>
-                {{ (siteConfig | async)?.venueAddress || '1600 Amphitheatre Pkwy, Mountain View, CA 94043' }}
+                <strong>{{ (siteConfig | async)?.venueName }}</strong><br/>
+                {{ (siteConfig | async)?.venueAddress }}
               </p>
+              <img src="./../../assets/img/marker.png"/>
             </div>
           </div>
         </a>
@@ -134,7 +136,7 @@
             <h6>{{ ticket.name }}</h6>
           </div>
           <div class="card-body">
-            <p class="card-text text-center">
+            <div class="card-text text-center">
               <span *ngIf="ticket.description1">
                 <i class="fa fa-check"></i>&nbsp;<span [innerHTML]="ticket.description1"></span>
                 <hr style="width: 60%;" />
@@ -165,9 +167,10 @@
               <span *ngIf="!ticket.description4">
                 &nbsp;
               </span>
-              <br>
-              <a class="btn btn-primary waves-light" [href]="(siteConfig | async)?.ticketURL" class="btn btn-primary btn-lg" target="_blank">Buy Ticket</a>
-            </p>
+              <div class="text-center ticket-button">
+                <button type="button" class="btn btn-primary waves-light" [href]="(siteConfig | async)?.ticketURL">Buy Ticket</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

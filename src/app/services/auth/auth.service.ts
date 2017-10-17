@@ -16,15 +16,7 @@ export class AuthService {
   }
 
   userLogin(): firebase.Promise<any> {
-    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then(response => {
-        this.afDatabase.object(`/userProfile/${response.user.uid}/`).update({
-          displayName: response.user.displayName,
-          email: response.user.email,
-          photoURL: response.user.photoURL,
-          provider: 'Google'
-        });
-      });
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   getProfile() {

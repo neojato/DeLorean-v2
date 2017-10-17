@@ -1,0 +1,149 @@
+@import "./_variables.scss";
+
+/* TEMPLATE STYLES */
+
+.gplus-ic{color:$google!important}
+.gplus-ic:focus,.gplus-ic:hover{color:$google}
+
+.fb-ic{color:$facebook!important}
+.fb-ic:focus,.fb-ic:hover{color:$facebook}
+
+.tw-ic{color:$twitter!important}
+.tw-ic:focus,.tw-ic:hover{color:$twitter}
+
+.li-ic{color:$linkedin!important}
+.li-ic:focus,.li-ic:hover{color:$linkedin}
+
+.git-ic{color:$github!important}
+.git-ic:focus,.git-ic:hover{color:$github}
+
+.email-ic{color:$email!important}
+.email-ic:focus,.email-ic:hover{color:$email}
+
+.between-sections {
+  padding-top: 55px;
+}
+
+.flex-center {
+  color: $white-text;
+}
+
+.hm-black-strong .mask, .hm-black-strong .full-bg-img {
+  background-color: rgba(0,0,0,0.5)!important;
+}
+
+.text-center {
+  text-align: center!important;
+}
+
+.section .section-heading {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+.section-heading {
+  text-align: center;
+}
+@media only screen and (min-width: 1200px) {
+  .h1-responsive, .section .section-heading, .section-heading h1 {
+    font-size: 250%;
+  }
+}
+
+#toast-container>div, .author-box, .btn, .btn-floating, .card, .card-cascade-2 .card-block, .card-cascade.wider .card-block, .card-wrapper .back, .card-wrapper .front, .chip, .dropdown-content, .dropdown-menu, .jumbotron, .list-group, .navbar, .pager li a, .pagination .active .page-link, .popover, .pricing-card .price .version, .side-nav, .social-list, .tag, .z-depth-1 {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.alert, .author-box, .breadcrumb, .card, .card .card-header, .dropdown-menu, .file-custom, .input-group-addon, .jumbotron, .list-group .list-group-item, .modal-content, .nav .nav-link, .nav-tabs, .navbar, .navbar-toggler, .page-item:first-child .page-link, .page-item:last-child .page-link, .pagination-lg .page-item:first-child .page-link, .pagination-lg .page-item:last-child .page-link, .pagination-sm .page-item:first-child .page-link, .pagination-sm .page-item:last-child .page-link, .popover, .tag, .tooltip-inner, img {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.author-box, .jumbotron {
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.author-box {
+  padding: 3rem;
+}
+
+.icons-sm {
+  padding:.5rem;
+  margin:.5rem;
+  font-size:1.2rem;
+}
+
+.section.team-section .avatar ul{
+  list-style-type:none;
+  padding:0;
+  text-align:center;
+}
+
+.section.team-section .avatar{
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  -webkit-justify-content:center;
+  -ms-flex-pack:center;
+  justify-content:center;
+  -webkit-box-align:center;
+  -webkit-align-items:center;
+  -ms-flex-align:center;
+  align-items:center;
+  height:100%;
+}
+
+.section.team-section .avatar p {
+  margin:0;
+}
+
+.section.team-section .avatar ul li {
+  margin-bottom:1rem;
+}
+
+.section.team-section .avatar {
+  margin-bottom:2rem;
+  height:auto;
+}
+
+.section.team-section .avatar .rounded-circle {
+  max-width:170px;
+}
+
+.section.team-section .avatar img {
+  max-width:200px;
+  height:auto
+}
+
+.section.team-section .title-color {
+  font-weight:400;
+  color:rgba(189, 61, 61, 0.6);
+}
+
+.section.team-section h4,
+.section.team-section h5 {
+  margin-bottom:1rem;
+}
+
+.section.team-section .grey-text {
+  color:$grey-text!important;
+}
+
+.sponsors {
+  text-align: center;
+  padding-bottom: 45px;
+}
+
+.sponsor-img {
+  border: 0;
+  vertical-align: middle;
+  display: inline-block;
+  width: 256px;
+  max-height: 100%;  /* <-- Set maximum height to 100% of its parent */
+  max-width: 100%;   /* <-- Set maximum width to 100% of its parent */
+}
