@@ -14,7 +14,7 @@
           <div class="md-form">
             <i class="fa fa-users prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.groupName" name="groupName" #groupName="ngModel" id="groupName" class="form-control" required>
-            <label for="groupName" [class.active]="siteConfig.groupName && siteConfig.groupName.length > 0">GDG Name:</label>
+            <label for="groupName" [class.active]="siteConfig.groupName && siteConfig.groupName.length > 0">GDG Name: <small>(required)</small></label>
             <div *ngIf="groupName.invalid && (groupName.dirty || groupName.touched)" class="text-danger">
               <div *ngIf="groupName.errors.required">
                 GDG Name is required.
@@ -24,7 +24,7 @@
           <div class="md-form">
             <i class="fa fa-link prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.groupWebsite" name="groupWebsite" #groupWebsite="ngModel" id="groupWebsite" class="form-control" required>
-            <label for="groupWebsite" [class.active]="siteConfig.groupWebsite && siteConfig.groupWebsite.length > 0">GDG Website URL:</label>
+            <label for="groupWebsite" [class.active]="siteConfig.groupWebsite && siteConfig.groupWebsite.length > 0">GDG Website URL: <small>(required)</small></label>
             <div *ngIf="groupWebsite.invalid && (groupWebsite.dirty || groupWebsite.touched)" class="text-danger">
               <div *ngIf="groupWebsite.errors.required">
                 GDG Website URL is required.
@@ -64,7 +64,7 @@
           <div class="md-form">
             <i class="fa fa-google prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventName" name="eventName" #eventName="ngModel" id="eventName" class="form-control" required>
-            <label for="eventName" [class.active]="siteConfig.eventName && siteConfig.eventName.length > 0">DevFest Name: <em>(ex. DevFest KC 2018)</em></label>
+            <label for="eventName" [class.active]="siteConfig.eventName && siteConfig.eventName.length > 0">DevFest Name: <em>(ex. DevFest KC 2018)</em> <small>(required)</small></label>
             <div *ngIf="eventName.invalid && (eventName.dirty || eventName.touched)" class="text-danger">
               <div *ngIf="eventName.errors.required">
                 DevFest Name is required.
@@ -74,7 +74,7 @@
           <div class="md-form">
             <i class="fa fa-calendar prefix grey-text"></i>
             <input type="date" [(ngModel)]="siteConfig.eventDate" name="eventDate" #eventDate="ngModel" id="eventDate" placeholder="" class="form-control" required>
-            <label class="active" for="eventDate">DevFest Date:</label>
+            <label class="active" for="eventDate">DevFest Date: <small>(required)</small></label>
             <div *ngIf="eventDate.invalid && (eventDate.dirty || eventDate.touched)" class="text-danger">
               <div *ngIf="eventDate.errors.required">
                 DevFest Date is required.
@@ -84,7 +84,7 @@
           <div class="md-form">
             <i class="fa fa-globe prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventLink" name="eventLink" #eventLink="ngModel" id="eventLink" class="form-control" required>
-            <label for="eventLink" [class.active]="siteConfig.eventLink && siteConfig.eventLink.length > 0">DevFest Website URL:</label>
+            <label for="eventLink" [class.active]="siteConfig.eventLink && siteConfig.eventLink.length > 0">DevFest Website URL: <small>(required)</small></label>
             <div *ngIf="eventLink.invalid && (eventLink.dirty || eventLink.touched)" class="text-danger">
               <div *ngIf="eventLink.errors.required">
                 DevFest Website URL is required.
@@ -94,7 +94,7 @@
           <div class="md-form">
             <i class="fa fa-envelope prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventEmail" name="eventEmail" #eventEmail="ngModel" id="eventEmail" class="form-control" required>
-            <label for="eventEmail" [class.active]="siteConfig.eventEmail && siteConfig.eventEmail.length > 0">DevFest Email Address:</label>
+            <label for="eventEmail" [class.active]="siteConfig.eventEmail && siteConfig.eventEmail.length > 0">DevFest Email Address: <small>(required)</small></label>
             <div *ngIf="eventEmail.invalid && (eventEmail.dirty || eventEmail.touched)" class="text-danger">
               <div *ngIf="eventEmail.errors.required">
                 DevFest Email Address is required.
@@ -119,7 +119,7 @@
           <div class="md-form">
             <i class="fa fa-ticket prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.ticketURL" name="ticketURL" #ticketURL="ngModel" id="ticketURL" class="form-control" required>
-            <label for="ticketURL" [class.active]="siteConfig.ticketURL && siteConfig.ticketURL.length > 0">Purchase Ticket URL:</label>
+            <label for="ticketURL" [class.active]="siteConfig.ticketURL && siteConfig.ticketURL.length > 0">Purchase Ticket URL: <small>(required)</small></label>
             <div *ngIf="ticketURL.invalid && (ticketURL.dirty || ticketURL.touched)" class="text-danger">
               <div *ngIf="ticketURL.errors.required">
                 DevFest Ticket URL is required.
