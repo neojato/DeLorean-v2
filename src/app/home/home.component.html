@@ -187,7 +187,7 @@
   <section class="section" *ngIf="(sponsors | async)?.length > 0">
     <div class="col sponsors">
       <h4>We partner with some of the<br/>world's most innovative brands.</h4>
-      <a class="btn btn-primary waves-light" [href]="(siteConfig | async)?.sponsorURL" target="_blank">Become a Sponsor</a>
+      <a *ngIf="(siteConfig | async)?.sponsorURL" class="btn btn-primary waves-light" [href]="(siteConfig | async)?.sponsorURL" target="_blank">Become a Sponsor</a>
     </div>
     <div class="col sponsors" *ngFor="let level of levels | async">
       <h3 style="font-weight: bold;">
