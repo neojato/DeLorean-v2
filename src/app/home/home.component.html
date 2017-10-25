@@ -63,7 +63,7 @@
           <img *ngIf="speaker.photoURL" [src]="speaker.photoURL" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
         </div>
         <h4><span [innerHTML]="speaker.name"></span></h4>
-        <h6><span [innerHTML]="speaker.title"></span><br/><strong>@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
+        <h6><span [innerHTML]="speaker.title"></span><br/><strong *ngIf="speaker.company">@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
       </div>
     </div>
   </section>
