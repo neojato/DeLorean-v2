@@ -118,7 +118,7 @@ Please let me know if you used this template and will get you added to the list!
 
 | Name | Name | Name |
 |------|------|------|
-| [GDG Kanasas City](https://devfestkc.com) |     |     |
+| [DevFest KC](https://devfestkc.com) | [DevFest Muncie](https://devfestmuncie.firebaseapp.com) | [Windy City DevFest](https://windycity.devfest.io) |
 
 ### License
 
