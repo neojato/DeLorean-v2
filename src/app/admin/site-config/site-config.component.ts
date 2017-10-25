@@ -38,7 +38,7 @@ export class SiteConfigComponent implements OnInit {
     if (
       this.siteConfig.groupName && this.siteConfig.groupWebsite
       && this.siteConfig.eventName && this.siteConfig.eventDate
-      && this.siteConfig.eventEmail && this.siteConfig.eventLink
+      && this.siteConfig.eventEmail && this.siteConfig.eventLink && this.siteConfig.ticketURL
     ) {
       this.siteConfigService.createConfig(this.siteConfig, photo);
 
@@ -74,11 +74,10 @@ export class SiteConfigComponent implements OnInit {
       photo = selectedFile;
     }
 
-
     if (
       this.siteConfig.groupName && this.siteConfig.groupWebsite
       && this.siteConfig.eventName && this.siteConfig.eventDate
-      && this.siteConfig.eventEmail && this.siteConfig.eventLink
+      && this.siteConfig.eventEmail && this.siteConfig.eventLink && this.siteConfig.ticketURL
     ) {
       this.siteConfigService.updateConfig(this.siteConfig, photo);
 
@@ -104,7 +103,7 @@ export class SiteConfigComponent implements OnInit {
       this.siteConfig = new SiteConfig();
       this.router.navigate(['/']);
     } else {
-      alert('Please fill out the required fields.');
+      alert('Please fill out all the required fields.');
     }
   }
 
