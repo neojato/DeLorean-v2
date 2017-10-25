@@ -2,8 +2,8 @@ import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
 import { SpeakerService } from './../shared/speaker.service';
 import { Speaker } from './../shared/speaker';
-import { FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-speaker-list',
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./speaker-list.component.scss']
 })
 export class SpeakerListComponent implements OnInit {
-  public speakers: FirebaseListObservable<Speaker[]>;
+  public speakers: Observable<Speaker[]>;
 
   constructor(
     private speakerService: SpeakerService,
@@ -20,7 +20,7 @@ export class SpeakerListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.speakers = this.speakerService.getSpeakerList({ orderByChild: 'name' });
+    this.speakers = this.speakerService.getSpeakerList();
   }
 
   isLoggedIn() {

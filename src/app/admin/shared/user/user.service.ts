@@ -1,28 +1,26 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
   private basePath = '/userProfile';
-  users: FirebaseListObservable<any[]> = null;
+
+  usersRef: AngularFireList<any[]> = null;
+  users: Observable<any[]> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getUserList(offset, startKey?): FirebaseListObservable<any[]> {
-    this.users = this.db.list(this.basePath, {
-      query: {
-        orderByKey: true,
-        startAt: startKey,
-        limitToFirst: offset + 1
-      }
-    });
-    return this.users;
+  getUserList(offset, startKey?): Observable<any[]> {
+    // ref.orderByKey(true).startAt(startKey).limitToFirst((offset + 1))
+    this.usersRef = this.db.list(this.basePath);
+    return this.users = this.usersRef.valueChanges();
   }
 
   isAdmin(key: string) {
     let isAdmin: boolean;
-    this.db.object(`/admins/${key}`).subscribe(snapshot => {
-      isAdmin = snapshot.$value;
+    this.db.object(`/admins/${key}`).snapshotChanges().subscribe(snapshot => {
+      isAdmin = snapshot.payload.val();
     });
     return isAdmin;
   }

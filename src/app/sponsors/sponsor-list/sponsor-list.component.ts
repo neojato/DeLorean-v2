@@ -4,11 +4,11 @@ import { LevelService } from './../shared/level.service';
 import { SponsorService } from './../shared/sponsor.service';
 import { Sponsor } from './../shared/sponsor';
 import { Level } from './../shared/level';
-import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
 import { SiteConfig } from './../../admin/shared/site-config/site-config';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-sponsor-list',
@@ -17,10 +17,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   providers: [ModalDirective]
 })
 export class SponsorListComponent implements OnInit {
-  public sponsors: FirebaseListObservable<Sponsor[]>;
-  public levels: FirebaseListObservable<Level[]>;
+  public sponsors: Observable<Sponsor[]>;
+  public levels: Observable<Level[]>;
   level: Level = new Level();
-  siteConfig: FirebaseObjectObservable<SiteConfig>;
+  siteConfig: Observable<SiteConfig>;
 
   @ViewChild('levelModal') public levelModal: ModalDirective;
 
@@ -34,7 +34,7 @@ export class SponsorListComponent implements OnInit {
 
   ngOnInit() {
     this.sponsors = this.sponsorService.getSponsorList();
-    this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
+    this.levels = this.levelService.getLevelList();
     this.siteConfig = this.siteConfigService.getConfig();
   }
 

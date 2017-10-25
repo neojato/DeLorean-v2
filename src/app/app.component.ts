@@ -1,9 +1,9 @@
 import { SiteConfigService } from './admin/shared/site-config/site-config.service';
-import { FirebaseObjectObservable } from 'angularfire2/database';
 import { SiteConfig } from './admin/shared/site-config/site-config';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
@@ -17,7 +17,7 @@ declare let ga: Function;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  siteConfig: FirebaseObjectObservable<SiteConfig>;
+  siteConfig: Observable<SiteConfig>;
   eventName: string;
 
   constructor(

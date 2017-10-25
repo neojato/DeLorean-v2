@@ -1,46 +1,42 @@
 import { Session } from './session';
 import { firebaseConfig } from './../../../environments/firebase.config';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SessionService {
   private basePath: string = firebaseConfig.devfestYear + '/sessions';
-  sessions: FirebaseListObservable<Session[]> = null;
-  session: FirebaseObjectObservable<Session> = null;
+
+  sessionsRef: AngularFireList<Session[]> = null;
+  sessions: Observable<Session[]> = null;
+
+  sessionRef: AngularFireObject<Session> = null;
+  session: Observable<Session> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getSessionList(query = {}): FirebaseListObservable<Session[]> {
-    this.sessions = this.db.list(this.basePath, {
-      query: query
-    });
-    return this.sessions;
+  getSessionList(): Observable<Session[]> {
+    this.sessionsRef = this.db.list(this.basePath);
+    return this.sessions = this.sessionsRef.valueChanges();
   }
 
-  getSession(key: string): FirebaseObjectObservable<Session> {
+  getSession(key: string): Observable<Session> {
     const path = `${this.basePath}/${key}`;
-    this.session = this.db.object(path);
-    return this.session;
+    this.sessionRef = this.db.object(path);
+    return this.session = this.sessionRef.valueChanges();
   }
 
-  createSession(session: Session): void {
-    this.sessions.push(session)
-      .catch(error => this.handleError(error));
+  createSession(session): void {
+    this.sessionsRef.push(session);
   }
 
   updateSession(key: string, value: any): void {
-    this.sessions.update(key, value)
-      .catch(error => this.handleError(error));
+    this.sessionsRef.update(key, value);
   }
 
   deleteSession(key: string): void {
-    this.sessions.remove(key)
-      .catch(error => this.handleError(error));
-  }
-
-  private handleError(error) {
-    console.error(error);
+    this.sessionsRef.remove(key);
   }
 
 }

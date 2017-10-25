@@ -1,39 +1,47 @@
 import { Injectable } from '@angular/core';
 import { Speaker } from './speaker';
 import { firebaseConfig } from './../../../environments/firebase.config';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SpeakerService {
   private basePath: string = firebaseConfig.devfestYear + '/speakers';
-  private speakers: FirebaseListObservable<Speaker[]> = null;
-  private speaker: FirebaseObjectObservable<Speaker> = null;
   private firebaseStorage: any;
+
+  speakersRef: AngularFireList<Speaker[]> = null;
+  speakers: Observable<Speaker[]> = null;
+
+  speakerRef: AngularFireObject<Speaker> = null;
+  speaker: Observable<Speaker> = null;
 
   constructor(private db: AngularFireDatabase) {
     this.firebaseStorage = firebase.storage();
   }
 
-  getSpeakerList(query = {}): FirebaseListObservable<Speaker[]> {
-    this.speakers = this.db.list(this.basePath, {
-      query: query
-    });
-    return this.speakers;
+  getSpeakerList(): Observable<Speaker[]> {
+    this.speakersRef = this.db.list(this.basePath, ref => ref.orderByChild('name'));
+    return this.speakers = this.speakersRef.valueChanges();
   }
 
-  getSpeaker(key: string): FirebaseObjectObservable<Speaker> {
+  getFeaturedSpeakerList(): Observable<Speaker[]> {
+    this.speakersRef = this.db.list(this.basePath, ref => ref.orderByChild('featured').equalTo(true));
+    return this.speakers = this.speakersRef.valueChanges();
+  }
+
+  getSpeaker(key: string): Observable<Speaker> {
     const path = `${this.basePath}/${key}`;
-    this.speaker = this.db.object(path);
-    return this.speaker;
+    this.speakerRef = this.db.object(path);
+    return this.speaker = this.speakerRef.valueChanges();
   }
 
   getSpeakerName(key: string): any {
     const path = `${this.basePath}/${key}/name`;
     let speakerName: string;
-    this.db.object(path).subscribe(snapshot => {
-      speakerName = snapshot.$value;
+    this.db.object(path).snapshotChanges().subscribe(snapshot => {
+      speakerName = snapshot.payload.val();
     });
     return speakerName;
   }
@@ -64,15 +72,10 @@ export class SpeakerService {
   }
 
   deleteSpeaker(key: string): void {
-    this.speakers.remove(key)
+    this.speakersRef.remove(key)
       .then(onResolve => {
         this.firebaseStorage.ref(this.basePath + `/${key}`).delete();
-      })
-      .catch(error => this.handleError(error));
-  }
-
-  private handleError(error) {
-    console.error(error);
+      });
   }
 
 }

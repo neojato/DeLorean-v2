@@ -5,9 +5,9 @@ import { AuthService } from './../../services/auth/auth.service';
 import { SessionService } from './../shared/session.service';
 import { Session } from './../shared/session';
 import { Section } from './../shared/section';
-import { FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md/modals';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-session-list',
@@ -16,8 +16,8 @@ import { ModalDirective } from 'angular-bootstrap-md/modals';
   providers: [ModalDirective]
 })
 export class SessionListComponent implements OnInit {
-  public sessions: FirebaseListObservable<Session[]>;
-  public sections: FirebaseListObservable<Section[]>;
+  public sessions: Observable<Session[]>;
+  public sections: Observable<Section[]>;
   section: Section = new Section();
 
   @ViewChild('sectionModal') public sectionModal: ModalDirective;

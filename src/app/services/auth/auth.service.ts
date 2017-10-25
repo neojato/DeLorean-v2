@@ -15,7 +15,7 @@ export class AuthService {
     });
   }
 
-  userLogin(): firebase.Promise<any> {
+  userLogin(): Promise<any> {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
@@ -27,15 +27,15 @@ export class AuthService {
     return !!(this.userId !== null);
   }
 
-  userLogout(): firebase.Promise<void> {
+  userLogout(): Promise<void> {
     this.userId = null;
     return this.afAuth.auth.signOut();
   }
 
   isAdmin() {
     let isAdmin: boolean;
-    this.afDatabase.object(`/admins/${this.userId}`).subscribe(snapshot => {
-      isAdmin = snapshot.$value;
+    this.afDatabase.object(`/admins/${this.userId}`).snapshotChanges().subscribe(snapshot => {
+      isAdmin = snapshot.payload.val();
     });
     return isAdmin;
   }

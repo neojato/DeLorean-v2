@@ -6,8 +6,8 @@ import { SectionService } from './../shared/section.service';
 import { SessionService } from './../shared/session.service';
 import { Session } from './../shared/session';
 import { Section } from './../shared/section';
-import { FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-my-schedule',
@@ -15,9 +15,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-schedule.component.scss']
 })
 export class MyScheduleComponent implements OnInit {
-  public sessions: FirebaseListObservable<Session[]>;
-  public sections: FirebaseListObservable<Section[]>;
-  public mySessions: FirebaseListObservable<any>;
+  public sessions: Observable<Session[]>;
+  public sections: Observable<Section[]>;
+  public mySessions: Observable<any>;
 
   constructor(
     private sessionService: SessionService,

@@ -1,40 +1,34 @@
 import { Section } from './section';
 import { Injectable } from '@angular/core';
 import { firebaseConfig } from './../../../environments/firebase.config';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SectionService {
-  sections: FirebaseListObservable<Section[]> = null;
+  sectionsRef: AngularFireList<Section[]> = null;
+  sections: Observable<Section[]> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getSectionList(year?, query = {}): FirebaseListObservable<Section[]> {
-    this.sections = this.listPath(year, { query: query });
+  getSectionList(year?): Observable<Section[]> {
+    this.sections = this.listPath(year).valueChanges();
     return this.sections;
   }
 
-  createSection(section: Section): void {
-    const list = this.listPath();
-    list.push(section)
-      .catch(error => this.handleError(error));
+  createSection(section): void {
+    this.sectionsRef.push(section);
   }
 
   deleteSection(key: string): void {
-    const list = this.listPath();
-    list.remove(key)
-      .catch(error => this.handleError(error));
+    this.sectionsRef.remove(key);
   }
 
-  private handleError(error) {
-    console.error(error);
-  }
-
-  private listPath(year?: string|number, query?) {
+  private listPath(year?: string|number) {
     if (!year) {
         year = firebaseConfig.devfestYear;
     }
-    return this.db.list(`${year}/sections`, query);
+    return this.sectionsRef = this.db.list(`${year}/sections`);
   }
 
 }

@@ -1,5 +1,5 @@
 import { UserService } from './../shared/user/user.service';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireList } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 
@@ -9,7 +9,7 @@ import * as _ from 'lodash';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  public users: FirebaseListObservable<any[]>;
+  public users: AngularFireList<any[]>;
   nextKey: any;
   prevKeys: any[] = [];
   subscription: any;

@@ -1,32 +1,35 @@
 import { Sponsor } from './sponsor';
-import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
 import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SponsorService {
   private basePath: string = firebaseConfig.devfestYear + '/sponsors';
-  private sponsors: FirebaseListObservable<Sponsor[]> = null;
-  private sponsor: FirebaseObjectObservable<Sponsor> = null;
   private firebaseStorage: any;
+
+  sponsorsRef: AngularFireList<Sponsor[]> = null;
+  sponsors: Observable<Sponsor[]> = null;
+
+  sponsorRef: AngularFireObject<Sponsor> = null;
+  sponsor: Observable<Sponsor> = null;
 
   constructor(private db: AngularFireDatabase) {
     this.firebaseStorage = firebase.storage();
   }
 
-  getSponsorList(query = {}): FirebaseListObservable<Sponsor[]> {
-    this.sponsors = this.db.list(this.basePath, {
-      query: query
-    });
-    return this.sponsors;
+  getSponsorList(): Observable<Sponsor[]> {
+    this.sponsorsRef = this.db.list(this.basePath);
+    return this.sponsors = this.sponsorsRef.valueChanges();
   }
 
-  getSponsor(key: string): FirebaseObjectObservable<Sponsor> {
+  getSponsor(key: string): Observable<Sponsor> {
     const path = `${this.basePath}/${key}`;
-    this.sponsor = this.db.object(path);
-    return this.sponsor;
+    this.sponsorRef = this.db.object(path);
+    return this.sponsor = this.sponsorRef.valueChanges();
   }
 
   createSponsor(sponsor: Sponsor, file?: File): void {
@@ -53,15 +56,10 @@ export class SponsorService {
   }
 
   deleteSponsor(key: string): void {
-    this.sponsors.remove(key)
+    this.sponsorsRef.remove(key)
       .then(onResolve => {
         this.firebaseStorage.ref(this.basePath + `/${key}`).delete();
-      })
-      .catch(error => this.handleError(error));
-  }
-
-  private handleError(error) {
-    console.error(error);
+      });
   }
 
 }

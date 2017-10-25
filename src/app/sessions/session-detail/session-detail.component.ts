@@ -1,5 +1,4 @@
 import { ScheduleService } from './../shared/schedule.service';
-import { FirebaseObjectObservable } from 'angularfire2/database';
 import { SiteConfig } from './../../admin/shared/site-config/site-config';
 import { SiteConfigService } from './../../admin/shared/site-config/site-config.service';
 import { Title } from '@angular/platform-browser';
@@ -10,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Speaker } from '../../speakers/shared/speaker';
 import { Session } from '../../sessions/shared/session';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-session-detail',
@@ -20,9 +20,9 @@ export class SessionDetailComponent implements OnInit {
   session: Session = new Session();
   profiles: any[];
   speaker: Speaker;
-  siteConfig: FirebaseObjectObservable<SiteConfig>;
+  siteConfig: Observable<SiteConfig>;
   eventName: string;
-  mySchedule: FirebaseObjectObservable<any>;
+  mySchedule: Observable<any>;
 
   constructor(
     private router: Router,
@@ -95,7 +95,7 @@ export class SessionDetailComponent implements OnInit {
   }
 
   addToSchedule() {
-    this.mySchedule.set({
+    this.scheduleService.saveScheduleSession(this.authService.userId, {
       id: this.session.$key,
       title: this.session.title,
       time: this.session.time,
@@ -108,7 +108,7 @@ export class SessionDetailComponent implements OnInit {
   }
 
   removeFromSchedule() {
-    this.mySchedule.remove();
+    this.scheduleService.removeScheduleSession(this.authService.userId, this.session.$key);
   }
 
 }
