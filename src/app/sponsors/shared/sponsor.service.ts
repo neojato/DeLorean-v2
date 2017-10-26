@@ -1,5 +1,5 @@
 import { Sponsor } from './sponsor';
-import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';

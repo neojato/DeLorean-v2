@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import * as firebase from 'firebase/app';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class AuthService {
     });
   }
 
-  userLogin(): firebase.Promise<any> {
+  userLogin(): Promise<any> {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
@@ -27,7 +27,7 @@ export class AuthService {
     return !!(this.userId !== null);
   }
 
-  userLogout(): firebase.Promise<void> {
+  userLogout(): Promise<void> {
     this.userId = null;
     return this.afAuth.auth.signOut();
   }

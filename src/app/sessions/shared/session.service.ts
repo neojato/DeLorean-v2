@@ -1,6 +1,6 @@
 import { Session } from './session';
 import { firebaseConfig } from './../../../environments/firebase.config';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -25,22 +25,15 @@ export class SessionService {
   }
 
   createSession(session: Session): void {
-    this.sessions.push(session)
-      .catch(error => this.handleError(error));
+    this.sessions.push(session);
   }
 
   updateSession(key: string, value: any): void {
-    this.sessions.update(key, value)
-      .catch(error => this.handleError(error));
+    this.sessions.update(key, value);
   }
 
   deleteSession(key: string): void {
-    this.sessions.remove(key)
-      .catch(error => this.handleError(error));
-  }
-
-  private handleError(error) {
-    console.error(error);
+    this.sessions.remove(key);
   }
 
 }

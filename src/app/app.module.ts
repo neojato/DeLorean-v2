@@ -24,7 +24,7 @@ import { routerConfig } from './router.config';
 
 import { firebaseConfig } from '../environments/firebase.config';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AgmCoreModule } from '@agm/core';
 

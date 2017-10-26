@@ -1,5 +1,5 @@
 import { SiteConfigService } from './../admin/shared/site-config/site-config.service';
-import { FirebaseObjectObservable } from 'angularfire2/database';
+import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { SiteConfig } from './../admin/shared/site-config/site-config';
 import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';

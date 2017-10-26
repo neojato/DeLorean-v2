@@ -1,5 +1,5 @@
 import { UserService } from './../shared/user/user.service';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 

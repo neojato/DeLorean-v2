@@ -1,5 +1,5 @@
 import { Level } from './level';
-import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 
@@ -18,17 +18,11 @@ export class LevelService {
   }
 
   createLevel(level: Level): void {
-    this.db.list(this.basePath).push(level)
-      .catch(error => this.handleError(error));
+    this.db.list(this.basePath).push(level);
   }
 
   deleteLevel(key: string): void {
-    this.db.list(this.basePath).remove(key)
-      .catch(error => this.handleError(error));
-  }
-
-  private handleError(error) {
-    console.error(error);
+    this.db.list(this.basePath).remove(key);
   }
 
 }

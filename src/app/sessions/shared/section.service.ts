@@ -1,7 +1,7 @@
 import { Section } from './section';
 import { Injectable } from '@angular/core';
 import { firebaseConfig } from './../../../environments/firebase.config';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 @Injectable()
 export class SectionService {
@@ -16,18 +16,12 @@ export class SectionService {
 
   createSection(section: Section): void {
     const list = this.listPath();
-    list.push(section)
-      .catch(error => this.handleError(error));
+    list.push(section);
   }
 
   deleteSection(key: string): void {
     const list = this.listPath();
-    list.remove(key)
-      .catch(error => this.handleError(error));
-  }
-
-  private handleError(error) {
-    console.error(error);
+    list.remove(key);
   }
 
   private listPath(year?: string|number, query?) {

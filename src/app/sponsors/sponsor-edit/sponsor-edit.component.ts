@@ -1,7 +1,7 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { SponsorService } from './../shared/sponsor.service';
 import { LevelService } from './../shared/level.service';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { Level } from './../shared/level';
 import { Sponsor } from './../shared/sponsor';
 import { Component, OnInit } from '@angular/core';

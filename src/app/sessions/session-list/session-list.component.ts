@@ -5,7 +5,7 @@ import { AuthService } from './../../services/auth/auth.service';
 import { SessionService } from './../shared/session.service';
 import { Session } from './../shared/session';
 import { Section } from './../shared/section';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md/modals';
 

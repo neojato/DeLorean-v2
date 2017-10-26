@@ -1,6 +1,6 @@
 import { AuthService } from './../../../services/auth/auth.service';
 import { SiteConfig } from './site-config';
-import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { firebaseConfig } from './../../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';

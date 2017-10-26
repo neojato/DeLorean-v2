@@ -1,4 +1,4 @@
-import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 

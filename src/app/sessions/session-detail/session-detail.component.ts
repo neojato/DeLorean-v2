@@ -1,5 +1,5 @@
 import { ScheduleService } from './../shared/schedule.service';
-import { FirebaseObjectObservable } from 'angularfire2/database';
+import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { SiteConfig } from './../../admin/shared/site-config/site-config';
 import { SiteConfigService } from './../../admin/shared/site-config/site-config.service';
 import { Title } from '@angular/platform-browser';

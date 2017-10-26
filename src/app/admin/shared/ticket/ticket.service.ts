@@ -1,5 +1,5 @@
 import { Ticket } from './ticket';
-import { FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database';
+import { FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { firebaseConfig } from './../../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 
@@ -25,22 +25,15 @@ export class TicketService {
   }
 
   createTicket(ticket: Ticket): void {
-    this.tickets.push(ticket)
-      .catch(error => this.handleError(error));
+    this.tickets.push(ticket);
   }
 
   updateTicket(key: string, value: any): void {
-    this.tickets.update(key, value)
-      .catch(error => this.handleError(error));
+    this.tickets.update(key, value);
   }
 
   deleteTicket(key: string): void {
-    this.tickets.remove(key)
-      .catch(error => this.handleError(error));
-  }
-
-  private handleError(error) {
-    console.error(error);
+    this.tickets.remove(key);
   }
 
 }
