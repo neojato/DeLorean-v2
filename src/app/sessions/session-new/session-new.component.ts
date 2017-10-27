@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { SessionService } from '../shared/session.service';
 import { Component, OnInit } from '@angular/core';
 import { Section } from './../shared/section';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 @Component({
   selector: 'app-session-new',

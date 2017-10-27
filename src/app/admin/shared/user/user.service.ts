@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 @Injectable()
 export class UserService {
@@ -8,9 +8,13 @@ export class UserService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getUserList(query = {}): FirebaseListObservable<any[]> {
+  getUserList(offset, startKey?): FirebaseListObservable<any[]> {
     this.users = this.db.list(this.basePath, {
-      query: query
+      query: {
+        orderByKey: true,
+        startAt: startKey,
+        limitToFirst: offset + 1
+      }
     });
     return this.users;
   }

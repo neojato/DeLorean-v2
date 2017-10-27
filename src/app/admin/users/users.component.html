@@ -1,27 +1,42 @@
 <top-menu></top-menu>
 
+<div class="between-sections"><br><br></div>
 <div class="container">
-  <section class="section">
+  <section class="section" style="padding-bottom: 45px;">
     <h1 class="section-heading">Users</h1>
     <div class="row">
       <section class="col-md-12">
-        <table class="table table-sm table-hover">
+        <table class="table table-sm table-hover table-bordered">
           <thead class="blue-grey lighten-4">
             <tr>
               <th class="text-center">#</th>
               <th>Display Name</th>
               <th>Email</th>
               <th>Is Admin?</th>
-              <th>Actions</th>
+              <th style="width: 20%;">Actions</th>
             </tr>
           </thead>
-          <tbody class="user-list">
-            <tr *ngFor="let user of (users | async); let i = index;">
+          <tbody>
+            <tr *ngFor="let user of users; let i = index;">
               <th class="text-center">{{ i+1 }}</th>
               <td>{{ user.displayName }}</td>
               <td>{{ user.email }}</td>
               <td>{{ isAdmin(user.$key) || 'false' }}</td>
               <td><button class="btn btn-sm btn-primary" (click)="updateUser(user.$key)"><i class="fa fa-refresh"></i> Toggle Access</button></td>
+            </tr>
+            <tr>
+              <td colspan="100%" class="blue-grey lighten-4">
+                <table class="pull-right">
+                  <tr>
+                    <td style="border: 0; padding: 0 15px;">
+                      <button (click)="prevPage()" [disabled]="!prevKeys?.length" title="Previous Page"><strong>&lt;</strong></button>
+                    </td>
+                    <td style="border: 0; padding: 0 15px;">
+                      <button (click)="nextPage()" [disabled]="!nextKey" title="Next Page"><strong>&gt;</strong></button>
+                    </td>
+                  </tr>
+                </table>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -29,3 +44,4 @@
     </div>
   </section>
 </div>
+<div class="between-sections"><br><br></div>

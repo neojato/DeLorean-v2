@@ -5,8 +5,8 @@ export const firebaseConfig = {
   projectId: '<PROJECT_ID>',
   storageBucket: '<BUCKET>.appspot.com',
   messagingSenderId: '<SENDER_ID>',
-  // Firebase node which your data will be stored
-  devfestYear: '<DEVFEST_NODE>',
+  // Firebase node which your data will be stored (ex. 2017)
+  devfestYear: '2017',
   // Your Google Maps API key
   mapsKey: '<MAPS_API_KEY>'
 };

@@ -4,7 +4,7 @@ import { LevelService } from './../shared/level.service';
 import { SponsorService } from './../shared/sponsor.service';
 import { Sponsor } from './../shared/sponsor';
 import { Level } from './../shared/level';
-import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
 import { SiteConfig } from './../../admin/shared/site-config/site-config';

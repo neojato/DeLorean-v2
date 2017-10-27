@@ -2,7 +2,7 @@ import { TicketService } from './../admin/shared/ticket/ticket.service';
 import { LevelService } from './../sponsors/shared/level.service';
 import { SponsorService } from './../sponsors/shared/sponsor.service';
 import { SiteConfigService } from './../admin/shared/site-config/site-config.service';
-import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { SpeakerService } from './../speakers/shared/speaker.service';
 import { Speaker } from './../speakers/shared/speaker';
 import { Sponsor } from './../sponsors/shared/sponsor';

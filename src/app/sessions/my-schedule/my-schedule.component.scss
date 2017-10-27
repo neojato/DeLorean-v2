@@ -1,0 +1,9 @@
+
+.session-link {
+  cursor: pointer;
+}
+
+/* Firefox table fix */
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}

@@ -1,4 +1,4 @@
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { LevelService } from './../shared/level.service';
 import { SponsorService } from './../shared/sponsor.service';
 import { Router } from '@angular/router';

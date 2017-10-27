@@ -1,4 +1,4 @@
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { TicketService } from './../../shared/ticket/ticket.service';
 import { Ticket } from './../../shared/ticket/ticket';
 import { Component, OnInit } from '@angular/core';

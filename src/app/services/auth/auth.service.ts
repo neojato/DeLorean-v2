@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import * as firebase from 'firebase/app';
 
 @Injectable()
@@ -15,16 +15,8 @@ export class AuthService {
     });
   }
 
-  userLogin(): firebase.Promise<any> {
-    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then(response => {
-        this.afDatabase.object(`/userProfile/${response.user.uid}/`).update({
-          displayName: response.user.displayName,
-          email: response.user.email,
-          photoURL: response.user.photoURL,
-          provider: 'Google'
-        });
-      });
+  userLogin(): Promise<any> {
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   getProfile() {
@@ -35,7 +27,7 @@ export class AuthService {
     return !!(this.userId !== null);
   }
 
-  userLogout(): firebase.Promise<void> {
+  userLogout(): Promise<void> {
     this.userId = null;
     return this.afAuth.auth.signOut();
   }

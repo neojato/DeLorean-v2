@@ -6,8 +6,10 @@
   <section class="section pb-3">
     <!--Section heading-->
     <h1 class="section-heading">Our Sponsors</h1>
-    <button class="btn btn-success" *ngIf="isLoggedIn() && isAdmin()" (click)="levelModal.show()">Create Level</button>
-    <button class="btn btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sponsors/new">Create Sponsor</button>
+    <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
+      <button class="btn btn-success" (click)="levelModal.show()">Create Level</button>
+      <button class="btn btn-primary" routerLink="/sponsors/new">Create Sponsor</button>
+    </div>
     <div class="col sponsors">
       <h4>We partner with some of the<br/>world's most innovative brands.</h4>
       <a class="btn btn-primary waves-light" [href]="(siteConfig | async)?.sponsorURL" target="_blank">Become a Sponsor</a>
