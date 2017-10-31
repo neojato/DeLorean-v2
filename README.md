@@ -112,6 +112,31 @@ Run `sh tools/deploy.sh` to generate an optimized production build and deploy th
 
 Congrats on launching your DevFest website!
 
+
+## - Maye Edwin
+## Context (Environment)
+<!--- How has this issue affected you? What are you trying to accomplish? -->
+<!--- Providing context helps us come up with a solution that is most useful in the real world -->
+
+<!--- Provide a general summary of the issue in the Title above -->
+
+## Firebase Config
+
+In your firebase console, go to database dashboard, click RULES, then make it this way;
+
+{
+  "rules": {
+    ".read": "auth != false",
+    ".write": "auth != false"
+  }
+}
+
+You will be DONE!
+
+ [Maye Edwin](https://github.com/mayeedwin)
+
+Cheers!
+
 ### Who uses the template?
 
 Please let me know if you used this template and will get you added to the list!
