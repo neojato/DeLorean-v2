@@ -16,11 +16,11 @@
               <strong>@&nbsp;{{ (siteConfig | async)?.venueName }}</strong>
             </p>
             <p class="lead mt-4 mb-5">
-              A 100% community organized developer conference with industry experts presenting on exciting topics!
+              The biggest Annual Tech conference in Eldoret carefully crafted for you.
             </p>
           </li>
           <li>
-            <a target="_blank" [href]="(siteConfig | async)?.ticketURL" class="btn btn-primary btn-lg" rel="nofollow">Reserve Your Seat</a>
+            <a target="_blank" [href]="(siteConfig | async)?.ticketURL" class="btn btn-primary btn-lg" rel="nofollow">Reserve your seat</a>
             <a *ngIf="(siteConfig | async)?.speakerURL" target="_blank" [href]="(siteConfig | async)?.speakerURL" class="btn btn-default btn-lg" rel="nofollow">Become A Speaker</a>
           </li>
         </ul>
@@ -32,21 +32,17 @@
 
 <div class="container">
   <div class="divider-new pt-5">
-    <h2 class="h2-responsive">About</h2>
+    <h2 class="h2-responsive">Eldoret Techweek</h2>
   </div>
 
   <!--Section: About-->
   <section id="about" class="text-center">
     <p>
-      <strong>Google Developer Group DevFests</strong> are the largest Google related events in the world! Each DevFest is carefully
-      crafted for you by your local GDG community to bring in awesome speakers, great topics, and lots fun! While no two events
-      will be exactly alike, each GDG DevFest will, at its core, be powered by a shared belief that when developers come together
-      to exchange ideas, amazing things&nbsp;can&nbsp;happen!
+      <strong>ETW</strong> is an annual tech, industry and enterprise meet up with an agenda of 
+      highlighting, and discussing challenges, seeking, 
+      creating and showcasing tailored solutions with the aim accelerating economic development.
     </p>
-    <p>
-      <strong>{{ (siteConfig | async)?.eventName }}</strong> is a 100% community organized full-day developer conference featuring awesome
-      world-class speakers from technology leaders within the community as well as Google product team&nbsp;developers.
-    </p>
+    
   </section>
   <!--Section: About-->
 
@@ -123,7 +119,7 @@
   <!--Section: Location-->
 
   <div class="divider-new pt-5" *ngIf="(tickets | async)?.length > 0">
-    <h2 class="h2-responsive">Pricing</h2>
+    <h2 class="h2-responsive">Registration</h2>
   </div>
 
   <!--Section: Pricing-->
@@ -168,7 +164,7 @@
                 &nbsp;
               </span>
               <div class="text-center ticket-button">
-                <button type="button" class="btn btn-primary waves-light" [href]="(siteConfig | async)?.ticketURL">Buy Ticket</button>
+                <button type="button" class="btn btn-primary waves-light" [href]="(siteConfig | async)?.ticketURL">Get Ticket</button>
               </div>
             </div>
           </div>
@@ -186,7 +182,7 @@
   <!--Section: Sponsors-->
   <section class="section" *ngIf="(sponsors | async)?.length > 0">
     <div class="col sponsors">
-      <h4>We partner with some of the<br/>world's most innovative brands.</h4>
+      <h4>We are partnering with some of the<br/>world's most innovative brands.</h4>
       <a *ngIf="(siteConfig | async)?.sponsorURL" class="btn btn-primary waves-light" [href]="(siteConfig | async)?.sponsorURL" target="_blank">Become a Sponsor</a>
     </div>
     <div class="col sponsors" *ngFor="let level of levels | async">
