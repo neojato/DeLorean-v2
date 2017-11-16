@@ -119,6 +119,7 @@ Please let me know if you used this template and will get you added to the list!
 | Name | Name | Name |
 |------|------|------|
 | [DevFest KC](https://devfestkc.com) | [DevFest Muncie](https://devfestmuncie.firebaseapp.com) | [Windy City DevFest](https://windycity.devfest.io) |
+| [DevFest Nairobi](https://devfestnairobi.gdgkenya.org) |  |  |
 
 ### License
 
