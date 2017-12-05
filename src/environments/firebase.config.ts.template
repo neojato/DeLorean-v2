@@ -1,12 +1,12 @@
 export const firebaseConfig = {
-  apiKey: 'AIzaSyCZZ1roV6MuTMLRFEl6HKyPuif-U-7QX3E',
-  authDomain: 'mayeedwin1.firebaseapp.com',
-  databaseURL: 'https://mayeedwin1.firebaseio.com',
-  projectId: 'mayeedwin1',
-  storageBucket: 'mayeedwin1.appspot.com',
-  messagingSenderId: '191343589227',
+  apiKey: 'AIzaSyC3QMww9wVQECb1mdmbSh3cOlARsEuyjA0',
+  authDomain: 'eventsbymaye.firebaseapp.com',
+  databaseURL: 'https://eventsbymaye.firebaseio.com',
+  projectId: 'eventsbymaye',
+  storageBucket: 'eventsbymaye.appspot.com',
+  messagingSenderId: '332910327270',
   // Firebase node which your data will be stored (ex. 2017)
   devfestYear: '2017',
   // Your Google Maps API key
-  mapsKey: 'AIzaSyB_UA8WPG-tI61hGS8K0ffNchjSlZuh7B8 '
+  mapsKey: 'AIzaSyCdOcBTPu2_d-6mB47t_dcchX7Mc8lA01U '
 };
