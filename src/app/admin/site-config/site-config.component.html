@@ -64,7 +64,7 @@
           <div class="md-form">
             <i class="fa fa-google prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventName" name="eventName" #eventName="ngModel" id="eventName" class="form-control" required>
-            <label for="eventName" [class.active]="siteConfig.eventName && siteConfig.eventName.length > 0">DevFest Name: <em>(ex. DevFest KC 2018)</em> <small>(required)</small></label>
+            <label for="eventName" [class.active]="siteConfig.eventName && siteConfig.eventName.length > 0">DevFest Name: <em>(ex. DevFest Rift Valley 2018)</em> <small>(required)</small></label>
             <div *ngIf="eventName.invalid && (eventName.dirty || eventName.touched)" class="text-danger">
               <div *ngIf="eventName.errors.required">
                 DevFest Name is required.

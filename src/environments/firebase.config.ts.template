@@ -1,12 +1,12 @@
 export const firebaseConfig = {
-  apiKey: '<API_KEY>',
-  authDomain: '<PROJECT_ID>.firebaseapp.com',
-  databaseURL: 'https://<DATABASE_NAME>.firebaseio.com',
-  projectId: '<PROJECT_ID>',
-  storageBucket: '<BUCKET>.appspot.com',
-  messagingSenderId: '<SENDER_ID>',
+  apiKey: 'AIzaSyC3QMww9wVQECb1mdmbSh3cOlARsEuyjA0',
+  authDomain: 'eventsbymaye.firebaseapp.com',
+  databaseURL: 'https://eventsbymaye.firebaseio.com',
+  projectId: 'eventsbymaye',
+  storageBucket: 'eventsbymaye.appspot.com',
+  messagingSenderId: '332910327270',
   // Firebase node which your data will be stored (ex. 2017)
   devfestYear: '2017',
   // Your Google Maps API key
-  mapsKey: '<MAPS_API_KEY>'
+  mapsKey: 'AIzaSyCdOcBTPu2_d-6mB47t_dcchX7Mc8lA01U '
 };

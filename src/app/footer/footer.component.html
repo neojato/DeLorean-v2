@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-lg-3 col-md-6 ml-auto">
         <h5 class="titles font-bold mt-3 mb-4">About {{ (siteConfig | async)?.groupName }}</h5>
-        <p>We are a technology user group that meets regularly to discuss the latest Google Technologies, Tools, SDKs, APIs, and much more.</p>
+        <p>We are a Google Developer Community that meets regularly to discuss the latest Google Technologies, Tools, SDKs, APIs, and much more.</p>
         <p><small><strong>Disclaimer:</strong> <em>{{ (siteConfig | async)?.groupName }} is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.</em></small></p>
       </div>
       <hr class="w-100 clearfix d-sm-none">
@@ -14,8 +14,12 @@
         <h5 class="title font-bold mt-3 mb-4">Links</h5>
         <ul>
           <li><a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName }}</a></li>
+            
           <li><a href="https://developers.google.com/" target="_blank">Google Developers</a></li>
           <li><a href="https://www.womentechmakers.com/" target="_blank">Women Techmakers</a></li>
+          <li><a href="https://github.com/mayeedwin/" target="_blank">Maye Edwin</a></li>
+
+
         </ul>
       </div>
       <hr class="w-100 clearfix d-sm-none">
@@ -29,9 +33,15 @@
       </div>
       <hr class="w-100 clearfix d-sm-none">
       <div class="col-lg-2 col-md-6 ml-auto">
-        <h5 class="title font-bold mt-3 mb-4">FAQ</h5>
+        <h5 class="title font-bold mt-3 mb-4">FAQs</h5>
         <ul>
-          <li><a href="https://meetup.com/pro/gdg" target="_blank">Google Developer Groups</a></li>
+      
+<li>
+<a href="https://devfestnairobi.gdgkenya.org" target="_blank">DevFest Nairobi</a>
+
+</li>
+    <li><a href="https://devfestnairobi.gdgkenya.org" target="_blank">GDG Nairobi</a></li>
+
           <li><a href="https://developers.google.com/events/devfest/" target="_blank">GDG DevFest Season</a></li>
           <li><a href="https://developers.google.com/groups/guidelines/" target="_blank">GDG Code of Conduct</a></li>
         </ul>
@@ -71,8 +81,8 @@
   <!--Copyright-->
   <div class="footer-copyright">
     <div class="container-fluid">
-      &copy; {{ copyright }} Copyright <a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName }}</a>
-      <br>Based on the <a href="https://github.com/neojato/DeLorean-v2" target="_blank">DeLorean Project</a>
+      &copy; {{ copyright }} Copyright <a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName }}</a> Based on the <a href="https://github.com/mayeedwin/DeloreanKenyaV2" target="_blank">DeLorean Project Kenya</a>
+
     </div>
   </div>
   <!--/.Copyright-->
