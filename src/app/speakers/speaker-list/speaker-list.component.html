@@ -10,9 +10,9 @@
     </div>
     <div class="row text-center">
       <div *ngFor="let speaker of speakers | async" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; padding-bottom: 50px;">
-        <div class="avatar show-modal" (click)="showModal(speaker)">
-          <img *ngIf="!speaker.photoURL" src="../../../assets/img/user-default.png" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
-          <img *ngIf="speaker.photoURL" [src]="speaker.photoURL" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
+        <div class="avatar show-modal" (click)="showModal(speaker)" title="{{ speaker.name }}" alt="{{ speaker.name }}">
+          <img *ngIf="!speaker.photoURL" class="rounded-circle z-depth-1" style="background-image: url('../../../assets/img/user-default.png')">
+          <img *ngIf="speaker.photoURL" class="rounded-circle z-depth-1" [ngStyle]="{'background-image': 'url(' + speaker.photoURL + ')'}">
         </div>
         <button type="button" class="btn btn-sm btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/speakers/{{ speaker.$key }}/edit">
           <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
         <h4 class="show-modal" (click)="showModal(speaker)" [innerHTML]="speaker.name"></h4>
-        <h6 *ngIf="speaker.title && speaker.company">
+        <h6>
           <span *ngIf="speaker.title" [innerHTML]="speaker.title"></span>
           <br/>
           <strong *ngIf="speaker.company">@

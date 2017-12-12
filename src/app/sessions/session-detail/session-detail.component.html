@@ -54,15 +54,19 @@
     <div class="author-box" *ngFor="let speaker of profiles">
       <div class="row">
         <!--Avatar-->
-        <div class="col-xs-12 col-sm-2">
-          <img *ngIf="!(speaker | async)?.photoURL" src="../../assets/img/user-default.png" class="img-fluid rounded-circle z-depth-2" title="{{ (speaker | async)?.name }}" alt="{{ (speaker | async)?.name }}">
-          <img *ngIf="(speaker | async)?.photoURL" [src]="(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2" title="{{ (speaker | async)?.name }}" alt="{{ (speaker | async)?.name }}">
+        <div class="avatar col-xs-12 col-sm-2" title="{{ (speaker | async)?.name }}" alt="{{ (speaker | async)?.name }}">
+          <img *ngIf="!(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2" style="background-image: url('../../assets/img/user-default.png')">
+          <img *ngIf="(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2" [ngStyle]="{'background-image': 'url(' + (speaker | async)?.photoURL + ')'}">
         </div>
         <!--Author Data-->
         <div class="col-xs-12 col-sm-10">
           <p>
             <strong><span [innerHTML]="(speaker | async)?.name"></span></strong><br>
-            <small><span [innerHTML]="(speaker | async)?.title"></span>&nbsp;<strong>at</strong>&nbsp;<span [innerHTML]="(speaker | async)?.company"></span></small>
+            <small>
+              <span *ngIf="(speaker | async)?.title" [innerHTML]="(speaker | async)?.title"></span>
+              <strong *ngIf="(speaker | async)?.title && (speaker | async)?.company">at</strong>
+              <span *ngIf="(speaker | async)?.company" [innerHTML]="(speaker | async)?.company"></span>
+            </small>
           </p>
           <div class="personal-sm">
             <!--Google+-->

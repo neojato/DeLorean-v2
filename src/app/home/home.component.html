@@ -58,9 +58,9 @@
   <section class="section team-section" *ngIf="(speakers | async)?.length > 0">
     <div class="row text-center">
       <div *ngFor="let speaker of speakers | async" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px;">
-        <div class="avatar">
-          <img *ngIf="!speaker.photoURL" src="../../assets/img/user-default.png" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
-          <img *ngIf="speaker.photoURL" [src]="speaker.photoURL" class="rounded-circle z-depth-1" title="{{ speaker.name }}" alt="{{ speaker.name }}">
+        <div class="avatar" title="{{ speaker.name }}" alt="{{ speaker.name }}">
+          <img *ngIf="!speaker.photoURL" class="rounded-circle z-depth-1" style="background-image: url('../../../assets/img/user-default.png')">
+          <img *ngIf="speaker.photoURL" class="rounded-circle z-depth-1" [ngStyle]="{'background-image': 'url(' + speaker.photoURL + ')'}">
         </div>
         <h4><span [innerHTML]="speaker.name"></span></h4>
         <h6><span [innerHTML]="speaker.title"></span><br/><strong *ngIf="speaker.company">@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>

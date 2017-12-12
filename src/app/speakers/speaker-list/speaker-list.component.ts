@@ -43,7 +43,6 @@ export class SpeakerListComponent implements OnInit {
   showModal(speaker) {
     this.speakerDetail = {
       name: speaker.name,
-      photoURL: speaker.photoURL,
       title: speaker.title,
       company: speaker.company,
       description: speaker.description,
@@ -54,7 +53,6 @@ export class SpeakerListComponent implements OnInit {
       githubLink: speaker.githubLink,
       websiteLink: speaker.websiteLink
     };
-    console.log(this.speakerDetail);
     this.speakerModel.show();
   }
 
