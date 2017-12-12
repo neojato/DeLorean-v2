@@ -3,7 +3,7 @@ import { AuthService } from './../../services/auth/auth.service';
 import { SpeakerService } from './../shared/speaker.service';
 import { Speaker } from './../shared/speaker';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-speaker-list',
@@ -11,7 +11,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./speaker-list.component.scss']
 })
 export class SpeakerListComponent implements OnInit {
+  @ViewChild('speakerModal') public speakerModel;
+
   public speakers: FirebaseListObservable<Speaker[]>;
+  public speakerDetail: any;
 
   constructor(
     private speakerService: SpeakerService,
@@ -35,6 +38,24 @@ export class SpeakerListComponent implements OnInit {
     if (window.confirm('Are you sure you want to delete this speaker?')) {
       this.speakerService.deleteSpeaker(speaker.$key);
     }
+  }
+
+  showModal(speaker) {
+    this.speakerDetail = {
+      name: speaker.name,
+      photoURL: speaker.photoURL,
+      title: speaker.title,
+      company: speaker.company,
+      description: speaker.description,
+      googleLink: speaker.googleLink,
+      facebookLink: speaker.facebookLink,
+      twitterLink: speaker.twitterLink,
+      linkedinLink: speaker.linkedinLink,
+      githubLink: speaker.githubLink,
+      websiteLink: speaker.websiteLink
+    };
+    console.log(this.speakerDetail);
+    this.speakerModel.show();
   }
 
 }

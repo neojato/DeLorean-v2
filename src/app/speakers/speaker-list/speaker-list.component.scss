@@ -1,5 +1,26 @@
 .clearfix::after {
-  content:"";
-  display:table;
-  clear:both;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+$font-size: 1em;
+$line-height: 1.5;
+$lines-to-show: 5;
+
+.speaker-bio {
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.show-modal {
+  cursor: pointer;
 }
