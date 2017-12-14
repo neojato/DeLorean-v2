@@ -54,7 +54,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 * From the Firebase Console, go to "Authentication" and enable the Google sign-in method.
 * Log into your site using your Google account.
 * From the Firebase Console, go to "Authentication" and copy the User UID for your email address.
-* From the Firebase Console, go to "Database" and create a parent node called `admins` then add your copied User UID as the key with a value of `true`.
+* From the Firebase Console, go to "Database", then "Real-Time Database" and create a parent node called `admins` then add your copied User UID as the key with a value of `true`.
 * (Optional) Replace `hero.png` and `devfest.png` with your own image of Your City or DevFest.
 * (Optional) Create a [Google Analytics property](https://analytics.google.com/analytics/web/#management/Settings) and add your GA Tracking ID to `line 41` in [`index.html`](https://github.com/neojato/DeLorean-v2/blob/master/src/index.html#L41).
 
@@ -72,7 +72,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 * Click the "Speakers" link in the navbar and then click on the "Create Speaker" button to add a speaker.
 * Rinse and repeat for however many speakers you have for your event.
-* Check the "Featured" option to have that speaker also display on the homepage (it is recommended to set only 4  as featured speakers to maintain styling at this time).
+* Check the "Featured" option to have that speaker also display on the homepage in the "Featured Speakers" section.
 * **NOTE:** The uploaded profile images get stored in Firebase Storage if you need to retrieve them later.
 
 ### Schedule Management
@@ -102,11 +102,11 @@ Run `sh tools/build.sh` to generate an optimized production build of the project
 
 ## Deploy
 
-Run `firebase deploy` to deploy the `dist/` directory to Firebase Hosting.
+Run `firebase deploy` to deploy the `dist/` directory to Firebase Hosting and `functions/` directory to Firebase Functions.
 
 ### Simple Production Deploy
 
-Run `sh tools/deploy.sh` to generate an optimized production build and deploy the `dist/` directory to Firebase Hosting (along with database rules & Cloud Functions).
+Run `sh tools/deploy.sh` to generate an optimized production build and deploy the `dist/` directory to Firebase Hosting (along with Firebase Real-Time Database rules & Firebase Functions).
 
 ## Profit!
 
@@ -124,6 +124,6 @@ Please let me know if you used this template and will get you added to the list!
 ### License
 
 Project is published under the [MIT license](https://github.com/neojato/DeLorean-v2/blob/master/LICENSE.md).  
-Feel free to clone and modify repo as you want, but don't forget to add reference to original authors, thanks!
+Feel free to clone and modify repo as you want, but don't forget to keep the reference to original authors, thanks!
 
 ###### The DeLorean Project is not endorsed and/or supported by Google, the corporation.
