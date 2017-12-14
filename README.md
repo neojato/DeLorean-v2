@@ -36,6 +36,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   * Type `dist` for your public directory
   * Respond yes to configure as a single-page app
 * Copy [`firebase.config.ts.template`](https://github.com/neojato/DeLorean-v2/blob/master/src/environments/firebase.config.ts.template) to `firebase.config.ts` and populate fields with your Firebase and Google Maps Keys.
+* Update [`manifest.json`](https://github.com/neojato/DeLorean-v2/blob/master/src/manifest.json) to enable [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) capabilities.
 
 ## Contributing
 
