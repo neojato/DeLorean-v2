@@ -11,6 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  - Featured speakers section
  - Featured venue section
  - "My Schedule" for Attendees
+ - Google Tag Manager enabled
  - Session rating (coming soon!)
 
 ## Table of Contents
@@ -57,7 +58,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 * From the Firebase Console, go to "Authentication" and copy the User UID for your email address.
 * From the Firebase Console, go to "Database", then "Real-Time Database" and create a parent node called `admins` then add your copied User UID as the key with a value of `true`.
 * (Optional) Replace `hero.png` and `devfest.png` with your own image of Your City or DevFest.
-* (Optional) Create a [Google Analytics property](https://analytics.google.com/analytics/web/#management/Settings) and add your GA Tracking ID to `line 41` in [`index.html`](https://github.com/neojato/DeLorean-v2/blob/master/src/index.html#L41).
+
+### Google Tag Manager Setup (Optional)
+
+* Create an Account and a Container on [Google Tag Manager](https://tagmanager.google.com).
+* Once created, you will receive the tracking snippet.
+  * Replace each instance of `GTM-XXXXXXX` within `index.html` with your tracking ID following the same pattern.
+* Now you are able to create Tags for:
+  * [Google Analytics](https://support.google.com/analytics/answer/6163791)
+  * [Facebook Pixel](https://www.facebook.com/business/help/1021909254506499)
+  * [Custom HTML](https://support.google.com/tagmanager/answer/6107167)
+  * And [many, many more](https://support.google.com/tagmanager/answer/6106924)!
 
 ### Site Config
 
