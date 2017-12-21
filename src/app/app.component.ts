@@ -9,8 +9,6 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
-declare let ga: Function;
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -55,9 +53,6 @@ export class AppComponent implements OnInit {
           pageTitle += ' :: ' + event['title'];
         }
         this.title.setTitle(pageTitle);
-        // Google Analytics track pageview
-        ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageview');
         // auto scroll to top on navigation
         window.scrollTo(0, 0);
       });
