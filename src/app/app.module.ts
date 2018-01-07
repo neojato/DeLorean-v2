@@ -48,6 +48,9 @@ import { TicketNewComponent } from './admin/tickets/ticket-new/ticket-new.compon
 import { TicketEditComponent } from './admin/tickets/ticket-edit/ticket-edit.component';
 import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.component';
 import { MyScheduleComponent } from './sessions/my-schedule/my-schedule.component';
+import { SessionSurveyComponent } from './sessions/session-survey/session-survey.component';
+import { SurveysComponent } from './admin/surveys/surveys.component';
+import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -73,7 +76,10 @@ import { MyScheduleComponent } from './sessions/my-schedule/my-schedule.componen
     TicketNewComponent,
     TicketEditComponent,
     TicketListComponent,
-    MyScheduleComponent
+    MyScheduleComponent,
+    SessionSurveyComponent,
+    SurveysComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

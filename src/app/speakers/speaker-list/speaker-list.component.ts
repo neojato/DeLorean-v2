@@ -4,6 +4,7 @@ import { SpeakerService } from './../shared/speaker.service';
 import { Speaker } from './../shared/speaker';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalDirective } from 'angular-bootstrap-md/modals';
 
 @Component({
   selector: 'app-speaker-list',
@@ -11,7 +12,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./speaker-list.component.scss']
 })
 export class SpeakerListComponent implements OnInit {
-  @ViewChild('speakerModal') public speakerModel;
+  @ViewChild('speakerModal') public speakerModal: ModalDirective;
 
   public speakers: FirebaseListObservable<Speaker[]>;
   public speakerDetail: any;
@@ -53,7 +54,7 @@ export class SpeakerListComponent implements OnInit {
       githubLink: speaker.githubLink,
       websiteLink: speaker.websiteLink
     };
-    this.speakerModel.show();
+    this.speakerModal.show();
   }
 
 }

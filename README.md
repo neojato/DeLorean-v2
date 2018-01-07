@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  - Featured venue section
  - "My Schedule" for Attendees
  - Google Tag Manager enabled
- - Session rating (coming soon!)
+ - Session feedback
 
 ## Table of Contents
  - [Getting Started](#getting-started)

@@ -1,3 +1,4 @@
+import { Survey } from './survey';
 import { Session } from './session';
 import { firebaseConfig } from './../../../environments/firebase.config';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
@@ -34,6 +35,12 @@ export class SessionService {
 
   deleteSession(key: string): void {
     this.sessions.remove(key);
+  }
+
+  saveSurvey(key: string, survey: Survey): void {
+    const path = `${this.basePath}/${key}/surveys`;
+    const surveys = this.db.list(path);
+    surveys.push(survey);
   }
 
 }

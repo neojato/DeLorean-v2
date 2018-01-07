@@ -1,3 +1,5 @@
+import { SurveysComponent } from './admin/surveys/surveys.component';
+import { SessionSurveyComponent } from './sessions/session-survey/session-survey.component';
 import { MyScheduleComponent } from './sessions/my-schedule/my-schedule.component';
 import { TicketListComponent } from './admin/tickets/ticket-list/ticket-list.component';
 import { TicketEditComponent } from './admin/tickets/ticket-edit/ticket-edit.component';
@@ -34,6 +36,11 @@ export const routerConfig: Route[] = [{
     component: SiteConfigComponent,
     canActivate: [AuthGuard],
     data: { title: 'Site Config' }
+  }, {
+    path: 'surveys',
+    component: SurveysComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'Survey Data' }
   }, {
     path: 'tickets',
     children: [{
@@ -83,6 +90,11 @@ export const routerConfig: Route[] = [{
       component: SessionEditComponent,
       canActivate: [AuthGuard],
       data: { title: 'Edit Session' }
+    }, {
+      path: 'survey',
+      component: SessionSurveyComponent,
+      canActivate: [AuthGuard],
+      data: { title: 'Session Survey' }
     }]
   }, {
     path: '',

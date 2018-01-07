@@ -111,4 +111,10 @@ export class SessionDetailComponent implements OnInit {
     this.mySchedule.remove();
   }
 
+  openFeedback(session) {
+    if ((this.isLoggedIn())) {
+      this.router.navigate([`/sessions/${session.$key}/survey`]);
+    }
+  }
+
 }

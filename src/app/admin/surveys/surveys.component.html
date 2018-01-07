@@ -1,0 +1,174 @@
+<top-menu></top-menu>
+
+<div class="between-sections"><br><br></div>
+<div class="container">
+  <section class="section" style="padding-bottom: 45px;">
+    <h1 class="section-heading">Survey Data</h1>
+    <div class="row">
+      <section class="col-md-12">
+        <table class="table table-sm table-hover table-bordered">
+          <thead class="blue-grey lighten-4">
+            <tr>
+              <th class="text-center">#</th>
+              <th>Session</th>
+              <th>Speaker Avg.</th>
+              <th>Session Avg.</th>
+              <th style="width: 20%;">Date</th>
+            </tr>
+          </thead>
+          <ng-container *ngFor="let session of sessions | async">
+            <tr *ngFor="let survey of session.surveys | keys; let i = index;" class="show-modal" (click)="showModal(session, survey)">
+              <th class="text-center">{{ i+1 }}</th>
+              <td>{{ session.title }}</td>
+              <td class="text-right">{{ survey.speakerAvg }}</td>
+              <td class="text-right">{{ survey.sessionAvg }}</td>
+              <td class="text-right">{{ survey.timeStamp | date:'shortDate' }}</td>
+            </tr>
+          </ng-container>
+        </table>
+      </section>
+    </div>
+  </section>
+  <div class="between-sections"><br><br></div>
+
+
+<!-- Modal -->
+<div mdbModal #surveyModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ViewSurvey" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="ViewSurvey">Survey Details</h4>
+          <button type="button" class="close pull-right" (click)="surveyModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4>{{ surveyDetail?.title }}</h4>
+          <p>User: {{ surveyDetail?.displayName }} &lt;{{ surveyDetail?.email }}&gt;</p>
+          <div>
+            <ol>
+              <li>
+                The presenter effectively communicated the content of the presentation
+                <ul class="rating inline-ul">
+                  <li *ngIf="surveyDetail?.group1 >= 1"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group1 >= 2"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group1 >= 3"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group1 >= 4"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group1 == 5"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group1 < 5"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group1 < 4"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group1 < 3"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group1 < 2"><i class="fa fa-star"></i></li>
+                </ul>
+              </li>
+              <li>
+                The presenter was knowledgeable about the subject matter
+                <ul class="rating inline-ul">
+                  <li *ngIf="surveyDetail?.group2 >= 1"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group2 >= 2"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group2 >= 3"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group2 >= 4"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group2 == 5"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group2 < 5"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group2 < 4"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group2 < 3"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group2 < 2"><i class="fa fa-star"></i></li>
+                </ul>
+              </li>
+              <li>
+                The presenter was well organized
+                <ul class="rating inline-ul">
+                  <li *ngIf="surveyDetail?.group3 >= 1"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group3 >= 2"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group3 >= 3"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group3 >= 4"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group3 == 5"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group3 < 5"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group3 < 4"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group3 < 3"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group3 < 2"><i class="fa fa-star"></i></li>
+                </ul>
+              </li>
+              <li>
+                The presenter spoke clearly and presented well
+                <ul class="rating inline-ul">
+                  <li *ngIf="surveyDetail?.group4 >= 1"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group4 >= 2"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group4 >= 3"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group4 >= 4"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group4 == 5"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group4 < 5"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group4 < 4"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group4 < 3"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group4 < 2"><i class="fa fa-star"></i></li>
+                </ul>
+              </li>
+              <li>
+                The content in this session was relevant and useful
+                <ul class="rating inline-ul">
+                  <li *ngIf="surveyDetail?.group5 >= 1"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group5 >= 2"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group5 >= 3"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group5 >= 4"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group5 == 5"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group5 < 5"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group5 < 4"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group5 < 3"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group5 < 2"><i class="fa fa-star"></i></li>
+                </ul>
+              </li>
+              <li>
+                It was worthwhile to attend this presentation
+                <ul class="rating inline-ul">
+                  <li *ngIf="surveyDetail?.group6 >= 1"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group6 >= 2"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group6 >= 3"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group6 >= 4"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group6 == 5"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group6 < 5"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group6 < 4"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group6 < 3"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group6 < 2"><i class="fa fa-star"></i></li>
+                </ul>
+              </li>
+              <li>
+                The content difficulty level was appropriate and as expected
+                <ul class="rating inline-ul">
+                  <li *ngIf="surveyDetail?.group7 >= 1"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group7 >= 2"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group7 >= 3"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group7 >= 4"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group7 == 5"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group7 < 5"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group7 < 4"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group7 < 3"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group7 < 2"><i class="fa fa-star"></i></li>
+                </ul>
+              </li>
+              <li>
+                I will use this knowledge I received in this presentation in the near future
+                <ul class="rating inline-ul">
+                  <li *ngIf="surveyDetail?.group8 >= 1"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group8 >= 2"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group8 >= 3"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group8 >= 4"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group8 == 5"><i class="fa fa-star amber-text"></i></li>
+                  <li *ngIf="surveyDetail?.group8 < 5"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group8 < 4"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group8 < 3"><i class="fa fa-star"></i></li>
+                  <li *ngIf="surveyDetail?.group8 < 2"><i class="fa fa-star"></i></li>
+                </ul>
+              </li>
+              <li>
+                Comments/Feedback:
+                <div class="feedback">
+                  <span [innerText]="surveyDetail?.comments"></span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->

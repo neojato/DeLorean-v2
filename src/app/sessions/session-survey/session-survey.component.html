@@ -1,0 +1,375 @@
+<top-menu></top-menu>
+
+<div class="between-sections"><br><br></div>
+<div class="container">
+  <!--Section: Session-->
+  <section class="section">
+    <div style="padding: 40px 0;">
+      <a href="" routerLink="/sessions/{{ session.$key }}" title="Back to Session"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Session</a>
+    </div>
+    <!--First row-->
+    <div class="row">
+      <div class="col-md-12">
+        <!--Post data-->
+        <div>
+          <!-- Post data -->
+          <h2 class="text-center" style="padding-bottom: 20px;" [innerHTML]="(session)?.title"></h2>
+        </div>
+        <!--/.Post data-->
+      </div>
+    </div>
+    <!--/First row-->
+  </section>
+  <!--Section: Session-->
+
+  <!--Section: Survey-->
+  <section class="section">
+    <form #surveyForm="ngForm">
+      <div class="md-form form-sm">
+        <div class="form-group">
+          <table style="width: 100%;">
+            <tbody>
+              <thead>
+                <th><h5>Speaker Evaluation</h5></th>
+              </thead>
+              <tr>
+                <table style="width: 100%;">
+                  <tbody>
+                    <tr>
+                      <td colspan="8" style="padding: 25px;">
+                        <strong>The presenter effectively communicated the content of the presentation <small>*</small></strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                      <td style="width: 10%;">1</td>
+                      <td style="width: 10%;">2</td>
+                      <td style="width: 10%;">3</td>
+                      <td style="width: 10%;">4</td>
+                      <td style="width: 10%;">5</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                    </tr>
+                    <tr style="background-color: #ecececa2;">
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td>Strongly Disagree</td>
+                      <td>
+                        <input name="group1" id="radio1" type="radio" value="1" required [(ngModel)]="survey.group1">
+                      </td>
+                      <td>
+                        <input name="group1" id="radio2" type="radio" value="2" required [(ngModel)]="survey.group1">
+                      </td>
+                      <td>
+                        <input name="group1" id="radio3" type="radio" value="3" required [(ngModel)]="survey.group1">
+                      </td>
+                      <td>
+                        <input name="group1" id="radio4" type="radio" value="4" required [(ngModel)]="survey.group1">
+                      </td>
+                      <td>
+                        <input name="group1" id="radio5" type="radio" value="5" required [(ngModel)]="survey.group1">
+                      </td>
+                      <td>Strongly Agree</td>
+                    </tr>
+                    <tr>
+                      <td colspan="8" style="padding: 25px;">
+                        <strong>The presenter was knowledgeable about the subject matter <small>*</small></strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                      <td style="width: 10%;">1</td>
+                      <td style="width: 10%;">2</td>
+                      <td style="width: 10%;">3</td>
+                      <td style="width: 10%;">4</td>
+                      <td style="width: 10%;">5</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                    </tr>
+                    <tr style="background-color: #ecececa2;">
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td>Strongly Disagree</td>
+                      <td>
+                        <input name="group2" id="radio6" type="radio" value="1" required [(ngModel)]="survey.group2">
+                      </td>
+                      <td>
+                        <input name="group2" id="radio7" type="radio" value="2" required [(ngModel)]="survey.group2">
+                      </td>
+                      <td>
+                        <input name="group2" id="radio8" type="radio" value="3" required [(ngModel)]="survey.group2">
+                      </td>
+                      <td>
+                        <input name="group2" id="radio9" type="radio" value="4" required [(ngModel)]="survey.group2">
+                      </td>
+                      <td>
+                        <input name="group2" id="radio10" type="radio" value="5" required [(ngModel)]="survey.group2">
+                      </td>
+                      <td>Strongly Agree</td>
+                    </tr>
+                    <tr>
+                      <td colspan="8" style="padding: 25px;">
+                        <strong>The presenter was well organized <small>*</small></strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                      <td style="width: 10%;">1</td>
+                      <td style="width: 10%;">2</td>
+                      <td style="width: 10%;">3</td>
+                      <td style="width: 10%;">4</td>
+                      <td style="width: 10%;">5</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                    </tr>
+                    <tr style="background-color: #ecececa2;">
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td>Strongly Disagree</td>
+                      <td>
+                        <input name="group3" id="radio11" type="radio" value="1" required [(ngModel)]="survey.group3">
+                      </td>
+                      <td>
+                        <input name="group3" id="radio12" type="radio" value="2" required [(ngModel)]="survey.group3">
+                      </td>
+                      <td>
+                        <input name="group3" id="radio13" type="radio" value="3" required [(ngModel)]="survey.group3">
+                      </td>
+                      <td>
+                        <input name="group3" id="radio14" type="radio" value="4" required [(ngModel)]="survey.group3">
+                      </td>
+                      <td>
+                        <input name="group3" id="radio15" type="radio" value="5" required [(ngModel)]="survey.group3">
+                      </td>
+                      <td>Strongly Agree</td>
+                    </tr>
+                    <tr>
+                      <td colspan="8" style="padding: 25px;">
+                        <strong>The presenter spoke clearly and presented well <small>*</small></strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                      <td style="width: 10%;">1</td>
+                      <td style="width: 10%;">2</td>
+                      <td style="width: 10%;">3</td>
+                      <td style="width: 10%;">4</td>
+                      <td style="width: 10%;">5</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                    </tr>
+                    <tr style="background-color: #ecececa2;">
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td>Strongly Disagree</td>
+                      <td>
+                        <input name="group4" id="radio16" type="radio" value="1" required [(ngModel)]="survey.group4">
+                      </td>
+                      <td>
+                        <input name="group4" id="radio17" type="radio" value="2" required [(ngModel)]="survey.group4">
+                      </td>
+                      <td>
+                        <input name="group4" id="radio18" type="radio" value="3" required [(ngModel)]="survey.group4">
+                      </td>
+                      <td>
+                        <input name="group4" id="radio19" type="radio" value="4" required [(ngModel)]="survey.group4">
+                      </td>
+                      <td>
+                        <input name="group4" id="radio20" type="radio" value="5" required [(ngModel)]="survey.group4">
+                      </td>
+                      <td>Strongly Agree</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="form-group">
+          <table style="width: 100%;">
+            <tbody>
+              <thead>
+                <th><h5>Session Evaluation</h5></th>
+              </thead>
+              <tr>
+                <table style="width: 100%;">
+                  <tbody>
+                    <tr>
+                      <td colspan="8" style="padding: 25px;">
+                        <strong>The content in this session was relevant and useful <small>*</small></strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                      <td style="width: 10%;">1</td>
+                      <td style="width: 10%;">2</td>
+                      <td style="width: 10%;">3</td>
+                      <td style="width: 10%;">4</td>
+                      <td style="width: 10%;">5</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                    </tr>
+                    <tr style="background-color: #ecececa2;">
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td>Strongly Disagree</td>
+                      <td>
+                        <input name="group5" id="radio21" type="radio" value="1" required [(ngModel)]="survey.group5">
+                      </td>
+                      <td>
+                        <input name="group5" id="radio22" type="radio" value="2" required [(ngModel)]="survey.group5">
+                      </td>
+                      <td>
+                        <input name="group5" id="radio23" type="radio" value="3" required [(ngModel)]="survey.group5">
+                      </td>
+                      <td>
+                        <input name="group5" id="radio24" type="radio" value="4" required [(ngModel)]="survey.group5">
+                      </td>
+                      <td>
+                        <input name="group5" id="radio25" type="radio" value="5" required [(ngModel)]="survey.group5">
+                      </td>
+                      <td>Strongly Agree</td>
+                    </tr>
+                    <tr>
+                      <td colspan="8" style="padding: 25px;">
+                        <strong>It was worthwhile to attend this presentation <small>*</small></strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                      <td style="width: 10%;">1</td>
+                      <td style="width: 10%;">2</td>
+                      <td style="width: 10%;">3</td>
+                      <td style="width: 10%;">4</td>
+                      <td style="width: 10%;">5</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                    </tr>
+                    <tr style="background-color: #ecececa2;">
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td>Strongly Disagree</td>
+                      <td>
+                        <input name="group6" id="radio26" type="radio" value="1" required [(ngModel)]="survey.group6">
+                      </td>
+                      <td>
+                        <input name="group6" id="radio27" type="radio" value="2" required [(ngModel)]="survey.group6">
+                      </td>
+                      <td>
+                        <input name="group6" id="radio28" type="radio" value="3" required [(ngModel)]="survey.group6">
+                      </td>
+                      <td>
+                        <input name="group6" id="radio29" type="radio" value="4" required [(ngModel)]="survey.group6">
+                      </td>
+                      <td>
+                        <input name="group6" id="radio30" type="radio" value="5" required [(ngModel)]="survey.group6">
+                      </td>
+                      <td>Strongly Agree</td>
+                    </tr>
+                    <tr>
+                      <td colspan="8" style="padding: 25px;">
+                        <strong>The content difficulty level was appropriate and as expected <small>*</small></strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                      <td style="width: 10%;">1</td>
+                      <td style="width: 10%;">2</td>
+                      <td style="width: 10%;">3</td>
+                      <td style="width: 10%;">4</td>
+                      <td style="width: 10%;">5</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                    </tr>
+                    <tr style="background-color: #ecececa2;">
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td>Strongly Disagree</td>
+                      <td>
+                        <input name="group7" id="radio31" type="radio" value="1" required [(ngModel)]="survey.group7">
+                      </td>
+                      <td>
+                        <input name="group7" id="radio32" type="radio" value="2" required [(ngModel)]="survey.group7">
+                      </td>
+                      <td>
+                        <input name="group7" id="radio33" type="radio" value="3" required [(ngModel)]="survey.group7">
+                      </td>
+                      <td>
+                        <input name="group7" id="radio34" type="radio" value="4" required [(ngModel)]="survey.group7">
+                      </td>
+                      <td>
+                        <input name="group7" id="radio35" type="radio" value="5" required [(ngModel)]="survey.group7">
+                      </td>
+                      <td>Strongly Agree</td>
+                    </tr>
+                    <tr>
+                      <td colspan="8" style="padding: 25px;">
+                        <strong>I will use this knowledge I received in this presentation in the near future <small>*</small></strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                      <td style="width: 10%;">1</td>
+                      <td style="width: 10%;">2</td>
+                      <td style="width: 10%;">3</td>
+                      <td style="width: 10%;">4</td>
+                      <td style="width: 10%;">5</td>
+                      <td style="width: 20%;">&nbsp;</td>
+                    </tr>
+                    <tr style="background-color: #ecececa2;">
+                      <td style="width: 10%;">&nbsp;</td>
+                      <td>Strongly Disagree</td>
+                      <td>
+                        <input name="group8" id="radio16" type="radio" value="1" required [(ngModel)]="survey.group8">
+                      </td>
+                      <td>
+                        <input name="group8" id="radio17" type="radio" value="2" required [(ngModel)]="survey.group8">
+                      </td>
+                      <td>
+                        <input name="group8" id="radio18" type="radio" value="3" required [(ngModel)]="survey.group8">
+                      </td>
+                      <td>
+                        <input name="group8" id="radio19" type="radio" value="4" required [(ngModel)]="survey.group8">
+                      </td>
+                      <td>
+                        <input name="group8" id="radio20" type="radio" value="5" required [(ngModel)]="survey.group8">
+                      </td>
+                      <td>Strongly Agree</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="form-group">
+          <table style="width: 100%;">
+            <tbody>
+              <thead>
+                <th><h5>Other Comments</h5></th>
+              </thead>
+              <tr>
+                <table style="width: 100%;">
+                  <tbody>
+                    <tr>
+                      <td colspan="8" style="padding: 25px;">
+                        <strong>What other feedback do you have for this speaker?</strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <textarea mdbActive type="text" name="comments" id="comments" class="md-textarea" [(ngModel)]="survey.comments"></textarea>
+                      <label for="comments"></label>
+                    </tr>
+                  </tbody>
+                </table>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+    <br><br>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" [disabled]="!surveyForm.valid" (click)="saveSurvey()">Submit Survey</button>
+    </div>
+    <div style="padding: 40px 0;">
+      <a href="" routerLink="/sessions/{{ session.$key }}" title="Back to Session"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Session</a>
+    </div>
+  </section>
+  <!--Section: Survey-->
+</div>
+<div class="between-sections"><br><br></div>
