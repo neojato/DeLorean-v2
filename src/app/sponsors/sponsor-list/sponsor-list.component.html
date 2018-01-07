@@ -26,7 +26,7 @@
       <div class="row">
         <ng-container *ngFor="let sponsor of sponsors | async">
           <ng-container *ngIf="level.$key === sponsor.level">
-            <span class="col-md-6" style="padding: 20px;">
+            <span class="col-md-6" style="padding-left: 40px; padding-right: 40px; margin: 0 auto;">
               <a [href]="sponsor.websiteLink" target="_blank">
                 <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
               </a>
