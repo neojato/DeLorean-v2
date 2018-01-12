@@ -1,11 +1,13 @@
 {
-  "name": "de-lorean",
+  "name": "delorean",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build --prod --build-optimizer",
+    "deploy": "npm run build-prod && sw-precache --root=dist --config=precache-config.js && firebase use default && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
