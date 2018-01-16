@@ -106,19 +106,11 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-### Simple Production Build
-
-Run `sh tools/build.sh` to generate an optimized production build of the project.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Run `npm run build-prod` to generate an optimized production build.
 
 ## Deploy
 
-Run `firebase deploy` to deploy the `dist/` directory to Firebase Hosting and `functions/` directory to Firebase Functions.
-
-### Simple Production Deploy
-
-Run `sh tools/deploy.sh` to generate an optimized production build and deploy the `dist/` directory to Firebase Hosting (along with Firebase Real-Time Database rules & Firebase Functions).
+Run `npm run deploy` to generate an optimized production build and deploy the `dist/` directory to Firebase Hosting (along with Firebase Real-Time Database rules & Firebase Functions).
 
 ## Profit!
 
@@ -126,7 +118,7 @@ Congrats on launching your DevFest website!
 
 ### Who uses the template?
 
-Please let me know if you used this template and will get you added to the list!
+Please let me know if you used this template with a [Pull Request](https://github.com/neojato/DeLorean-v2/pull) and will get you added to the list below!
 
 | Name | Name | Name |
 |------|------|------|
