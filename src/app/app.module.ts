@@ -51,6 +51,7 @@ import { MyScheduleComponent } from './sessions/my-schedule/my-schedule.componen
 import { SessionSurveyComponent } from './sessions/session-survey/session-survey.component';
 import { SurveysComponent } from './admin/surveys/surveys.component';
 import { KeysPipe } from './pipes/keys.pipe';
+import { CocComponent } from './coc/coc.component';
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -79,7 +80,8 @@ import { KeysPipe } from './pipes/keys.pipe';
     MyScheduleComponent,
     SessionSurveyComponent,
     SurveysComponent,
-    KeysPipe
+    KeysPipe,
+    CocComponent
   ],
   imports: [
     BrowserModule,

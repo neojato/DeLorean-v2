@@ -1,3 +1,4 @@
+import { CocComponent } from './coc/coc.component';
 import { SurveysComponent } from './admin/surveys/surveys.component';
 import { SessionSurveyComponent } from './sessions/session-survey/session-survey.component';
 import { MyScheduleComponent } from './sessions/my-schedule/my-schedule.component';
@@ -141,6 +142,10 @@ export const routerConfig: Route[] = [{
     component: SponsorListComponent,
     data: { title: 'Sponsors' }
   }]
+}, {
+  path: 'code-of-conduct',
+  component: CocComponent,
+  data: { title: 'Code of Conduct' }
 }, {
   path: '',
   redirectTo: 'home',
