@@ -122,6 +122,22 @@
   </section>
   <!--Section: Location-->
 
+  <div class="divider-new pt-5">
+    <h2 class="h2-responsive">Code of Conduct</h2>
+  </div>
+
+  <!--Section: CoC-->
+  <section id="about" class="text-center">
+    <h5>Be nice. Be respectful. Be collaborative.</h5>
+    <p>{{ (siteConfig | async)?.eventName }} is dedicated to a harassment-free conference experience for everyone.</p>
+    <p>
+      Before attending, please review the <a routerLink="/code-of-conduct">{{ (siteConfig | async)?.eventName }} Code of Conduct</a>.
+      <br/>This Code of Conduct applies to all attendees, speakers, volunteers, vendors, and organizers at {{ (siteConfig | async)?.eventName }}.
+      <br/>Please <a href="mailto:{{ (siteConfig | async)?.eventEmail }}?subject=Code of Conduct - {{ (siteConfig | async)?.eventName }}" target="_blank">contact us</a> if you have any questions.
+    </p>
+  </section>
+  <!--Section: CoC-->
+
   <div class="divider-new pt-5" *ngIf="(tickets | async)?.length > 0">
     <h2 class="h2-responsive">Pricing</h2>
   </div>

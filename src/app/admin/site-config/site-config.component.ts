@@ -38,7 +38,9 @@ export class SiteConfigComponent implements OnInit {
     if (
       this.siteConfig.groupName && this.siteConfig.groupWebsite
       && this.siteConfig.eventName && this.siteConfig.eventDate
-      && this.siteConfig.eventEmail && this.siteConfig.eventLink && this.siteConfig.ticketURL
+      && this.siteConfig.eventEmail && this.siteConfig.eventLink
+      && this.siteConfig.eventAnonReport && this.siteConfig.eventReportEmail
+      && this.siteConfig.ticketURL
     ) {
       this.siteConfigService.createConfig(this.siteConfig, photo);
 
@@ -77,7 +79,9 @@ export class SiteConfigComponent implements OnInit {
     if (
       this.siteConfig.groupName && this.siteConfig.groupWebsite
       && this.siteConfig.eventName && this.siteConfig.eventDate
-      && this.siteConfig.eventEmail && this.siteConfig.eventLink && this.siteConfig.ticketURL
+      && this.siteConfig.eventEmail && this.siteConfig.eventLink
+      && this.siteConfig.eventAnonReport && this.siteConfig.eventReportEmail
+      && this.siteConfig.ticketURL
     ) {
       this.siteConfigService.updateConfig(this.siteConfig, photo);
 

@@ -17,7 +17,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  tempDesc: string;
   tempPhotoURL: string;
   speakers: FirebaseListObservable<Speaker[]>;
   siteConfig: FirebaseObjectObservable<SiteConfig>;
@@ -40,21 +39,13 @@ export class HomeComponent implements OnInit {
       equalTo: true
     });
 
+    // Default colors for Ticket Types
     this.styles = ['cyan', 'blue', 'indigo', 'deep-purple'];
 
     this.siteConfig = this.siteConfigService.getConfig();
     this.sponsors = this.sponsorService.getSponsorList();
     this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
     this.tickets = this.ticketService.getTicketList({ orderByChild: 'active', equalTo: true });
-
-    // Template Defaults
-    this.tempDesc = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-      in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-      mollit anim id est laborum.`;
   }
 
 }

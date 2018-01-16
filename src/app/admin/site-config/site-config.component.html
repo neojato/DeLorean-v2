@@ -64,52 +64,72 @@
           <div class="md-form">
             <i class="fa fa-google prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventName" name="eventName" #eventName="ngModel" id="eventName" class="form-control" required>
-            <label for="eventName" [class.active]="siteConfig.eventName && siteConfig.eventName.length > 0">DevFest Name: <em>(ex. DevFest KC 2018)</em> <small>(required)</small></label>
+            <label for="eventName" [class.active]="siteConfig.eventName && siteConfig.eventName.length > 0">Event Name: <em>(ex. DevFest KC 2018)</em> <small>(required)</small></label>
             <div *ngIf="eventName.invalid && (eventName.dirty || eventName.touched)" class="text-danger">
               <div *ngIf="eventName.errors.required">
-                DevFest Name is required.
+                Event Name is required.
               </div>
             </div>
           </div>
           <div class="md-form">
             <i class="fa fa-calendar prefix grey-text"></i>
             <input type="date" [(ngModel)]="siteConfig.eventDate" name="eventDate" #eventDate="ngModel" id="eventDate" placeholder="" class="form-control" required>
-            <label class="active" for="eventDate">DevFest Date: <small>(required)</small></label>
+            <label class="active" for="eventDate">Event Date: <small>(required)</small></label>
             <div *ngIf="eventDate.invalid && (eventDate.dirty || eventDate.touched)" class="text-danger">
               <div *ngIf="eventDate.errors.required">
-                DevFest Date is required.
+                Event Date is required.
               </div>
             </div>
           </div>
           <div class="md-form">
             <i class="fa fa-globe prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventLink" name="eventLink" #eventLink="ngModel" id="eventLink" class="form-control" required>
-            <label for="eventLink" [class.active]="siteConfig.eventLink && siteConfig.eventLink.length > 0">DevFest Website URL: <small>(required)</small></label>
+            <label for="eventLink" [class.active]="siteConfig.eventLink && siteConfig.eventLink.length > 0">Event Website URL: <small>(required)</small></label>
             <div *ngIf="eventLink.invalid && (eventLink.dirty || eventLink.touched)" class="text-danger">
               <div *ngIf="eventLink.errors.required">
-                DevFest Website URL is required.
+                Event Website URL is required.
               </div>
             </div>
           </div>
           <div class="md-form">
             <i class="fa fa-envelope prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventEmail" name="eventEmail" #eventEmail="ngModel" id="eventEmail" class="form-control" required>
-            <label for="eventEmail" [class.active]="siteConfig.eventEmail && siteConfig.eventEmail.length > 0">DevFest Email Address: <small>(required)</small></label>
+            <label for="eventEmail" [class.active]="siteConfig.eventEmail && siteConfig.eventEmail.length > 0">Event Email Address: <em>(ex. devfest@gmail.com)</em> <small>(required)</small></label>
             <div *ngIf="eventEmail.invalid && (eventEmail.dirty || eventEmail.touched)" class="text-danger">
               <div *ngIf="eventEmail.errors.required">
-                DevFest Email Address is required.
+                Event Email Address is required.
+              </div>
+            </div>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-envelope-o prefix grey-text"></i>
+            <input type="text" [(ngModel)]="siteConfig.eventReportEmail" name="eventReportEmail" #eventReportEmail="ngModel" id="eventReportEmail" class="form-control" required>
+            <label for="eventReportEmail" [class.active]="siteConfig.eventReportEmail && siteConfig.eventReportEmail.length > 0">Event Code of Conduct Team Email: <em>(ex. coc@devfestcity.com)</em> <small>(required)</small></label>
+            <div *ngIf="eventReportEmail.invalid && (eventReportEmail.dirty || eventReportEmail.touched)" class="text-danger">
+              <div *ngIf="eventReportEmail.errors.required">
+                Event Code of Conduct Team Email is required.
+              </div>
+            </div>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-user-secret prefix grey-text"></i>
+            <input type="text" [(ngModel)]="siteConfig.eventAnonReport" name="eventAnonReport" #eventAnonReport="ngModel" id="eventAnonReport" class="form-control" required>
+            <label for="eventAnonReport" [class.active]="siteConfig.eventAnonReport && siteConfig.eventAnonReport.length > 0">Event Anonymous Harassment Form URL: <small>(required)</small></label>
+            <div *ngIf="eventAnonReport.invalid && (eventAnonReport.dirty || eventAnonReport.touched)" class="text-danger">
+              <div *ngIf="eventAnonReport.errors.required">
+                Event Anonymous Harassment Form URL is required.
               </div>
             </div>
           </div>
           <div class="md-form">
             <i class="fa fa-twitter prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventTwitter" name="eventTwitter" id="eventTwitter" class="form-control">
-            <label for="eventTwitter" [class.active]="siteConfig.eventTwitter && siteConfig.eventTwitter.length > 0">DevFest Twitter: <em>(without the @)</em></label>
+            <label for="eventTwitter" [class.active]="siteConfig.eventTwitter && siteConfig.eventTwitter.length > 0">Event Twitter: <em>(without the @)</em></label>
           </div>
           <div class="md-form">
             <i class="fa fa-hashtag prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.eventHashtag" name="eventHashtag" id="eventHashtag" class="form-control">
-            <label for="eventHashtag" [class.active]="siteConfig.eventHashtag && siteConfig.eventHashtag.length > 0">DevFest Hashtag: <em>(without the #)</em></label>
+            <label for="eventHashtag" [class.active]="siteConfig.eventHashtag && siteConfig.eventHashtag.length > 0">Event Hashtag: <em>(without the #)</em></label>
           </div>
           <div class="md-form">
             <i class="fa fa-volume-up prefix grey-text"></i>
@@ -122,7 +142,7 @@
             <label for="ticketURL" [class.active]="siteConfig.ticketURL && siteConfig.ticketURL.length > 0">Purchase Ticket URL: <small>(required)</small></label>
             <div *ngIf="ticketURL.invalid && (ticketURL.dirty || ticketURL.touched)" class="text-danger">
               <div *ngIf="ticketURL.errors.required">
-                DevFest Ticket URL is required.
+                Event Ticket URL is required.
               </div>
             </div>
           </div>
