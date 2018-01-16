@@ -32,7 +32,7 @@
                     <small [innerHTML]="getSpeakerName(speaker)"></small><span *ngIf="session.speakers.length > 1 && i+1 != session.speakers.length">, </span>
                   </span>
                 </td>
-                <td class="d-none d-md-block text-center" style="width: 16%"><span [innerHTML]="session.tag"></span></td>
+                <td class="d-none d-md-block text-center"><span [innerHTML]="session.tag"></span></td>
                 <td class="text-center" style="width: 16%" nowrap><span [innerHTML]="session.room"></span></td>
                 <td style="width: 16%; text-align: right;" nowrap><span [innerHTML]="session.time"></span></td>
               </tr>
