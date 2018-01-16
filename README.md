@@ -13,6 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  - "My Schedule" for Attendees
  - Google Tag Manager enabled
  - Session feedback
+ - Code of Conduct
 
 ## Table of Contents
  - [Getting Started](#getting-started)
