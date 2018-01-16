@@ -26,7 +26,7 @@
       <p class="font-weight-bold">If your physical safety or the physical safety of others is at risk, please dial 911 immediately.</p>
       <p *ngIf="(siteConfig | async)?.eventReportEmail">Code of Conduct Team: <a href="mailto:{{ (siteConfig | async)?.eventReportEmail }}?subject=CoC Alert - {{ (siteConfig | async)?.eventName }}">{{ (siteConfig | async)?.eventReportEmail }}</a></p>
       <p>{{ (siteConfig | async)?.eventName }} Organizers: <a href="mailto:{{ (siteConfig | async)?.eventEmail }}?subject=CoC Alert - {{ (siteConfig | async)?.eventName }}">{{ (siteConfig | async)?.eventEmail }}</a></p>
-      <p><a href="https://www.rainn.org/" target="_blank">RAINN</a> Sexual Assault Crisis Line/Victims Crisis Line (24 hours): <a href="tel:800.656.4673">800.656.4673</a></p>
+      <p><a href="https://www.rainn.org/" target="_blank" rel="noopener">RAINN</a> Sexual Assault Crisis Line/Victims Crisis Line (24 hours): <a href="tel:800.656.4673">800.656.4673</a></p>
     </div>
     <div class="pt-1 pb-4">
       <h4 class="font-weight-bold">Full Code of Conduct</h4>
@@ -83,7 +83,7 @@
     </div>
     <div class="pt-1 pb-4" *ngIf="(siteConfig | async)?.eventAnonReport">
       <h5 class="font-weight-bold">Anonymous Report</h5>
-      <p>You can make an anonymous report here: <a href="{{ (siteConfig | async)?.eventAnonReport }}" target="_blank">{{ (siteConfig | async)?.eventAnonReport }}</a></p>
+      <p>You can make an anonymous report here: <a href="{{ (siteConfig | async)?.eventAnonReport }}" target="_blank" rel="noopener">{{ (siteConfig | async)?.eventAnonReport }}</a></p>
       <p>We can't follow up an anonymous report with you directly, but we will fully investigate it and take whatever action is necessary to prevent a recurrence.</p>
     </div>
     <div class="pt-1 pb-4">
@@ -102,10 +102,10 @@
     <div class="pt-1 pb-4">
       <h4 class="font-weight-bold">License</h4>
       <p>
-        This Code of Conduct was forked from the example policy from the <a href="http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy" target="_blank">Geek Feminism wiki</a>,
+        This Code of Conduct was forked from the example policy from the <a href="http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy" target="_blank" rel="noopener">Geek Feminism wiki</a>,
         created by the Ada Initiative and other volunteers. which is under a Creative Commons Zero license.
       </p>
-      <p>Conference Code of Conduct by {{ (siteConfig | async)?.eventName }} is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 Unported License</a>.</p>
+      <p>Conference Code of Conduct by {{ (siteConfig | async)?.eventName }} is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">Creative Commons Attribution 3.0 Unported License</a>.</p>
     </div>
   </section>
   <!--Section: Coc-->

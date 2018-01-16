@@ -12,7 +12,7 @@
     </div>
     <div class="col sponsors">
       <h4>We partner with some of the<br/>world's most innovative brands.</h4>
-      <a class="btn btn-primary waves-light" [href]="(siteConfig | async)?.sponsorURL" target="_blank">Become a Sponsor</a>
+      <a class="btn btn-primary waves-light" [href]="(siteConfig | async)?.sponsorURL" target="_blank" rel="noopener">Become a Sponsor</a>
     </div>
     <div class="col sponsors" *ngFor="let level of levels | async">
       <h3 style="font-weight: bold;">
@@ -27,7 +27,7 @@
         <ng-container *ngFor="let sponsor of sponsors | async">
           <ng-container *ngIf="level.$key === sponsor.level">
             <span class="col-md-6" style="padding-left: 40px; padding-right: 40px; margin: 0 auto;">
-              <a [href]="sponsor.websiteLink" target="_blank">
+              <a [href]="sponsor.websiteLink" target="_blank" rel="noopener">
                 <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
               </a>
               <button class="btn-sm btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sponsors/{{ sponsor.$key }}/edit">

@@ -13,18 +13,18 @@
       <div class="col-lg-2 col-md-6 ml-auto">
         <h5 class="title font-bold mt-3 mb-4">Links</h5>
         <ul>
-          <li><a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName }}</a></li>
-          <li><a href="https://developers.google.com/" target="_blank">Google Developers</a></li>
-          <li><a href="https://www.womentechmakers.com/" target="_blank">Women Techmakers</a></li>
+          <li><a [href]="(siteConfig | async)?.groupWebsite" target="_blank" rel="noopener">{{ (siteConfig | async)?.groupName }}</a></li>
+          <li><a href="https://developers.google.com/" target="_blank" rel="noopener">Google Developers</a></li>
+          <li><a href="https://www.womentechmakers.com/" target="_blank" rel="noopener">Women Techmakers</a></li>
         </ul>
       </div>
       <hr class="w-100 clearfix d-sm-none">
       <div class="col-lg-2 col-md-6 ml-auto">
         <h5 class="title font-bold mt-3 mb-4">Contact</h5>
         <ul>
-          <li><a href="mailto:{{ (siteConfig | async)?.eventEmail }}" target="_blank">{{ (siteConfig | async)?.eventEmail }}</a></li>
-          <li *ngIf="(siteConfig | async)?.eventTwitter"><a href="https://twitter.com/intent/tweet?text=@{{ (siteConfig | async)?.eventTwitter }}" target="_blank">@{{ (siteConfig | async)?.eventTwitter }}</a></li>
-          <li *ngIf="(siteConfig | async)?.twitterLink"><a href="https://twitter.com/intent/tweet?text=@{{ (siteConfig | async)?.twitterLink }}" target="_blank">@{{ (siteConfig | async)?.twitterLink }}</a></li>
+          <li><a href="mailto:{{ (siteConfig | async)?.eventEmail }}" target="_blank" rel="noopener">{{ (siteConfig | async)?.eventEmail }}</a></li>
+          <li *ngIf="(siteConfig | async)?.eventTwitter"><a href="https://twitter.com/intent/tweet?text=@{{ (siteConfig | async)?.eventTwitter }}" target="_blank" rel="noopener">@{{ (siteConfig | async)?.eventTwitter }}</a></li>
+          <li *ngIf="(siteConfig | async)?.twitterLink"><a href="https://twitter.com/intent/tweet?text=@{{ (siteConfig | async)?.twitterLink }}" target="_blank" rel="noopener">@{{ (siteConfig | async)?.twitterLink }}</a></li>
         </ul>
       </div>
       <hr class="w-100 clearfix d-sm-none">
@@ -32,8 +32,8 @@
         <h5 class="title font-bold mt-3 mb-4">FAQ</h5>
         <ul>
           <li><a routerLink="/code-of-conduct">Code of Conduct</a></li>
-          <li><a href="https://meetup.com/pro/gdg" target="_blank">Google Developer Groups</a></li>
-          <li><a href="https://developers.google.com/events/devfest/" target="_blank">GDG DevFest Season</a></li>
+          <li><a href="https://meetup.com/pro/gdg" target="_blank" rel="noopener">Google Developer Groups</a></li>
+          <li><a href="https://developers.google.com/events/devfest/" target="_blank" rel="noopener">GDG DevFest Season</a></li>
         </ul>
       </div>
 
@@ -49,7 +49,7 @@
       <li>
         <h5>Reserve your ticket today!</h5>
       </li>
-      <li><a [href]="(siteConfig | async)?.ticketURL" target="_blank" class="btn btn-danger">Buy Ticket</a></li>
+      <li><a [href]="(siteConfig | async)?.ticketURL" target="_blank" rel="noopener" class="btn btn-danger">Buy Ticket</a></li>
     </ul>
   </div>
   <!--/.Call to action-->
@@ -59,11 +59,11 @@
   <!--Social buttons-->
   <div class="social-section mb-3">
     <ul>
-      <li *ngIf="(siteConfig | async)?.googleLink"><a class="btn-social-all" href="https://plus.google.com/{{ (siteConfig | async)?.googleLink }}" title="Google+" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-      <li *ngIf="(siteConfig | async)?.facebookLink"><a class="btn-social-all" href="https://www.facebook.com/{{ (siteConfig | async)?.facebookLink }}" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-      <li *ngIf="(siteConfig | async)?.twitterLink"><a class="btn-social-all" href="https://twitter.com/{{ (siteConfig | async)?.twitterLink }}" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-      <li *ngIf="(siteConfig | async)?.meetupLink"><a class="btn-social-all" href="https://www.meetup.com/{{ (siteConfig | async)?.meetupLink }}" title="Meetup" target="_blank"><i class="fa fa-meetup"></i></a></li>
-      <li *ngIf="(siteConfig | async)?.githubLink"><a class="btn-social-all" href="https://github.com/{{ (siteConfig | async)?.githubLink }}" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.googleLink"><a class="btn-social-all" href="https://plus.google.com/{{ (siteConfig | async)?.googleLink }}" title="Google+" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.facebookLink"><a class="btn-social-all" href="https://www.facebook.com/{{ (siteConfig | async)?.facebookLink }}" title="Facebook" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.twitterLink"><a class="btn-social-all" href="https://twitter.com/{{ (siteConfig | async)?.twitterLink }}" title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.meetupLink"><a class="btn-social-all" href="https://www.meetup.com/{{ (siteConfig | async)?.meetupLink }}" title="Meetup" target="_blank" rel="noopener"><i class="fa fa-meetup"></i></a></li>
+      <li *ngIf="(siteConfig | async)?.githubLink"><a class="btn-social-all" href="https://github.com/{{ (siteConfig | async)?.githubLink }}" title="GitHub" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
     </ul>
   </div>
   <!--/.Social buttons-->
@@ -71,8 +71,8 @@
   <!--Copyright-->
   <div class="footer-copyright">
     <div class="container-fluid">
-      &copy; {{ copyright }} Copyright <a [href]="(siteConfig | async)?.groupWebsite" target="_blank">{{ (siteConfig | async)?.groupName }}</a>
-      <br>Based on the <a href="https://github.com/neojato/DeLorean-v2" target="_blank">DeLorean Project</a>
+      &copy; {{ copyright }} Copyright <a [href]="(siteConfig | async)?.groupWebsite" target="_blank" rel="noopener">{{ (siteConfig | async)?.groupName }}</a>
+      <br>Based on the <a href="https://github.com/neojato/DeLorean-v2" target="_blank" rel="noopener">DeLorean Project</a>
     </div>
   </div>
   <!--/.Copyright-->

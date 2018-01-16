@@ -29,22 +29,22 @@
           </strong>
         </h6>
         <p class="speaker-bio show-modal" (click)="showModal(speaker)" [innerHTML]="speaker.description"></p>
-        <a *ngIf="speaker.googleLink" class="icons-sm gplus-ic" href="https://plus.google.com/{{ speaker.googleLink }}" target="_blank">
+        <a *ngIf="speaker.googleLink" class="icons-sm gplus-ic" href="https://plus.google.com/{{ speaker.googleLink }}" target="_blank" rel="noopener">
           <i class="fa fa-google-plus" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speaker.facebookLink" class="icons-sm fb-ic" href="https://www.facebook.com/{{ speaker.facebookLink }}" target="_blank">
+        <a *ngIf="speaker.facebookLink" class="icons-sm fb-ic" href="https://www.facebook.com/{{ speaker.facebookLink }}" target="_blank" rel="noopener">
           <i class="fa fa-facebook" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speaker.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speaker.twitterLink }}" target="_blank">
+        <a *ngIf="speaker.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speaker.twitterLink }}" target="_blank" rel="noopener">
           <i class="fa fa-twitter" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speaker.linkedinLink" class="icons-sm li-ic" href="https://www.linkedin.com/{{ speaker.linkedinLink }}" target="_blank">
+        <a *ngIf="speaker.linkedinLink" class="icons-sm li-ic" href="https://www.linkedin.com/{{ speaker.linkedinLink }}" target="_blank" rel="noopener">
           <i class="fa fa-linkedin" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speaker.githubLink" class="icons-sm git-ic" href="https://github.com/{{ speaker.githubLink }}" target="_blank">
+        <a *ngIf="speaker.githubLink" class="icons-sm git-ic" href="https://github.com/{{ speaker.githubLink }}" target="_blank" rel="noopener">
           <i class="fa fa-github" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speaker.websiteLink" class="icons-sm email-ic" href="{{ speaker.websiteLink }}" target="_blank">
+        <a *ngIf="speaker.websiteLink" class="icons-sm email-ic" href="{{ speaker.websiteLink }}" target="_blank" rel="noopener">
           <i class="fa fa-chrome" aria-hidden="true"></i>
         </a>
       </div>
@@ -82,22 +82,22 @@
         <p [innerHTML]="speakerDetail?.description"></p>
       </div>
       <div class="modal-footer justify-content-center">
-        <a *ngIf="speakerDetail?.googleLink" class="icons-sm gplus-ic" href="https://plus.google.com/{{ speakerDetail?.googleLink }}" target="_blank">
+        <a *ngIf="speakerDetail?.googleLink" class="icons-sm gplus-ic" href="https://plus.google.com/{{ speakerDetail?.googleLink }}" target="_blank" rel="noopener">
           <i class="fa fa-google-plus" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speakerDetail?.facebookLink" class="icons-sm fb-ic" href="https://www.facebook.com/{{ speakerDetail?.facebookLink }}" target="_blank">
+        <a *ngIf="speakerDetail?.facebookLink" class="icons-sm fb-ic" href="https://www.facebook.com/{{ speakerDetail?.facebookLink }}" target="_blank" rel="noopener">
           <i class="fa fa-facebook" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speakerDetail?.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speakerDetail?.twitterLink }}" target="_blank">
+        <a *ngIf="speakerDetail?.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speakerDetail?.twitterLink }}" target="_blank" rel="noopener">
           <i class="fa fa-twitter" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speakerDetail?.linkedinLink" class="icons-sm li-ic" href="https://www.linkedin.com/{{ speakerDetail?.linkedinLink }}" target="_blank">
+        <a *ngIf="speakerDetail?.linkedinLink" class="icons-sm li-ic" href="https://www.linkedin.com/{{ speakerDetail?.linkedinLink }}" target="_blank" rel="noopener">
           <i class="fa fa-linkedin" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speakerDetail?.githubLink" class="icons-sm git-ic" href="https://github.com/{{ speakerDetail?.githubLink }}" target="_blank">
+        <a *ngIf="speakerDetail?.githubLink" class="icons-sm git-ic" href="https://github.com/{{ speakerDetail?.githubLink }}" target="_blank" rel="noopener">
           <i class="fa fa-github" aria-hidden="true"></i>
         </a>
-        <a *ngIf="speakerDetail?.websiteLink" class="icons-sm email-ic" href="{{ speakerDetail?.websiteLink }}" target="_blank">
+        <a *ngIf="speakerDetail?.websiteLink" class="icons-sm email-ic" href="{{ speakerDetail?.websiteLink }}" target="_blank" rel="noopener">
           <i class="fa fa-chrome" aria-hidden="true"></i>
         </a>
       </div>

@@ -74,17 +74,17 @@
           </p>
           <div class="personal-sm">
             <!--Google+-->
-            <a *ngIf="(speaker | async)?.googleLink" class="gplus-ic" href="https://plus.google.com/{{ (speaker | async)?.googleLink }}" target="_blank"><i class="fa fa-google-plus"></i></a>
+            <a *ngIf="(speaker | async)?.googleLink" class="gplus-ic" href="https://plus.google.com/{{ (speaker | async)?.googleLink }}" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a>
             <!--Facebook-->
-            <a *ngIf="(speaker | async)?.facebookLink" class="fb-ic" href="https://www.facebook.com/{{ (speaker | async)?.facebookLink }}" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a *ngIf="(speaker | async)?.facebookLink" class="fb-ic" href="https://www.facebook.com/{{ (speaker | async)?.facebookLink }}" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
             <!--Twitter-->
-            <a *ngIf="(speaker | async)?.twitterLink" class="tw-ic" href="https://twitter.com/{{ (speaker | async)?.twitterLink }}" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a *ngIf="(speaker | async)?.twitterLink" class="tw-ic" href="https://twitter.com/{{ (speaker | async)?.twitterLink }}" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
             <!--LinkedIn-->
-            <a *ngIf="(speaker | async)?.linkedinLink" class="li-ic" href="https://www.linkedin.com/{{ (speaker | async)?.linkedinLink }}" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a *ngIf="(speaker | async)?.linkedinLink" class="li-ic" href="https://www.linkedin.com/{{ (speaker | async)?.linkedinLink }}" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a>
             <!--GitHub-->
-            <a *ngIf="(speaker | async)?.githubLink" class="git-ic" href="https://github.com/{{ (speaker | async)?.githubLink }}" target="_blank"><i class="fa fa-github"></i></a>
+            <a *ngIf="(speaker | async)?.githubLink" class="git-ic" href="https://github.com/{{ (speaker | async)?.githubLink }}" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
             <!--Website-->
-            <a *ngIf="(speaker | async)?.websiteLink" class="email-ic" href="{{ (speaker | async)?.websiteLink }}" target="_blank"><i class="fa fa-chrome"></i></a>
+            <a *ngIf="(speaker | async)?.websiteLink" class="email-ic" href="{{ (speaker | async)?.websiteLink }}" target="_blank" rel="noopener"><i class="fa fa-chrome"></i></a>
           </div>
           <p [innerHTML]="(speaker | async)?.description"></p>
         </div>
