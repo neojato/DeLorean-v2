@@ -7,7 +7,7 @@
     "userProfile": {
       ".write": "auth != null && auth.provider == 'google'"
     },
-    "2017": {
+    "$year": {
       "levels": {
         ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
       },
