@@ -27,9 +27,9 @@
                     <small [innerHTML]="getSpeakerName(speaker)"></small><span *ngIf="session.speakers.length > 1 && i+1 != session.speakers.length">, </span>
                   </span>
                 </td>
-                <td class="text-center" style="width: 16%"><span [innerHTML]="session.tag"></span></td>
-                <td class="text-center" style="width: 16%"><span [innerHTML]="session.room"></span></td>
-                <td style="width: 16%; text-align: right;"><span [innerHTML]="session.time"></span></td>
+                <td class="d-none d-md-block text-center"><span [innerHTML]="session.tag"></span></td>
+                <td class="text-center" style="width: 16%" nowrap><span [innerHTML]="session.room"></span></td>
+                <td style="width: 16%; text-align: right;" nowrap><span [innerHTML]="session.time"></span></td>
               </tr>
             </table>
           </tr>
@@ -37,7 +37,7 @@
       </table>
     </div>
     <div *ngIf="(sessions | async)?.length !== 0 && (mySessions | async)?.length === 0" class="text-center">
-      <h5>You haven't added any sessions yet! Go back to the <a routerLInk="">Schedule</a> and add some!</h5>
+      <h5>You haven't added any sessions yet! Go back to the <a routerLink="/sessions">Schedule</a> and add some!</h5>
     </div>
     <div *ngIf="(sessions | async)?.length === 0" class="text-center">
       <h5>Stay tuned! Once sessions have been added, you can create your own schedule and view it here!</h5>
