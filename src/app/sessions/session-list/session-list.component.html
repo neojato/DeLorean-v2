@@ -5,6 +5,9 @@
   <!--Section: Schedule-->
   <section class="section">
     <div class="d-print-none">
+      <div class="pull-right" style="margin-top: -45px;">
+        <a href="javascript:window.print();" title="Print Schedule"><i class="fa fa-print" aria-hidden="true"></i> Print Schedule</a>
+      </div>
       <h1 class="section-heading">Our Schedule</h1>
       <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
         <button type="button" class="btn btn-success" (click)="sectionModal.show()">Create Section</button>
