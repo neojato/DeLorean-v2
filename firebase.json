@@ -12,7 +12,7 @@
       "source": "**/*.@(css|jpg|jpeg|png|gif|js|ico|woff)",
       "headers": [{
         "key": "Cache-Control",
-        "value": "max-age=864000"
+        "value": "max-age=86400"
       }]
     },{
       "source": "service-worker.js",
