@@ -10,6 +10,7 @@
           <thead class="blue-grey lighten-4">
             <tr>
               <th class="text-center">#</th>
+              <th>User UID</th>
               <th>Display Name</th>
               <th>Email</th>
               <th>Is Admin?</th>
@@ -18,7 +19,8 @@
           </thead>
           <tbody>
             <tr *ngFor="let user of users; let i = index;">
-              <th class="text-center">{{ i+1 }}</th>
+              <th class="text-center">{{ prevKeys?.length > 0 ? (prevKeys?.length*offset)+i+1 : i+1 }}</th>
+              <td>{{ user.$key }}</td>
               <td>{{ user.displayName }}</td>
               <td>{{ user.email }}</td>
               <td>{{ isAdmin(user.$key) || 'false' }}</td>
@@ -27,12 +29,23 @@
             <tr>
               <td colspan="100%" class="blue-grey lighten-4">
                 <table class="pull-right">
-                  <tr>
-                    <td style="border: 0; padding: 0 15px;">
-                      <button (click)="prevPage()" [disabled]="!prevKeys?.length" title="Previous Page"><strong>&lt;</strong></button>
+                  <tr class="blue-grey lighten-4">
+                    <td style="border: 0; padding: 12px 15px;">
+                      {{ prevKeys?.length > 0 ? (prevKeys?.length*offset)+1 : 1 }}
+                      -
+                      {{ prevKeys?.length > 0 ? (prevKeys?.length*offset)+users.length : users.length }}
+                      &nbsp;of&nbsp;
+                      {{ (usersList | async)?.length+1 }}
                     </td>
                     <td style="border: 0; padding: 0 15px;">
-                      <button (click)="nextPage()" [disabled]="!nextKey" title="Next Page"><strong>&gt;</strong></button>
+                      <button class="btn btn-sm btn-primary waves-light" mdbRippleRadius (click)="prevPage()" [disabled]="!prevKeys?.length" title="Previous Page">
+                        <strong><i class="fa fa-arrow-left"></i></strong>
+                      </button>
+                    </td>
+                    <td style="border: 0; padding: 0 15px;">
+                      <button class="btn btn-sm btn-primary waves-light" mdbRippleRadius (click)="nextPage()" [disabled]="!nextKey" title="Next Page">
+                        <strong><i class="fa fa-arrow-right"></i></strong>
+                      </button>
                     </td>
                   </tr>
                 </table>

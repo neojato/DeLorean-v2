@@ -9,7 +9,8 @@ import * as _ from 'lodash';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  public users: FirebaseListObservable<any[]>;
+  public usersList: FirebaseListObservable<any[]>;
+  users: any[] = [];
   nextKey: any;
   prevKeys: any[] = [];
   subscription: any;
@@ -20,6 +21,7 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.offset = 10;
     this.getUsers();
+    this.usersList = this.userService.getUserList(this.offset);
   }
 
   isAdmin(userKey: string) {
