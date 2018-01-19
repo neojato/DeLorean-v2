@@ -38,8 +38,8 @@
         </div>
 
         <div class="text-center" *ngIf="!isLoggedIn()" style="margin-top: 35px;">
-          <small>Login to add this to your schedule.</small>
-          <button (click)="userLogin()" type="button" class="btn btn-sm btn-primary" title="Login">Login</button>
+          <small>Login to add this to your personal schedule,<br/>or to provide feedback after the session ends.</small><br/>
+          <button (click)="userLogin()" type="button" class="btn btn-primary" title="Login">Login</button>
         </div>
       </div>
     </div>
@@ -58,12 +58,12 @@
     <div class="author-box" *ngFor="let speaker of profiles">
       <div class="row">
         <!--Avatar-->
-        <div class="avatar col-xs-12 col-sm-2" title="{{ (speaker | async)?.name }}" alt="{{ (speaker | async)?.name }}">
+        <div class="avatar col-xs-12 col-sm-3" title="{{ (speaker | async)?.name }}" alt="{{ (speaker | async)?.name }}">
           <img *ngIf="!(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2" style="background-image: url('../../assets/img/user-default.png')">
           <img *ngIf="(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2" [ngStyle]="{'background-image': 'url(' + (speaker | async)?.photoURL + ')'}">
         </div>
         <!--Author Data-->
-        <div class="col-xs-12 col-sm-10">
+        <div class="col-xs-12 col-sm-9">
           <p>
             <strong><span [innerHTML]="(speaker | async)?.name"></span></strong><br>
             <small>
