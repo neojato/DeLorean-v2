@@ -99,8 +99,14 @@
     <div class="row">
       <div class="col-md-9 mb-5">
         <div id="map-container" class="z-depth-1" style="height: 300px">
-          <agm-map style="height: 300px" [latitude]="( (siteConfig | async)?.venueGeoData?.lat )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng )" [scrollwheel]="false" [zoom]="18">
-            <agm-marker [latitude]="( (siteConfig | async)?.venueGeoData?.lat )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng )"></agm-marker>
+          <agm-map style="height: 300px" [latitude]="( (siteConfig | async)?.venueGeoData?.lat + 0.0003 )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng )" [scrollwheel]="false" [zoom]="18">
+            <agm-marker [latitude]="( (siteConfig | async)?.venueGeoData?.lat )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng )">
+              <agm-info-window [isOpen]="true" [maxWidth]="180">
+                <strong>{{ (siteConfig | async)?.venueName }}</strong><br/>
+                {{ (siteConfig | async)?.venueAddress }}<br/>
+                <a href="https://www.google.com/maps/search/?api=1&query={{ (siteConfig | async)?.venueAddress }}" target="_blank" rel="noopener">View on Google Maps</a>
+              </agm-info-window>
+            </agm-marker>
           </agm-map>
         </div>
       </div>
