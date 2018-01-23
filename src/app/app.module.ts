@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
+import { AppCustomPreloader } from './app.custompreloader';
 import { AppComponent } from './app.component';
 
 import { routerConfig } from './router.config';
@@ -88,7 +89,7 @@ import { CocComponent } from './coc/coc.component';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routerConfig),
+    RouterModule.forRoot(routerConfig, { preloadingStrategy: AppCustomPreloader }),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -107,7 +108,8 @@ import { CocComponent } from './coc/coc.component';
     LevelService,
     GeocoderApiService,
     TicketService,
-    ScheduleService
+    ScheduleService,
+    AppCustomPreloader
   ],
   bootstrap: [AppComponent]
 })

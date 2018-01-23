@@ -100,7 +100,10 @@ export const routerConfig: Route[] = [{
   }, {
     path: '',
     component: SessionListComponent,
-    data: { title: 'Schedule' }
+    data: {
+      title: 'Schedule',
+      preload: true
+    }
   }]
 }, {
   path: 'speakers',
@@ -120,7 +123,10 @@ export const routerConfig: Route[] = [{
   }, {
     path: '',
     component: SpeakerListComponent,
-    data: { title: 'Speakers' }
+    data: {
+      title: 'Speakers',
+      preload: true
+    }
   }]
 }, {
   path: 'sponsors',
