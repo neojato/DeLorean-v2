@@ -9,16 +9,22 @@
       "destination": "/index.html"
     }],
     "headers": [{
-      "source": "**/*.@(css|jpg|jpeg|png|gif|js|ico|woff)",
+      "source": "**/*.@(jpg|jpeg|png|gif|js|ico|woff)",
       "headers": [{
         "key": "Cache-Control",
-        "value": "max-age=86400"
+        "value": "max-age=31536000, public"
+      }]
+    },{
+      "source": "**/*.@(css|js)",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=2628000, public"
       }]
     },{
       "source": "service-worker.js",
       "headers": [{
         "key": "Cache-Control",
-        "value": "max-age=0"
+        "value": "no-store"
       }]
     }]
   }
