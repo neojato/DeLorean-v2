@@ -17,6 +17,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { AppCustomPreloader } from './app.custompreloader';
 import { AppComponent } from './app.component';
@@ -94,7 +95,8 @@ import { CocComponent } from './coc/coc.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AgmCoreModule.forRoot({ apiKey: firebaseConfig.mapsKey }),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   providers: [
     SiteConfigService,

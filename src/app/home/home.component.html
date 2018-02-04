@@ -5,7 +5,7 @@
   <!--Intro Section-->
   <section class="view intro-1 hm-black-strong">
     <div class="full-bg-img flex-center">
-      <div class="container">
+      <div class="container" style="position:relative;">
         <ul>
           <li>
             <h1 class="h1-responsive font-bold">{{ (siteConfig | async)?.eventName }}</h1>
@@ -25,18 +25,21 @@
           </li>
         </ul>
       </div>
+      <div class="arrow bounce">
+        <a class="fa fa-chevron-down fa-1x" [ngx-scroll-to]="'#about'"></a>
+      </div>
     </div>
   </section>
 
 </header>
 
 <div class="container">
-  <div class="divider-new pt-5">
+  <div id="about" class="divider-new pt-5">
     <h2 class="h2-responsive">About</h2>
   </div>
 
   <!--Section: About-->
-  <section id="about" class="text-center">
+  <section class="text-center">
     <p>
       <strong>Google Developer Group DevFests</strong> are the largest Google related events in the world! Each DevFest is carefully
       crafted for you by your local GDG community to bring in awesome speakers, great topics, and lots fun! While no two events

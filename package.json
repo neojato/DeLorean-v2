@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@nicky-lenaers/ngx-scroll-to": "^0.5.3",
     "angular-bootstrap-md": "^4.3.5",
     "angularfire2": "^5.0.0-rc.3",
     "bootstrap": "^4.0.0-beta",
