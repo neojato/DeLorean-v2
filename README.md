@@ -37,8 +37,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   * Use default for Database Rules
   * Type `dist` for your public directory
   * Respond yes to configure as a single-page app
+  * **NOTE:** If you receive the warning, ` .firebaserc already has a default project, skipping` you need to delete `.firebaserc` and run this step again.
 * Copy [`firebase.config.ts.template`](https://github.com/neojato/DeLorean-v2/blob/master/src/environments/firebase.config.ts.template) to `firebase.config.ts` and populate fields with your Firebase and Google Maps Keys.
-* Update [`manifest.json`](https://github.com/neojato/DeLorean-v2/blob/master/src/manifest.json) to enable [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) capabilities.
+* Update [`manifest.json`](https://github.com/neojato/DeLorean-v2/blob/master/src/manifest.json) with your event's details to enable [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) capabilities.
+  * (Optional) If you want to fully customize the PWA experience, you can easily generate the `manifest.json` & correctly sized app icons using this tool: [App Manifest Generator](https://app-manifest.firebaseapp.com/)
 
 ## Contributing
 
