@@ -34,11 +34,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Grab a [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) for your project.
 * Run `firebase login` and then `firebase init` and link to your Firebase Project.
   * Select Database, Functions, and Hosting
-  * Use default for Database Rules
+  * Select your Firebase Project (created earlier)
+  * Use default filename for Database Rules
+  * Enter `N` when asked to overwrite Database Rules
+  * Select `JavaScript` when asked for Cloud Functions language
+  * Enter `Y` when asked to use ESLint
+  * Enter `N` when asked to overwrite `functions/index.js`
+  * Enter `Y` when asked to install dependancies
   * Type `dist` for your public directory
   * Respond yes to configure as a single-page app
-  * **NOTE:** If you receive the warning, ` .firebaserc already has a default project, skipping` you need to delete `.firebaserc` and run this step again.
+* Replace the generated `firebase.json` with the contents from [`firebase.json.template`](https://github.com/neojato/DeLorean-v2/blob/master/firebase.json.template)
 * Copy [`firebase.config.ts.template`](https://github.com/neojato/DeLorean-v2/blob/master/src/environments/firebase.config.ts.template) to `firebase.config.ts` and populate fields with your Firebase and Google Maps Keys.
+  * Change the value for the `devfestYear` key to the current year
+  * **NOTE:** Currently you will need modify this value annually to reuse this Firebase Project for your annual event
 * Update [`manifest.json`](https://github.com/neojato/DeLorean-v2/blob/master/src/manifest.json) with your event's details to enable [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) capabilities.
   * (Optional) If you want to fully customize the PWA experience, you can easily generate the `manifest.json` & correctly sized app icons using this tool: [App Manifest Generator](https://app-manifest.firebaseapp.com/)
 
