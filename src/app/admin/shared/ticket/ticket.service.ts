@@ -11,8 +11,10 @@ export class TicketService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getTicketList(activeOnly?: boolean): FirebaseListObservable<Ticket[]> {
-    this.tickets = this.db.list(this.basePath, ref => activeOnly ? ref.orderByChild('active').equalTo(true) : ref);
+  getTicketList(query?: object): FirebaseListObservable<Ticket[]> {
+    this.tickets = this.db.list(this.basePath, {
+      query: query
+    });
     return this.tickets;
   }
 

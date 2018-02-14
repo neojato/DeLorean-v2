@@ -16,8 +16,10 @@ export class SponsorService {
     this.firebaseStorage = firebase.storage();
   }
 
-  getSponsorList(): FirebaseListObservable<Sponsor[]> {
-    this.sponsors = this.db.list(this.basePath);
+  getSponsorList(query?: object): FirebaseListObservable<Sponsor[]> {
+    this.sponsors = this.db.list(this.basePath, {
+      query: query
+    });
     return this.sponsors;
   }
 

@@ -9,8 +9,8 @@ export class SectionService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getSectionList(year?, query = {}): FirebaseListObservable<Section[]> {
-    this.sections = this.listPath(year, { query: query });
+  getSectionList(query?: object, year?: string|number): FirebaseListObservable<Section[]> {
+    this.sections = this.listPath({ query: query }, year);
     return this.sections;
   }
 
@@ -24,11 +24,13 @@ export class SectionService {
     list.remove(key);
   }
 
-  private listPath(year?: string|number, query?) {
+  private listPath(query?: object, year?: string|number) {
     if (!year) {
         year = firebaseConfig.devfestYear;
     }
-    return this.db.list(`${year}/sections`, query);
+    return this.db.list(`${year}/sections`, {
+      query: query
+    });
   }
 
 }

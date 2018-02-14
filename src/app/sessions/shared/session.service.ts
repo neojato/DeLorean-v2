@@ -12,8 +12,10 @@ export class SessionService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getSessionList(): FirebaseListObservable<Session[]> {
-    this.sessions = this.db.list(this.basePath);
+  getSessionList(query?: object): FirebaseListObservable<Session[]> {
+    this.sessions = this.db.list(this.basePath, {
+      query: query
+    });
     return this.sessions;
   }
 

@@ -34,7 +34,7 @@ export class SponsorListComponent implements OnInit {
 
   ngOnInit() {
     this.sponsors = this.sponsorService.getSponsorList();
-    this.levels = this.levelService.getLevelList();
+    this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
     this.siteConfig = this.siteConfigService.getConfig();
   }
 

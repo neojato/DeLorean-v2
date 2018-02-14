@@ -34,15 +34,18 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.speakers = this.speakerService.getSpeakerList('featured');
+    this.speakers = this.speakerService.getSpeakerList({
+      orderByChild: 'featured',
+      equalTo: true
+    });
 
     // Default colors for Ticket Types
     this.styles = ['cyan', 'blue', 'indigo', 'deep-purple'];
 
     this.siteConfig = this.siteConfigService.getConfig();
     this.sponsors = this.sponsorService.getSponsorList();
-    this.levels = this.levelService.getLevelList();
-    this.tickets = this.ticketService.getTicketList(true);
+    this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
+    this.tickets = this.ticketService.getTicketList({ orderByChild: 'active', equalTo: true });
   }
 
 }

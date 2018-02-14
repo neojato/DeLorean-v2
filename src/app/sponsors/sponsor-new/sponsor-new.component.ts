@@ -24,7 +24,7 @@ export class SponsorNewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.levels = this.levelService.getLevelList();
+    this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
   }
 
   save() {

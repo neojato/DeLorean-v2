@@ -8,7 +8,7 @@ export class ScheduleService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getScheduleList(uid, year?: string|number) {
+  getScheduleList(uid: string, year?: string|number) {
     if (!year) {
         year = firebaseConfig.devfestYear;
     }

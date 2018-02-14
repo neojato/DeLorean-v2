@@ -10,8 +10,10 @@ export class LevelService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getLevelList(): FirebaseListObservable<Level[]> {
-    this.levels = this.db.list(this.basePath, ref => ref.orderByChild('rank'));
+  getLevelList(query?: object): FirebaseListObservable<Level[]> {
+    this.levels = this.db.list(this.basePath, {
+      query: query
+    });
     return this.levels;
   }
 
