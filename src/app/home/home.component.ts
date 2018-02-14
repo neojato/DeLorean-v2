@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
 
     this.siteConfig = this.siteConfigService.getConfig();
     this.sponsors = this.sponsorService.getSponsorList();
-    this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
+    this.levels = this.levelService.getLevelList();
     this.tickets = this.ticketService.getTicketList(true);
   }
 

@@ -31,7 +31,7 @@ export class SponsorEditComponent implements OnInit {
       });
     });
 
-    this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
+    this.levels = this.levelService.getLevelList();
   }
 
   update() {
