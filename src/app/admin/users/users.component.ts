@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.offset = 10;
     this.getUsers();
-    this.usersList = this.userService.getUserList(this.offset);
+    this.usersList = this.userService.getUserList();
   }
 
   isAdmin(userKey: string) {
@@ -44,7 +44,7 @@ export class UsersComponent implements OnInit {
   }
 
   private getUsers(key?) {
-    this.subscription = this.userService.getUserList(this.offset, key)
+    this.subscription = this.userService.getUserQuery(this.offset, key)
       .subscribe(users => {
         this.users = _.slice(users, 0, this.offset);
         this.nextKey = _.get(users[this.offset], '$key');

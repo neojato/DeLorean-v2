@@ -19,7 +19,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let user of users; let i = index;">
-              <th class="text-center">{{ prevKeys?.length > 0 ? (prevKeys?.length*offset)+i+1 : i+1 }}</th>
+              <th class="text-center">{{ prevKeys?.length > 0 ? (prevKeys?.length * offset) + i + 1 : i + 1 }}</th>
               <td>{{ user.$key }}</td>
               <td>{{ user.displayName }}</td>
               <td>{{ user.email }}</td>
@@ -31,11 +31,11 @@
                 <table class="pull-right">
                   <tr class="blue-grey lighten-4">
                     <td style="border: 0; padding: 12px 15px;">
-                      {{ prevKeys?.length > 0 ? (prevKeys?.length*offset)+1 : 1 }}
+                      {{ prevKeys?.length > 0 ? (prevKeys?.length * offset) + 1 : 1 }}
                       -
-                      {{ prevKeys?.length > 0 ? (prevKeys?.length*offset)+users.length : users.length }}
+                      {{ prevKeys?.length > 0 ? (prevKeys?.length * offset) + users.length : users.length }}
                       &nbsp;of&nbsp;
-                      {{ (usersList | async)?.length+1 }}
+                      {{ (usersList | async)?.length }}
                     </td>
                     <td style="border: 0; padding: 0 15px;">
                       <button class="btn btn-sm btn-primary waves-light" mdbRippleRadius (click)="prevPage()" [disabled]="!prevKeys?.length" title="Previous Page">

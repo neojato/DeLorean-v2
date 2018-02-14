@@ -8,7 +8,12 @@ export class UserService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getUserList(offset, startKey?): FirebaseListObservable<any[]> {
+  getUserList(): FirebaseListObservable<any[]> {
+    this.users = this.db.list(this.basePath);
+    return this.users;
+  }
+
+  getUserQuery(offset, startKey?): FirebaseListObservable<any[]> {
     this.users = this.db.list(this.basePath, {
       query: {
         orderByKey: true,
