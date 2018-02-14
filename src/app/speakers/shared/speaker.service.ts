@@ -16,10 +16,9 @@ export class SpeakerService {
     this.firebaseStorage = firebase.storage();
   }
 
-  getSpeakerList(query = {}): FirebaseListObservable<Speaker[]> {
-    this.speakers = this.db.list(this.basePath, {
-      query: query
-    });
+  getSpeakerList(orderByChild: string|null): FirebaseListObservable<Speaker[]> {
+    this.speakers = this.db.list(this.basePath, ref =>
+      orderByChild ? (orderByChild === 'featured' ? ref.orderByChild(orderByChild).equalTo(true) : ref.orderByChild(orderByChild) ) : ref);
     return this.speakers;
   }
 
