@@ -1,6 +1,6 @@
-# DeLorean Project - GDG DevFest Website Template
+# DeLorean Project - GDG DevFest/IWD/Event Website Template
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and utilizes [Firebase](https://firebase.google.com) for Database, Storage, and Hosting to create a fully functional and customizable template for your Google Developer Group's DevFest. This project has been designed to continue to be your DevFest website solution without having to create a new site or Firebase project every year. Simply update the Firebase node in the config and the site resets awaiting your next year's DevFest data. All the while preserving your previous year's data in the same Firebase project.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and utilizes [Firebase](https://firebase.google.com) for Database, Storage, and Hosting to create a fully functional and customizable template for your Google Developer Group's DevFest/IWD/Event. This project has been designed to continue to be your Event website solution without having to create a new site or Firebase project every year. Simply update the Firebase node in the config and the site resets awaiting your next year's Event data. All the while preserving your previous year's data in the same Firebase project.
 
 ## Features
  - Simple site config setup
@@ -47,7 +47,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Copy [`firebase.config.ts.template`](https://github.com/neojato/DeLorean-v2/blob/master/src/environments/firebase.config.ts.template) to `firebase.config.ts` and populate fields with your Firebase and Google Maps Keys.
   * Change the value for the `devfestYear` key to the current year
   * **NOTE:** Currently you will need modify this value annually to reuse this Firebase Project for your annual event
-* Update [`manifest.json`](https://github.com/neojato/DeLorean-v2/blob/master/src/manifest.json) with your event's details to enable [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) capabilities.
+* Update [`manifest.json`](https://github.com/neojato/DeLorean-v2/blob/master/src/manifest.json) with your Event's details to enable [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/) capabilities.
   * (Optional) If you want to fully customize the PWA experience, you can easily generate the `manifest.json` & correctly sized app icons using this tool: [App Manifest Generator](https://app-manifest.firebaseapp.com/)
 
 ## Contributing
@@ -68,7 +68,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 * Log into your site using your Google account.
 * From the Firebase Console, go to "Authentication" and copy the User UID for your email address.
 * From the Firebase Console, go to "Database", then "Real-Time Database" and create a parent node called `admins` then add your copied User UID as the key with a value of `true`.
-* (Optional) Replace `hero.png` and `devfest.png` with your own image of Your City or DevFest.
+* (Optional) Replace `hero.png` and `devfest.png` with your own image for your Event or of Your City.
 
 ### Google Tag Manager Setup (Optional)
 
@@ -83,18 +83,18 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ### Site Config
 
-* Click the Profile dropdown in the navbar and select "Site Config" to fill out all the details for your DevFest.
+* Click the Profile dropdown in the navbar and select "Site Config" to fill out all the details for your Event.
 * **NOTE:** The uploaded venue image is stored in Firebase Storage if you need to retrieve it later.
 
 ### Ticket Config
 
-* Click the Profile dropdown in the navbar and select "Ticket Config" to create ticket boxes to advertise levels available for purchase to your DevFest.
+* Click the Profile dropdown in the navbar and select "Ticket Config" to create ticket boxes to advertise levels available for purchase to your Event.
 * **NOTE:** The tickets auto-appear in a section on the homepage but can only be managed from this admin page.
 
 ### Speaker Management
 
 * Click the "Speakers" link in the navbar and then click on the "Create Speaker" button to add a speaker.
-* Rinse and repeat for however many speakers you have for your event.
+* Rinse and repeat for however many speakers you have for your Event.
 * Check the "Featured" option to have that speaker also display on the homepage in the "Featured Speakers" section.
 * **NOTE:** The uploaded profile images get stored in Firebase Storage if you need to retrieve them later.
 
@@ -125,7 +125,7 @@ Run `npm run deploy` to generate an optimized production build and deploy the `d
 
 ## Profit!
 
-Congrats on launching your DevFest website!
+Congrats on launching your Event website!
 
 ### Who uses the template?
 
@@ -134,7 +134,7 @@ Please let me know if you used this template with a [Pull Request](https://githu
 | Name | Name | Name |
 |------|------|------|
 | [DevFest KC](https://devfestkc.com) | [DevFest Muncie](https://devfestmuncie.firebaseapp.com) | [Windy City DevFest](https://windycity.devfest.io) |
-| [DevFest Nairobi](https://devfestnairobi.gdgkenya.org) | [Eldoret Techweek](https://sites.gdgmoi.com) |  |
+| [DevFest Nairobi](https://devfestnairobi.gdgkenya.org) | [Eldoret Techweek](https://sites.gdgmoi.com) | [IWD Fresno](https://iwd.wtmfresno.com) |
 
 ### License
 
