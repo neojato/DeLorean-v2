@@ -8,7 +8,6 @@ import { SessionService } from './../shared/session.service';
 import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Speaker } from '../../speakers/shared/speaker';
 import { Session } from '../../sessions/shared/session';
 
 @Component({
@@ -19,7 +18,6 @@ import { Session } from '../../sessions/shared/session';
 export class SessionDetailComponent implements OnInit {
   session: Session = new Session();
   profiles: any[];
-  speaker: Speaker;
   siteConfig: FirebaseObjectObservable<SiteConfig>;
   eventName: string;
   mySchedule: FirebaseObjectObservable<any>;

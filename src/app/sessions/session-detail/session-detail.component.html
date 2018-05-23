@@ -17,23 +17,23 @@
         <!--Post data-->
         <div>
           <!-- Post data -->
-          <h2 class="text-center" style="padding-bottom: 20px;" [innerHTML]="(session)?.title"></h2>
+          <h2 class="text-center" style="padding-bottom: 20px;" [innerHTML]="session?.title"></h2>
           <h6 class="text-muted" style="padding-bottom: 20px;">
-            <span *ngIf="(session)?.room"><strong>Room:</strong>&nbsp;<span [innerHTML]="(session)?.room"></span><br></span>
-            <span *ngIf="(session)?.level"><strong>Level:</strong>&nbsp;<span [innerHTML]="(session)?.level"></span><br></span>
-            <span *ngIf="(session)?.tag"><strong>Tag:</strong>&nbsp;<span [innerHTML]="(session)?.tag"></span></span>
+            <span *ngIf="session?.room"><strong>Room:</strong>&nbsp;<span [innerHTML]="session?.room"></span><br></span>
+            <span *ngIf="session?.level"><strong>Level:</strong>&nbsp;<span [innerHTML]="session?.level"></span><br></span>
+            <span *ngIf="session?.tag"><strong>Tag:</strong>&nbsp;<span [innerHTML]="session?.tag"></span></span>
           </h6>
         </div>
         <!--/.Post data-->
         <!--Post text-->
         <div>
-          <p [innerHTML]="(session)?.abstract"></p>
+          <p [innerHTML]="session?.abstract"></p>
         </div>
         <!--/Post text-->
 
-        <div class="text-center" *ngIf="isLoggedIn()" style="margin-top: 35px;">
-          <button *ngIf="!(mySchedule | async)?.value" (click)="addToSchedule()" type="button" class="btn btn-outline-primary" title="Add to My Schedule"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Add to My Schedule</button>
-          <button *ngIf="(mySchedule | async)?.value" (click)="removeFromSchedule()" type="button" class="btn btn-outline-primary" title="Remove from My Schedule"><i class="fa fa-calendar-times-o" aria-hidden="true"></i> Remove from My Schedule</button>
+        <div class="text-center" *ngIf="isLoggedIn() && mySchedule | async as schedule" style="margin-top: 35px;">
+          <button *ngIf="!schedule.value" (click)="addToSchedule()" type="button" class="btn btn-outline-primary" title="Add to My Schedule"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Add to My Schedule</button>
+          <button *ngIf="schedule.value" (click)="removeFromSchedule()" type="button" class="btn btn-outline-primary" title="Remove from My Schedule"><i class="fa fa-calendar-times-o" aria-hidden="true"></i> Remove from My Schedule</button>
           <button (click)="openFeedback(session)" type="button" class="btn btn-primary" title="Give Session Feedback"><i class="fa fa-commenting" aria-hidden="true"></i> Give Session Feedback</button>
         </div>
 
@@ -48,45 +48,45 @@
   <!--Section: Session-->
 
   <!--Section heading-->
-  <div class="divider-new" *ngIf="(session)?.speakers">
+  <div class="divider-new" *ngIf="session?.speakers">
     <h2 class="h2-responsive">Speaker<span *ngIf="profiles.length > 1">s</span></h2>
   </div>
 
   <!--Section: Speaker-->
-  <section class="mb-4" *ngIf="(session)?.speakers">
+  <section class="mb-4" *ngIf="session?.speakers">
     <!--Author box-->
-    <div class="author-box" *ngFor="let speaker of profiles">
-      <div class="row">
+    <div class="author-box" *ngFor="let speaker$ of profiles">
+      <div class="row" *ngIf="speaker$ | async as speaker">
         <!--Avatar-->
-        <div class="avatar col-xs-12 col-sm-3" title="{{ (speaker | async)?.name }}" alt="{{ (speaker | async)?.name }}">
-          <img *ngIf="!(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2" style="background-image: url('../../assets/img/user-default.png')">
-          <img *ngIf="(speaker | async)?.photoURL" class="img-fluid rounded-circle z-depth-2" [ngStyle]="{'background-image': 'url(' + (speaker | async)?.photoURL + ')'}">
+        <div class="avatar col-xs-12 col-sm-3" title="{{ speaker.name }}" alt="{{ speaker.name }}">
+          <img *ngIf="!speaker.photoURL" class="img-fluid rounded-circle z-depth-2" style="background-image: url('../../assets/img/user-default.png')">
+          <img *ngIf="speaker.photoURL" class="img-fluid rounded-circle z-depth-2" [ngStyle]="{'background-image': 'url(' + speaker.photoURL + ')'}">
         </div>
         <!--Author Data-->
         <div class="col-xs-12 col-sm-9">
           <p>
-            <strong><span [innerHTML]="(speaker | async)?.name"></span></strong><br>
+            <strong><span [innerHTML]="speaker.name"></span></strong><br>
             <small>
-              <span *ngIf="(speaker | async)?.title" [innerHTML]="(speaker | async)?.title"></span>
-              <strong *ngIf="(speaker | async)?.title && (speaker | async)?.company">at</strong>
-              <span *ngIf="(speaker | async)?.company" [innerHTML]="(speaker | async)?.company"></span>
+              <span *ngIf="speaker.title" [innerHTML]="speaker.title"></span>
+              <strong *ngIf="speaker.title && speaker.company">at</strong>
+              <span *ngIf="speaker.company" [innerHTML]="speaker.company"></span>
             </small>
           </p>
           <div class="personal-sm">
             <!--Google+-->
-            <a *ngIf="(speaker | async)?.googleLink" class="gplus-ic" href="https://plus.google.com/{{ (speaker | async)?.googleLink }}" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a>
+            <a *ngIf="speaker.googleLink" class="gplus-ic" href="https://plus.google.com/{{ speaker.googleLink }}" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a>
             <!--Facebook-->
-            <a *ngIf="(speaker | async)?.facebookLink" class="fb-ic" href="https://www.facebook.com/{{ (speaker | async)?.facebookLink }}" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
+            <a *ngIf="speaker.facebookLink" class="fb-ic" href="https://www.facebook.com/{{ speaker.facebookLink }}" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
             <!--Twitter-->
-            <a *ngIf="(speaker | async)?.twitterLink" class="tw-ic" href="https://twitter.com/{{ (speaker | async)?.twitterLink }}" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
+            <a *ngIf="speaker.twitterLink" class="tw-ic" href="https://twitter.com/{{ speaker.twitterLink }}" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
             <!--LinkedIn-->
-            <a *ngIf="(speaker | async)?.linkedinLink" class="li-ic" href="https://www.linkedin.com/{{ (speaker | async)?.linkedinLink }}" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a>
+            <a *ngIf="speaker.linkedinLink" class="li-ic" href="https://www.linkedin.com/{{ speaker.linkedinLink }}" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a>
             <!--GitHub-->
-            <a *ngIf="(speaker | async)?.githubLink" class="git-ic" href="https://github.com/{{ (speaker | async)?.githubLink }}" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
+            <a *ngIf="speaker.githubLink" class="git-ic" href="https://github.com/{{ speaker.githubLink }}" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
             <!--Website-->
-            <a *ngIf="(speaker | async)?.websiteLink" class="email-ic" href="{{ (speaker | async)?.websiteLink }}" target="_blank" rel="noopener"><i class="fa fa-chrome"></i></a>
+            <a *ngIf="speaker.websiteLink" class="email-ic" href="{{ speaker.websiteLink }}" target="_blank" rel="noopener"><i class="fa fa-chrome"></i></a>
           </div>
-          <p [innerHTML]="(speaker | async)?.description"></p>
+          <p [innerHTML]="speaker.description"></p>
         </div>
       </div>
     </div>
