@@ -1,6 +1,7 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark elegant-color-dark fixed-top scrolling-navbar d-print-none">
-  <logo><a class="navbar-brand" routerLink="/home">{{ (siteConfig | async)?.eventName }}</a></logo>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark elegant-color-dark fixed-top scrolling-navbar d-print-none"
+            *ngIf="siteConfig | async as config">
+  <logo><a class="navbar-brand" routerLink="/home">{{ config?.eventName }}</a></logo>
   <links>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -35,7 +36,7 @@
         </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" [href]="(siteConfig | async)?.ticketURL" target="_blank" rel="noopener">Buy Ticket</a>
+        <a class="nav-link" [href]="config?.ticketURL" target="_blank" rel="noopener">Buy Ticket</a>
       </li>
     </ul>
   </links>

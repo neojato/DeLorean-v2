@@ -13,38 +13,44 @@
         <button type="button" class="btn btn-primary" routerLink="/sessions">View Full Schedule</button>
       </div>
     </div>
-    <div *ngIf="(mySessions | async)?.length !== 0" class="table-responsive">
-      <table class="table table-hover text-xs-center">
-        <tbody *ngFor="let section of sections | async">
-          <tr class="elegant-color-dark">
-            <td colspan="4" class="text-center" style="font-size: 1em; color: #fff;">
-              <span [innerHTML]="section.title"></span>
-            </td>
-          </tr>
-          <tr *ngFor="let session of mySessions | async" (click)="openDetails(session)" class="session-link">
-            <table *ngIf="section.$key === session.section" width="100%">
-              <tr>
-                <td class="text-xs-left" style="width: 50%">
-                  <span [innerHTML]="session.title"></span><br>
-                  <span *ngFor="let speaker of session.speakers; let i = index;">
-                    <small [innerHTML]="getSpeakerName(speaker)"></small><span *ngIf="session.speakers.length > 1 && i+1 != session.speakers.length">, </span>
-                  </span>
-                </td>
-                <td class="d-none d-md-block text-center"><span [innerHTML]="session.tag"></span></td>
-                <td class="text-center" style="width: 16%" nowrap><span [innerHTML]="session.room"></span></td>
-                <td style="width: 16%; text-align: right;" nowrap><span [innerHTML]="session.time"></span></td>
-              </tr>
-            </table>
-          </tr>
-        </tbody>
-      </table>
+    <div *ngIf="sessions$ | async as sessions ; else noSessions">
+      <div *ngIf="mySessions$ | async as mySessions ; else noMySessions" class="table-responsive">
+        <table class="table table-hover text-xs-center">
+          <tbody *ngFor="let section of sections$ | async">
+            <tr class="elegant-color-dark">
+              <td colspan="4" class="text-center" style="font-size: 1em; color: #fff;">
+                <span [innerHTML]="section.title"></span>
+              </td>
+            </tr>
+            <tr *ngFor="let session of mySessions" (click)="openDetails(session)" class="session-link">
+              <table *ngIf="section.$key === session.section" width="100%">
+                <tr>
+                  <td class="text-xs-left" style="width: 50%">
+                    <span [innerHTML]="session.title"></span><br>
+                    <span *ngFor="let speaker of session.speakers; let i = index;">
+                      <small [innerHTML]="getSpeakerName(speaker)"></small><span *ngIf="session.speakers.length > 1 && i+1 != session.speakers.length">, </span>
+                    </span>
+                  </td>
+                  <td class="d-none d-md-block text-center"><span [innerHTML]="session.tag"></span></td>
+                  <td class="text-center" style="width: 16%" nowrap><span [innerHTML]="session.room"></span></td>
+                  <td style="width: 16%; text-align: right;" nowrap><span [innerHTML]="session.time"></span></td>
+                </tr>
+              </table>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #noMySessions>
+        <div class="text-center">
+          <h5>You haven't added any sessions yet! Go back to the <a routerLink="/sessions">Schedule</a> and add some!</h5>
+        </div>
+      </ng-template>
     </div>
-    <div *ngIf="(sessions | async)?.length !== 0 && (mySessions | async)?.length === 0" class="text-center">
-      <h5>You haven't added any sessions yet! Go back to the <a routerLink="/sessions">Schedule</a> and add some!</h5>
-    </div>
-    <div *ngIf="(sessions | async)?.length === 0" class="text-center">
-      <h5>Stay tuned! Once sessions have been added, you can create your own schedule and view it here!</h5>
-    </div>
+    <ng-template #noSessions>
+      <div class="text-center">
+        <h5>Stay tuned! Once sessions have been added, you can create your own schedule and view it here!</h5>
+      </div>
+    </ng-template>
   </section>
   <!--Section: Schedule-->
 </div>

@@ -5,18 +5,18 @@
   <!--Section: Profile-->
   <section class="section">
     <h1 class="section-heading">My Profile</h1>
-    <div class="author-box">
+    <div class="author-box" *ngIf="profile | async as profile">
       <div class="row">
         <div class="col-xs-12 col-sm-2">
-          <img [src]="(profile | async)?.photoURL" class="img-fluid rounded-circle z-depth-2">
+          <img [src]="profile?.photoURL" class="img-fluid rounded-circle z-depth-2">
         </div>
         <div class="col-xs-12 col-sm-10" style="padding-top: 45px;">
           <h3>
-            <strong>{{ (profile | async)?.displayName }}</strong>
+            <strong>{{ profile?.displayName }}</strong>
           </h3>
           <p>
-            {{ (profile | async)?.email }}<br/>
-            <small>Logged in with: {{ (profile | async)?.provider }}</small>
+            {{ profile?.email }}<br/>
+            <small>Logged in with: {{ profile?.provider }}</small>
           </p>
         </div>
       </div>

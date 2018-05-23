@@ -17,12 +17,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  tempPhotoURL: string;
-  speakers: FirebaseListObservable<Speaker[]>;
-  siteConfig: FirebaseObjectObservable<SiteConfig>;
-  sponsors: FirebaseListObservable<Sponsor[]>;
-  levels: FirebaseListObservable<Level[]>;
-  tickets: FirebaseListObservable<Ticket[]>;
+  speakers$: FirebaseListObservable<Speaker[]>;
+  siteConfig$: FirebaseObjectObservable<SiteConfig>;
+  sponsors$: FirebaseListObservable<Sponsor[]>;
+  levels$: FirebaseListObservable<Level[]>;
+  tickets$: FirebaseListObservable<Ticket[]>;
   styles: any[];
 
   constructor(
@@ -34,7 +33,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.speakers = this.speakerService.getSpeakerList({
+    this.speakers$ = this.speakerService.getSpeakerList({
       orderByChild: 'featured',
       equalTo: true
     });
@@ -42,10 +41,10 @@ export class HomeComponent implements OnInit {
     // Default colors for Ticket Types
     this.styles = ['cyan', 'blue', 'indigo', 'deep-purple'];
 
-    this.siteConfig = this.siteConfigService.getConfig();
-    this.sponsors = this.sponsorService.getSponsorList();
-    this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
-    this.tickets = this.ticketService.getTicketList({ orderByChild: 'active', equalTo: true });
+    this.siteConfig$ = this.siteConfigService.getConfig();
+    this.sponsors$ = this.sponsorService.getSponsorList();
+    this.levels$ = this.levelService.getLevelList({ orderByChild: 'rank' });
+    this.tickets$ = this.ticketService.getTicketList({ orderByChild: 'active', equalTo: true });
   }
 
 }

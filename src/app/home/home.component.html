@@ -1,4 +1,4 @@
-<header>
+<header *ngIf="siteConfig$ | async as config">
 
   <top-menu></top-menu>
 
@@ -8,20 +8,20 @@
       <div class="container" style="position:relative;">
         <ul>
           <li>
-            <h1 class="h1-responsive font-bold">{{ (siteConfig | async)?.eventName }}</h1>
+            <h1 class="h1-responsive font-bold">{{ config?.eventName }}</h1>
           </li>
           <li>
             <p class="lead mt-4 mb-5">
-              {{ ((siteConfig | async)?.eventDate | date:'fullDate') }}<br/>
-              <strong>@&nbsp;{{ (siteConfig | async)?.venueName }}</strong>
+              {{ config?.eventDate | date:'fullDate' }}<br/>
+              <strong>@&nbsp;{{ config?.venueName }}</strong>
             </p>
             <p class="lead mt-4 mb-5">
               A 100% community organized developer conference with industry experts presenting on exciting topics!
             </p>
           </li>
           <li>
-            <a target="_blank" rel="noopener" [href]="(siteConfig | async)?.ticketURL" class="btn btn-primary btn-lg" rel="nofollow">Reserve Your Seat</a>
-            <a *ngIf="(siteConfig | async)?.speakerURL" target="_blank" rel="noopener" [href]="(siteConfig | async)?.speakerURL" class="btn btn-default btn-lg" rel="nofollow">Become A Speaker</a>
+            <a target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-primary btn-lg" rel="nofollow">Reserve Your Seat</a>
+            <a *ngIf="config?.speakerURL" target="_blank" rel="noopener" [href]="config?.speakerURL" class="btn btn-default btn-lg" rel="nofollow">Become A Speaker</a>
           </li>
         </ul>
       </div>
@@ -47,20 +47,22 @@
       to exchange ideas, amazing things&nbsp;can&nbsp;happen!
     </p>
     <p>
-      <strong>{{ (siteConfig | async)?.eventName }}</strong> is a 100% community organized full-day developer conference featuring awesome
+      <strong>{{ config?.eventName }}</strong> is a 100% community organized full-day developer conference featuring awesome
       world-class speakers from technology leaders within the community as well as Google product team&nbsp;developers.
     </p>
   </section>
   <!--Section: About-->
 
-  <div class="divider-new pt-5" *ngIf="(speakers | async)?.length > 0">
-    <h2 class="h2-responsive">Featured Speakers</h2>
-  </div>
+  <ng-template #noSpeakers>
+    <div class="divider-new pt-5">
+      <h2 class="h2-responsive">Featured Speakers</h2>
+    </div>
+  </ng-template>
 
   <!--Section: Featured Speakers-->
-  <section class="section team-section" *ngIf="(speakers | async)?.length > 0">
+  <section class="section team-section" *ngIf="speakers$ | async as speakers ; else noSpeakers">
     <div class="row text-center">
-      <div *ngFor="let speaker of speakers | async" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; margin: 0 auto;">
+      <div *ngFor="let speaker of speakers" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; margin: 0 auto;">
         <div class="avatar" title="{{ speaker.name }}" alt="{{ speaker.name }}">
           <img *ngIf="!speaker.photoURL" class="rounded-circle z-depth-1" style="background-image: url('../../../assets/img/user-default.png')">
           <img *ngIf="speaker.photoURL" class="rounded-circle z-depth-1" [ngStyle]="{'background-image': 'url(' + speaker.photoURL + ')'}">
@@ -72,55 +74,55 @@
   </section>
   <!--Section: Featured Speakers-->
 
-  <div class="divider-new" id="the-venue" *ngIf="(siteConfig | async)?.venueName">
+  <div class="divider-new" id="the-venue" *ngIf="config?.venueName">
     <h2 class="h2-responsive">The Venue</h2>
   </div>
 
   <!--Section: The Venue-->
-  <section *ngIf="(siteConfig | async)?.venueName">
+  <section *ngIf="config?.venueName">
     <div class="row">
       <div class="col-md-5">
-        <h2 class="h2-responsive">{{ (siteConfig | async)?.venueName }}</h2>
+        <h2 class="h2-responsive">{{ config?.venueName }}</h2>
         <hr>
-        <p [innerHTML]="((siteConfig | async)?.venueDescription)"></p>
+        <p [innerHTML]="config?.venueDescription"></p>
       </div>
       <div class="col-md-7">
         <div class="card">
-          <img class="venue-photo" *ngIf="(siteConfig | async)?.venuePhoto" [src]="(siteConfig | async)?.venuePhoto" alt="{{ (siteConfig | async)?.venueName }}" title="{{ (siteConfig | async)?.venueName }}"/>
+          <img class="venue-photo" *ngIf="config?.venuePhoto" [src]="config?.venuePhoto" alt="{{ config?.venueName }}" title="{{ config?.venueName }}"/>
         </div>
       </div>
     </div>
   </section>
   <!--/Section: The Venue-->
 
-  <div class="divider-new" *ngIf="(siteConfig | async)?.venueGeoData">
+  <div class="divider-new" *ngIf="config?.venueGeoData">
     <h2 class="h2-responsive">Location</h2>
   </div>
 
   <!--Section: Location-->
-  <section id="location pb-5" *ngIf="(siteConfig | async)?.venueGeoData">
+  <section id="location pb-5" *ngIf="config?.venueGeoData">
     <div class="row">
       <div class="col-md-9 mb-5">
         <div id="map-container" class="z-depth-1" style="height: 300px">
-          <agm-map style="height: 300px" [latitude]="( (siteConfig | async)?.venueGeoData?.lat + 0.0003 )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng )" [scrollwheel]="false" [zoom]="18">
-            <agm-marker [latitude]="( (siteConfig | async)?.venueGeoData?.lat )" [longitude]="( (siteConfig | async)?.venueGeoData?.lng )">
+          <agm-map style="height: 300px" [latitude]="( config?.venueGeoData?.lat + 0.0003 )" [longitude]="( config?.venueGeoData?.lng )" [scrollwheel]="false" [zoom]="18">
+            <agm-marker [latitude]="( config?.venueGeoData?.lat )" [longitude]="( config?.venueGeoData?.lng )">
               <agm-info-window [isOpen]="true" [maxWidth]="180">
-                <strong>{{ (siteConfig | async)?.venueName }}</strong><br/>
-                {{ (siteConfig | async)?.venueAddress }}<br/>
-                <a href="https://www.google.com/maps/search/?api=1&query={{ (siteConfig | async)?.venueAddress }}" target="_blank" rel="noopener">View on Google Maps</a>
+                <strong>{{ config?.venueName }}</strong><br/>
+                {{ config?.venueAddress }}<br/>
+                <a href="https://www.google.com/maps/search/?api=1&query={{ config?.venueAddress }}" target="_blank" rel="noopener">View on Google Maps</a>
               </agm-info-window>
             </agm-marker>
           </agm-map>
         </div>
       </div>
       <div class="col-md-3">
-        <a href="https://www.google.com/maps/search/?api=1&query={{ (siteConfig | async)?.venueAddress }}" target="_blank" rel="noopener">
+        <a href="https://www.google.com/maps/search/?api=1&query={{ config?.venueAddress }}" target="_blank" rel="noopener">
           <div class="card location-card blue-grey lighten-5 text-center z-depth-2">
             <div class="card-body">
               <p class="col text-center mb-0">
                 <i class="fa fa-map-marker fa-lg"></i><br/>
-                <strong>{{ (siteConfig | async)?.venueName }}</strong><br/>
-                {{ (siteConfig | async)?.venueAddress }}
+                <strong>{{ config?.venueName }}</strong><br/>
+                {{ config?.venueAddress }}
               </p>
               <img src="./../../assets/img/marker.png"/>
             </div>
@@ -136,25 +138,27 @@
   </div>
 
   <!--Section: CoC-->
-  <section id="about" class="text-center">
+  <section id="coc" class="text-center">
     <h5>Be nice. Be respectful. Be collaborative.</h5>
-    <p>{{ (siteConfig | async)?.eventName }} is dedicated to a harassment-free conference experience for everyone.</p>
+    <p>{{ config?.eventName }} is dedicated to a harassment-free conference experience for everyone.</p>
     <p>
-      Before attending, please review the <a routerLink="/code-of-conduct">{{ (siteConfig | async)?.eventName }} Code of Conduct</a>.
-      <br/>This Code of Conduct applies to all attendees, speakers, volunteers, vendors, and organizers at {{ (siteConfig | async)?.eventName }}.
-      <br/>Please <a href="mailto:{{ (siteConfig | async)?.eventEmail }}?subject=Code of Conduct - {{ (siteConfig | async)?.eventName }}" target="_blank" rel="noopener">contact us</a> if you have any questions.
+      Before attending, please review the <a routerLink="/code-of-conduct">{{ config?.eventName }} Code of Conduct</a>.
+      <br/>This Code of Conduct applies to all attendees, speakers, volunteers, vendors, and organizers at {{ config?.eventName }}.
+      <br/>Please <a href="mailto:{{ config?.eventEmail }}?subject=Code of Conduct - {{ config?.eventName }}" target="_blank" rel="noopener">contact us</a> if you have any questions.
     </p>
   </section>
   <!--Section: CoC-->
 
-  <div class="divider-new pt-5" *ngIf="(tickets | async)?.length > 0">
-    <h2 class="h2-responsive">Pricing</h2>
-  </div>
+  <ng-template #noTickets>
+    <div class="divider-new pt-5">
+      <h2 class="h2-responsive">Pricing</h2>
+    </div>
+  </ng-template>
 
   <!--Section: Pricing-->
-  <section class="section" *ngIf="(tickets | async)?.length > 0">
+  <section class="section" *ngIf="tickets$ | async as tickets ; else noTickets">
     <div class="row pt-3">
-      <div class="mb-r" *ngFor="let ticket of tickets | async; let i = index;" [ngClass]="((tickets | async)?.length > 3) ? 'col-lg-3' : 'col-lg-4'" style="padding: 20px 40px; margin: 0 auto;">
+      <div class="mb-r" *ngFor="let ticket of tickets; let i = index;" [ngClass]="tickets.length > 3 ? 'col-lg-3' : 'col-lg-4'" style="padding: 20px 40px; margin: 0 auto;">
         <div class="card" *ngIf="ticket.active">
           <div class="card-header white-text text-center" [ngClass]="styles[i]">
             <h1 class="dollar">{{ ticket.price }}</h1>
@@ -193,7 +197,7 @@
                 &nbsp;
               </span>
               <div class="text-center ticket-button">
-                <button type="button" class="btn btn-primary waves-light" [href]="(siteConfig | async)?.ticketURL">Buy Ticket</button>
+                <button type="button" class="btn btn-primary waves-light" [href]="config?.ticketURL">Buy Ticket</button>
               </div>
             </div>
           </div>
@@ -204,24 +208,26 @@
   </section>
   <!--/Section: Pricing-->
 
-  <div class="divider-new pt-5" *ngIf="(sponsors | async)?.length > 0">
-    <h2 class="h2-responsive">Sponsors</h2>
-  </div>
+  <ng-template #noSponsors>
+    <div class="divider-new pt-5">
+      <h2 class="h2-responsive">Sponsors</h2>
+    </div>
+  </ng-template>
 
   <!--Section: Sponsors-->
-  <section class="section" *ngIf="(sponsors | async)?.length > 0">
+  <section class="section" *ngIf="sponsors$ | async as sponsors ;">
     <div class="col sponsors">
       <h4>We partner with some of the<br/>world's most innovative brands.</h4>
-      <a *ngIf="(siteConfig | async)?.sponsorURL" class="btn btn-primary waves-light" [href]="(siteConfig | async)?.sponsorURL" target="_blank" rel="noopener">Become a Sponsor</a>
+      <a *ngIf="config?.sponsorURL" class="btn btn-primary waves-light" [href]="config?.sponsorURL" target="_blank" rel="noopener">Become a Sponsor</a>
     </div>
-    <div class="col sponsors" *ngFor="let level of levels | async">
+    <div class="col sponsors" *ngFor="let level of levels$ | async">
       <h3 style="font-weight: bold;">
         {{ level.name }}
       </h3>
       <hr style="width: 60%;" />
       <br/>
       <div class="row">
-        <ng-container *ngFor="let sponsor of sponsors | async">
+        <ng-container *ngFor="let sponsor of sponsors">
           <ng-container *ngIf="level.$key === sponsor.level">
             <span class="col-md-6" style="padding: 20px 40px; margin: 0 auto;">
               <a [href]="sponsor.websiteLink" target="_blank" rel="noopener">
