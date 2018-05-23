@@ -15,9 +15,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-schedule.component.scss']
 })
 export class MyScheduleComponent implements OnInit {
-  public sessions: FirebaseListObservable<Session[]>;
-  public sections: FirebaseListObservable<Section[]>;
-  public mySessions: FirebaseListObservable<any>;
+  public sessions$: FirebaseListObservable<Session[]>;
+  public sections$: FirebaseListObservable<Section[]>;
+  public mySessions$: FirebaseListObservable<any>;
 
   constructor(
     private sessionService: SessionService,
@@ -29,9 +29,9 @@ export class MyScheduleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sessions = this.sessionService.getSessionList();
-    this.sections = this.sectionService.getSectionList();
-    this.mySessions = this.scheduleService.getScheduleList(this.authService.userId);
+    this.sessions$ = this.sessionService.getSessionList();
+    this.sections$ = this.sectionService.getSectionList();
+    this.mySessions$ = this.scheduleService.getScheduleList(this.authService.userId);
   }
 
   openDetails(session) {
