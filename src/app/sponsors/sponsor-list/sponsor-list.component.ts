@@ -1,5 +1,5 @@
 import { SiteConfigService } from './../../admin/shared/site-config/site-config.service';
-import { ModalDirective } from 'angular-bootstrap-md/modals';
+import { ModalDirective } from 'angular-bootstrap-md';
 import { LevelService } from './../shared/level.service';
 import { SponsorService } from './../shared/sponsor.service';
 import { Sponsor } from './../shared/sponsor';

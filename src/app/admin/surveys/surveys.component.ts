@@ -3,7 +3,7 @@ import { SessionService } from './../../sessions/shared/session.service';
 import { Session } from './../../sessions/shared/session';
 import { Survey } from './../../sessions/shared/survey';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalDirective } from 'angular-bootstrap-md/modals';
+import { ModalDirective } from 'angular-bootstrap-md';
 import { DatePipe } from '@angular/common';
 
 @Component({

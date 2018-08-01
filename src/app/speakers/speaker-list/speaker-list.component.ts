@@ -4,7 +4,7 @@ import { SpeakerService } from './../shared/speaker.service';
 import { Speaker } from './../shared/speaker';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalDirective } from 'angular-bootstrap-md/modals';
+import { ModalDirective } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-speaker-list',
