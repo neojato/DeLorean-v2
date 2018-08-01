@@ -5,13 +5,13 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-3 col-md-6 ml-auto">
-        <h5 class="titles font-bold mt-3 mb-4">About {{ config?.groupName }}</h5>
+        <h5 class="title font-weight-bold mt-3 mb-4">About {{ config?.groupName }}</h5>
         <p>We are a technology user group that meets regularly to discuss the latest Google Technologies, Tools, SDKs, APIs, and much more.</p>
         <p><small><strong>Disclaimer:</strong> <em>{{ config?.groupName }} is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.</em></small></p>
       </div>
       <hr class="w-100 clearfix d-sm-none">
       <div class="col-lg-2 col-md-6 ml-auto">
-        <h5 class="title font-bold mt-3 mb-4">Links</h5>
+        <h5 class="title font-weight-bold mt-3 mb-4">Links</h5>
         <ul>
           <li><a [href]="config?.groupWebsite" target="_blank" rel="noopener">{{ config?.groupName }}</a></li>
           <li><a href="https://developers.google.com/" target="_blank" rel="noopener">Google Developers</a></li>
@@ -20,7 +20,7 @@
       </div>
       <hr class="w-100 clearfix d-sm-none">
       <div class="col-lg-2 col-md-6 ml-auto">
-        <h5 class="title font-bold mt-3 mb-4">Contact</h5>
+        <h5 class="title font-weight-bold mt-3 mb-4">Contact</h5>
         <ul>
           <li><a href="mailto:{{ config?.eventEmail }}" target="_blank" rel="noopener">{{ config?.eventEmail }}</a></li>
           <li *ngIf="config?.eventTwitter"><a href="https://twitter.com/intent/tweet?text=@{{ config?.eventTwitter }}" target="_blank" rel="noopener">@{{ config?.eventTwitter }}</a></li>
@@ -29,7 +29,7 @@
       </div>
       <hr class="w-100 clearfix d-sm-none">
       <div class="col-lg-2 col-md-6 ml-auto">
-        <h5 class="title font-bold mt-3 mb-4">FAQ</h5>
+        <h5 class="title font-weight-bold mt-3 mb-4">FAQ</h5>
         <ul>
           <li><a routerLink="/code-of-conduct">Code of Conduct</a></li>
           <li><a href="https://meetup.com/pro/gdg" target="_blank" rel="noopener">Google Developer Groups</a></li>
@@ -44,13 +44,9 @@
   <hr>
 
   <!--Call to action-->
-  <div class="call-to-action">
-    <ul>
-      <li>
-        <h5>Reserve your ticket today!</h5>
-      </li>
-      <li><a [href]="config?.ticketURL" target="_blank" rel="noopener" class="btn btn-danger">Buy Ticket</a></li>
-    </ul>
+  <div class="call-to-action text-center">
+    <h5>Reserve your ticket today!</h5>
+    <a [href]="config?.ticketURL" target="_blank" rel="noopener" class="btn btn-danger">Buy Ticket</a>
   </div>
   <!--/.Call to action-->
 
@@ -70,7 +66,7 @@
 
   <!--Copyright-->
   <div class="footer-copyright">
-    <div class="container-fluid">
+    <div class="container-fluid text-center">
       &copy; {{ copyright }} Copyright <a [href]="config?.groupWebsite" target="_blank" rel="noopener">{{ config?.groupName }}</a>
       <br>Based on the <a href="https://github.com/neojato/DeLorean-v2" target="_blank" rel="noopener">DeLorean Project</a>
     </div>

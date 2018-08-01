@@ -1,18 +1,32 @@
-.social-section{
+.social-section {
   text-align: center;
 }
 
-.social-section ul li{
+.social-section ul li {
   display: inline-block;
   padding: 15px;
   font-size: 30px;
 }
 
-.titles {
+.title {
   text-transform: uppercase;
+}
+
+footer.page-footer {
+  padding-top: 25px;
 }
 
 footer.page-footer .footer-copyright {
   line-height: normal;
   padding-top: 10px;
+}
+
+footer.page-footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer.page-footer li {
+  list-style: none;
 }

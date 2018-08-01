@@ -1,4 +1,4 @@
-<top-menu></top-menu>
+<app-top-menu></app-top-menu>
 
 <div class="between-sections"><br><br></div>
 <div class="container">
@@ -51,7 +51,7 @@
             <ol>
               <li>
                 The presenter effectively communicated the content of the presentation
-                <ul class="rating inline-ul">
+                <ul>
                   <li *ngIf="surveyDetail?.group1 >= 1"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group1 >= 2"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group1 >= 3"><i class="fa fa-star amber-text"></i></li>
@@ -65,7 +65,7 @@
               </li>
               <li>
                 The presenter was knowledgeable about the subject matter
-                <ul class="rating inline-ul">
+                <ul>
                   <li *ngIf="surveyDetail?.group2 >= 1"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group2 >= 2"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group2 >= 3"><i class="fa fa-star amber-text"></i></li>
@@ -79,7 +79,7 @@
               </li>
               <li>
                 The presenter was well organized
-                <ul class="rating inline-ul">
+                <ul>
                   <li *ngIf="surveyDetail?.group3 >= 1"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group3 >= 2"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group3 >= 3"><i class="fa fa-star amber-text"></i></li>
@@ -93,7 +93,7 @@
               </li>
               <li>
                 The presenter spoke clearly and presented well
-                <ul class="rating inline-ul">
+                <ul>
                   <li *ngIf="surveyDetail?.group4 >= 1"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group4 >= 2"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group4 >= 3"><i class="fa fa-star amber-text"></i></li>
@@ -107,7 +107,7 @@
               </li>
               <li>
                 The content in this session was relevant and useful
-                <ul class="rating inline-ul">
+                <ul>
                   <li *ngIf="surveyDetail?.group5 >= 1"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group5 >= 2"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group5 >= 3"><i class="fa fa-star amber-text"></i></li>
@@ -121,7 +121,7 @@
               </li>
               <li>
                 It was worthwhile to attend this presentation
-                <ul class="rating inline-ul">
+                <ul>
                   <li *ngIf="surveyDetail?.group6 >= 1"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group6 >= 2"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group6 >= 3"><i class="fa fa-star amber-text"></i></li>
@@ -135,7 +135,7 @@
               </li>
               <li>
                 The content difficulty level was appropriate and as expected
-                <ul class="rating inline-ul">
+                <ul>
                   <li *ngIf="surveyDetail?.group7 >= 1"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group7 >= 2"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group7 >= 3"><i class="fa fa-star amber-text"></i></li>
@@ -149,7 +149,7 @@
               </li>
               <li>
                 I will use this knowledge I received in this presentation in the near future
-                <ul class="rating inline-ul">
+                <ul>
                   <li *ngIf="surveyDetail?.group8 >= 1"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group8 >= 2"><i class="fa fa-star amber-text"></i></li>
                   <li *ngIf="surveyDetail?.group8 >= 3"><i class="fa fa-star amber-text"></i></li>

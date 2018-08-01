@@ -1,4 +1,4 @@
-<top-menu></top-menu>
+<app-top-menu></app-top-menu>
 
 <div class="between-sections"><br><br></div>
 <div class="container">
@@ -40,7 +40,7 @@
         </select>
       </div>
       <div class="md-form">
-        <textarea mdbActive type="text" id="abstract" class="md-textarea" style="height: 100px" [(ngModel)]="session.abstract" name="abstract"></textarea>
+        <textarea mdbActive type="text" id="abstract" class="md-textarea md-textarea-auto form-control" style="height: 100px" [(ngModel)]="session.abstract" name="abstract"></textarea>
         <label for="abstract">Session Abstract:</label>
       </div>
       <div style="padding-bottom: 25px;" *ngIf="(speakers | async)?.length > 0">

@@ -13,7 +13,7 @@ import { AuthService } from './services/auth/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -88,7 +88,7 @@ import { CocComponent } from './coc/coc.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routerConfig, { preloadingStrategy: AppCustomPreloader }),
     AngularFireModule.initializeApp(firebaseConfig),

@@ -5,9 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
+import { mergeMap, map, filter } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-root',
@@ -32,17 +31,17 @@ export class AppComponent implements OnInit {
       this.eventName = snap.eventName;
     });
 
-    this.router.events
-      .filter((event) => event instanceof NavigationEnd)
-      .map(() => this.activatedRoute)
-      .map((route) => {
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.activatedRoute),
+      map((route) => {
         while (route.firstChild) {
           route = route.firstChild;
         }
         return route;
-      })
-      .filter((route) => route.outlet === 'primary')
-      .mergeMap((route) => route.data)
+      }),
+      filter((route) => route.outlet === 'primary'),
+      mergeMap((route) => route.data))
       .subscribe((event) => {
         // dynamically set page titles
         let pageTitle = this.title.getTitle();
