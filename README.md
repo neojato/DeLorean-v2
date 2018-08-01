@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and utilizes [Firebase](https://firebase.google.com) for Database, Storage, and Hosting to create a fully functional and customizable template for your Google Developer Group's DevFest/IWD/Event. This project has been designed to continue to be your Event website solution without having to create a new site or Firebase project every year. Simply update the Firebase node in the config and the site resets awaiting your next year's Event data. All the while preserving your previous year's data in the same Firebase project.
 
+## Live Demo
+https://delorean-demo.firebaseapp.com/
+
 ## Features
  - Simple site config setup
  - Simple event schedule management
