@@ -8,7 +8,7 @@
       <legend>Add Session</legend>
       <br>
       <div style="padding-bottom: 25px;">
-        <label for="section">Section Name</label>
+        <label for="section">Section Name:&nbsp;</label>
         <select class="mdb-select" id="section" [(ngModel)]="session.section" name="section">
           <option value="" disabled selected>Choose your option</option>
           <option *ngFor="let section of (sections | async)" value="{{ section.$key }}">{{ section.title }}</option>
@@ -31,7 +31,7 @@
         <label for="tag">Session Tag: <em>(ex. Mobile, Web, IoT, etc.)</em></label>
       </div>
       <div style="padding-bottom: 25px;">
-        <label for="level">Session Level:</label>
+        <label for="level">Session Level:&nbsp;</label>
         <select class="mdb-select" id="level" [(ngModel)]="session.level" name="level">
           <option value="" disabled selected>Choose your option</option>
           <option value="Beginner">Beginner</option>
