@@ -18,7 +18,7 @@
         <tbody *ngFor="let section of sections$ | async">
           <tr class="elegant-color-dark">
             <td colspan="4" class="text-center" style="font-size: 1em; color: #fff;">
-              <span [innerHTML]="section.title"></span>
+              <span class="section-title" [innerHTML]="section.title"></span>
             </td>
           </tr>
           <tr *ngFor="let session of mySessions" (click)="openDetails(session)" class="session-link">
