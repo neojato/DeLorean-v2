@@ -68,7 +68,7 @@
             <strong><span [innerHTML]="speaker.name"></span></strong><br>
             <small>
               <span *ngIf="speaker.title" [innerHTML]="speaker.title"></span>
-              <strong *ngIf="speaker.title && speaker.company">at</strong>
+              <strong *ngIf="speaker.title && speaker.company">&nbsp;at&nbsp;</strong>
               <span *ngIf="speaker.company" [innerHTML]="speaker.company"></span>
             </small>
           </p>
