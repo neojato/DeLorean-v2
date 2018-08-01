@@ -22,7 +22,7 @@
         <tbody *ngFor="let section of sections | async">
           <tr class="elegant-color-dark">
             <td colspan="4" class="text-center" style="font-size: 1em; color: #fff;">
-              <span [innerHTML]="section.title"></span>
+              <span class="section-title" [innerHTML]="section.title"></span>
               <button type="button" class="btn-sm btn-danger pull-right" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSection(section)"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </td>
           </tr>
