@@ -34,7 +34,7 @@
           <div class="md-form">
             <i class="fa fa-google-plus prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.googleLink" name="googleLink" id="googleLink" class="form-control">
-            <label for="googleLink" [class.active]="siteConfig.googleLink && siteConfig.googleLink.length > 0">Google+: <em>(only add the handle)</em></label>
+            <label for="googleLink" [class.active]="siteConfig.googleLink && siteConfig.googleLink.length > 0">Google+: <em>(only add the +handle)</em></label>
           </div>
           <div class="md-form">
             <i class="fa fa-facebook prefix grey-text"></i>
@@ -45,6 +45,11 @@
             <i class="fa fa-twitter prefix grey-text"></i>
             <input type="text" [(ngModel)]="siteConfig.twitterLink" name="twitterLink" id="twitterLink" class="form-control">
             <label for="twitterLink" [class.active]="siteConfig.twitterLink && siteConfig.twitterLink.length > 0">Twitter: <em>(only add the handle)</em></label>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-instagram prefix grey-text"></i>
+            <input type="text" [(ngModel)]="siteConfig.instagramLink" name="instagramLink" id="instagramLink" class="form-control">
+            <label for="instagramLink" [class.active]="siteConfig.instagramLink && siteConfig.instagramLink.length > 0">Instagram: <em>(only add the handle)</em></label>
           </div>
           <div class="md-form">
             <i class="fa fa-meetup prefix grey-text"></i>

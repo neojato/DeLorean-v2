@@ -1,11 +1,7 @@
-.social-section {
-  text-align: center;
-}
-
 .social-section ul li {
   display: inline-block;
-  padding: 15px;
-  font-size: 30px;
+  padding: 0 8px;
+  font-size: 18px;
 }
 
 .title {
@@ -29,4 +25,10 @@ footer.page-footer ul {
 
 footer.page-footer li {
   list-style: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .center-on-small-only {
+    text-align: center;
+  }
 }

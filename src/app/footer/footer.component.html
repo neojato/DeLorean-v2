@@ -6,8 +6,20 @@
     <div class="row">
       <div class="col-lg-3 col-md-6 ml-auto">
         <h5 class="title font-weight-bold mt-3 mb-4">About {{ config?.groupName }}</h5>
+        <!--Social buttons-->
+        <div class="social-section mb-3">
+          <ul>
+            <li *ngIf="config?.googleLink"><a class="btn-social-all" href="https://plus.google.com/{{ config?.googleLink }}" title="Google+" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a></li>
+            <li *ngIf="config?.facebookLink"><a class="btn-social-all" href="https://www.facebook.com/{{ config?.facebookLink }}" title="Facebook" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+            <li *ngIf="config?.twitterLink"><a class="btn-social-all" href="https://twitter.com/{{ config?.twitterLink }}" title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
+            <li *ngIf="config?.instagramLink"><a class="btn-social-all" href="https://www.instagram.com/{{ config?.instagramLink }}" title="Instagram" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
+            <li *ngIf="config?.meetupLink"><a class="btn-social-all" href="https://www.meetup.com/{{ config?.meetupLink }}" title="Meetup" target="_blank" rel="noopener"><i class="fa fa-meetup"></i></a></li>
+            <li *ngIf="config?.githubLink"><a class="btn-social-all" href="https://github.com/{{ config?.githubLink }}" title="GitHub" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
+          </ul>
+        </div>
+        <!--/.Social buttons-->
         <p>We are a technology user group that meets regularly to discuss the latest Google Technologies, Tools, SDKs, APIs, and much more.</p>
-        <p><small><strong>Disclaimer:</strong> <em>{{ config?.groupName }} is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.</em></small></p>
+        <p><small><strong>Disclaimer:</strong>&nbsp;<em>{{ config?.groupName }} is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.</em></small></p>
       </div>
       <hr class="w-100 clearfix d-sm-none">
       <div class="col-lg-2 col-md-6 ml-auto">
@@ -40,29 +52,6 @@
     </div>
   </div>
   <!--/.Footer Links-->
-
-  <hr>
-
-  <!--Call to action-->
-  <div class="call-to-action text-center">
-    <h5>Reserve your ticket today!</h5>
-    <a [href]="config?.ticketURL" target="_blank" rel="noopener" class="btn btn-danger">Buy Ticket</a>
-  </div>
-  <!--/.Call to action-->
-
-  <hr>
-
-  <!--Social buttons-->
-  <div class="social-section mb-3">
-    <ul>
-      <li *ngIf="config?.googleLink"><a class="btn-social-all" href="https://plus.google.com/{{ config?.googleLink }}" title="Google+" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a></li>
-      <li *ngIf="config?.facebookLink"><a class="btn-social-all" href="https://www.facebook.com/{{ config?.facebookLink }}" title="Facebook" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
-      <li *ngIf="config?.twitterLink"><a class="btn-social-all" href="https://twitter.com/{{ config?.twitterLink }}" title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
-      <li *ngIf="config?.meetupLink"><a class="btn-social-all" href="https://www.meetup.com/{{ config?.meetupLink }}" title="Meetup" target="_blank" rel="noopener"><i class="fa fa-meetup"></i></a></li>
-      <li *ngIf="config?.githubLink"><a class="btn-social-all" href="https://github.com/{{ config?.githubLink }}" title="GitHub" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
-    </ul>
-  </div>
-  <!--/.Social buttons-->
 
   <!--Copyright-->
   <div class="footer-copyright">

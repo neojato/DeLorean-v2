@@ -5,6 +5,7 @@ export class SiteConfig {
   googleLink: string;
   facebookLink: string;
   twitterLink: string;
+  instagramLink: string;
   meetupLink: string;
   githubLink: string;
 

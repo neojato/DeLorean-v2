@@ -64,6 +64,7 @@ export class SiteConfigService {
         googleLink: siteConfig.googleLink ? siteConfig.googleLink : null,
         facebookLink: siteConfig.facebookLink ? siteConfig.facebookLink : null,
         twitterLink: siteConfig.twitterLink ? siteConfig.twitterLink : null,
+        instagramLink: siteConfig.instagramLink ? siteConfig.instagramLink : null,
         meetupLink: siteConfig.meetupLink ? siteConfig.meetupLink : null,
         githubLink: siteConfig.githubLink ? siteConfig.githubLink : null,
 
