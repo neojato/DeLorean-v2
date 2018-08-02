@@ -68,6 +68,7 @@
               <option value="" disabled selected>Choose your option</option>
               <option value="DevFest">DevFest</option>
               <option value="IWD">International Women's Day (IWD)</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <div class="md-form">
@@ -79,6 +80,12 @@
                 Event Name is required.
               </div>
             </div>
+          </div>
+          <div class="md-form" *ngIf="siteConfig.eventType === 'Other'">
+            <i class="fa fa-info-circle prefix grey-text"></i>
+            <textarea mdbActive type="text" id="eventDescription" class="md-textarea" style="height: 100px" [(ngModel)]="siteConfig.eventDescription"
+              name="eventDescription"></textarea>
+            <label for="eventDescription" [class.active]="siteConfig.eventDescription && siteConfig.eventDescription.length > 0">Event Description: <em>(simple HTML allowed)</em>&nbsp;<small>(required)</small></label>
           </div>
           <div class="md-form">
             <i class="fa fa-calendar prefix grey-text"></i>

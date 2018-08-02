@@ -57,6 +57,9 @@
       women innovators and leaders in the industry.
     </p>
   </section>
+  <section class="text-center" *ngIf="config?.eventType === 'Other'">
+    <p [innerHTML]="config?.eventDescription"></p>
+  </section>
   <!--Section: About-->
 
   <div class="divider-new pt-5" *ngIf="(speakers$ | async)?.length > 0">
@@ -108,7 +111,7 @@
     <div class="row">
       <div class="col-md-9 mb-5">
         <div id="map-container" class="z-depth-1" style="height: 300px">
-          <agm-map style="height: 300px" [latitude]="( config?.venueGeoData?.lat + 0.0003 )" [longitude]="( config?.venueGeoData?.lng )" [scrollwheel]="false" [zoom]="17">
+          <agm-map style="height: 300px" [latitude]="( config?.venueGeoData?.lat + 0.0003 )" [longitude]="( config?.venueGeoData?.lng )" [scrollwheel]="false" [zoom]="18">
             <agm-marker [latitude]="( config?.venueGeoData?.lat )" [longitude]="( config?.venueGeoData?.lng )">
               <agm-info-window [isOpen]="true" [maxWidth]="180">
                 <strong>{{ config?.venueName }}</strong><br/>

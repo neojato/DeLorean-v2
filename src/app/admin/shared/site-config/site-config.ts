@@ -10,6 +10,7 @@ export class SiteConfig {
 
   eventType: string;
   eventName: string;
+  eventDescription: string;
   eventDate: string;
   eventEmail: string;
   eventLink: string;
