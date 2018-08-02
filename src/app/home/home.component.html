@@ -60,6 +60,19 @@
   <section class="text-center" *ngIf="config?.eventType === 'Other'">
     <p [innerHTML]="config?.eventDescription"></p>
   </section>
+  <section class="text-center">
+    <!--Social buttons-->
+    <div class="social-section mb-3">
+      <h5 class="title mt-3 mb-4">Follow us on social media</h5>
+      <ul>
+        <li *ngIf="config?.eventGoogle"><a class="btn-social-all" href="https://plus.google.com/{{ config?.eventGoogle }}" title="Google+" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a></li>
+        <li *ngIf="config?.eventFacebook"><a class="btn-social-all" href="https://www.facebook.com/{{ config?.eventFacebook }}" title="Facebook" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+        <li *ngIf="config?.eventTwitter"><a class="btn-social-all" href="https://twitter.com/{{ config?.eventTwitter }}" title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
+        <li *ngIf="config?.eventInstagram"><a class="btn-social-all" href="https://www.instagram.com/{{ config?.eventInstagram }}" title="Instagram" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
+      </ul>
+    </div>
+    <!--/.Social buttons-->
+  </section>
   <!--Section: About-->
 
   <div class="divider-new pt-5" *ngIf="(speakers$ | async)?.length > 0">

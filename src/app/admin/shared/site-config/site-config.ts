@@ -17,7 +17,10 @@ export class SiteConfig {
   eventLink: string;
   eventAnonReport: string;
   eventReportEmail: string;
+  eventGoogle: string;
+  eventFacebook: string;
   eventTwitter: string;
+  eventInstagram: string;
   eventHashtag: string;
   speakerURL: string;
   ticketURL: string;
