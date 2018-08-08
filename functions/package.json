@@ -10,8 +10,8 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
-    "firebase-admin": "~5.8.1",
-    "firebase-functions": "^0.8.1"
+    "firebase-admin": "^5.13.1",
+    "firebase-functions": "^2.0.2"
   },
   "devDependencies": {
     "eslint": "^4.12.0",
