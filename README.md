@@ -79,7 +79,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 1. Once created, you will receive the tracking snippet.
    * Replace each instance of `GTM-XXXXXXX` within `index.html` with your tracking ID following the same pattern.
 1. Now you are able to create Tags for:
-   * [Google Analytics](https://support.google.com/analytics/answer/6163791)
+   * [Google Analytics](https://www.napkyn.com/2018/05/02/deploying-google-analytics-for-angular-5/)
    * [Facebook Pixel](https://www.facebook.com/business/help/1021909254506499)
    * [Custom HTML](https://support.google.com/tagmanager/answer/6107167)
    * And [many, many more](https://support.google.com/tagmanager/answer/6106924)!
