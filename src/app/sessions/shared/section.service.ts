@@ -12,7 +12,7 @@ export class SectionService {
   constructor(private db: AngularFireDatabase) { }
 
   getSectionList(query?: object, year?: string|number): FirebaseListObservable<Section[]> {
-    this.sections = this.listPath({ query: query }, year);
+    this.sections = this.listPath(query, year);
     return this.sections;
   }
 
@@ -34,7 +34,7 @@ export class SectionService {
 
   private listPath(query?: object, year?: string|number) {
     if (!year) {
-        year = firebaseConfig.devfestYear;
+      year = firebaseConfig.devfestYear;
     }
     return this.db.list(`${year}/sections`, {
       query: query
