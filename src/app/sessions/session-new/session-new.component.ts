@@ -26,7 +26,7 @@ export class SessionNewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sections = this.sectionService.getSectionList();
+    this.sections = this.sectionService.getSectionList({ orderByChild: 'rank' });
     this.speakers = this.speakerService.getSpeakerList({ orderByChild: 'name' });
   }
 

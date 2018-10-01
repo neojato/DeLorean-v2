@@ -56,7 +56,7 @@
 <!-- Modal -->
 <div mdbModal #sectionModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CreateSection" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form (submit)="addSection(title.value)">
+    <form (submit)="addSection(title.value, rank.value)">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title w-100" id="CreateSection">Create Section</h4>
@@ -69,6 +69,11 @@
             <i class="fa fa-tag prefix"></i>
             <input mdbActive type="text" id="sectionName" class="form-control" #title>
             <label for="sectionName">Section name</label>
+          </div>
+          <div class="md-form form-sm">
+            <i class="fa fa-sort-numeric-asc prefix"></i>
+            <input mdbActive type="number" id="sectionRank" class="form-control" #rank>
+            <label for="sectionRank">Section rank</label>
           </div>
         </div>
         <div class="modal-footer">
