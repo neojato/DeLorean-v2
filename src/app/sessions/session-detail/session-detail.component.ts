@@ -5,10 +5,12 @@ import { SiteConfigService } from './../../admin/shared/site-config/site-config.
 import { Title } from '@angular/platform-browser';
 import { SpeakerService } from './../../speakers/shared/speaker.service';
 import { SessionService } from './../shared/session.service';
+import { SectionService } from './../shared/section.service';
 import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Session } from '../../sessions/shared/session';
+import { Section } from '../../sessions/shared/section';
 
 @Component({
   selector: 'app-session-detail',
@@ -17,6 +19,8 @@ import { Session } from '../../sessions/shared/session';
 })
 export class SessionDetailComponent implements OnInit {
   session: Session = new Session();
+  section: Section = new Section();
+
   profiles: any[];
   siteConfig: FirebaseObjectObservable<SiteConfig>;
   eventName: string;
@@ -27,6 +31,7 @@ export class SessionDetailComponent implements OnInit {
     private activatedRouter: ActivatedRoute,
     private authService: AuthService,
     private sessionService: SessionService,
+    private sectionService: SectionService,
     private speakerService: SpeakerService,
     private title: Title,
     private siteConfigService: SiteConfigService,
@@ -55,6 +60,10 @@ export class SessionDetailComponent implements OnInit {
         }
         this.title.setTitle(pageTitle);
         this.mySchedule = this.scheduleService.getScheduleSession(this.authService.userId, this.session.$key);
+
+        this.sectionService.getSection(session.section).subscribe(section => {
+          this.section = section;
+        });
       });
     });
   }
