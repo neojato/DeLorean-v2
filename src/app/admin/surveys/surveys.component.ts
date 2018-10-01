@@ -22,7 +22,7 @@ export class SurveysComponent implements OnInit {
   constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.sessions = this.sessionService.getSessionList();
+    this.sessions = this.sessionService.getSessionList({ orderByChild: 'rank' });
   }
 
   showModal(session, survey) {

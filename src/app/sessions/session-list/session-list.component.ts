@@ -31,7 +31,7 @@ export class SessionListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sessions = this.sessionService.getSessionList();
+    this.sessions = this.sessionService.getSessionList({ orderByChild: 'rank' });
     this.sections = this.sectionService.getSectionList({ orderByChild: 'rank' });
   }
 

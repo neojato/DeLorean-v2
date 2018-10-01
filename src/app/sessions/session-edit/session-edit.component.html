@@ -40,6 +40,10 @@
         </select>
       </div>
       <div class="md-form">
+        <input mdbActive type="number" id="rank" class="form-control" [(ngModel)]="session.rank" name="rank">
+        <label for="rank" [class.active]="session.title && session.title.length > 0">Session Rank: <em>(sorting order within the section)</em></label>
+      </div>
+      <div class="md-form">
         <textarea mdbActive type="text" id="abstract" class="md-textarea md-textarea-auto form-control" style="height: 100px" [(ngModel)]="session.abstract" name="abstract"></textarea>
         <label for="abstract" [class.active]="session.abstract && session.abstract.length > 0">Session Abstract:</label>
       </div>
