@@ -35,8 +35,8 @@
           <a class="dropdown-item waves-light" (click)="userLogout()">Logout</a>
         </div>
       </li>
-      <li class="nav-item active">
-        <a *ngIf="config?.ticketURL" class="nav-link" [href]="config?.ticketURL" target="_blank" rel="noopener">Register</a>
+      <li class="nav-item active" *ngIf="config?.ticketURL">
+        <a class="nav-link" [href]="config?.ticketURL" target="_blank" rel="noopener">Register</a>
       </li>
     </ul>
   </links>

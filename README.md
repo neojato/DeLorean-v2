@@ -1,4 +1,5 @@
-# DeLorean Project - GDG DevFest/IWD/Event Website Template
+# DeLorean Project
+## A GDG DevFest/IWD/Event Website Template
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and utilizes [Firebase](https://firebase.google.com) for Database, Storage, and Hosting to create a fully functional and customizable template for your Google Developer Group's DevFest/IWD/Event. This project has been designed to continue to be your Event website solution without having to create a new site or Firebase project every year. Simply update the Firebase node in the config and the site resets awaiting your next year's Event data. All the while preserving your previous year's data in the same Firebase project.
 
@@ -35,6 +36,7 @@ https://delorean-demo.firebaseapp.com/
 1. Run `npm install` from the project root.
 1. Create a new [Firebase project](https://console.firebase.google.com) (if you don't have one already).
 1. Grab a [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) for your project.
+   * Enable the Google Maps [Geolocation API](https://developers.google.com/maps/documentation/javascript/geocoding#GetStarted)
 1. Run `firebase login` and then `firebase init` and link to your Firebase Project.
    * Select Database, Functions, and Hosting
    * Select your Firebase Project (created earlier)
@@ -138,7 +140,7 @@ Please let me know if you used this template with a [Pull Request](https://githu
 |------|------|------|
 | [DevFest KC](https://devfestkc.com) | [DevFest Muncie](https://devfestmuncie.firebaseapp.com) | [Windy City DevFest](https://windycity.devfest.io) |
 | [DevFest Nairobi](https://devfestnairobi.gdgkenya.org) | [Eldoret Techweek](https://sites.gdgmoi.com) | [IWD Fresno](https://iwd.wtmfresno.com) |
-| [DevFest Los Angeles](https://devfest.gdgla.org) | [Valley DevFest 2018](https://valleydevfest.com) |  |
+| [DevFest Los Angeles](https://devfest.gdgla.org) | [Valley DevFest 2018](https://valleydevfest.com) | [WTM Taipei](https://wtm-taipei-lighting-talk-0.firebaseapp.com) |
 
 ### License
 

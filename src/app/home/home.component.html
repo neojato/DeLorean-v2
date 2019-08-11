@@ -14,9 +14,6 @@
         <p class="lead mt-4 mb-5">
           A 100% community organized developer conference with industry experts presenting on exciting topics!
         </p>
-        <p *ngIf="!config?.ticketURL" class="lead mt-4 mb-5">
-          Tickets aren't on sale just yet, but check back again soon!
-        </p>
         <a *ngIf="config?.ticketURL" target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-primary btn-lg" rel="nofollow">Reserve Your Seat</a>
         <a *ngIf="config?.speakerURL" target="_blank" rel="noopener" [href]="config?.speakerURL" class="btn btn-default btn-lg" rel="nofollow">Become A Speaker</a>
       </div>
