@@ -34,6 +34,7 @@ https://delorean-demo.firebaseapp.com/
 1. Clone this repository: `git clone https://github.com/neojato/DeLorean-v2.git`.
 1. Run `npm install` from the project root.
 1. Create a new [Firebase project](https://console.firebase.google.com) (if you don't have one already).
+1. Enable Maps JavaScript API and Geocoding API in the [Google Developer Console](https://console.developers.google.com/apis/dashboard) for the Firebase project. Make sure to attach a Billing method to the project as well to make the developer watermark disappear from the map shown on the website (note: your cost will be very minimal or even negligable).
 1. Grab a [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) for your project.
 1. Run `firebase login` and then `firebase init` and link to your Firebase Project.
    * Select Database, Functions, and Hosting
