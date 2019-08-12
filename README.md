@@ -36,7 +36,7 @@ https://delorean-demo.firebaseapp.com/
 1. Run `npm install` from the project root.
 1. Create a new [Firebase project](https://console.firebase.google.com) (if you don't have one already).
 1. Grab a [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) for your project.
-   * Enable the Google Maps [Geolocation API](https://developers.google.com/maps/documentation/javascript/geocoding#GetStarted)
+   * Enable the Google Maps [Geocoding API](https://developers.google.com/maps/documentation/javascript/geocoding#GetStarted)
 1. Run `firebase login` and then `firebase init` and link to your Firebase Project.
    * Select Database, Functions, and Hosting
    * Select your Firebase Project (created earlier)
