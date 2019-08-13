@@ -10,6 +10,7 @@ export class Session {
   speakers: any;
   tag: string;
   level: string;
+  rank: number;
   surveys: any;
   timeStamp: any = firebase.database.ServerValue.TIMESTAMP;
   active: boolean = true;

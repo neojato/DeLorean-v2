@@ -29,8 +29,8 @@ export class MyScheduleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sessions$ = this.sessionService.getSessionList();
-    this.sections$ = this.sectionService.getSectionList();
+    this.sessions$ = this.sessionService.getSessionList({ orderByChild: 'rank' });
+    this.sections$ = this.sectionService.getSectionList({ orderByChild: 'rank' });
     this.mySessions$ = this.scheduleService.getScheduleList(this.authService.userId);
   }
 

@@ -35,7 +35,7 @@ export class SessionEditComponent implements OnInit {
       });
     });
 
-    this.sections = this.sectionService.getSectionList();
+    this.sections = this.sectionService.getSectionList({ orderByChild: 'rank' });
     this.speakers = this.speakerService.getSpeakerList({ orderByChild: 'name' });
   }
 

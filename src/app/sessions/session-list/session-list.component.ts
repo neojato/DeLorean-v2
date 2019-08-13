@@ -31,8 +31,8 @@ export class SessionListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sessions = this.sessionService.getSessionList();
-    this.sections = this.sectionService.getSectionList();
+    this.sessions = this.sessionService.getSessionList({ orderByChild: 'rank' });
+    this.sections = this.sectionService.getSectionList({ orderByChild: 'rank' });
   }
 
   isLoggedIn() {
@@ -49,8 +49,10 @@ export class SessionListComponent implements OnInit {
     }
   }
 
-  addSection(value) {
-    this.section.title = value.replace(/^\s+|\s+$/g, '');
+  addSection(title, rank) {
+    this.section.title = title.replace(/^\s+|\s+$/g, '');
+    let integerRegex = new RegExp('^\\d+$');
+    this.section.rank = integerRegex.test(rank) ? parseInt(rank) : 0;
     this.sectionService.createSection(this.section);
     this.section = new Section();
     this.sectionModal.hide();
