@@ -12,7 +12,7 @@ export class SiteConfigService {
   private firebaseStorage: any;
   public siteConfig: SiteConfig = null;
 
-  constructor(private db: AngularFireDatabase, private authService: AuthService) {
+  constructor(private db: AngularFireDatabase, public authService: AuthService) {
     this.firebaseStorage = firebase.storage();
   }
 

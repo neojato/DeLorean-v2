@@ -6,7 +6,7 @@
   <section class="section pb-3">
     <!--Section heading-->
     <h1 class="section-heading">Our Sponsors</h1>
-    <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
+    <div class="text-center" *ngIf="authService.isLoggedIn && authService.isAdmin">
       <button class="btn btn-success" (click)="levelModal.show()">Create Level</button>
       <button class="btn btn-primary" routerLink="/sponsors/new">Create Sponsor</button>
     </div>
@@ -17,7 +17,7 @@
     <div class="col sponsors" *ngFor="let level of levels | async">
       <h3 style="font-weight: bold;">
         {{ level.name }}
-        <button class="btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteLevel(level)">
+        <button class="btn-sm btn-danger" *ngIf="authService.isLoggedIn && authService.isAdmin" (click)="deleteLevel(level)">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
       </h3>
@@ -30,10 +30,10 @@
               <a [href]="sponsor.websiteLink" target="_blank" rel="noopener">
                 <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
               </a>
-              <button class="btn-sm btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/sponsors/{{ sponsor.$key }}/edit">
+              <button class="btn-sm btn-primary" *ngIf="authService.isLoggedIn && authService.isAdmin" routerLink="/sponsors/{{ sponsor.$key }}/edit">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </button>
-              <button class="btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSponsor(sponsor)">
+              <button class="btn-sm btn-danger" *ngIf="authService.isLoggedIn && authService.isAdmin" (click)="deleteSponsor(sponsor)">
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </span>

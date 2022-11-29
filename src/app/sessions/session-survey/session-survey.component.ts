@@ -24,7 +24,7 @@ export class SessionSurveyComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRouter: ActivatedRoute,
-    private authService: AuthService,
+    public authService: AuthService,
     private sessionService: SessionService,
     private speakerService: SpeakerService,
     private title: Title,

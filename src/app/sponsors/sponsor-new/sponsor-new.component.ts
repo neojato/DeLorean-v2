@@ -19,7 +19,7 @@ export class SponsorNewComponent implements OnInit {
   constructor(
     private sponsorService: SponsorService,
     private levelService: LevelService,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
   ) { }
 

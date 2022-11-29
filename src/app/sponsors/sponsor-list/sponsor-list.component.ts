@@ -26,7 +26,7 @@ export class SponsorListComponent implements OnInit {
   constructor(
     private sponsorService: SponsorService,
     private levelService: LevelService,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     public siteConfigService: SiteConfigService
   ) { }
@@ -34,14 +34,6 @@ export class SponsorListComponent implements OnInit {
   ngOnInit() {
     this.sponsors = this.sponsorService.getSponsorList();
     this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
-  }
-
-  isLoggedIn() {
-    return this.authService.isLoggedIn();
-  }
-
-  isAdmin() {
-    return this.authService.isAdmin();
   }
 
   addLevel() {

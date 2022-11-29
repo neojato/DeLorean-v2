@@ -9,11 +9,11 @@
         <a href="javascript:window.print();" title="Print Schedule"><i class="fa fa-print" aria-hidden="true"></i> Print Schedule</a>
       </div>
       <h1 class="section-heading">Our Schedule</h1>
-      <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
+      <div class="text-center" *ngIf="authService.isLoggedIn && authService.isAdmin">
         <button type="button" class="btn btn-success" (click)="sectionModal.show()">Create Section</button>
         <button type="button" class="btn btn-primary" routerLink="/sessions/new">Create Session</button>
       </div>
-      <div class="text-center" *ngIf="isLoggedIn()">
+      <div class="text-center" *ngIf="authService.isLoggedIn">
         <button type="button" class="btn btn-primary" routerLink="/my-schedule">View My Schedule</button>
       </div>
     </div>
@@ -23,7 +23,7 @@
           <tr class="elegant-color-dark">
             <td colspan="4" class="text-center" style="font-size: 1em; color: #fff;">
               <span class="section-title" [innerHTML]="section.title"></span>
-              <button type="button" class="btn-sm btn-danger pull-right" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSection(section)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+              <button type="button" class="btn-sm btn-danger pull-right" *ngIf="authService.isLoggedIn && authService.isAdmin" (click)="deleteSection(section)"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </td>
           </tr>
           <tr *ngFor="let session of sessions | async" (click)="openDetails(session)" [ngClass]="{'session-link': session.abstract}">

@@ -19,20 +19,12 @@ export class SpeakerListComponent implements OnInit {
 
   constructor(
     private speakerService: SpeakerService,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.speakers = this.speakerService.getSpeakerList({ orderByChild: 'name' });
-  }
-
-  isLoggedIn() {
-    return this.authService.isLoggedIn();
-  }
-
-  isAdmin() {
-    return this.authService.isAdmin();
   }
 
   deleteSpeaker(speaker) {

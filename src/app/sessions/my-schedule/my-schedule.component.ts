@@ -24,7 +24,7 @@ export class MyScheduleComponent implements OnInit {
     private sectionService: SectionService,
     private scheduleService: ScheduleService,
     private speakerService: SpeakerService,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
   ) { }
 

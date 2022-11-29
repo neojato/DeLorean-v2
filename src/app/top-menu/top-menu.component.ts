@@ -11,10 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-menu.component.scss']
 })
 export class TopMenuComponent implements OnInit {
-  siteConfig: AngularFireObject <SiteConfig>;
-
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     public siteConfigService: SiteConfigService
   ) { }
@@ -23,14 +21,6 @@ export class TopMenuComponent implements OnInit {
 
   userLogin() {
     this.authService.userLogin().then(() => this.router.navigate(['/home']), alert);
-  }
-
-  isLoggedIn() {
-    return this.authService.isLoggedIn();
-  }
-
-  isAdmin() {
-    return this.authService.isAdmin();
   }
 
   userLogout() {
