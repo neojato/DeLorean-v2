@@ -20,11 +20,11 @@
           <tbody>
             <tr *ngFor="let user of users; let i = index;">
               <th class="text-center">{{ prevKeys?.length > 0 ? (prevKeys?.length * offset) + i + 1 : i + 1 }}</th>
-              <td>{{ user.$key }}</td>
+              <td>{{ user.id }}</td>
               <td>{{ user.displayName }}</td>
               <td>{{ user.email }}</td>
-              <td>{{ isAdmin(user.$key) || 'false' }}</td>
-              <td><button class="btn btn-sm btn-primary" (click)="updateUser(user.$key)"><i class="fa fa-refresh"></i> Toggle Access</button></td>
+              <td>{{ isAdmin(user.id) || 'false' }}</td>
+              <td><button class="btn btn-sm btn-primary" (click)="updateUser(user.id)"><i class="fa fa-refresh"></i> Toggle Access</button></td>
             </tr>
             <tr>
               <td colspan="100%" class="blue-grey lighten-4">

@@ -15,7 +15,7 @@ export class SpeakerEditComponent implements OnInit {
 
   constructor(
     private speakerService: SpeakerService,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     private activatedRouter: ActivatedRoute
   ) { }

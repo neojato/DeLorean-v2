@@ -5,7 +5,7 @@
   <!--Section: Speakers-->
   <section class="section team-section pb-3">
     <h1 class="section-heading">Our Amazing Speakers</h1>
-    <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
+    <div class="text-center" *ngIf="authService.isLoggedIn && authService.isAdmin">
       <button type="button" class="btn btn-success" routerLink="/speakers/new">Create Speaker</button>
     </div>
     <div class="row text-center" *ngIf="(speakers | async)?.length !== 0 && speakers | async as speakers">
@@ -14,10 +14,10 @@
           <img *ngIf="!speaker.photoURL" class="rounded-circle z-depth-1" style="background-image: url('../../../assets/img/user-default.png')">
           <img *ngIf="speaker.photoURL" class="rounded-circle z-depth-1" [ngStyle]="{'background-image': 'url(' + speaker.photoURL + ')'}">
         </div>
-        <button type="button" class="btn btn-sm btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/speakers/{{ speaker.$key }}/edit">
+        <button type="button" class="btn btn-sm btn-primary" *ngIf="authService.isLoggedIn && authService.isAdmin" routerLink="/speakers/{{ speaker.id }}/edit">
           <i class="fa fa-pencil" aria-hidden="true"></i>
         </button>
-        <button type="button" class="btn btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSpeaker(speaker)">
+        <button type="button" class="btn btn-sm btn-danger" *ngIf="authService.isLoggedIn && authService.isAdmin" (click)="deleteSpeaker(speaker)">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
         <h4 class="show-modal" (click)="showModal(speaker)" [innerHTML]="speaker.name"></h4>

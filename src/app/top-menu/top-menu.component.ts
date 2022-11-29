@@ -1,5 +1,5 @@
 import { SiteConfigService } from './../admin/shared/site-config/site-config.service';
-import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AngularFireObject  } from '@angular/fire/database';
 import { SiteConfig } from './../admin/shared/site-config/site-config';
 import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,28 +11,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-menu.component.scss']
 })
 export class TopMenuComponent implements OnInit {
-  siteConfig: FirebaseObjectObservable<SiteConfig>;
-
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
-    private siteConfigService: SiteConfigService
+    public siteConfigService: SiteConfigService
   ) { }
 
-  ngOnInit() {
-    this.siteConfig = this.siteConfigService.getConfig();
-  }
+  ngOnInit() { }
 
   userLogin() {
     this.authService.userLogin().then(() => this.router.navigate(['/home']), alert);
-  }
-
-  isLoggedIn() {
-    return this.authService.isLoggedIn();
-  }
-
-  isAdmin() {
-    return this.authService.isAdmin();
   }
 
   userLogout() {

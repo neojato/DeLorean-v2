@@ -8,11 +8,11 @@
       <legend>Add Sponsor</legend>
       <br>
       <div class="md-form">
-        <input mdbActive type="text" id="name" class="form-control" [(ngModel)]="sponsor.name" name="name">
+        <input mdbInput type="text" id="name" class="form-control" [(ngModel)]="sponsor.name" name="name">
         <label for="name">Name:</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="websiteLink" class="form-control" [(ngModel)]="sponsor.websiteLink" name="websiteLink">
+        <input mdbInput type="text" id="websiteLink" class="form-control" [(ngModel)]="sponsor.websiteLink" name="websiteLink">
         <label for="websiteLink">Website:</label>
       </div>
       <div class="form-group">
@@ -23,7 +23,7 @@
         <label for="section">Level:</label>
         <select class="mdb-select" id="section" [(ngModel)]="sponsor.level" name="level">
           <option value="" disabled selected>Choose your option</option>
-          <option *ngFor="let level of (levels | async)" value="{{ level.$key }}">{{ level.name }}</option>
+          <option *ngFor="let level of (levels | async)" value="{{ level.id }}">{{ level.name }}</option>
         </select>
       </div>
     </form>

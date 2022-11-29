@@ -1,7 +1,7 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 
 export class Speaker {
-  $key: string;
+  id: string;
   name: string;
   title: string;
   company: string;

@@ -23,7 +23,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
+              "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
               "node_modules/font-awesome/scss/font-awesome.scss"
             ],
             "scripts": []
@@ -75,7 +75,7 @@
             "scripts": [],
             "styles": [
               "src/styles.scss",
-              "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
+              "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
               "node_modules/font-awesome/scss/font-awesome.scss"
             ],
             "assets": [
@@ -134,5 +134,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "analytics": "702510a9-2942-4e86-9f1e-2f2f6093d1a5"
   }
 }

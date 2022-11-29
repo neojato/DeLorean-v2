@@ -1,7 +1,7 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 
 export class Level {
-  $key: string;
+  id: string;
   name: string;
   rank: number;
   timeStamp: any = firebase.database.ServerValue.TIMESTAMP;

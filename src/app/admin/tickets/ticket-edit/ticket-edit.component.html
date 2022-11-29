@@ -8,27 +8,27 @@
       <legend>Edit Ticket</legend>
       <br>
       <div class="md-form">
-        <input mdbActive type="text" id="name" class="form-control" [(ngModel)]="ticket.name" name="name">
+        <input mdbInput type="text" id="name" class="form-control" [(ngModel)]="ticket.name" name="name">
         <label for="name" [class.active]="ticket.name && ticket.name.length > 0">Name: <em>(ex. Early Bird, General Admission, Student, etc.)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="number" id="price" class="form-control" [(ngModel)]="ticket.price" name="price">
+        <input mdbInput type="number" id="price" class="form-control" [(ngModel)]="ticket.price" name="price">
         <label for="price" [class.active]="ticket.price && ticket.price > 0">Price:</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="description1" class="form-control" [(ngModel)]="ticket.description1" name="description1">
+        <input mdbInput type="text" id="description1" class="form-control" [(ngModel)]="ticket.description1" name="description1">
         <label for="description1" [class.active]="ticket.description1 && ticket.description1.length > 0">Description 1: <em>(ex. Available until 9/18/16)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="description2" class="form-control" [(ngModel)]="ticket.description2" name="description2">
+        <input mdbInput type="text" id="description2" class="form-control" [(ngModel)]="ticket.description2" name="description2">
         <label for="description2" [class.active]="ticket.description2 && ticket.description2.length > 0">Description 2: <em>(ex. Parking Pass)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="description3" class="form-control" [(ngModel)]="ticket.description3" name="description3">
+        <input mdbInput type="text" id="description3" class="form-control" [(ngModel)]="ticket.description3" name="description3">
         <label for="description3" [class.active]="ticket.description3 && ticket.description3.length > 0">Description 3: <em>(ex. Student ID Required)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="description4" class="form-control" [(ngModel)]="ticket.description4" name="description4">
+        <input mdbInput type="text" id="description4" class="form-control" [(ngModel)]="ticket.description4" name="description4">
         <label for="description4" [class.active]="ticket.description4 && ticket.description4.length > 0">Description 4: <em>(ex. Swag &amp; Prizes)</em></label>
       </div>
       <div>

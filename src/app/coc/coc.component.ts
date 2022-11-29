@@ -1,6 +1,4 @@
 import { SiteConfigService } from './../admin/shared/site-config/site-config.service';
-import { SiteConfig } from './../admin/shared/site-config/site-config';
-import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,14 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./coc.component.scss']
 })
 export class CocComponent implements OnInit {
-  siteConfig: FirebaseObjectObservable<SiteConfig>;
-
   constructor(
-    private siteConfigService: SiteConfigService
+    public siteConfigService: SiteConfigService
   ) { }
 
-  ngOnInit() {
-    this.siteConfig = this.siteConfigService.getConfig();
-  }
-
+  ngOnInit() { }
 }

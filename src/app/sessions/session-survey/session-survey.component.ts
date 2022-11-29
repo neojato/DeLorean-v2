@@ -1,4 +1,4 @@
-import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AngularFireObject  } from '@angular/fire/database';
 import { SiteConfig } from './../../admin/shared/site-config/site-config';
 import { SiteConfigService } from './../../admin/shared/site-config/site-config.service';
 import { Title } from '@angular/platform-browser';
@@ -19,14 +19,12 @@ import { Survey } from './../shared/survey';
 export class SessionSurveyComponent implements OnInit {
   session: Session = new Session();
   speaker: Speaker;
-  siteConfig: FirebaseObjectObservable<SiteConfig>;
-  eventName: string;
   survey: Survey = new Survey();
 
   constructor(
     private router: Router,
     private activatedRouter: ActivatedRoute,
-    private authService: AuthService,
+    public authService: AuthService,
     private sessionService: SessionService,
     private speakerService: SpeakerService,
     private title: Title,
@@ -34,20 +32,14 @@ export class SessionSurveyComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.siteConfig = this.siteConfigService.getConfig();
-
-    this.siteConfig.subscribe(snap => {
-      this.eventName = snap.eventName;
-    });
-
     this.activatedRouter.params.subscribe((params) => {
       const id = params['id'];
       this.sessionService.getSession(id).subscribe(session => {
         this.session = session;
         // dynamically set page titles
         let pageTitle = this.title.getTitle();
-        if (this.eventName) {
-          pageTitle = this.eventName;
+        if (this.siteConfigService.siteConfig?.eventName) {
+          pageTitle = this.siteConfigService.siteConfig?.eventName;
         }
         if (this.session.title) {
           pageTitle += ' :: ' + this.session.title;
@@ -73,9 +65,9 @@ export class SessionSurveyComponent implements OnInit {
       Number(this.survey.group7) +
       Number(this.survey.group8)
     ) / 4;
-    this.sessionService.saveSurvey(this.session.$key, this.survey);
+    this.sessionService.saveSurvey(this.session.id, this.survey);
     alert('Thank you for your feedback!');
-    this.router.navigate([`/sessions/${this.session.$key}`]);
+    this.router.navigate([`/sessions/${this.session.id}`]);
   }
 
 }

@@ -1,28 +1,27 @@
 import { Survey } from './survey';
 import { Session } from './session';
 import { firebaseConfig } from './../../../environments/firebase.config';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase, AngularFireList, AngularFireObject  } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DataBaseHelper } from '../../helper/database.helper';
 
 @Injectable()
 export class SessionService {
   private basePath: string = firebaseConfig.devfestYear + '/sessions';
-  sessions: FirebaseListObservable<Session[]> = null;
-  session: FirebaseObjectObservable<Session> = null;
+  sessions: AngularFireList<Session> = null;
+  session: AngularFireObject <Session> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getSessionList(query?: object): FirebaseListObservable<Session[]> {
-    this.sessions = this.db.list(this.basePath, {
-      query: query
-    });
-    return this.sessions;
+  getSessionList(): Observable<Session[]> {
+    this.sessions = this.db.list(this.basePath, ref => ref.orderByChild('time'));
+    return DataBaseHelper.getDataBaseList<Session>(this.sessions);
   }
 
-  getSession(key: string): FirebaseObjectObservable<Session> {
-    const path = `${this.basePath}/${key}`;
-    this.session = this.db.object(path);
-    return this.session;
+  getSession(key: string): Observable<Session> {
+    this.session = this.db.object(`${this.basePath}/${key}`);
+    return DataBaseHelper.getDataBaseObject<Session>(this.session);
   }
 
   createSession(session: Session): void {

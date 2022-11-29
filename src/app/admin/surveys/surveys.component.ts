@@ -1,10 +1,9 @@
-import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { SessionService } from './../../sessions/shared/session.service';
 import { Session } from './../../sessions/shared/session';
-import { Survey } from './../../sessions/shared/survey';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
 import { DatePipe } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-surveys',
@@ -13,7 +12,7 @@ import { DatePipe } from '@angular/common';
   providers: [ModalDirective, DatePipe]
 })
 export class SurveysComponent implements OnInit {
-  public sessions: FirebaseListObservable<Session[]>;
+  public sessions: Observable<Session[]>;
   public surveyDetail: any;
   surveyData: any[] = [];
 

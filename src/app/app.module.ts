@@ -25,10 +25,9 @@ import { AppComponent } from './app.component';
 import { routerConfig } from './router.config';
 
 import { firebaseConfig } from '../environments/firebase.config';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AgmCoreModule } from '@agm/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -54,6 +53,7 @@ import { SessionSurveyComponent } from './sessions/session-survey/session-survey
 import { SurveysComponent } from './admin/surveys/surveys.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { CocComponent } from './coc/coc.component';
+import { DataBaseHelper } from './helper/database.helper';
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -94,7 +94,6 @@ import { CocComponent } from './coc/coc.component';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AgmCoreModule.forRoot({ apiKey: firebaseConfig.mapsKey }),
     MDBBootstrapModule.forRoot(),
     ScrollToModule.forRoot()
   ],
@@ -111,7 +110,8 @@ import { CocComponent } from './coc/coc.component';
     GeocoderApiService,
     TicketService,
     ScheduleService,
-    AppCustomPreloader
+    AppCustomPreloader,
+    DataBaseHelper
   ],
   bootstrap: [AppComponent]
 })
