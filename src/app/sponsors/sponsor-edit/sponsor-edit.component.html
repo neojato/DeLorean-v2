@@ -8,11 +8,11 @@
       <legend>Edit Sponsor</legend>
       <br>
       <div class="md-form">
-        <input mdbActive type="text" id="name" class="form-control" [(ngModel)]="sponsor.name" name="name">
+        <input mdbInput type="text" id="name" class="form-control" [(ngModel)]="sponsor.name" name="name">
         <label for="name" [class.active]="sponsor.name && sponsor.name.length > 0">Name:</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="websiteLink" class="form-control" [(ngModel)]="sponsor.websiteLink" name="websiteLink">
+        <input mdbInput type="text" id="websiteLink" class="form-control" [(ngModel)]="sponsor.websiteLink" name="websiteLink">
         <label for="websiteLink" [class.active]="sponsor.websiteLink && sponsor.websiteLink.length > 0">Website:</label>
       </div>
       <div class="form-group">

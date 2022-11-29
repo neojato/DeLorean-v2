@@ -1,5 +1,5 @@
 import { SiteConfigService } from './../admin/shared/site-config/site-config.service';
-import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AngularFireObject  } from '@angular/fire/database';
 import { SiteConfig } from './../admin/shared/site-config/site-config';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  siteConfig: FirebaseObjectObservable<SiteConfig>;
+  siteConfig: AngularFireObject <SiteConfig>;
   copyright = new Date().getFullYear();
 
   constructor(private siteConfigService: SiteConfigService) { }

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { SessionService } from '../shared/session.service';
 import { Component, OnInit } from '@angular/core';
 import { Section } from './../shared/section';
-import { FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireList } from '@angular/fire/database';
 
 @Component({
   selector: 'app-session-new',
@@ -15,8 +15,8 @@ import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 })
 export class SessionNewComponent implements OnInit {
   session: Session = new Session();
-  public sections: FirebaseListObservable<Section[]>;
-  public speakers: FirebaseListObservable<Speaker[]>;
+  public sections: AngularFireList<Section>;
+  public speakers: AngularFireList<Speaker>;
 
   constructor(
     private sessionService: SessionService,

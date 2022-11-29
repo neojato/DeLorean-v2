@@ -1,4 +1,4 @@
-import { FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireList } from '@angular/fire/database';
 import { LevelService } from './../shared/level.service';
 import { SponsorService } from './../shared/sponsor.service';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SponsorNewComponent implements OnInit {
   sponsor: Sponsor = new Sponsor();
-  public levels: FirebaseListObservable<Level[]>;
+  public levels: AngularFireList<Level>;
 
   constructor(
     private sponsorService: SponsorService,

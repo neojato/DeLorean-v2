@@ -1,5 +1,5 @@
 import { ScheduleService } from './../shared/schedule.service';
-import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AngularFireObject  } from '@angular/fire/database';
 import { SiteConfig } from './../../admin/shared/site-config/site-config';
 import { SiteConfigService } from './../../admin/shared/site-config/site-config.service';
 import { Title } from '@angular/platform-browser';
@@ -18,9 +18,9 @@ import { Session } from '../../sessions/shared/session';
 export class SessionDetailComponent implements OnInit {
   session: Session = new Session();
   profiles: any[];
-  siteConfig: FirebaseObjectObservable<SiteConfig>;
+  siteConfig: AngularFireObject <SiteConfig>;
   eventName: string;
-  mySchedule: FirebaseObjectObservable<any>;
+  mySchedule: AngularFireObject <any>;
 
   constructor(
     private router: Router,

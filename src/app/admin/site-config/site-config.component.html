@@ -88,7 +88,7 @@
           </div>
           <div class="md-form" *ngIf="siteConfig.eventType === 'Other'">
             <i class="fa fa-info-circle prefix grey-text"></i>
-            <textarea mdbActive type="text" id="eventDescription" class="md-textarea" style="height: 100px" [(ngModel)]="siteConfig.eventDescription"
+            <textarea mdbInput type="text" id="eventDescription" class="md-textarea" style="height: 100px" [(ngModel)]="siteConfig.eventDescription"
               name="eventDescription"></textarea>
             <label for="eventDescription" [class.active]="siteConfig.eventDescription && siteConfig.eventDescription.length > 0">Event Description: <em>(simple HTML allowed)</em>&nbsp;<small>(required)</small></label>
           </div>
@@ -203,7 +203,7 @@
           </div>
           <div class="md-form">
             <i class="fa fa-info-circle prefix grey-text"></i>
-            <textarea mdbActive type="text" id="venueDescription" class="md-textarea" style="height: 100px" [(ngModel)]="siteConfig.venueDescription"
+            <textarea mdbInput type="text" id="venueDescription" class="md-textarea" style="height: 100px" [(ngModel)]="siteConfig.venueDescription"
               name="venueDescription"></textarea>
             <label for="venueDescription" [class.active]="siteConfig.venueDescription && siteConfig.venueDescription.length > 0">Venue Bio:</label>
           </div>

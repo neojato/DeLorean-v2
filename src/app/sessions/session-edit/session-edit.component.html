@@ -15,19 +15,19 @@
         </select>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="room" class="form-control" [(ngModel)]="session.room" name="room">
+        <input mdbInput type="text" id="room" class="form-control" [(ngModel)]="session.room" name="room">
         <label for="room" [class.active]="session.room && session.room.length > 0">Room Name:</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="title" class="form-control" [(ngModel)]="session.title" name="title">
+        <input mdbInput type="text" id="title" class="form-control" [(ngModel)]="session.title" name="title">
         <label for="title" [class.active]="session.title && session.title.length > 0">Session Title:</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="time" class="form-control" [(ngModel)]="session.time" name="time">
+        <input mdbInput type="text" id="time" class="form-control" [(ngModel)]="session.time" name="time">
         <label for="time" [class.active]="session.time && session.time.length > 0">Session Time: <em>(ex. 8:30 - 9:30 AM)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="tag" class="form-control" [(ngModel)]="session.tag" name="tag">
+        <input mdbInput type="text" id="tag" class="form-control" [(ngModel)]="session.tag" name="tag">
         <label for="tag" [class.active]="session.tag && session.tag.length > 0">Session Tag: <em>(ex. Mobile, Web, IoT, etc.)</em></label>
       </div>
       <div style="padding-bottom: 25px;">
@@ -40,7 +40,7 @@
         </select>
       </div>
       <div class="md-form">
-        <textarea mdbActive type="text" id="abstract" class="md-textarea md-textarea-auto form-control" style="height: 100px" [(ngModel)]="session.abstract" name="abstract"></textarea>
+        <textarea mdbInput type="text" id="abstract" class="md-textarea md-textarea-auto form-control" style="height: 100px" [(ngModel)]="session.abstract" name="abstract"></textarea>
         <label for="abstract" [class.active]="session.abstract && session.abstract.length > 0">Session Abstract:</label>
       </div>
       <div style="padding-bottom: 25px;" *ngIf="(speakers | async)?.length > 0">

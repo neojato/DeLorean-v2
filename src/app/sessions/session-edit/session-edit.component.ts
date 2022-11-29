@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SessionService } from '../shared/session.service';
 import { Component, OnInit } from '@angular/core';
 import { Section } from './../shared/section';
-import { FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireList } from '@angular/fire/database';
 
 @Component({
   selector: 'app-session-edit',
@@ -14,8 +14,8 @@ import { FirebaseListObservable } from 'angularfire2/database-deprecated';
   styleUrls: ['./session-edit.component.scss']
 })
 export class SessionEditComponent implements OnInit {
-  public sections: FirebaseListObservable<Section[]>;
-  public speakers: FirebaseListObservable<Speaker[]>;
+  public sections: AngularFireList<Section>;
+  public speakers: AngularFireList<Speaker>;
   session: Session = new Session();
   activeKey: string;
 

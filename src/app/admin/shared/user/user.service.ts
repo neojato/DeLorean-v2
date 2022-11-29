@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 @Injectable()
 export class UserService {
   private basePath = '/userProfile';
-  users: FirebaseListObservable<any[]> = null;
+  users: AngularFireList<any> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getUserList(): FirebaseListObservable<any[]> {
+  getUserList(): AngularFireList<any> {
     this.users = this.db.list(this.basePath);
     return this.users;
   }
 
-  getUserQuery(offset, startKey?): FirebaseListObservable<any[]> {
+  getUserQuery(offset, startKey?): AngularFireList<any> {
     this.users = this.db.list(this.basePath, {
       query: {
         orderByKey: true,

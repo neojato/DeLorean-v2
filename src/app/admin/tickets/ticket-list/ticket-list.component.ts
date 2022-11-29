@@ -1,4 +1,4 @@
-import { FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireList } from '@angular/fire/database';
 import { TicketService } from './../../shared/ticket/ticket.service';
 import { Ticket } from './../../shared/ticket/ticket';
 import { Component, OnInit } from '@angular/core';
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ticket-list.component.scss']
 })
 export class TicketListComponent implements OnInit {
-  tickets: FirebaseListObservable<Ticket[]>;
+  tickets: AngularFireList<Ticket>;
 
   constructor(private ticketService: TicketService) { }
 

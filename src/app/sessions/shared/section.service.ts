@@ -1,15 +1,15 @@
 import { Section } from './section';
 import { Injectable } from '@angular/core';
 import { firebaseConfig } from './../../../environments/firebase.config';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 @Injectable()
 export class SectionService {
-  sections: FirebaseListObservable<Section[]> = null;
+  sections: AngularFireList<Section> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getSectionList(query?: object, year?: string|number): FirebaseListObservable<Section[]> {
+  getSectionList(query?: object, year?: string|number): AngularFireList<Section> {
     this.sections = this.listPath({ query: query }, year);
     return this.sections;
   }

@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
 import { SpeakerService } from './../shared/speaker.service';
 import { Speaker } from './../shared/speaker';
-import { FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
 
@@ -14,7 +14,7 @@ import { ModalDirective } from 'angular-bootstrap-md';
 export class SpeakerListComponent implements OnInit {
   @ViewChild('speakerModal') public speakerModal: ModalDirective;
 
-  public speakers: FirebaseListObservable<Speaker[]>;
+  public speakers: AngularFireList<Speaker>;
   public speakerDetail: any;
 
   constructor(

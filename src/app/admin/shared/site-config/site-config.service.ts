@@ -1,22 +1,22 @@
 import { AuthService } from './../../../services/auth/auth.service';
 import { SiteConfig } from './site-config';
-import { FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireObject , AngularFireDatabase } from '@angular/fire/database';
 import { firebaseConfig } from './../../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/storage';
 
 @Injectable()
 export class SiteConfigService {
   private basePath: string = firebaseConfig.devfestYear + '/siteConfig';
-  private siteConfig: FirebaseObjectObservable<SiteConfig> = null;
+  private siteConfig: AngularFireObject <SiteConfig> = null;
   private firebaseStorage: any;
 
   constructor(private db: AngularFireDatabase, private authService: AuthService) {
     this.firebaseStorage = firebase.storage();
   }
 
-  getConfig(): FirebaseObjectObservable<SiteConfig> {
+  getConfig(): AngularFireObject <SiteConfig> {
     this.siteConfig = this.db.object(this.basePath);
     return this.siteConfig;
   }

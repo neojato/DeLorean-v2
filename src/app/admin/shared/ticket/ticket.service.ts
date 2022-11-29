@@ -1,24 +1,24 @@
 import { Ticket } from './ticket';
-import { FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireList, AngularFireObject , AngularFireDatabase } from '@angular/fire/database';
 import { firebaseConfig } from './../../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TicketService {
   private basePath: string = firebaseConfig.devfestYear + '/tickets';
-  private tickets: FirebaseListObservable<Ticket[]> = null;
-  private ticket: FirebaseObjectObservable<Ticket> = null;
+  private tickets: AngularFireList<Ticket> = null;
+  private ticket: AngularFireObject <Ticket> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getTicketList(query?: object): FirebaseListObservable<Ticket[]> {
+  getTicketList(query?: object): AngularFireList<Ticket> {
     this.tickets = this.db.list(this.basePath, {
       query: query
     });
     return this.tickets;
   }
 
-  getTicket(key: string): FirebaseObjectObservable<Ticket> {
+  getTicket(key: string): AngularFireObject <Ticket> {
     const path = `${this.basePath}/${key}`;
     this.ticket = this.db.object(path);
     return this.ticket;

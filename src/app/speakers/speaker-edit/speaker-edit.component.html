@@ -8,19 +8,19 @@
       <legend>Edit Speaker</legend>
       <br>
       <div class="md-form">
-        <input mdbActive type="text" id="name" class="form-control" [(ngModel)]="speaker.name" name="name">
+        <input mdbInput type="text" id="name" class="form-control" [(ngModel)]="speaker.name" name="name">
         <label for="name" [class.active]="speaker.name && speaker.name.length > 0">Speaker Name:</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="title" class="form-control" [(ngModel)]="speaker.title" name="title">
+        <input mdbInput type="text" id="title" class="form-control" [(ngModel)]="speaker.title" name="title">
         <label for="title" [class.active]="speaker.title && speaker.title.length > 0">Job Title:</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="company" class="form-control" [(ngModel)]="speaker.company" name="company">
+        <input mdbInput type="text" id="company" class="form-control" [(ngModel)]="speaker.company" name="company">
         <label for="company" [class.active]="speaker.company && speaker.company.length > 0">Company:</label>
       </div>
       <div class="md-form">
-        <textarea mdbActive type="text" id="description" class="md-textarea md-textarea-auto form-control" style="height: 100px" [(ngModel)]="speaker.description" name="description"></textarea>
+        <textarea mdbInput type="text" id="description" class="md-textarea md-textarea-auto form-control" style="height: 100px" [(ngModel)]="speaker.description" name="description"></textarea>
         <label for="description" [class.active]="speaker.description && speaker.description.length > 0">Speaker Bio:</label>
       </div>
       <div class="form-group" style="padding-bottom: 25px;">
@@ -32,27 +32,27 @@
         <label for="featured">Featured Speaker</label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="googleLink" class="form-control" [(ngModel)]="speaker.googleLink" name="googleLink">
+        <input mdbInput type="text" id="googleLink" class="form-control" [(ngModel)]="speaker.googleLink" name="googleLink">
         <label for="googleLink" [class.active]="speaker.googleLink && speaker.googleLink.length > 0">Google+: <em>(only add the handle)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="facebookLink" class="form-control" [(ngModel)]="speaker.facebookLink" name="facebookLink">
+        <input mdbInput type="text" id="facebookLink" class="form-control" [(ngModel)]="speaker.facebookLink" name="facebookLink">
         <label for="facebookLink" [class.active]="speaker.facebookLink && speaker.facebookLink.length > 0">Facebook: <em>(only add the handle)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="twitterLink" class="form-control" [(ngModel)]="speaker.twitterLink" name="twitterLink">
+        <input mdbInput type="text" id="twitterLink" class="form-control" [(ngModel)]="speaker.twitterLink" name="twitterLink">
         <label for="twitterLink" [class.active]="speaker.twitterLink && speaker.twitterLink.length > 0">Twitter: <em>(only add the handle)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="linkedinLink" class="form-control" [(ngModel)]="speaker.linkedinLink" name="linkedinLink">
+        <input mdbInput type="text" id="linkedinLink" class="form-control" [(ngModel)]="speaker.linkedinLink" name="linkedinLink">
         <label for="linkedinLink" [class.active]="speaker.linkedinLink && speaker.linkedinLink.length > 0">LinkedIn: <em>(ex. in/handle OR company/handle)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="githubLink" class="form-control" [(ngModel)]="speaker.githubLink" name="githubLink">
+        <input mdbInput type="text" id="githubLink" class="form-control" [(ngModel)]="speaker.githubLink" name="githubLink">
         <label for="githubLink" [class.active]="speaker.githubLink && speaker.githubLink.length > 0">GitHub: <em>(only add the handle)</em></label>
       </div>
       <div class="md-form">
-        <input mdbActive type="text" id="websiteLink" class="form-control" [(ngModel)]="speaker.websiteLink" name="websiteLink">
+        <input mdbInput type="text" id="websiteLink" class="form-control" [(ngModel)]="speaker.websiteLink" name="websiteLink">
         <label for="websiteLink" [class.active]="speaker.websiteLink && speaker.websiteLink.length > 0">Website:</label>
       </div>
     </form>

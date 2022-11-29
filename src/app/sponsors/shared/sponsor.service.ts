@@ -1,29 +1,29 @@
 import { Sponsor } from './sponsor';
-import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AngularFireList, AngularFireDatabase, AngularFireObject  } from '@angular/fire/database';
 import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/storage';
 
 @Injectable()
 export class SponsorService {
   private basePath: string = firebaseConfig.devfestYear + '/sponsors';
-  private sponsors: FirebaseListObservable<Sponsor[]> = null;
-  private sponsor: FirebaseObjectObservable<Sponsor> = null;
+  private sponsors: AngularFireList<Sponsor> = null;
+  private sponsor: AngularFireObject <Sponsor> = null;
   private firebaseStorage: any;
 
   constructor(private db: AngularFireDatabase) {
     this.firebaseStorage = firebase.storage();
   }
 
-  getSponsorList(query?: object): FirebaseListObservable<Sponsor[]> {
+  getSponsorList(query?: object): AngularFireList<Sponsor> {
     this.sponsors = this.db.list(this.basePath, {
       query: query
     });
     return this.sponsors;
   }
 
-  getSponsor(key: string): FirebaseObjectObservable<Sponsor> {
+  getSponsor(key: string): AngularFireObject <Sponsor> {
     const path = `${this.basePath}/${key}`;
     this.sponsor = this.db.object(path);
     return this.sponsor;
