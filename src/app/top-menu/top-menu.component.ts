@@ -16,12 +16,10 @@ export class TopMenuComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private siteConfigService: SiteConfigService
+    public siteConfigService: SiteConfigService
   ) { }
 
-  ngOnInit() {
-    this.siteConfig = this.siteConfigService.getConfig();
-  }
+  ngOnInit() { }
 
   userLogin() {
     this.authService.userLogin().then(() => this.router.navigate(['/home']), alert);

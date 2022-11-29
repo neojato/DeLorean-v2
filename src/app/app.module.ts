@@ -53,6 +53,7 @@ import { SessionSurveyComponent } from './sessions/session-survey/session-survey
 import { SurveysComponent } from './admin/surveys/surveys.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { CocComponent } from './coc/coc.component';
+import { DataBaseHelper } from './helper/database.helper';
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -93,7 +94,6 @@ import { CocComponent } from './coc/coc.component';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AgmCoreModule.forRoot({ apiKey: firebaseConfig.mapsKey }),
     MDBBootstrapModule.forRoot(),
     ScrollToModule.forRoot()
   ],
@@ -110,7 +110,8 @@ import { CocComponent } from './coc/coc.component';
     GeocoderApiService,
     TicketService,
     ScheduleService,
-    AppCustomPreloader
+    AppCustomPreloader,
+    DataBaseHelper
   ],
   bootstrap: [AppComponent]
 })

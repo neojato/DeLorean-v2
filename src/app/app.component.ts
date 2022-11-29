@@ -1,6 +1,4 @@
 import { SiteConfigService } from './admin/shared/site-config/site-config.service';
-import { AngularFireObject  } from '@angular/fire/database';
-import { SiteConfig } from './admin/shared/site-config/site-config';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -14,9 +12,6 @@ import { mergeMap, map, filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  siteConfig: AngularFireObject <SiteConfig>;
-  eventName: string;
-
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -25,11 +20,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.siteConfig = this.siteConfigService.getConfig();
-
-    this.siteConfig.subscribe(snap => {
-      this.eventName = snap.eventName;
-    });
+    this.siteConfigService.getConfig();
 
     this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
@@ -45,8 +36,8 @@ export class AppComponent implements OnInit {
       .subscribe((event) => {
         // dynamically set page titles
         let pageTitle = this.title.getTitle();
-        if (this.eventName) {
-          pageTitle = this.eventName;
+        if (this.siteConfigService.siteConfig?.eventName) {
+          pageTitle = this.siteConfigService.siteConfig?.eventName;
         }
         if (event['title']) {
           pageTitle += ' :: ' + event['title'];

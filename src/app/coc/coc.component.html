@@ -3,7 +3,7 @@
 <div class="between-sections d-print-none"><br><br></div>
 <div class="container">
   <!--Section: CoC-->
-  <section class="section" *ngIf="siteConfig | async as siteConfig">
+  <section class="section" *ngIf="siteConfigService.siteConfig as siteConfig">
     <div>
       <h1 class="section-heading">Code of Conduct</h1>
     </div>

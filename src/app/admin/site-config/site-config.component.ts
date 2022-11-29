@@ -21,12 +21,11 @@ export class SiteConfigComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.siteConfigService.getConfig().subscribe(config => {
-      this.siteConfig = config;
-      if (config.groupName) {
-        this.addConfig = false;
-      }
-    });
+    this.siteConfigService.getConfig();
+    this.siteConfig = this.siteConfigService.siteConfig;
+    if (this.siteConfig.groupName) {
+       this.addConfig = false;
+    }
   }
 
   createConfig() {

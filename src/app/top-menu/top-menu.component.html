@@ -1,6 +1,6 @@
 <!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark elegant-color-dark fixed-top scrolling-navbar d-print-none"
-            *ngIf="siteConfig | async as config">
+            *ngIf="siteConfigService.siteConfig as config">
   <logo><a class="navbar-brand" routerLink="/home">{{ config?.eventName }}</a></logo>
   <links>
     <ul class="navbar-nav ml-auto">

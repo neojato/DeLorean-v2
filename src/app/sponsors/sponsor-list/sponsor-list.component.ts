@@ -20,7 +20,6 @@ export class SponsorListComponent implements OnInit {
   public sponsors: AngularFireList<Sponsor>;
   public levels: AngularFireList<Level>;
   level: Level = new Level();
-  siteConfig: AngularFireObject <SiteConfig>;
 
   @ViewChild('levelModal') public levelModal: ModalDirective;
 
@@ -29,13 +28,12 @@ export class SponsorListComponent implements OnInit {
     private levelService: LevelService,
     private authService: AuthService,
     private router: Router,
-    private siteConfigService: SiteConfigService
+    public siteConfigService: SiteConfigService
   ) { }
 
   ngOnInit() {
     this.sponsors = this.sponsorService.getSponsorList();
     this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
-    this.siteConfig = this.siteConfigService.getConfig();
   }
 
   isLoggedIn() {
