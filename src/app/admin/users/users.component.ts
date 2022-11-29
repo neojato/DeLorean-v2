@@ -1,7 +1,7 @@
 import { UserService } from './../shared/user/user.service';
-import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -9,7 +9,7 @@ import * as _ from 'lodash';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  public usersList: AngularFireList<any>;
+  public usersList: Observable<any[]>;
   users: any[] = [];
   nextKey: any;
   prevKeys: any[] = [];

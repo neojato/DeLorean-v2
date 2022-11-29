@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { SessionService } from '../shared/session.service';
 import { Component, OnInit } from '@angular/core';
 import { Section } from './../shared/section';
-import { AngularFireList } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-session-new',
@@ -15,8 +15,8 @@ import { AngularFireList } from '@angular/fire/database';
 })
 export class SessionNewComponent implements OnInit {
   session: Session = new Session();
-  public sections: AngularFireList<Section>;
-  public speakers: AngularFireList<Speaker>;
+  public sections: Observable<Section[]>;
+  public speakers: Observable<Speaker[]>;
 
   constructor(
     private sessionService: SessionService,
@@ -27,7 +27,7 @@ export class SessionNewComponent implements OnInit {
 
   ngOnInit() {
     this.sections = this.sectionService.getSectionList();
-    this.speakers = this.speakerService.getSpeakerList({ orderByChild: 'name' });
+    this.speakers = this.speakerService.getSpeakerList();
   }
 
   save() {

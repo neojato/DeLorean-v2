@@ -1,10 +1,10 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { SponsorService } from './../shared/sponsor.service';
 import { LevelService } from './../shared/level.service';
-import { AngularFireList } from '@angular/fire/database';
 import { Level } from './../shared/level';
 import { Sponsor } from './../shared/sponsor';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sponsor-edit',
@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SponsorEditComponent implements OnInit {
   sponsor: Sponsor = new Sponsor();
-  public levels: AngularFireList<Level>;
+  public levels: Observable<Level[]>;
   activeKey: string;
 
   constructor(
@@ -31,7 +31,7 @@ export class SponsorEditComponent implements OnInit {
       });
     });
 
-    this.levels = this.levelService.getLevelList({ orderByChild: 'rank' });
+    this.levels = this.levelService.getLevelList();
   }
 
   update() {

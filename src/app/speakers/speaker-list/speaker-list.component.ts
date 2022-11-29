@@ -2,9 +2,9 @@ import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
 import { SpeakerService } from './../shared/speaker.service';
 import { Speaker } from './../shared/speaker';
-import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-speaker-list',
@@ -14,7 +14,7 @@ import { ModalDirective } from 'angular-bootstrap-md';
 export class SpeakerListComponent implements OnInit {
   @ViewChild('speakerModal') public speakerModal: ModalDirective;
 
-  public speakers: AngularFireList<Speaker>;
+  public speakers: Observable<Speaker[]>;
   public speakerDetail: any;
 
   constructor(
@@ -24,7 +24,7 @@ export class SpeakerListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.speakers = this.speakerService.getSpeakerList({ orderByChild: 'name' });
+    this.speakers = this.speakerService.getSpeakerList();
   }
 
   deleteSpeaker(speaker) {
