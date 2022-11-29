@@ -6,7 +6,7 @@ import { map } from "rxjs/operators";
 @Injectable()
 export class DataBaseHelper {
 
-    static getDataBaseList<T>(list: AngularFireList<T>): Observable<T> {
+    static getDataBaseList<T>(list: AngularFireList<T>): Observable<T[]> {
        return list.snapshotChanges()
             .pipe(map(actions => actions.map(this.documentToDomainObject)));
     }

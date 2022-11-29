@@ -4,6 +4,8 @@ import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 import firebase from 'firebase/app';
 import 'firebase/storage';
+import { Observable } from 'rxjs';
+import { DataBaseHelper } from '../../helper/database.helper';
 
 @Injectable()
 export class SponsorService {
@@ -16,37 +18,39 @@ export class SponsorService {
     this.firebaseStorage = firebase.storage();
   }
 
-  getSponsorList(query?: object): AngularFireList<Sponsor> {
-    this.sponsors = this.db.list(this.basePath, {
-      query: query
-    });
-    return this.sponsors;
+  getSponsorList(): Observable<Sponsor[]> {
+    this.sponsors = this.db.list(this.basePath, ref => ref);
+    return DataBaseHelper.getDataBaseList<Sponsor>(this.sponsors);
   }
 
-  getSponsor(key: string): AngularFireObject <Sponsor> {
+  getSponsor(key: string): Observable<Sponsor> {
     const path = `${this.basePath}/${key}`;
     this.sponsor = this.db.object(path);
-    return this.sponsor;
+    return DataBaseHelper.getDataBaseObject<Sponsor>(this.sponsor);
   }
 
   createSponsor(sponsor: Sponsor, file?: File): void {
     const key = this.db.list(this.basePath).push(sponsor).key;
     if (file) {
       this.firebaseStorage.ref(this.basePath + `/${key}`).put(file)
-        .then(snapshot => {
-          sponsor.logoURL = snapshot.downloadURL;
-          this.db.object(this.basePath + `/${key}`).set(sponsor);
-        });
+      .then(snapshot => snapshot.ref.getDownloadURL()
+        .then(downloadUrl => {
+            sponsor.logoURL = downloadUrl;
+            this.db.object(this.basePath + `/${key}`).set(sponsor);
+        })
+      );
     }
   }
 
   updateSponsor(sponsor: Sponsor, file?: File): void {
     if (file !== undefined && file !== null) {
       this.firebaseStorage.ref(this.basePath + `/${sponsor.id}`).put(file)
-        .then(snapshot => {
-          sponsor.logoURL = snapshot.downloadURL;
-          this.db.object(this.basePath + `/${sponsor.id}`).update(sponsor);
-        });
+      .then(snapshot => snapshot.ref.getDownloadURL()
+        .then(downloadUrl => {
+            sponsor.logoURL = downloadUrl;
+            this.db.object(this.basePath + `/${sponsor.id}`).update(sponsor);
+        })
+      );
     } else {
       this.db.object(this.basePath + `/${sponsor.id}`).update(sponsor);
     }

@@ -2,6 +2,8 @@ import { Level } from './level';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DataBaseHelper } from '../../helper/database.helper';
 
 @Injectable()
 export class LevelService {
@@ -10,11 +12,9 @@ export class LevelService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getLevelList(query?: object): AngularFireList<Level> {
-    this.levels = this.db.list(this.basePath, {
-      query: query
-    });
-    return this.levels;
+  getLevelList(): Observable<Level[]> {
+    this.levels = this.db.list(this.basePath, ref => ref.orderByChild('rank'));
+    return DataBaseHelper.getDataBaseList<Level>(this.levels);
   }
 
   createLevel(level: Level): void {
