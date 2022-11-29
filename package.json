@@ -56,7 +56,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "node-sass": "^8.0.0",
-    "protractor": "~5.1.2",
+    "protractor": "~5.4.4",
     "sw-precache": "^5.2.0",
     "sw-precache-webpack-plugin": "^0.11.4",
     "ts-node": "~3.0.4",
