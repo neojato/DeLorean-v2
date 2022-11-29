@@ -42,13 +42,13 @@ export class SponsorService {
 
   updateSponsor(sponsor: Sponsor, file?: File): void {
     if (file !== undefined && file !== null) {
-      this.firebaseStorage.ref(this.basePath + `/${sponsor.$key}`).put(file)
+      this.firebaseStorage.ref(this.basePath + `/${sponsor.id}`).put(file)
         .then(snapshot => {
           sponsor.logoURL = snapshot.downloadURL;
-          this.db.object(this.basePath + `/${sponsor.$key}`).update(sponsor);
+          this.db.object(this.basePath + `/${sponsor.id}`).update(sponsor);
         });
     } else {
-      this.db.object(this.basePath + `/${sponsor.$key}`).update(sponsor);
+      this.db.object(this.basePath + `/${sponsor.id}`).update(sponsor);
     }
   }
 

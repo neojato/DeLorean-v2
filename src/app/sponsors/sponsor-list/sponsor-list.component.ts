@@ -45,13 +45,13 @@ export class SponsorListComponent implements OnInit {
 
   deleteLevel(level) {
     if (window.confirm('Are you sure you want to delete this level? This WILL orphan any sponsors tied to it!')) {
-      this.levelService.deleteLevel(level.$key);
+      this.levelService.deleteLevel(level.id);
     }
   }
 
   deleteSponsor(sponsor) {
     if (window.confirm('Are you sure you want to delete this sponsor?')) {
-      this.sponsorService.deleteSponsor(sponsor.$key);
+      this.sponsorService.deleteSponsor(sponsor.id);
     }
   }
 

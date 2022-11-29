@@ -11,7 +11,7 @@
         <label for="section">Section Name:&nbsp;</label>
         <select class="mdb-select" id="section" [(ngModel)]="session.section" name="section">
           <option value="" disabled selected>Choose your option</option>
-          <option *ngFor="let section of (sections | async)" value="{{ section.$key }}">{{ section.title }}</option>
+          <option *ngFor="let section of (sections | async)" value="{{ section.id }}">{{ section.title }}</option>
         </select>
       </div>
       <div class="md-form">
@@ -46,7 +46,7 @@
       <div style="padding-bottom: 25px;" *ngIf="(speakers | async)?.length > 0">
         <label for="level">Speaker(s):</label>
         <select multiple class="form-control" id="level" [(ngModel)]="session.speakers" name="speakers">
-          <option *ngFor="let speaker of (speakers | async)" [value]="speaker.$key">{{ speaker.name }}</option>
+          <option *ngFor="let speaker of (speakers | async)" [value]="speaker.id">{{ speaker.name }}</option>
         </select>
       </div>
     </form>

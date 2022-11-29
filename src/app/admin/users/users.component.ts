@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit {
   }
 
   nextPage() {
-    this.prevKeys.push(_.first(this.users)['$key']);
+    this.prevKeys.push(_.first(this.users)['id']);
     this.getUsers(this.nextKey);
   }
 
@@ -47,7 +47,7 @@ export class UsersComponent implements OnInit {
     this.subscription = this.userService.getUserQuery(this.offset, key)
       .subscribe(users => {
         this.users = _.slice(users, 0, this.offset);
-        this.nextKey = _.get(users[this.offset], '$key');
+        this.nextKey = _.get(users[this.offset], 'id');
       });
   }
 

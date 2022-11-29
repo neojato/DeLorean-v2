@@ -23,7 +23,7 @@
         <label for="section">Level:</label>
         <select class="mdb-select" id="section" [(ngModel)]="sponsor.level" name="level">
           <option value="" disabled selected>Choose your option</option>
-          <option *ngFor="let level of (levels | async)" value="{{ level.$key }}">{{ level.name }}</option>
+          <option *ngFor="let level of (levels | async)" value="{{ level.id }}">{{ level.name }}</option>
         </select>
       </div>
     </form>

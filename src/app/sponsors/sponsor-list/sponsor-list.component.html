@@ -25,12 +25,12 @@
       <br/>
       <div class="row">
         <ng-container *ngFor="let sponsor of sponsors | async">
-          <ng-container *ngIf="level.$key === sponsor.level">
+          <ng-container *ngIf="level.id === sponsor.level">
             <span class="col-md-6" style="padding: 20px 40px; margin: 0 auto;">
               <a [href]="sponsor.websiteLink" target="_blank" rel="noopener">
                 <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
               </a>
-              <button class="btn-sm btn-primary" *ngIf="authService.isLoggedIn && authService.isAdmin" routerLink="/sponsors/{{ sponsor.$key }}/edit">
+              <button class="btn-sm btn-primary" *ngIf="authService.isLoggedIn && authService.isAdmin" routerLink="/sponsors/{{ sponsor.id }}/edit">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </button>
               <button class="btn-sm btn-danger" *ngIf="authService.isLoggedIn && authService.isAdmin" (click)="deleteSponsor(sponsor)">

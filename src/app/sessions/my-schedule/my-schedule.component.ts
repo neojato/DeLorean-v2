@@ -35,7 +35,7 @@ export class MyScheduleComponent implements OnInit {
   }
 
   openDetails(session) {
-    this.router.navigate([`/sessions/${session.$key}`]);
+    this.router.navigate([`/sessions/${session.id}`]);
   }
 
   getSpeakerName(speakerKey) {

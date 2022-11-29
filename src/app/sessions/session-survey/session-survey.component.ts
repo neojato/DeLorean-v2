@@ -65,9 +65,9 @@ export class SessionSurveyComponent implements OnInit {
       Number(this.survey.group7) +
       Number(this.survey.group8)
     ) / 4;
-    this.sessionService.saveSurvey(this.session.$key, this.survey);
+    this.sessionService.saveSurvey(this.session.id, this.survey);
     alert('Thank you for your feedback!');
-    this.router.navigate([`/sessions/${this.session.$key}`]);
+    this.router.navigate([`/sessions/${this.session.id}`]);
   }
 
 }

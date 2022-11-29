@@ -22,7 +22,7 @@
             </td>
           </tr>
           <tr *ngFor="let session of mySessions" (click)="openDetails(session)" class="session-link">
-            <table *ngIf="section.$key === session.section" width="100%">
+            <table *ngIf="section.id === session.section" width="100%">
               <tr>
                 <td class="text-xs-left" style="width: 50%">
                   <span [innerHTML]="session.title"></span><br>

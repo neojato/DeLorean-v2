@@ -53,13 +53,13 @@ export class SpeakerService {
 
   updateSpeaker(speaker: Speaker, file?: File): void {
     if (file !== undefined && file !== null) {
-      this.firebaseStorage.ref(this.basePath + `/${speaker.$key}`).put(file)
+      this.firebaseStorage.ref(this.basePath + `/${speaker.id}`).put(file)
         .then(snapshot => {
           speaker.photoURL = snapshot.downloadURL;
-          this.db.object(this.basePath + `/${speaker.$key}`).update(speaker);
+          this.db.object(this.basePath + `/${speaker.id}`).update(speaker);
         });
     } else {
-      this.db.object(this.basePath + `/${speaker.$key}`).update(speaker);
+      this.db.object(this.basePath + `/${speaker.id}`).update(speaker);
     }
   }
 

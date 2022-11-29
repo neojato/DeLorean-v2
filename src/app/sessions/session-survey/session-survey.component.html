@@ -5,7 +5,7 @@
   <!--Section: Session-->
   <section class="section">
     <div style="padding: 40px 0;">
-      <a href="" routerLink="/sessions/{{ session.$key }}" title="Back to Session"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Session</a>
+      <a href="" routerLink="/sessions/{{ session.id }}" title="Back to Session"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Session</a>
     </div>
     <!--First row-->
     <div class="row">
@@ -367,7 +367,7 @@
       <button type="button" class="btn btn-primary" [disabled]="!surveyForm.valid" (click)="saveSurvey()">Submit Survey</button>
     </div>
     <div style="padding: 40px 0;">
-      <a href="" routerLink="/sessions/{{ session.$key }}" title="Back to Session"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Session</a>
+      <a href="" routerLink="/sessions/{{ session.id }}" title="Back to Session"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to Session</a>
     </div>
   </section>
   <!--Section: Survey-->

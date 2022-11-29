@@ -37,7 +37,7 @@ export class SessionListComponent implements OnInit {
 
   openDetails(session) {
     if ((this.authService.isLoggedIn && this.authService.isAdmin) || session.abstract) {
-      this.router.navigate([`/sessions/${session.$key}`]);
+      this.router.navigate([`/sessions/${session.id}`]);
     }
   }
 
@@ -50,7 +50,7 @@ export class SessionListComponent implements OnInit {
 
   deleteSection(section) {
     if (window.confirm('Are you sure you want to delete this section? This WILL orphan any sessions tied to it!')) {
-      this.sectionService.deleteSection(section.$key);
+      this.sectionService.deleteSection(section.id);
     }
   }
 

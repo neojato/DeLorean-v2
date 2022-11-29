@@ -29,7 +29,7 @@ export class SpeakerListComponent implements OnInit {
 
   deleteSpeaker(speaker) {
     if (window.confirm('Are you sure you want to delete this speaker?')) {
-      this.speakerService.deleteSpeaker(speaker.$key);
+      this.speakerService.deleteSpeaker(speaker.id);
     }
   }
 
