@@ -1,14 +1,16 @@
 {
   "rules": {
-    ".read": "true",
     "admins": {
+      ".read": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()",
       ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
     },
     "userProfile": {
+    	".read": "auth != null && auth.provider == 'google'",
       ".write": "auth != null && auth.provider == 'google'"
     },
     "$year": {
       "levels": {
+        ".read": true,
         ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
       },
       "schedules": {
@@ -18,9 +20,11 @@
         }
       },
       "sections": {
+        ".read": true,
         ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
       },
       "sessions": {
+        ".read": true,
         ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()",
         "$session_id": {
           "surveys": {
@@ -30,16 +34,20 @@
         }
       },
       "siteConfig": {
+        ".read": true,
         ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
       },
       "speakers": {
+        ".read": true,
         ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()",
       	".indexOn": "featured"
       },
       "sponsors": {
+        ".read": true,
         ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
       },
       "tickets": {
+        ".read": true,
         ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()",
       	".indexOn": "active"
       }
