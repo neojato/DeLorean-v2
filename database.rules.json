@@ -1,7 +1,7 @@
 {
   "rules": {
     "admins": {
-      ".read": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()",
+      ".read": true,
       ".write": "auth != null && auth.provider == 'google' && root.child('admins').child(auth.uid).exists()"
     },
     "userProfile": {
