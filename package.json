@@ -17,7 +17,7 @@
     "@angular/animations": "^9.1.13",
     "@angular/common": "^9.1.13",
     "@angular/compiler": "^9.1.13",
-    "@angular/core": "^11.0.5",
+    "@angular/core": "^9.1.13",
     "@angular/fire": "^6.0.4",
     "@angular/forms": "^9.1.13",
     "@angular/platform-browser": "^9.1.13",
@@ -39,7 +39,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^15.0.1",
+    "@angular-devkit/build-angular": "~0.901.15",
     "@angular/cli": "^9.1.15",
     "@angular/compiler-cli": "^9.1.13",
     "@angular/language-service": "^8.2.14",
@@ -55,8 +55,8 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "node-sass": "^8.0.0",
     "protractor": "~7.0.0",
+    "sass": "^1.69.0",
     "sw-precache": "^5.2.0",
     "sw-precache-webpack-plugin": "^0.11.4",
     "ts-node": "~3.0.4",
